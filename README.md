@@ -9,9 +9,13 @@ On cree un Political Compass avec des electeurs et des candidtas. Chaque votant 
 Credits:
 
 Zhou Jeremy
+
 Khamis Yara
+
 Nistor Iarina
+
 Kinane-Daouadji Isaac
+
 Benhaddou Chady
 
 
