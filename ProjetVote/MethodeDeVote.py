@@ -1,4 +1,4 @@
-from Candidat.py import Candidat
+from Candidat import *
 
 
 def pluralite(liste_candidats,liste_electeur):

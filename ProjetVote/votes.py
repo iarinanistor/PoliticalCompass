@@ -1,3 +1,4 @@
+from Candidat import *
 def un_seul_vainqueur(vainqueurs):
     '''vainqueurs : List[Candidat] -> Candidat
         retourne le candidat le plus agee et le plus charismatic

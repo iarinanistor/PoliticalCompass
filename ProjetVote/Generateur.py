@@ -1,4 +1,4 @@
-from Candidat.py import Candidat
+from Candidat import *
 from random import randint,choice
 
 
@@ -12,7 +12,9 @@ def generate_candidats(n):
         prenom = random.choice(liste_prenom)
         charisme = randint(1,10)
         age = randint(18,85)
+        x = randint(0,100)
+        y = randint(0,100)
         """il reste a ajouter une methode pour x et y - coordonnees politiques"""
-        liste_candidats.append(Candidat(nom,prenom,age,charisme))
+        liste_candidats.append(Candidat(nom,prenom,age,charisme,x,y))
     return liste_candidats
     
