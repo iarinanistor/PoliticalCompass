@@ -14,7 +14,7 @@ assert( ind.liste_vote() == ['MICHELLE', 'BERNARD', 'UN AUTRE', 'PAS TOI', 'MOI'
 assert( map.liste_electeur[3].nom == "chaby")
 assert(map.population[1][1].liste_vote() == ['Isaac', 'Lyna', 'victor', 'chaby'])
 assert(map.listes_listes_votes() == [['Isaac', 'victor', 'Lyna', 'chaby'], ['Isaac', 'victor', 'Lyna', 'chaby'], ['Isaac', 'victor', 'Lyna', 'chaby'], ['Isaac', 'Lyna', 'victor', 'chaby']])
-print(map.condorsait())
+#print(map.condorsait())
 print("Test POO : OK ","( 1 /",n,")")
 
 #======================================
