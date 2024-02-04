@@ -55,18 +55,36 @@ class Map:
         distance = np.linalg.norm(point1- point2)
         return distance
     
+
     def condorsait(self):
         from Condorsait import all_combat
-        return Cond.all_combat(self.listes_listes_votes())
+        l=Cond.all_combat(self.listes_listes_votes())
+        return list(l.keys())[0]
+    
+    def methode_MC(self,n,m,nbtour,typeVote):
+        # Methode de monte-carlo , temps de calcule important besoin de paralaliser ou passer par un algo en C  
+        liste_candidat={}
+        map=Map("tmp",self.liste_electeur,[],n,m)
+        
+        for i in range(nbtour):
+            map.generationAleatoire()
+            key = str(map.condorsait())
+            if key in liste_candidat:
+                liste_candidat[key] += 1
+            else:
+                liste_candidat[key] = 1
 
-#Pour tester
+        return {nom: valeur / nbtour for nom, valeur in liste_candidat.items()}
+
+# pour avoir une idée de comment fonction les fonctions
 l=["MOI","PAS TOI","UN AUTRE","BERNARD","MICHELLE"]
-electeur=[Individus("victor",-10,10),Individus("Isaac",0,0),Individus("Lyna",-5,-25),Individus("chaby",-30,-30)]
+electeur=[Individus("victor",-10,10),Individus("Isaac",-50,54),Individus("Lyna",-5,-25),Individus("chaby",-30,-30)]
 population=[[Individus("1",10,10,electeur),Individus("2",0,0,electeur)],[Individus("3",-5,-5,electeur),Individus("quatre",-10,-10,electeur)]]
 map=Map("France",electeur,population)
 print(map.condorsait())
 map2=Map("France",[],[],5,6)
 map2.generationAleatoire()
-for i in range(len(map2.population)):
-    for ind in (map2.population[i]):
-        print(ind.nom,ind.x,ind.y,"\n")
+#for i in range(len(map2.population)):
+    #for ind in (map2.population[i]):
+        #print(ind.nom,ind.x,ind.y,"\n")
+#print(map.methode_MC(100,100,1000,"non")) # temps de clalcule importants

@@ -29,4 +29,4 @@ print("Test Condorsait OK ","( 2 /",n,")")
 #=======================================
 #Fin des tests
 # pytest a fair 
-print("Finish Fin des tests","\nOK")
+print("Fin des tests","\nOK")
