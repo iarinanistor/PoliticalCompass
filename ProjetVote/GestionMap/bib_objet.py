@@ -51,6 +51,7 @@ class Candidat:
         for i in range(n):
             l.append(Candidat.random_candidat(x,y))
         return l
+    
 
 class Individus:
     def __init__(self, nom=None, x=None, y=None,liste_electeur=None):
@@ -94,6 +95,9 @@ class Map:
         ]
         #self.liste_electeur=Candidat.generate_candidats(10,self.generationX,self.generationY)
 
+    def ajoutCandidat(self,nom,prenom,charisme,age,x,y):
+        self.liste_electeur.append(Candidat(nom,prenom,charisme,age,x,y))
+
         
     def listes_listes_votes(self): # genre la liste des listes des votes ordonnée de chaque indiv de la map
         l=[]
@@ -127,6 +131,29 @@ class Map:
                 liste_candidat[key] = 1
 
         return {nom: valeur / nbtour for nom, valeur in liste_candidat.items()}
+    
+def affiche_candidat(candidat):
+    '''
+    Parameters:
+        candidat : Candidat
+    Returns:
+        str : l'affichage d'un candidat
+    '''
+    return candidat.nom()+" "+candidat.prenom()+" age:"+str(candidat.age())+" charisme:"+str(candidat.charisme())
+
+def concat(matrix):
+    '''
+    Parameters:
+        matrix : list[liste[x]]
+    Returns:
+        liste[x] : la concatenation des listes dans la matrice
+    '''
+    l = []
+    for i in range(len(matrix)):
+        l+=matrix[i]
+    return l
+
+
 
 # pour avoir une idée de comment fonction les fonctions
 '''l=["MOI","PAS TOI","UN AUTRE","BERNARD","MICHELLE"]
