@@ -1,5 +1,5 @@
 import numpy as np
-import Condorsait as Cond
+import Condorcet as Cond
 import random
 
 class Candidat:
@@ -51,7 +51,6 @@ class Candidat:
         for i in range(n):
             l.append(Candidat.random_candidat(x,y))
         return l
-    
 
 class Individus:
     def __init__(self, nom=None, x=None, y=None,liste_electeur=None):
@@ -73,6 +72,7 @@ class Map:
         self.population=population 
         self.generationX = generationX
         self.generationY = generationY
+
         
     def generation(self): # genere la matrice des individus linéairement 
         
@@ -95,9 +95,6 @@ class Map:
         ]
         #self.liste_electeur=Candidat.generate_candidats(10,self.generationX,self.generationY)
 
-    def ajoutCandidat(self,nom,prenom,charisme,age,x,y):
-        self.liste_electeur.append(Candidat(nom,prenom,charisme,age,x,y))
-
         
     def listes_listes_votes(self): # genre la liste des listes des votes ordonnée de chaque indiv de la map
         l=[]
@@ -117,6 +114,22 @@ class Map:
         l=Cond.all_combat(self.listes_listes_votes())
         return list(l.keys())[0]
     
+    def Pluralite(self):
+        from votes import pluralite
+        return pluralite(self.liste_electeure,self.population)
+        
+    def Borda(self):
+        from votes import borda
+        return borda(self.liste_electeur,self.population)
+    
+    def STV(self):
+        from votes import stv
+        return stv(self.liste_electeur,self.population)
+    
+    def Approbation(self,nb_approbation):
+        from votes import Approbation 
+        return approbation(self.liste_electeur,self.population,self.nb_approbation)
+    
     def methode_MC(self,n,m,nbtour,typeVote):
         # Methode de monte-carlo , temps de calcule important besoin de paralaliser ou passer par un algo en C  
         liste_candidat={}
@@ -132,14 +145,6 @@ class Map:
 
         return {nom: valeur / nbtour for nom, valeur in liste_candidat.items()}
     
-def affiche_candidat(candidat):
-    '''
-    Parameters:
-        candidat : Candidat
-    Returns:
-        str : l'affichage d'un candidat
-    '''
-    return candidat.nom()+" "+candidat.prenom()+" age:"+str(candidat.age())+" charisme:"+str(candidat.charisme())
 
 def concat(matrix):
     '''
@@ -152,7 +157,6 @@ def concat(matrix):
     for i in range(len(matrix)):
         l+=matrix[i]
     return l
-
 
 
 # pour avoir une idée de comment fonction les fonctions
