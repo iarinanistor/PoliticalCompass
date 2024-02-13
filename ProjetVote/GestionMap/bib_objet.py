@@ -126,19 +126,19 @@ class Map:
     
     def Pluralite(self):
         from votes import pluralite
-        return pluralite(self.liste_electeure,self.population)
+        return pluralite(self.liste_electeur,concat(self.population))
         
     def Borda(self):
         from votes import borda
-        return borda(self.liste_electeur,self.population)
+        return borda(self.liste_electeur,concat(self.population))
     
     def STV(self):
         from votes import stv
-        return stv(self.liste_electeur,self.population)
+        return stv(self.liste_electeur,concat(self.population))
     
     def Approbation(self,nb_approbation):
         from votes import Approbation 
-        return approbation(self.liste_electeur,self.population,self.nb_approbation)
+        return approbation(self.liste_electeur,concat(self.population),self.nb_approbation)
     
     def methode_MC(self,n,m,nbtour,typeVote):
         # Methode de monte-carlo , temps de calcule important besoin de paralaliser ou passer par un algo en C  
