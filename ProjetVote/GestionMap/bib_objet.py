@@ -52,6 +52,16 @@ class Candidat:
             l.append(Candidat.random_candidat(x,y))
         return l
 
+    #Methode qui affiche un candidat
+    def affiche_candidat(candidat):
+        '''
+        Parameters:
+            candidat : Candidat
+        Returns:
+            void : l'affichage d'un candidat
+        '''
+        return print(candidat.nom()+" "+candidat.prenom()+" age:"+str(candidat.age())+" charisme:"+str(candidat.charisme()))
+
 class Individus:
     def __init__(self, nom=None, x=None, y=None,liste_electeur=None):
         self.nom = nom
