@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QGraphicsView, QVBoxLayout, QWidget, QGraphicsScene, QGraphicsEllipseItem,QGraphicsItem
 from PySide6.QtGui import QPen
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget,QVBoxLayout
-from PySide6.QtGui import QColor
+from PySide6.QtGui import QColor, QBrush
 from PySide6.QtWidgets import QApplication
 from PySide6.QtCore import QTimer, Qt
 
@@ -23,6 +23,7 @@ class Map_QT(QWidget):
         self.createGrid()
 
     def createGrid(self):# dessine la grille
+        self.drawColoredBackground()
         pen = QPen(Qt.black)
         for x in range(0, self.size, self.size // self.nb_lines):
             self.scene.addLine(x, 0, x, self.size, pen)
@@ -46,6 +47,16 @@ class Map_QT(QWidget):
             self.placePoint(x,y,color)
         
         self.show()
+        
+    def drawColoredBackground(self):
+        quarter_size = self.size // 2
+        #colors = [Qt.red, Qt.green, Qt.blue, Qt.yellow]
+        colors = [QColor(255, 187, 187), QColor(187, 255, 187), QColor(187, 187, 255), QColor(255, 255, 187)] # Couleurs pastel pour chaque quart de la carte
+        for i in range(2):
+            for j in range(2):
+                color = colors[i * 2 + j]
+                self.scene.addRect(i * quarter_size, j * quarter_size, quarter_size, quarter_size,
+                                   QPen(Qt.NoPen), QBrush(color))
        
 class Compass(Map_QT):
     def __init__(self, size=550, nb_lines=100):
@@ -62,27 +73,10 @@ class Compass(Map_QT):
         self.createGrid()  # Vous pouvez supprimer cette ligne si vous ne voulez pas redessiner la grille
 
 if __name__ == "__main__":
-    app = QApplication([])
+    import sys
+    from PySide6.QtWidgets import QApplication
 
-    # Créer une instance de la classe Compass
-    compass_widget = Compass()
-
-    # Ajouter quelques points pour tester
-    compass_widget.placePoint(100, 100, QColor(Qt.red))
-    compass_widget.placePoint(300, 300, QColor(Qt.blue))
-    compass_widget.placePoint(500, 200, QColor(Qt.green))
-    
-    # Afficher le widget
-    compass_widget.show()
-
-    # Nouveaux points à afficher après rafraîchissement
-    new_points = [("Monsieur Yellow", QColor(255, 255, 0), 6, (50, 50))]
-
-    # Attendre 2 secondes avant de rafraîchir la carte avec de nouveaux points
-    QTimer.singleShot(2000, lambda: compass_widget.refresh_Map(new_points))
-
-    # Attendre 6 secondes avant de quitter
-    QTimer.singleShot(6000, app.quit)
-
-    # Exécuter l'application
-    app.exec()
+    app = QApplication(sys.argv)
+    compass = Compass()
+    compass.show()
+    sys.exit(app.exec())
