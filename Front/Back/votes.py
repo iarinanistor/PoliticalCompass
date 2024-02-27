@@ -103,7 +103,31 @@ def stv(candidats,electeurs):
             (electeur.liste_vote()).remove(candidate_elimine)
         l_candidat.remove(candidate_elimine)
         
+#a tester sur l'interface graphique      
+def stv1(candidats,electeurs):
+    '''Paramaters:
+        candidats : List[Candidat] 
+        electeurs : List[Individus] 
+    Returns:    
+        Candidat : le candidat gagnant par la regle de vote STV
+        les criteres de departage : age, charisme
+    '''
 
+    l_candidat = candidats
+    l_electeur = electeurs
+    dico={electeur:electeur.liste_vote() for electeur in electeurs}
+    while True :
+        nb_votes = comptage_votes(l_candidat,l_electeur)
+
+        for candidate,votes in nb_votes.items():
+            if is_majority(votes,l_electeur):
+                return candidate
+            
+        candidate_elimine = min(nb_votes, key = nb_votes.get)
+        
+        for electeur in dico :
+            dico[electeur].remove(candidate_elimine)
+        l_candidat.remove(candidate_elimine)
 
 def approbation(candidats,electeurs,nb_approbation):
     '''Paramaters:
