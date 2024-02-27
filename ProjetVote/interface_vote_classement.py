@@ -3,10 +3,12 @@ from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk  # Import du module Treeview
 
-from matplotlib import *
+#from matplotlib import *
 from random import randint
 
 import bib_objet
+import votes
+
 
 ### Fenetre principale
 
@@ -17,14 +19,8 @@ fenetre.geometry("800x800")
 fenetre.minsize(1100, 800)
 fenetre.maxsize(1200, 900)
 
-label = Label(fenetre, text="Différents systèmes de vote", height=2, font=30)
-#label.pack(side=TOP)
 
 # Fonction de centrage d'une fenetre
-"""def centrage_fenetre(window):
-    eval_ = window.nametowidget('.').eval
-    eval_('tk::PlaceWindow %s center' % window)"""
-
 def centrage_fenetre(window):
     window.update_idletasks()   # Force la mise à jour des taches en cours
     width = window.winfo_width()    # Recuperation de la largeur de la fenetre
@@ -35,11 +31,6 @@ def centrage_fenetre(window):
     y = (window.winfo_screenheight() // 2) - (height // 2)
     window.geometry(f'{width}x{height}+{x}+{y}')
     #window.geometry('{}x{}+{}+{}'.format(width, height, x, y))
-
-
-# Creation d'un canvas
-#monCanvas = Canvas(fenetre, width=500, height=500, bg="ivory")
-#monCanvas.place(x=150, y=150)
 
 
 # Creation d'un frame pour contenir le tableau
@@ -55,7 +46,7 @@ tree.heading("x", text="x")
 tree.heading("y", text="y")
 tree.pack(side=LEFT)
 
-# Ajout d'une scrollbar
+# Ajout d'une scrollbar au tableau
 scrollbar = ttk.Scrollbar(frame_tab, orient=VERTICAL, command=tree.yview)
 tree.configure(yscroll=scrollbar.set)
 scrollbar.pack(side=RIGHT, fill=Y)
@@ -63,27 +54,16 @@ scrollbar.pack(side=RIGHT, fill=Y)
 
 ### Definition des differentes variables globales necessaires
 
-# Variable global "nom" pour pouvoir recuperer l'entree de l'utilisateur
-nom = ""
-
-# Definition global de entry_x et entry_y
-x = 0
-y = 0
-
-canvas = None
-
+#Variables globales de type list qui contiennent les differents candidats
 liste_candidats = []
 liste_couleurs = []
 liste_coordonnees = []
 
-l = []
+#Variable globale de type list qui contient la liste des candidats classés selon une méthode de vote
+classement = []
+
 
 ###
-
-# Creation d'une etiquette pour pouvoir ecrire le nom du candidat
-nom_label = Label(fenetre, text=nom)
-nom_label.place(x=100, y=100)
-
 
 # Creation du bouton d'ajout d'un nouveau candidat
 def ajout_candidat():
@@ -113,7 +93,6 @@ def ajout_candidat():
 
     # Message de retour à l'appui du bouton "Valider"
     def callback():
-        global nom # Recuperation de la variable global nom
         nom = entry.get()
         x = entry_cand_x.get()
         y = entry_cand_y.get()
@@ -122,7 +101,6 @@ def ajout_candidat():
 
         #x = randint(0,500)
         #y = randint(0,500)
-        
 
         # Ajout du nom du candidat au tableau
         tree.insert("", "end", text=len(tree.get_children()) + 1, values=(nom, x, y))
@@ -135,11 +113,6 @@ def ajout_candidat():
         liste_coordonnees.append((int(x), int(y)))
         color = "#{:06x}".format(randint(0, 0xFFFFFF)) # Couleur aleatoire attribuee a chaque candidat
         liste_couleurs.append(color)
-
-        #nom_label.config(text=nom)
-
-        # Ajout du nom du candidat dans la grille
-        #add_candidate_to_grid(nom)
 
 
     bouton_fin = Button(fenetre_ajout, text="Valider", command=callback)
@@ -160,13 +133,14 @@ def affichage_fenetre_grille():
 
     fenetre_grille = Tk()
     fenetre_grille.title("The Political Compass")
-    fenetre_grille.geometry("800x800")
+    fenetre_grille.geometry("1600x1000")
     fenetre_grille.minsize(800, 800)
-    fenetre_grille.maxsize(1000, 1000)
+    fenetre_grille.maxsize(1920, 1080)
 
-    # Creation d'un canvas
+
+    # Creation d'un canvas contenant la grille
     frame_canvas = Frame(fenetre_grille)
-    frame_canvas.pack(side=LEFT, padx=(20, 0), pady=(0, 200))
+    frame_canvas.pack() #padx=(20, 0), pady=(0, 200))
 
     global canvas
     canvas = Canvas(frame_canvas, width=500, height=500, bg="white")
@@ -185,20 +159,25 @@ def affichage_fenetre_grille():
     canvas.pack(padx=10, pady=30)
 
     # Creation de la legende
-    color_frame = Frame(fenetre_grille)
-    color_frame.pack(side=RIGHT, padx=(0, 50), pady=(0, 500))
+    frame_legende = Frame(fenetre_grille)
+    frame_legende.pack(side=RIGHT, padx=(0, 100), pady=(0, 100))
 
-    color_label = Label(color_frame, text="Legende :")
-    color_label.pack(side=TOP, padx=30)
+    label_legende = Label(frame_legende, text="Legende :")
+    label_legende.pack(side=TOP, padx=(0, 30), pady=(0, 10))
 
     # Liste des candidats
-    listbox_candidats = Listbox(color_frame)
-    listbox_candidats.pack(side=BOTTOM, pady=(10, 0))
+    listbox_candidats = Listbox(frame_legende, height=20)
+    listbox_candidats.pack(side=LEFT)
 
     for i in range(len(liste_candidats)):
         coord_x, coord_y = liste_coordonnees[i]
         canvas.create_oval(coord_x-5, coord_y-5, coord_x+5, coord_y+5, fill=liste_couleurs[i])
         listbox_candidats.insert(END, liste_couleurs[i], liste_candidats[i].nom())
+
+    # Ajout d'une scrollbar a la legende
+    scrollbar_liste = ttk.Scrollbar(frame_legende, orient=VERTICAL, command=listbox_candidats.yview)
+    listbox_candidats.configure(yscrollcommand=scrollbar_liste.set)
+    scrollbar_liste.pack(side=RIGHT, fill=Y)
 
 
     # Fonction permettant de placer un nouveau point sur la grille
@@ -236,12 +215,10 @@ def affichage_fenetre_grille():
 
         # Message de retour à l'appui du bouton "Valider"
         def callback_point():
-            global x # Recuperation de la variable global x
-            global y # Recuperation de la variable global y
-
             x = int(entry_x.get())
             y = int(entry_y.get())
             messagebox.showinfo("Ajout d'un Point","Point ajouté avec succès")
+
             fenetre_point.destroy() # Fermeture de la fenetre
 
             # Couleur aléatoire
@@ -262,59 +239,184 @@ def affichage_fenetre_grille():
     fenetre_grille.mainloop()
 
 
+### Suite de la fenetre principale
+
 bouton_suivant = Button(fenetre, text="Affichage de la grille", command=affichage_fenetre_grille)
 bouton_suivant.pack(side=BOTTOM, pady=20)
 
 
-def generation_vote():
+# Fonction de generation pour la methode de Condorcet
+def generation_condorcet():
     fenetre_generation = Toplevel(fenetre)
     fenetre_generation.title("Méthode de Condorcet")
     fenetre_generation.geometry("800x800")
     fenetre_generation.resizable(width=False, height=False)
 
-    #listbox_classement = Listbox(fenetre_generation)
-    #listbox_classement.pack()
+    # Liste des candidats classés selon la methode de Condorcet
+    listbox_classement = Listbox(fenetre_generation)
+    listbox_classement.pack(pady=50)
 
 
-    def calcul_classement():
-        global l
+    def calcul_classement_condorcet():
+        global classement
+
         m = bib_objet.Map(liste_electeur=liste_candidats, generationX=500, generationY=500)
         m.generationAleatoire()
 
-        l = m.condorsait()
-        s=""
-        for i in range(len(l)):
-            label_gagnant = Label(fenetre_generation, text=(str(i+1)+" "+l[i]))
-            label_gagnant.pack()
+        classement = m.condorcet()
 
-        #listbox_classement.insert(END, str(l))
+        for i in range(len(classement)):
+            listbox_classement.insert(END, str(i+1), classement[i].nom())
 
 
-    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement)
+    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement_condorcet)
     bouton_liste.pack()
 
 
+# Fonction de generation pour la methode de la pluralite
+def generation_pluralite():
+    fenetre_generation = Toplevel(fenetre)
+    fenetre_generation.title("Méthode de la Pluralité")
+    fenetre_generation.geometry("800x800")
+    fenetre_generation.resizable(width=False, height=False)
+
+    # Liste des candidats classés selon la methode de la pluralite
+    listbox_classement = Listbox(fenetre_generation)
+    listbox_classement.pack(pady=50)
 
 
+    def calcul_classement_pluralite():
+        global classement
 
-bouton_suivant = Button(fenetre, text="Affichage Classement Condorcet", command=generation_vote)
-bouton_suivant.pack(pady=20)
+        m = bib_objet.Map(liste_electeur=liste_candidats, generationX=500, generationY=500)
+        m.generationAleatoire()
+
+        classement = m.Pluralite()
+
+        for i in range(len(classement)):
+            listbox_classement.insert(END, str(i+1), classement[i])
+
+
+    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement_pluralite)
+    bouton_liste.pack()
+
+
+# Fonction de generation pour la methode de Borda
+def generation_borda():
+    fenetre_generation = Toplevel(fenetre)
+    fenetre_generation.title("Méthode de Borda")
+    fenetre_generation.geometry("800x800")
+    fenetre_generation.resizable(width=False, height=False)
+
+    # Liste des candidats classés selon la methode de Borda
+    listbox_classement = Listbox(fenetre_generation)
+    listbox_classement.pack(pady=50)
+
+
+    def calcul_classement_borda():
+        global classement
+
+        m = bib_objet.Map(liste_electeur=liste_candidats, generationX=500, generationY=500)
+        m.generationAleatoire()
+
+        classement = m.Borda()
+
+        for i in range(len(classement)):
+            listbox_classement.insert(END, str(i+1), classement[i])
+
+
+    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement_borda)
+    bouton_liste.pack()
+
+
+# Fonction de generation pour la methode de STV
+def generation_stv():
+    fenetre_generation = Toplevel(fenetre)
+    fenetre_generation.title("Méthode de STV")
+    fenetre_generation.geometry("800x800")
+    fenetre_generation.resizable(width=False, height=False)
+
+    # Liste des candidats classés selon la methode de STV
+    listbox_classement = Listbox(fenetre_generation)
+    listbox_classement.pack(pady=50)
+
+
+    def calcul_classement_STV():
+        global classement
+
+        m = bib_objet.Map(liste_electeur=liste_candidats, generationX=500, generationY=500)
+        m.generationAleatoire()
+
+        classement = m.STV()
+
+        for i in range(len(classement)):
+            listbox_classement.insert(END, str(i+1), classement[i])
+
+
+    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement_STV)
+    bouton_liste.pack()
+
+
+# Fonction de generation pour la methode de l'approbation
+def generation_approbation():
+    fenetre_generation = Toplevel(fenetre)
+    fenetre_generation.title("Méthode de l'approbation'")
+    fenetre_generation.geometry("800x800")
+    fenetre_generation.resizable(width=False, height=False)
+
+    # Liste des candidats classés selon la methode de STV
+    listbox_classement = Listbox(fenetre_generation)
+    listbox_classement.pack(pady=50)
+
+
+    def calcul_classement_approbation():
+        global classement
+
+        m = bib_objet.Map(liste_electeur=liste_candidats, generationX=500, generationY=500)
+        m.generationAleatoire()
+
+        classement = m.Approbation()
+
+        for i in range(len(classement)):
+            listbox_classement.insert(END, str(i+1), classement[i])
+
+
+    bouton_liste = Button(fenetre_generation, text="Classement", command=calcul_classement_approbation)
+    bouton_liste.pack()
+
+
+label = Label(fenetre, text="Différents systèmes de vote :", height=2, font=30)
+label.pack(pady=(30, 0))
+
+
+frame_methodes_vote = Frame(fenetre, relief=SUNKEN)
+frame_methodes_vote.pack()
+
+frame_methodes_vote2 = Frame(fenetre, relief=SUNKEN)
+frame_methodes_vote2.pack()
+
+
+bouton_suivant = Button(frame_methodes_vote, text="Affichage Classement Condorcet", command=generation_condorcet)
+bouton_suivant.pack(side=LEFT, padx=20, pady=20)
+
+
+bouton_suivant = Button(frame_methodes_vote2, text="Affichage Classement Pluralité", command=generation_pluralite)
+bouton_suivant.pack(side=LEFT, padx=20,  pady=20)
+
+
+bouton_suivant = Button(frame_methodes_vote, text="Affichage Classement Borda") #, command=generation_borda)
+bouton_suivant.pack(side=RIGHT, padx=20, pady=20)
+
+
+bouton_suivant = Button(frame_methodes_vote2, text="Affichage Classement Stv") #, command=generation_stv)
+bouton_suivant.pack(side=LEFT, padx=20,  pady=20)
+
+
+bouton_suivant = Button(frame_methodes_vote2, text="Affichage Classement Approbation") #, command=generation_approbation)
+bouton_suivant.pack(side=RIGHT, padx=20,  pady=20)
 
 
 centrage_fenetre(fenetre)
 
 fenetre.mainloop()
 
-
-### Tests et utilitaires
-
-# Creation d'une grille qui s'adapte a la taille de la fenetre
-"""for i in range(10):
-    fenetre_grille.columnconfigure(i, weight=1, minsize=75)
-    fenetre_grille.rowconfigure(i, weight=1, minsize=50)
-
-    for j in range(10):
-        frame = Frame(fenetre_grille, relief=RAISED, borderwidth=1)
-        frame.grid(row=i, column=j, padx=5, pady=5)
-        label = Label(frame, text=f"Row {i}\nColumn {j}")
-        label.pack(padx=2, pady=2)"""
