@@ -68,7 +68,6 @@ class Candidat:
         '''
         return self._y
     
-    @staticmethod
     def random_candidat(x, y):
         '''
         Génère un candidat aléatoire avec un nom, un prénom, un charisme, un âge et des coordonnées aléatoires.
@@ -89,7 +88,7 @@ class Candidat:
             random.random() * y
         )
     
-    @staticmethod
+    
     def generate_candidats(n, x, y):
         '''
         Génère une liste de candidats aléatoires.
@@ -107,7 +106,7 @@ class Candidat:
             candidats.append(Candidat.random_candidat(x, y))
         return candidats
 
-    @staticmethod
+    
     def affiche_candidat(candidat):
         '''
         Affiche les informations d'un candidat.
