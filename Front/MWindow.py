@@ -8,15 +8,6 @@ from MapQT import Compass
 
 class MainWindow(QMainWindow):
     def __init__(self,bd,tailleMap=500):
-        """
-        Constructeur de la classe SideMenu.
-
-        Args:
-            bd (object): Objet représentant une base de données.
-            Blongeur (int): Longueur des boutons. Par défaut, 300.
-            Bhauteur (int): Hauteur des boutons. Par défaut, 40.
-            tailleMap (int): Taille de la carte. Par défaut, 500.
-        """
         super().__init__()
         self.setWindowTitle("Main Window")
         self.bd=bd
