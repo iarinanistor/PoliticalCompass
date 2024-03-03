@@ -8,6 +8,14 @@ from MapQT import Compass
 
 class MainWindow(QMainWindow):
     def __init__(self,bd,tailleMap=500):
+        """
+        Constructeur de la classe MainWindow.
+
+        Args:
+            bd (object): Objet représentant une base de données.
+            tailleMap (int): Taille de la carte. Par défaut, 500.
+        """
+
         super().__init__()
         self.setWindowTitle("Main Window")
         self.bd=bd
@@ -50,20 +58,40 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 1200, 800)
     
     def SetBd(self, bd):
+        """
+        Méthode pour définir une nouvelle base de données.
+
+        Args:
+            bd (object): Objet représentant une base de données.
+        """
         self.bd = bd
         
     def affiche_Map(self):
+        """Méthode pour afficher la carte."""
         self.compass.show()
     
     def ajoutePoint_Map(self,element_normaliser):
+        """
+        Méthode pour ajouter un point sur la carte.
+
+        Args:
+            element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
+        """
         _,color,_,(x,y) = element_normaliser
         self.compass.placePoint(x,y,color)
     
     def ajouterPoint_Liste(self,element_normaliser):
+        """
+        Méthode pour ajouter un point à la liste.
+
+        Args:
+            element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
+        """
         nom,color,score,pos = element_normaliser
         self.listePoint.ajouter_element(nom,color,score,pos)
         
     def afficheListe(self):
+        """Méthode pour afficher la liste."""
         # Effacer tous les anciens points affichés sur la boussole
         self.compass.clearPoints()
         
@@ -73,19 +101,39 @@ class MainWindow(QMainWindow):
             self.ajoutePoint(x, y, color)   
          
     def refresh(self,new):
+        """
+        Méthode pour actualiser la fenêtre principale avec de nouveaux points.
+
+        Args:
+            new (list): Liste des nouveaux points à afficher.
+        """
         self.compass.refresh_Map(new)
         self.listePoint.refresh_ListPoint(new)
     
     def ajouteElement(self,element_normaliser):
+        """
+        Méthode pour ajouter un élément à la liste et à la carte.
+
+        Args:
+            element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
+        """
         self.listeResultat.append(element_normaliser)
         self.ajoutePoint_Map(element_normaliser)
         self.ajouterPoint_Liste(element_normaliser)
     
     def refresh_Liste(self,l):
-        
+        """
+        Méthode pour actualiser la liste de résultats.
+
+        Args:
+            l (list): Liste des résultats à afficher.
+        """
         self.listePoint.refresh_MV(l)             
                            
 def test_refresh_MainWindow():
+    """
+    Fonction de test pour vérifier le rafraîchissement de la MainWindow.
+    """
     # Créer une application Qt
     app = QApplication([])
 
