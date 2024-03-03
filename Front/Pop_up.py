@@ -4,6 +4,13 @@ from PySide6.QtWidgets import QApplication, QMessageBox
 
 class CustomMessageBox(QMessageBox):
     def __init__(self, *args, **kwargs):
+        """
+        Constructeur de la classe CustomMessageBox.
+
+        Args:
+            args: Arguments de la classe parente.
+            kwargs: Arguments nommés de la classe parente.
+        """
         super().__init__(*args, **kwargs)
 
         # Ajout d'une icône prédéfinie pour une croix rouge à la boîte de message
