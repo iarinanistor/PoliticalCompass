@@ -8,33 +8,89 @@ import sys
 
 class Base_donnee():
     def __init__(self, id, window=None,tailleMap=500):
+        """
+        Constructeur de la classe Base_donnee.
+
+        Args:
+            id (int): Identifiant de la base de données.
+            window (MainWindow): Fenêtre principale associée à la base de données. Par défaut, None.
+            tailleMap (int): Taille de la carte. Par défaut, 500.
+        """
         self.id = id
         self.map = Map(self, str(id), [], [], tailleMap, tailleMap)
         self.window = window
     
     def refresh(self,NormaliserCandidat):
-            self.window.refresh(NormaliserCandidat)
+       """
+        Méthode pour rafraîchir la fenêtre principale avec des candidats normalisés.
+
+        Args:
+            NormaliserCandidat (list): Liste des candidats normalisés à afficher.
+        """
+        self.window.refresh(NormaliserCandidat)
     
     def ajoute(self,new,newC):
+        """
+        Méthode pour ajouter un nouvel élément et un nouveau candidat à la base de données.
+
+        Args:
+            new: Nouvel élément à ajouter.
+            newC: Nouveau candidat à ajouter.
+        """
         bd.window.ajouteElement(new) 
         bd.map.ajoute_candidat(newC)
     
     def genere_aleatoire_candidat_BM(self): # genere aleatoirement un Candidat de la Classe Candidiat
+        """
+        Méthode pour générer aléatoirement un candidat de la classe Candidiat.
+
+        Returns:
+            Candidat: Nouveau candidat généré aléatoirement.
+        """
         return Candidat.random_candidat(self.window.tailleMap,self.window.tailleMap)
     
     def refresh_MV(self,l):
+        """
+        Méthode pour rafraîchir la liste de résultats.
+
+        Args:
+            l (list): Liste des résultats à afficher.
+        """
         self.window.listePoint.refresh_MV(l)
         
     def save(self,fichier):
+        """
+        Méthode pour sauvegarder la carte dans un fichier.
+
+        Args:
+            fichier (str): Chemin du fichier de sauvegarde.
+        """
         self.map.ecrire(fichier)
     
     def recharge(self,ficher):
+       """
+        Méthode pour recharger la carte à partir d'un fichier.
+
+        Args:
+            fichier (str): Chemin du fichier à charger.
+        """
         self.map.chargement(ficher)
         liste = self.map.liste_electeur
         self.window.refresh(normalise_rechargement(liste))
         
     @staticmethod
     def creer(id,tailleMap=500):
+        """
+        Méthode statique pour créer une nouvelle instance de Base_donnee.
+
+        Args:
+            id (int): Identifiant de la base de données.
+            tailleMap (int): Taille de la carte. Par défaut, 500.
+
+        Returns:
+            Base_donnee: Nouvelle instance de Base_donnee créée.
+        """
+
         new = Base_donnee(id,tailleMap)
         # création de la map du Back
         new.map.generationAleatoire()
