@@ -10,7 +10,14 @@ from PySide6.QtCore import QTimer, Qt
 class Map_QT(QWidget):
     def __init__(self, color=Qt.white, size=500, nb_lines=10):
         super().__init__()
+        """
+        Constructeur de la classe Map_QT.
 
+        Args:
+            color (Qt.GlobalColor): Couleur de fond de la carte. Par défaut, Qt.white.
+            size (int): Taille de la carte. Par défaut, 500.
+            nb_lines (int): Nombre de lignes pour la grille. Par défaut, 10.
+        """
         self.scene = QGraphicsScene()
         self.view = QGraphicsView(self.scene)
         self.scene.setSceneRect(0, 0, size, size)  # Définir la taille de la scène
@@ -23,6 +30,9 @@ class Map_QT(QWidget):
         self.createGrid()
 
     def createGrid(self):# dessine la grille
+        """
+        Crée la grille sur la carte.
+        """
         self.drawColoredBackground()
         pen = QPen(Qt.black)
         for x in range(0, self.size, self.size // self.nb_lines):
@@ -32,15 +42,32 @@ class Map_QT(QWidget):
             
             
     def clearPoints(self):  # Efface tous les points de la scène
+        """
+        Efface tous les points de la scène.
+        """
         for item in self.scene.items():
             if isinstance(item, QGraphicsEllipseItem):
                 self.scene.removeItem(item)
                 
     def placePoint(self, x, y, color): # pour placer un point
+        """
+        Place un point sur la carte.
+
+        Args:
+            x (int): Coordonnée x du point.
+            y (int): Coordonnée y du point.
+            color (QColor): Couleur du point.
+        """
         item = self.scene.addEllipse(x, y, 10, 10, pen=QPen(color), brush=color)
         item.setFlag(QGraphicsItem.ItemIsMovable)
     
     def refresh_Map(self,new):
+        """
+        Actualise la carte avec de nouveaux points.
+
+        Args:
+            new (list): Liste des nouveaux points à afficher.
+        """
         self.clearPoints()
         
         for name, color, score,(x,y) in new:
@@ -49,6 +76,9 @@ class Map_QT(QWidget):
         self.show()
         
     def drawColoredBackground(self):
+        """
+        Dessine un fond coloré sur la carte.
+        """
         quarter_size = self.size // 2
         #colors = [Qt.red, Qt.green, Qt.blue, Qt.yellow]
         colors = [QColor(255, 187, 187), QColor(187, 255, 187), QColor(187, 187, 255), QColor(255, 255, 187)] # Couleurs pastel pour chaque quart de la carte
@@ -60,6 +90,13 @@ class Map_QT(QWidget):
        
 class Compass(Map_QT):
     def __init__(self, size=550, nb_lines=100):
+        """
+        Constructeur de la classe Compass.
+
+        Args:
+            size (int): Taille de la boussole. Par défaut, 550.
+            nb_lines (int): Nombre de lignes pour la grille. Par défaut, 100.
+        """
         super().__init__(color=Qt.lightGray, size=size, nb_lines=nb_lines)
 
         # Créer un layout pour le widget Compass
