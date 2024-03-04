@@ -3,7 +3,7 @@
 
 Methodes de votes et leurs consequences.
 
-On cree un Political Compass avec des electeurs et des candidtas. Chaque votant a une liste ordonne des candidats(prefere au moins prefere), et on teste les differentes methodes de vote pour voir leurs influences sur le resultat final. On implemente une methode de Monte-Carlo en focntion des differnet type de vote , et des maps predefinis ( par exemple une maps representant la france en focntion de statique des different election etc).
+On crée un Political Compass avec des électeurs et des candidats. Chaque votant a une liste ordonnée des candidats (préférés au moins préférés), et on teste les différentes méthodes de vote pour voir leurs influences sur le résultat final. On implémente une méthode de Monte-Carlo en fonction des différents types de vote, et des cartes prédéfinies (par exemple une carte représentant la France en fonction des statistiques des différentes élections, etc).
 
 
 Credits:
