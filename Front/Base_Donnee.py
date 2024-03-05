@@ -21,7 +21,7 @@ class Base_donnee():
         self.window = window
     
     def refresh(self,NormaliserCandidat):
-       """
+        """
         Méthode pour rafraîchir la fenêtre principale avec des candidats normalisés.
 
         Args:
@@ -68,7 +68,7 @@ class Base_donnee():
         self.map.ecrire(fichier)
     
     def recharge(self,ficher):
-       """
+        """
         Méthode pour recharger la carte à partir d'un fichier.
 
         Args:
