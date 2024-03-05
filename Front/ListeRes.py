@@ -4,6 +4,17 @@ from PySide6.QtCore import QTimer
 
 class PointWidget(QWidget):
     def __init__(self, color, name, value):
+        """
+        Constructeur de la classe PointWidget qui descend de la classe QWidget.
+
+        Args:
+            color (str): Nom de couleur du point associée au candidat sur la map.
+            name (str): Nom du candidat
+            value (int): Position du candidat dans le classement.
+
+        Returns:
+            void
+        """
         super().__init__()
         layout = QHBoxLayout()
         self.color_label = QLabel()
@@ -18,11 +29,27 @@ class PointWidget(QWidget):
         self.setLayout(layout)
 
     def set_color(self, color):
+        """
+        Méthode setter pour changer la couleur.
+
+        Returns:
+            void
+        """
         style_sheet = "background-color: {}".format(color.name())
         self.color_label.setStyleSheet(style_sheet)
 
 class ListePoint(QWidget):
     def __init__(self, listePoints):
+        """
+        Constructeur de la classe ListePoint qui descend de la classe QWidget.
+
+        Args:
+            listePoints (list): Liste de tuples contenant la couleur, le nom 
+                                et la position dans le classement du candidat.
+        
+        Returns:
+            void
+        """
         super().__init__()
         self.points = listePoints
         layout = QVBoxLayout()
@@ -32,6 +59,12 @@ class ListePoint(QWidget):
         self.populate_list()
 
     def populate_list(self):
+        """
+        Méthode qui ajoute les candidats à la liste list_widget.
+
+        Returns:
+            void
+        """
         # Ajoutez une ligne de texte au-dessus du premier PointWidget
         self.list_widget.insertItem(0, "Color       Nom            classement")
 
@@ -45,6 +78,18 @@ class ListePoint(QWidget):
                 self.list_widget.setItemWidget(item, point_widget)
 
     def ajouter_element(self, name, color, score, position):
+        """
+        Méthode qui ajoute un candidat à la liste list_widget.
+
+        Args:
+            name (str): Nom du candidat
+            color (str): Couleur du point du candidat sur la map
+            score (int): Score du candidat
+            position (int): Position du candidat dans le classement
+        
+        Returns:
+            void
+        """
         new_item = (name, color, score, position)
         self.points.append(new_item)
         item = QListWidgetItem(self.list_widget)
@@ -54,13 +99,30 @@ class ListePoint(QWidget):
         self.list_widget.setItemWidget(item, point_widget)
     
     def clean(self):
+        """
+        Méthode qui vide la liste des points.
+
+        Returns:
+            void
+        """
         # Ne pas effacer la première ligne
         for i in range(1, self.list_widget.count()):
             self.list_widget.takeItem(1)
         self.points.clear()
     
     def refresh_ListPoint(self, new):
-    # Nettoyer la liste
+        """
+        Méthode qui rafrachit la liste des points en remplaçant les anciennes valeurs 
+        par les nouvelles valeurs.
+
+        Args:
+            new (list): Liste de tuples contenant le nom, la couleur, le score
+                        et la position dans le classement du candidat.
+                
+        Returns:
+            void
+        """
+        # Nettoyer la liste
         self.clean()
         # Ajouter de nouveaux points à la liste
         for name, color, score, position in new:
@@ -70,6 +132,18 @@ class ListePoint(QWidget):
         self.show()
         
     def est_dans_list(self,e,l):
+        """
+        Méthode qui vérifie si le tuple e est dans la liste l.
+
+        Args:
+            e (tuple): Tuple contenant le nom, la couleur, le score
+                        et la position dans le classement du candidat .
+            l (list): Liste de tuples
+        
+        Returns:
+            True si e est dans l
+            False sinon
+        """
         nom,color,score,position = e
         for elem in l: 
             nomE,_,_,_ = elem
@@ -77,6 +151,16 @@ class ListePoint(QWidget):
         return False
     
     def refresh_MV(self, new):
+        """
+        Méthode qui vérifie si le tuple e est dans la liste l.
+
+        Args:
+            new (list): Liste de tuples contenant le nom, la couleur, le score
+                        et la position dans le classement du candidat.
+
+        Returns:
+            void
+        """
         oldP=self.points
         tmp = new
         for e in oldP:
@@ -88,7 +172,8 @@ class ListePoint(QWidget):
             nom,color,score,position = e
             self.ajouter_element(nom,color,score,position)
         self.show()
-        
+
+#Fonctions de test
 def test_function():
     # Créer une application Qt
     app = QApplication([])
@@ -157,6 +242,3 @@ def refresh_list(liste_widget):
 
 if __name__ == "__main__":
     test_function()
-
-
-
