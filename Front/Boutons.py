@@ -11,6 +11,16 @@ type5="Approbation"
 
 class EntreeCandidat(QWidget):
     def __init__(self,bd,l=200,h=80,tailleMap=500):
+        """
+        Constructeur de la classe EntreeCandidat qui descend de la classe QWidget.
+
+        Args:
+            id (int): Identifiant de la classe.
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            l (int): Longueur des widgets. Par défaut, 200
+            h (int): Hauteur des widgets. Par défaut, 80
+            tailleMap (int): Taille de la carte. Par défaut, 500.
+        """
         super().__init__()
         self.bd=bd
         layout = QVBoxLayout()
@@ -64,6 +74,9 @@ class EntreeCandidat(QWidget):
         # Redimensionner le widget principal
         #self.resize(h,l)  # Largeur : 600 pixels, Hauteur : 200 pixels
     def refresh_champ(self):
+        """
+        Méthode pour vider la zone d'entrée clavier de l'utilisateur.
+        """
         self.nom_edit.clear()
         self.prenom_edit.clear()
         
@@ -71,6 +84,10 @@ class EntreeCandidat(QWidget):
             edit.clear()
             
     def afficher_informations(self):
+        """
+        Méthode pour afficher les informations entrées par l'utilisateur pour soumettre un nouveau candidat
+        (dans la console).
+        """
         nom = self.nom_edit.text()
         prenom = self.prenom_edit.text()
         valeurs = [edit.value() for edit in self.valeur_edits]
@@ -88,6 +105,15 @@ class EntreeCandidat(QWidget):
 
 class Bouton_Mvote(QWidget):
     def __init__(self,bd,type_m="Approbation",l=200,h=80):
+        """
+        Constructeur de la classe Bouton_Mvote qui descend de la classe QWidget.
+
+        Args:
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            type_m (str): Nom de la méthode de vote à afficher sur le bouton
+            l (int): Longueur des widgets. Par défaut, 200
+            h (int): Hauteur des widgets. Par défaut, 80
+        """
         super().__init__()
         self.bd= bd
         self.h = h
@@ -110,23 +136,34 @@ class Bouton_Mvote(QWidget):
         
     # Fonction appelée lorsque le bouton est cliqué
     def on_button_clicked(self):
-        if self.type_m == type1:
+        """
+        Méthode qui calcule le vainqueur suivant la méthode de vote choisie.
+        """
+        if self.type_m == type1: #Copeland
             self.bd.refresh_MV([normalise_Ind(self.map.Copeland(),1)])
             
         elif self.type_m == type2: #Borda
             self.bd.refresh_MV([normalise_Ind(self.map.Borda(),1)])
             
-        elif self.type_m == type3:
+        elif self.type_m == type3: #Pluralite
             self.bd.refresh_MV([normalise_Ind(self.map.Pluralite(),1)])
             
-        elif self.type_m == type4:
+        elif self.type_m == type4: #STV
             self.bd.refresh_MV([normalise_Ind(self.map.STV(),1)])
             
-        else :
+        else : #Approbation
             self.bd.refresh_MV([normalise_Ind(self.map.Approbation(3),1)])
 
 class Boutoun_GenerAleatoire(QWidget):
     def __init__(self,bd,l,h):
+        """
+        Constructeur de la classe Boutoun_GenerAleatoire qui descend de la classe QWidget.
+
+        Args:
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            l (int): Longueur des widgets.
+            h (int): Hauteur des widgets.
+        """
         super().__init__()
         self.h = h
         self.l = l
@@ -136,7 +173,7 @@ class Boutoun_GenerAleatoire(QWidget):
         layout = QVBoxLayout()
         
         # Créer un bouton
-        self.button = QPushButton("Genere un Canddiat")
+        self.button = QPushButton("Genere un Candidat")
         
         # Connecter un signal à une fonction lorsque le bouton est cliqué
         self.button.clicked.connect(self.on_button_clicked)
@@ -148,6 +185,9 @@ class Boutoun_GenerAleatoire(QWidget):
         
     # Fonction appelée lorsque le bouton est cliqué
     def on_button_clicked(self):
+        """
+        Méthode qui génère un candidat aléatoirement.
+        """
         cd = self.bd.genere_aleatoire_candidat_BM()
         nom =cd.nom()
         prenom = cd.prenom()
@@ -159,6 +199,15 @@ class Boutoun_GenerAleatoire(QWidget):
 
 class BoutonIO(QWidget):
     def __init__(self,bd,nom,l=200,h=80):
+        """
+        Constructeur de la classe BoutonIO qui descend de la classe QWidget.
+
+        Args:
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            nom (str): Nom affiché sur le bouton
+            l (int): Longueur des widgets. Par défaut, 200
+            h (int): Hauteur des widgets. Par défaut, 80
+        """
         super().__init__()
         self.h = h
         self.l = l
@@ -177,10 +226,13 @@ class BoutonIO(QWidget):
         layout.addWidget(self.io_button)
 
     def save_text(self):
+        """
+        Méthode qui sauvegarde les données dans un fichier ou charge les données d'un fichier.
+        """
         #show_loading_dialog()
         text = self.text_edit.text()
         if self.nom == "recharge":
-            print("Texte Charger :", text,"\n")
+            print("Texte Chargé :", text,"\n")
             self.bd.recharge(text)
         else :
             self.bd.save(text)
@@ -189,10 +241,26 @@ class BoutonIO(QWidget):
 
 class BoutonRecharge(BoutonIO):
     def __init__(self, bd, l=200, h=80):
+        """
+        Constructeur de la classe BoutonRecharge qui descend de la classe BoutonIO.
+
+        Args:
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            l (int): Longueur des widgets. Par défaut, 200
+            h (int): Hauteur des widgets. Par défaut, 80
+        """
         super().__init__(bd, "recharge", l, h)
         
 class BoutonSave(BoutonIO):
     def __init__(self, bd, l=200, h=80):
+        """
+        Constructeur de la classe BoutonSave qui descend de la classe BoutonIO.
+
+        Args:
+            bd (Base_donnee): Base de données utilisée pour générer les candidats et la map
+            l (int): Longueur des widgets. Par défaut, 200
+            h (int): Hauteur des widgets. Par défaut, 80
+        """
         super().__init__(bd, "save", l, h)
 
 
