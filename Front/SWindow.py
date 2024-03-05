@@ -95,14 +95,11 @@ class SettingsWindow(QMainWindow):
         main_frame_layout.addWidget(tailleMap_frame, alignment=Qt.AlignCenter)
 
 
-        #Frame pour le bouton taille
-        taille_button_frame = QFrame(main_frame)
-
         #Bouton de validation de la taille de la map
-        taille_button = QPushButton("Valider", self)
-        taille_button.clicked.connect(self.on_taille_button_clicked)
-        taille_button.setFixedSize(80, 20)
-        tailleMap_layout.addWidget(taille_button)
+        taille_map_button = QPushButton("Valider", self)
+        taille_map_button.clicked.connect(self.on_taille_button_clicked)
+        taille_map_button.setFixedSize(80, 20)
+        tailleMap_layout.addWidget(taille_map_button)
         main_frame_layout.addWidget(tailleMap_frame, alignment=Qt.AlignCenter)
 
         #Bouton de validation des réglages
