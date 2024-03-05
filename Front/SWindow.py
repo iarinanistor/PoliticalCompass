@@ -10,6 +10,15 @@ import sys
 
 class SettingsWindow(QMainWindow):
     def __init__(self, tailleMap = 250):
+        """
+        Constructeur de la classe SettingsWindow qui descend de la classe QMainWindow.
+
+        Args:
+            tailleMap (int): Taille de la map
+
+        Returns:
+            void
+        """
         super().__init__()
         self.setWindowTitle("Réglages de la fenêtre principale")
         self.tailleMap = tailleMap
@@ -111,11 +120,28 @@ class SettingsWindow(QMainWindow):
 
     
     #Fonctions pour modifier les dimensions de la grille
-    def setTailleGrille(self, taille):
+    def setTailleMap(self, taille):
+        """
+        Méthode setter qui modifie l'attribut tailleMap
+
+        Args:
+            tailleMap (int): Taille de la map
+
+        Returns:
+            void
+        """
         self.tailleMap = taille
 
     #Fonction de validation de la taille de la grille
     def on_taille_button_clicked(self):
+        """
+        Méthode qui valide la taille de la map entrée par l'utilisateur
+
+        Returns:
+            void: Affiche une fenêtre pop-up décrivant le succès ou l'échec de la modification
+                  (OK si taille > 100
+                   Fail si taille <= 100)
+        """
         #On récupère la valeur entrée par l'utilisateur
         newTailleMap = int(self.tailleMap_input.text())
 
@@ -141,6 +167,12 @@ class SettingsWindow(QMainWindow):
 
     #Fonction de validation des réglages
     def on_validate_button_clicked(self):
+        """
+        Méthode qui valide les paramètres et ferme la fenêtre SWindow pour ouvrir la fenêtre MainWindow
+
+        Returns:
+            void
+        """
         #Fermeture de la fenêtre
         self.close()
 
