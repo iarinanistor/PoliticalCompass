@@ -13,6 +13,50 @@ Enfin on a mis à jour les fonctions de votes pour prendre en compte les poids d
 Notre fonction STV ne fonctionne pas sur l'interface graphique mais elle fonctionne sur les tests (on est toujours entrain de résoudre ce problème)
 
 
+----------------------------------------------------------------------------------------------------
+
+Comment utiliser l'interface :
+
+
+Exécuter le fichier main.py
+
+Pour ajouter manuellement un nouveau candidat à la grille :
+ - Dans le champ Nom, vous pouvez entrer une chaîne de caractères
+ - Dans le champ Prénom, vous pouvez entrer une chaîne de caractères
+ - Dans le champ Charisme, vous pouvez choisir le charisme du candidat entre 0 et 100
+ - Dans les champs x et y, vous pouvez choisir une position entre 0 et 500
+
+ - Appuyez sur Soumettre pour valider les informations
+   (un récapitulatif sera affiché dans la console sous la forme :
+    Nom : <nom_du_candidat>
+    Prénom : <prénom_du_candidat>
+    Valeurs entières: [<charisme>, <x>, <y>])
+
+Le bouton "Genere un Candidat" permet de générer un nouveau candidat aléatoirement.
+
+Le bouton "Copeland" permet de déterminer le vainqueur selon la méthode de Copeland.
+
+Le bouton "Borda" permet de déterminer le vainqueur selon la méthode de Borda.
+
+Le bouton "Pluralite" permet de déterminer le vainqueur selon la méthode de Pluralité.
+
+Le bouton "STV" permet de déterminer le vainqueur selon la méthode de STV.
+
+Le bouton "Approbation" permet de déterminer le vainqueur selon la méthode de l'Approbation.
+
+
+Pour sauvegarder le modèle :
+ - Entrer le nom du fichier dans le champ au dessus du bouton "save"
+ - Appuyer sur le bouton "save" pour sauvegarder le modèle dans le fichier
+
+Pour charger un modèle :
+ - Entrer le nom du fichier dans le champ au dessus du bouton "recharge"
+ - Appuyer sur le bouton "recharge" pour charger le modèle
+
+
+----------------------------------------------------------------------------------------------------
+
+
 Credits:
 
 Zhou Jeremy
