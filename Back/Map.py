@@ -200,7 +200,23 @@ class Map:
         '''
         logging.info('<Map.Approbation>')
         return approbation(self.liste_electeur,self.L_population,nb_approbation)
-    
+
+
+    def liste_poids(liste_individus,rayon):
+        """Met à jour le poids"""
+        l = liste_individus.copy()
+        for ind in liste_individus:
+            if random.random() < 1-(ind.competence):
+                #s'il delegue
+                #electeurs_proximite=zone(ind,rayon)  renvoie les electeurs qui n'ont pas delegué dans la zone de l'individu
+                choix = delegation(ind,electeurs_proximite)
+                choix.poids += ind.poids
+                ind.poids = 0
+                l.remove(ind)
+            else : 
+                continue;
+        return l
+        
     ################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 # gestion I / O
     def ecrire(self,nomFichier):
