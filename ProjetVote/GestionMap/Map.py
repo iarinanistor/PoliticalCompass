@@ -89,6 +89,9 @@ class Map:
         Calcule le gagnant par la méthode de STV.
         '''
         return stv(self.liste_electeur, concat(self.population))
+
+    def STV2(self):
+        return stv2(self.liste_electeur,concat(self.population))
     
     def Approbation(self, nb_approbation):
         '''
