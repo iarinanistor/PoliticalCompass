@@ -151,7 +151,7 @@ class Boutoun_GenerAleatoire(QWidget):
         layout = QVBoxLayout()
         
         # Créer un bouton
-        self.button = QPushButton("Genere un Canddiat")
+        self.button = QPushButton("Genere un Candidat")
         
         # Connecter un signal à une fonction lorsque le bouton est cliqué
         self.button.clicked.connect(self.on_button_clicked)
