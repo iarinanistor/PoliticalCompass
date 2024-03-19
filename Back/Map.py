@@ -202,6 +202,35 @@ class Map:
         return approbation(self.liste_electeur,self.L_population,nb_approbation)
 
 
+    def delegation(electeurs_proximite):
+    '''
+    Paramaters:
+        electeurs_proximite : List[Individus]
+    Returns:    
+        Individus : L'electeur qui va recevoir le(s) vote(s)
+    '''
+    somme_niv = 0
+    dico_proba = {}
+
+    #Calcul de la somme des niveaux de compétence pour la normalisation
+    for electeur in electeurs_proximite:
+        somme_niv += electeur.get_c()
+    
+    #On crée un dictionnaire qui associe un électeur et la probabilité normalisée qu'il reçoive le vote
+    for electeur in electeurs_proximite:
+        p = electeur.get_c() / somme_niv
+        dico_proba[electeur] = p
+    
+    choix = random.uniform(0,10)
+    proba_cumul = 0
+
+    #Choix de l'électeur qui va recevoir le vote selon les probabilités normalisées
+    for electeur, proba in dico_proba.items():
+        proba_cumul += proba
+        if choix <= proba_cumul:
+            return electeur
+
+
     def liste_poids(liste_individus,rayon):
         """Met à jour le poids"""
         l = liste_individus.copy()
@@ -348,33 +377,3 @@ def concat(matrix):
         if matrix[i] != None: l+=matrix[i]
     return list(filter(lambda x: x is not None, l))
 
-
-
-
-def delegation(electeurs_proximite):
-    '''
-    Paramaters:
-        electeurs_proximite : List[Individus]
-    Returns:    
-        Individus : L'electeur qui va recevoir le(s) vote(s)
-    '''
-    somme_niv = 0
-    dico_proba = {}
-
-    #Calcul de la somme des niveaux de compétence pour la normalisation
-    for electeur in electeurs_proximite:
-        somme_niv += electeur.get_c()
-    
-    #On crée un dictionnaire qui associe un électeur et la probabilité normalisée qu'il reçoive le vote
-    for electeur in electeurs_proximite:
-        p = electeur.get_c() / somme_niv
-        dico_proba[electeur] = p
-    
-    choix = random.uniform(0,10)
-    proba_cumul = 0
-
-    #Choix de l'électeur qui va recevoir le vote selon les probabilités normalisées
-    for electeur, proba in dico_proba.items():
-        proba_cumul += proba
-        if choix <= proba_cumul:
-            return electeur
