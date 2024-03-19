@@ -28,9 +28,9 @@ Pour ajouter manuellement un nouveau candidat à la grille :
 
  - Appuyez sur Soumettre pour valider les informations
    (un récapitulatif sera affiché dans la console sous la forme :
-    - Nom : <nom_du_candidat>
-    - Prénom : <prénom_du_candidat>
-    - Valeurs entières: [<charisme>, <x>, <y>])
+    - Nom : nom_du_candidat
+    - Prénom : prénom_du_candidat
+    - Valeurs entières: [charisme, x, y])
 
 Le bouton "Genere un Candidat" permet de générer un nouveau candidat aléatoirement.
 
