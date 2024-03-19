@@ -1,0 +1,19 @@
+/* Style pour les boutons */
+QPushButton {
+    background-color: #2E8B57; /* Couleur verte foncée */
+    border: 1px solid #2E8B57; /* Bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 30px 40px; /* Espacement intérieur */
+    color: white; /* Couleur du texte */
+}
+
+/* Style pour les boutons au survol de la souris */
+QPushButton:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+QPushButton:pressed {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
