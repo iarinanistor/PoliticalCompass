@@ -1,0 +1,16 @@
+# Projet requirements
+
+# Bibliothèque pour l'interface graphique
+PySide6==6.2.2
+
+# Bibliothèque pour les calculs numériques
+numpy==1.22.2
+
+# Bibliothèque pour les tests unitaires
+pytest
+
+# Bibliothèque pour le débogage simplifié
+icecream
+
+pytest-qt
+
