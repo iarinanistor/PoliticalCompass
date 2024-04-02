@@ -127,8 +127,8 @@ QPushButton:pressed {
 }
 """)
         self.sidebar_layout_1.addWidget(bouton_monte_carlo)
-        bouton_bilan_carbone = QPushButton("Bilan Carbone")
-        bouton_bilan_carbone.setStyleSheet("""
+        self.bouton_bilan_carbone = QPushButton("Bilan Carbone")
+        self.bouton_bilan_carbone.setStyleSheet("""
     QPushButton {
     background-color: #4CAF50;
     border: 2px solid #4CAF50;
@@ -150,7 +150,9 @@ QPushButton:pressed {
     border-color: #388e3c;
 }
 """)
-        self.sidebar_layout_1.addWidget(bouton_bilan_carbone)
+        self.bouton_bilan_carbone.clicked.connect(self.affiche_carbone)
+        self.sidebar_layout_1.addWidget(self.bouton_bilan_carbone)
+
         bouton_taux_satisfaction = QPushButton("Taux de satisfaction")
         bouton_taux_satisfaction.setStyleSheet("""
     QPushButton {
@@ -284,11 +286,15 @@ QPushButton:pressed {
 
     def close_democratie_buttons(self) -> None:
         """
-        Ferme les boutons du menu dans la barre latérale des règles de vote.
+        Ferme les boutons du menu dans la barre latérale des règles de vote ainsi que l'entree Rayon.
         """
         for i in reversed(range(self.sidebar_layout_1.count())):
             widget = self.sidebar_layout_1.itemAt(i).widget()
             if isinstance(widget, Bouton_Mvote):
+                widget.close()
+            if isinstance(widget, QLineEdit):
+                widget.close()
+            if isinstance(widget, QLabel):
                 widget.close()
 
     def democratie_liquide(self):
@@ -375,6 +381,26 @@ QPushButton:pressed {
             self.close_sidebar_2_buttons()
         self.animation_2.start()
         self.sidebar_2_visible = not self.sidebar_2_visible
+    
+    def affiche_carbone(self):
+        '''
+            Affiche la consommation actuelle du programme
+        '''
+        self.close_carbone()
+        self.carbone_lab = QLabel("Emission carbone actuelle : ")
+        self.sidebar_layout_1.addWidget(self.carbone_lab)
+        
+        self.conso_lab = QLabel(str(self.bd.conso))
+        self.sidebar_layout_1.addWidget(self.conso_lab)
+
+    def close_carbone(self) -> None:
+        """
+            Ferme l'affichage de l'emission carbone.
+        """
+        for i in reversed(range(self.sidebar_layout_1.count())):
+            widget = self.sidebar_layout_1.itemAt(i).widget()
+            if isinstance(widget, QLabel):
+                widget.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
