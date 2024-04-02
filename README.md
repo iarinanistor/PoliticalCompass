@@ -15,7 +15,7 @@ Méthode de Condorcet
 
 Méthode de Borda
 
-Système de vote unique transférable (STV)
+Règle par eliminations successives (STV)
 
 Credits:
 
