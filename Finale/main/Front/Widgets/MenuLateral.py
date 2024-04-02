@@ -4,10 +4,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QPushButto
 from Front.Widgets.Boutons import *
 from PySide6.QtGui import QIcon
 
-
-from Internet import internet
-from Internet import iso_code
-
 #Importation de la consommation des fonctions utilisées
 from Calcul_Emissions import emission_moyen_ouverture_menu_lat, emission_moyen_fermeture_menu_lat, emission_moyen_ouverture_menu_lat2, emission_moyen_fermeture_menu_lat2, emission_moyen_bouton_vote_ouverture, emission_moyen_bouton_vote_fermeture, emission_moyen_democratie_liquide_ouverture, emission_moyen_democratie_liquide_fermeture
 
@@ -42,7 +38,7 @@ class SideMenu(QMainWindow):
         self.sidebar_widget_1.setLayout(self.sidebar_layout_1)
         self.sidebar_widget_1.setMaximumWidth(0)
         self.sidebar_widget_1.setContentsMargins(0,25,0,0)
-
+ 
         self.sidebar_layout_2 = QVBoxLayout()
         self.sidebar_widget_2 = QWidget()
         self.sidebar_widget_2.setLayout(self.sidebar_layout_2)
@@ -149,10 +145,9 @@ QPushButton:pressed {
     background-color: #388e3c;
     border-color: #388e3c;
 }
-""")
+""")    
         self.bouton_bilan_carbone.clicked.connect(self.affiche_carbone)
         self.sidebar_layout_1.addWidget(self.bouton_bilan_carbone)
-
         bouton_taux_satisfaction = QPushButton("Taux de satisfaction")
         bouton_taux_satisfaction.setStyleSheet("""
     QPushButton {
@@ -230,34 +225,39 @@ QPushButton:pressed {
         """
         Ajoute des boutons de menu à la barre latérale des règles de vote.
         """
-        bouton_Copeland = Bouton_Mvote(self.bd, "Copeland", self.Blongeur, self.Bhauteur)
+        self.rayon = None
+        bouton_Copeland = Bouton_Mvote(self.bd, "Copeland",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_Copeland)
-        bouton_Borda = Bouton_Mvote(self.bd, "Borda", self.Blongeur, self.Bhauteur)
+        bouton_Borda = Bouton_Mvote(self.bd, "Borda",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_Borda)
-        bouton_Pluralite = Bouton_Mvote(self.bd, "Pluralite", self.Blongeur, self.Bhauteur)
+        bouton_Pluralite = Bouton_Mvote(self.bd, "Pluralite",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_Pluralite)
-        bouton_STV = Bouton_Mvote(self.bd, "STV", self.Blongeur, self.Bhauteur)
+        bouton_STV = Bouton_Mvote(self.bd, "STV",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_STV)
-        bouton_Approbation = Bouton_Mvote(self.bd, "K-Approbation", self.Blongeur, self.Bhauteur)
+        bouton_Approbation = Bouton_Mvote(self.bd, "Approbation",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_Approbation)
-        
+
         #Ajout de la consommation
         self.bd.conso += emission_moyen_bouton_vote_ouverture
-
+    
     def add_democratie_buttons(self) -> None:
+        """
+        Ajoute des boutons de menu à la barre latérale des règles de vote liquide.
+        """
         self.poids_lab = QLabel("Rayon :")
-        self.poids = QLineEdit()
+        self.poids = QSpinBox()
+        self.poids.setMaximum(250)
         self.sidebar_layout_1.addWidget(self.poids_lab)
         self.sidebar_layout_1.addWidget(self.poids)
-        bouton_Copeland_liquide = Bouton_Mvote(self.bd, "Copeland liquide",self.poids, self.Blongeur, self.Bhauteur)
+        bouton_Copeland_liquide = Bouton_Mvote(self.bd, "Copeland liquide",self.poids.value(), self.Blongeur, self.Bhauteur)
         self.sidebar_layout_1.addWidget(bouton_Copeland_liquide)
-        bouton_Borda_liquide = Bouton_Mvote(self.bd, "Borda liquide",self.poids, self.Blongeur, self.Bhauteur)
+        bouton_Borda_liquide = Bouton_Mvote(self.bd, "Borda liquide",self.poids.value(), self.Blongeur, self.Bhauteur)
         self.sidebar_layout_1.addWidget(bouton_Borda_liquide)
-        bouton_Pluralite_liquide = Bouton_Mvote(self.bd, "Pluralite liquide",self.poids, self.Blongeur, self.Bhauteur)
+        bouton_Pluralite_liquide = Bouton_Mvote(self.bd, "Pluralite liquide",self.poids.value(), self.Blongeur, self.Bhauteur)
         self.sidebar_layout_1.addWidget(bouton_Pluralite_liquide)
-        bouton_STV_liquide = Bouton_Mvote(self.bd, "STV liquide",self.poids, self.Blongeur, self.Bhauteur)
+        bouton_STV_liquide = Bouton_Mvote(self.bd, "STV liquide",self.poids.value(), self.Blongeur, self.Bhauteur)
         self.sidebar_layout_1.addWidget(bouton_STV_liquide)
-        bouton_Approbation_liquide = Bouton_Mvote(self.bd, "Approbation liquide",self.poids, self.Blongeur, self.Bhauteur)
+        bouton_Approbation_liquide = Bouton_Mvote(self.bd, "Approbation liquide",self.poids.value(), self.Blongeur, self.Bhauteur)
         self.sidebar_layout_1.addWidget(bouton_Approbation_liquide)
 
     def close_menu_buttons(self) -> None:
@@ -286,15 +286,11 @@ QPushButton:pressed {
 
     def close_democratie_buttons(self) -> None:
         """
-        Ferme les boutons du menu dans la barre latérale des règles de vote ainsi que l'entree Rayon.
+        Ferme les boutons du menu dans la barre latérale des règles de vote.
         """
         for i in reversed(range(self.sidebar_layout_1.count())):
             widget = self.sidebar_layout_1.itemAt(i).widget()
-            if isinstance(widget, Bouton_Mvote):
-                widget.close()
-            if isinstance(widget, QLineEdit):
-                widget.close()
-            if isinstance(widget, QLabel):
+            if isinstance(widget, Bouton_Mvote) or isinstance(widget, QLabel) or isinstance(widget, QSpinBox):
                 widget.close()
 
     def democratie_liquide(self):
@@ -316,6 +312,7 @@ QPushButton:pressed {
 
         self.democratie_visible = not self.democratie_visible  # Mettre à jour l'état des boutons de la démocratie liquide
 
+
     def open_settings(self) -> None:
         """
         Ouvre les paramètres.
@@ -330,7 +327,7 @@ QPushButton:pressed {
             widget = self.sidebar_layout_1.itemAt(i).widget()
             if widget is not None:
                 widget.close()
-
+        
         #Ajout de la consommation
         self.bd.conso += emission_moyen_fermeture_menu_lat2
 
@@ -342,7 +339,7 @@ QPushButton:pressed {
             widget = self.sidebar_layout_2.itemAt(i).widget()
             if widget is not None:
                 widget.close()
-
+        
         #Ajout de la consommation
         self.bd.conso += emission_moyen_fermeture_menu_lat
 
@@ -381,7 +378,7 @@ QPushButton:pressed {
             self.close_sidebar_2_buttons()
         self.animation_2.start()
         self.sidebar_2_visible = not self.sidebar_2_visible
-    
+
     def affiche_carbone(self):
         '''
             Affiche la consommation actuelle du programme
@@ -390,7 +387,7 @@ QPushButton:pressed {
         self.carbone_lab = QLabel("Emission carbone actuelle : ")
         self.sidebar_layout_1.addWidget(self.carbone_lab)
         
-        self.conso_lab = QLabel(str(self.bd.conso))
+        self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
         self.sidebar_layout_1.addWidget(self.conso_lab)
 
     def close_carbone(self) -> None:
