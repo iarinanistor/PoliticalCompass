@@ -1,16 +1,16 @@
 import numpy as np
 from random import uniform
-from icecream import ic 
+#from icecream import ic 
 
 class Individus:
     def __init__(self, nom=None, x=None, y=None, liste_electeur=None):
-        self.nom = nom
+        self.nom = [nom]
         self.x = x
         self.y = y
         self.liste_electeur = liste_electeur
-        self.poids = 1
-        self.c = uniform(0, 1)
-        self.adelegue = False
+        self.poids = [1]
+        self.c = [uniform(0, 1)]
+        self.adelegue = [False]
 
     # Getter pour obtenir le niveau de compétence de l'électeur
     def get_c(self):
