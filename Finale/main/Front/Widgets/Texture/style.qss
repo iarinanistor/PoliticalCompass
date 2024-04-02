@@ -1,0 +1,36 @@
+/* Styles pour les boutons */
+QPushButton {
+    background-color: #4CAF50;
+    border: 2px solid #4CAF50;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+    /* Définir la taille des boutons */
+    min-width: 200px;
+    min-height: 40px;
+}
+
+QPushButton:hover {
+    background-color: #45a049;
+    border-color: #45a049;
+}
+
+QPushButton:pressed {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+
+/* Styles pour la barre de progression */
+QProgressBar {
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    border-radius: 8px;
+    height: 10px; /* Hauteur modifiée pour une meilleure visibilité */
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: #45a049;
+    width: 1px;
+}
+
