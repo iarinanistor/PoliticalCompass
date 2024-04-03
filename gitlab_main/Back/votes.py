@@ -1,15 +1,38 @@
 import numpy as np
 from copy import deepcopy
-
+import math
 
 def distance(point1, point2):
+    '''
+    Calcule la distance entre deux points dans un espace multidimensionnel.
+
+    Args:
+        point1 (np.ndarray): Les coordonnées du premier point.
+        point2 (np.ndarray): Les coordonnées du deuxième point.
+
+    Returns:
+        float: La distance entre les deux points.
+    '''
     distance = np.linalg.norm(point1- point2)
     return distance
 
-def liste_vote1(electeur,candidats):
-        liste_des_votes = [(np.linalg.norm(np.array([i.x(), i.y()]) - np.array([electeur.x, electeur.y])), i) for i in candidats]
-        l=sorted(liste_des_votes, key=lambda x: x[0])
-        return [ candidat for distance,candidat in l]
+def F(x, y, xi, yi, wi):
+    """
+    Calcule la distance entre deux points prenant en compte la popularité/charisme du candidat/parti.
+
+    Args:
+    x (float): valeur x du premier point.
+    y (float): valeur y du premier point.
+    xi (float): valeur xi du deuxieme point.
+    yi (float): valeur y1 du deuxieme point.
+    wi (float): La valeur de wi, représentant la popularité/charisme du candidat/parti du deuxieme point.
+
+    Returns:
+    float: La valeur de la fonction F(x, y) prenant en compte la popularité/charisme du candidat/parti.
+    """
+    return math.exp(-4 * math.log(2) * ((x - xi)**2 - (y - yi)**2) / (wi**2)) 
+
+
 
 def un_seul_vainqueur(vainqueurs):
     '''
@@ -41,25 +64,9 @@ def is_majority(n,electeurs) :
     '''
     nb_electeurs = 0
     for elec in electeurs:
-        for p in elec.poids:
-            nb_electeurs += p
+        nb_electeurs += elec.poids
     return n > (nb_electeurs/2)
 
-"""def comptage_votes(candidats,electeurs):
-    ''' 
-    Parameters:
-        candidats : List[Candidat] 
-        electeurs : List[Individus]
-    Returns:
-        Dict{Candidat:int} : dictionnaire avec chaque candidat et son nb de votes-etant le premier classe
-         
-    '''
-    nb_votes = {candidate:0 for candidate in candidats}
-
-    for electeur in electeurs :
-        nb_votes[(electeur.liste_vote())[0]] += 1
-
-    return nb_votes"""
 
 def comptage_votes(candidats,electeurs):
     ''' 
@@ -73,27 +80,10 @@ def comptage_votes(candidats,electeurs):
     nb_votes = {candidate:0 for candidate in candidats}
 
     for electeur in electeurs :
-        for poid in electeur.poids:
-            nb_votes[(electeur.liste_vote())[0]] += poid
+        nb_votes[(electeur.liste_vote())[0]] += electeur.poids
 
     return nb_votes
 
-def comptage_votes1(candidats,electeurs):
-    ''' 
-    Parameters:
-        candidats : List[Candidat] 
-        electeurs : List[Individus]
-    Returns:
-        Dict{Candidat:int} : dictionnaire avec chaque candidat et son nb de votes-etant le premier classe
-         
-    '''
-    nb_votes = {candidate:0 for candidate in candidats}
-
-    for electeur in electeurs :
-        for poid in electeur.poids:
-            nb_votes[(liste_vote1(electeur,candidats))[0]] += poid
-
-    return nb_votes
 
 def pluralite(candidats,electeurs):
     '''
@@ -123,15 +113,15 @@ def borda(candidats,electeurs):
 
     for electeur in electeurs :
         for i in range(n):
-            for poid in electeur.poids:
-                nb_votes[electeur.liste_vote()[i]] += (n-1-i)*poid
+            nb_votes[electeur.liste_vote()[i]] += (n-1-i)*electeur.poids
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate,score in nb_votes.items() if score == max_vote]
 
     return un_seul_vainqueur(vainqueurs)
 
-def stv(candidats,electeurs):
+
+def stv(candidats, electeurs):
     '''Paramaters:
         candidats : List[Candidat] 
         electeurs : List[Individus] 
@@ -139,64 +129,14 @@ def stv(candidats,electeurs):
         Candidat : le candidat gagnant par la regle de vote STV
         les criteres de departage : age, charisme
     '''
-
-    l_candidat = candidats
-    l_electeur = electeurs
-    while True :
-        nb_votes = comptage_votes(l_candidat,l_electeur)
-
-        for candidate,votes in nb_votes.items():
-            if is_majority(votes,l_electeur):
-                return candidate
-            
-        candidate_elimine = min(nb_votes, key = nb_votes.get)
-        
-        for electeur in l_electeur :
-            (electeur.liste_vote()).remove(candidate_elimine)
-        l_candidat.remove(candidate_elimine)
-        
-#a tester sur l'interface graphique      
-def stv1(candidats,electeurs):
-    '''Paramaters:
-        candidats : List[Candidat] 
-        electeurs : List[Individus] 
-    Returns:    
-        Candidat : le candidat gagnant par la regle de vote STV
-        les criteres de departage : age, charisme
-    '''
-
-    l_candidat =deepcopy(candidats)
-    l_electeur = electeurs
-    dico={electeur:electeur.liste_vote() for electeur in l_electeur}
-    while True :
-        nb_votes = comptage_votes(l_candidat,l_electeur)
-
-        for candidate,votes in nb_votes.items():
-            if is_majority(votes,l_electeur):
-                return candidate
-            
-        candidate_elimine = min(nb_votes, key = nb_votes.get)
-        
-        for electeur in dico :
-
-            dico[electeur].remove(candidate_elimine)
-        l_candidat.remove(candidate_elimine)
-
-def stv2(candidats, electeurs):
-    '''Paramaters:
-        candidats : List[Candidat] 
-        electeurs : List[Individus] 
-    Returns:    
-        Candidat : le candidat gagnant par la regle de vote STV
-        les criteres de departage : age, charisme
-    '''
-
+    
     l_candidat = deepcopy(candidats)
     l_electeur = electeurs
-    dico = {electeur: liste_vote1(electeur,l_candidat) for electeur in l_electeur}
-    while True:
-        nb_votes = comptage_votes1(l_candidat, l_electeur)
+    dico = {electeur: electeur.liste_vote() for electeur in l_electeur}
+    max_iteration =len(candidats)-1
 
+    for i in range (max_iteration):
+        nb_votes = comptage_votes(l_candidat, l_electeur)
         for candidate, votes in nb_votes.items():
             if is_majority(votes, l_electeur):
                 return candidate
@@ -206,6 +146,7 @@ def stv2(candidats, electeurs):
         for electeur in electeurs:
             dico[electeur].remove(candidate_elimine)
         l_candidat.remove(candidate_elimine)
+    return max(nb_votes, key=nb_votes.get)
 
 def approbation(candidats, electeurs, nb_approbation):
     '''Paramaters:
@@ -222,8 +163,7 @@ def approbation(candidats, electeurs, nb_approbation):
         for i in range(nb_approbation):
             votes = electeur.liste_vote()
             if i < len(votes):  # Vérifier si la liste des votes contient suffisamment de candidats
-                for poid in electeur.poids:
-                    nb_votes[votes[i]] += poid
+                nb_votes[votes[i]] += electeur.poids
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate, score in nb_votes.items() if score == max_vote]
@@ -231,21 +171,38 @@ def approbation(candidats, electeurs, nb_approbation):
     return un_seul_vainqueur(vainqueurs)
 
 def liste_approbation(candidats,votant):
-    def dist(x1,y1,x2,y2):
-        return ((x1-x2)**2+(y1-y2)**2)**0.5
+    """
+    Retourne une liste des candidats approuvés par un votant.
+
+    Args:
+        candidats (list): Liste des candidats.
+        votant (Point): Les coordonnées du votant.
+
+    Returns:
+        list: Liste des candidats approuvés par le votant.
+    """
     l=[]
     for candidat in candidats:
-        if dist(candidat.x(),candidat.y(),votant.x,votant.y)<=50:
+        if F(candidat.x(),candidat.y(),votant.x,votant.y)<=50:
             l.append(candidat)
     return l
 
 def liste_approb_totale(candidats,votants):
-    nb_votes={candidat:0 for candidat in candidats}
+    """
+    Retourne une liste des candidats vainqueurs par approbation totale.
+
+    Args:
+        candidats (list): Liste des candidats.
+        votants (list): Liste des votants.
+
+    Returns:
+        list: Liste des candidats vainqueurs.
+    """
+    nb_votes={candidats:0 for candidat in candidats}
     for votant in votants:
         l=liste_approbation(candidats,votant)
         for cand in l:
-            for poid in votant.poids:
-                nb_votes[cand]+=1
+            nb_votes[cand]+=1
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate,score in nb_votes.items() if score == max_vote]
@@ -264,11 +221,20 @@ def battleOneToOne(candidats,electeurs):
         ordre_votes = electeur.liste_vote()
         for i, c1 in enumerate(ordre_votes):
             for c2 in ordre_votes[i+1:]:
-                for poid in electeur.poids:
-                    pairs_votes[(c1,c2)] += poid
+                pairs_votes[(c1,c2)] += electeur.poids
     return pairs_votes
 
 def vainqueurCondorcet(candidats,electeurs):
+    """
+    Retourne le vainqueur selon le critère de Condorcet.
+
+    Args:
+        candidats (list): Liste des candidats.
+        electeurs (list): Liste des électeurs.
+
+    Returns:
+        any: Le candidat vainqueur selon le critère de Condorcet, ou None s'il n'y en a pas.
+    """
     pairs_votes = battleOneToOne(candidats,electeurs)
     for candidat in candidats:
         gagne = 0
