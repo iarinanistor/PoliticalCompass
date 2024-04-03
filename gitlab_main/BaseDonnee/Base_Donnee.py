@@ -102,7 +102,7 @@ class Base_donnee():
 
         
     @staticmethod
-    def creer(id,tailleMap=500,Pl=False):
+    def creer(id,tailleMap=500,Pl=False,map=None):
         """
         Méthode statique pour créer une nouvelle instance de Base_donnee.
 
@@ -113,10 +113,12 @@ class Base_donnee():
         Returns:
             Base_donnee: Nouvelle instance de Base_donnee créée.
         """
-
-        new = Base_donnee(id,tailleMap)
-        # création de la map du Back
-        new.map.generationAleatoire()
+        if map is None:
+            new = Base_donnee(id,tailleMap)
+            # création de la map du Back
+            new.map.generationAleatoire()
+        else : new = map
+        
         # création de la window
         window = MainWindow(new, tailleMap,Pl)
         # affectation 
