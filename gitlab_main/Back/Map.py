@@ -6,6 +6,7 @@ from Back.Individus import Individus
 import random
 import logging 
 from icecream import ic
+
 class Map:
     def __init__ (self,bd,nom=None,liste_electeur=[],population=[],generationX=None,generationY=None):
         '''
@@ -25,7 +26,20 @@ class Map:
         self.L_population = None
         self.generationX = generationX
         self.generationY = generationY
-
+        self.bd = bd
+                
+    def generation_pers(self,zone,type_generation,n):
+        print('generation',type_generation,zone,n)
+        if type_generation == "Triangulaire":
+            self.generationPopulationTriangulaire(zone,n)
+        elif type_generation == "Uniforme":
+            self.generationPopulationUniforme(zone,n)
+        elif type_generation == "Exponentiel":
+            self.generationPopulationExponentiel(zone,n)
+        elif type_generation == "Beta":
+            self.generationPopulationBeta(zone,n)
+        else : raise ValueError("type_generation no trouver ")
+        
         
     def generation(self): # genere la matrice des individus linéairement 
         '''
@@ -56,6 +70,46 @@ class Map:
         ]
         #self.liste_electeur=Candidat.generate_candidats(10,self.generationX,self.generationY)
         logging.info('</Map.generationAleatoire>')
+    
+    def generationPopulationBeta(self,zone,n):
+        pass
+    
+    def generationPopulationUniforme(self,zone,n):
+        pass
+    
+    def generationPopulationExpontiel(self,zone,n):
+        pass
+    
+    def generationPopulationTriangulaire(self,zone,n):
+        """
+        Genere la population de maniere triangulaire dans une zone donne
+        la zone est  de la forme (x, y, r) ou:
+        x = coordonne x du centre de la zone
+        y = coordonne y du centre de la zone
+        r = le rayon de la zone
+        """
+        indexes = []
+        x,y,r=zone
+        for i in range(self.generationX):
+            for j in range(self.generationY):
+                # Calculer la distance entre le point actuel et le centre
+                distance = ((i - x) ** 2 + (j - y) ** 2) ** 0.5
+                # Si la distance est dans le rayon, ajouter l'index à la liste
+                if distance <= r:
+                    indexes.append((i, j))  # Format (ligne, colonne)
+
+        for _ in range(n):
+            x_pivot = random.triangular(x - r, x + r)
+            y_pivot = random.triangular(y - r, y + r)
+            index_plus_proche = min(indexes,key=lambda idx: (idx[0] - y_pivot) ** 2 + (idx[1] - x_pivot) ** 2)
+            i,j = index_plus_proche
+            if self.population[i][j] != None:
+                ind = self.population[i][j]
+                ind.c.append(random.uniform(0, 1))
+                ind.poids.append(1)
+            else:
+                self.population[i][j] = Individus(x=i,y=j,nom = "a",liste_electeur=self.liste_electeur)
+
     
     def refresh_Candidat(self):
         logging.info('<Map.refresh_Candidat>')
@@ -231,10 +285,13 @@ class Map:
         
         # Ce point du code ne devrait normalement pas être atteint
         return None
-
-
-
-
+    
+    def affiche(self):
+        for liste in self.population:
+            for ind in liste:
+                if ind == None : print("0 ", end='')  
+                else: print("1",end = " ") 
+            print("\n")
             
     def liste_poids(self,rayon):
         """Met à jour le poids"""
@@ -254,8 +311,9 @@ class Map:
                 continue
         return l
         
-    ################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 # gestion I / O
+    
     def ecrire(self,nomFichier):
         '''
         Écrit les données de la carte dans un fichier.
