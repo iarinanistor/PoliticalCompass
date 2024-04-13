@@ -5,8 +5,7 @@ from Back.Candidat import Candidat
 from Back.Individus import Individus
 import random
 import logging 
-from icecream import ic
-
+#from icecream import ic
 class Map:
     def __init__ (self,bd,nom=None,liste_electeur=[],population=[],generationX=None,generationY=None):
         '''
@@ -71,14 +70,7 @@ class Map:
         #self.liste_electeur=Candidat.generate_candidats(10,self.generationX,self.generationY)
         logging.info('</Map.generationAleatoire>')
     
-    def generationPopulationBeta(self,zone,n):
-        pass
-    
-    def generationPopulationUniforme(self,zone,n):
-        pass
-    
-    def generationPopulationExpontiel(self,zone,n):
-        pass
+    #NOU
     
     def generationPopulationTriangulaire(self,zone,n):
         """
@@ -98,17 +90,131 @@ class Map:
                 if distance <= r:
                     indexes.append((i, j))  # Format (ligne, colonne)
 
+        #compteur pour les noms
+        ind_nom=0
         for _ in range(n):
             x_pivot = random.triangular(x - r, x + r)
             y_pivot = random.triangular(y - r, y + r)
+            #x_pivot et y_pivot sont des floats, donc on veut trouver les indexes les plus proches
             index_plus_proche = min(indexes,key=lambda idx: (idx[0] - y_pivot) ** 2 + (idx[1] - x_pivot) ** 2)
+            nom = ((chr((ord('a')+(j%26))))*(i+1)*(ind_nom+1))
             i,j = index_plus_proche
             if self.population[i][j] != None:
                 ind = self.population[i][j]
                 ind.c.append(random.uniform(0, 1))
                 ind.poids.append(1)
+                ind.nom.append(nom)
             else:
-                self.population[i][j] = Individus(x=i,y=j,nom = "a",liste_electeur=self.liste_electeur)
+                self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
+            ind_nom+=1
+    
+    def generationPopulationBeta(self,zone,n):
+        """
+        Genere la population avec la loi beta dans une zone donne
+        la zone est  de la forme (x, y, r) ou:
+        x = coordonne x du centre de la zone
+        y = coordonne y du centre de la zone
+        r = le rayon de la zone
+        """
+        indexes = []
+        x,y,r=zone
+        for i in range(self.generationX):
+            for j in range(self.generationY):
+                # Calculer la distance entre le point actuel et le centre
+                distance = ((i - x) ** 2 + (j - y) ** 2) ** 0.5
+                # Si la distance est dans le rayon, ajouter l'index à la liste
+                if distance <= r:
+                    indexes.append((i, j))  # Format (ligne, colonne)
+
+        #compteur pour les noms
+        ind_nom=0
+        for _ in range(n):
+            x_pivot = random.betavariate(2, 5) * 2 * r + (x - r)
+            y_pivot = random.betavariate(2, 5) * 2 * r + (y - r)
+            #x_pivot et y_pivot sont des floats, donc on veut trouver les indexes les plus proches
+            index_plus_proche = min(indexes,key=lambda idx: (idx[0] - y_pivot) ** 2 + (idx[1] - x_pivot) ** 2)
+            nom = ((chr((ord('a')+(j%26))))*(i+1)*(ind_nom+1))
+            i,j = index_plus_proche
+            if self.population[i][j] != None:
+                ind = self.population[i][j]
+                ind.c.append(random.uniform(0, 1))
+                ind.poids.append(1)
+                ind.nom.append(nom)
+            else:
+                self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
+            ind_nom+=1
+
+    def generationPopulationExpo(self,zone,n):
+        """
+        Genere la population de maniere exponentielle dans une zone donne
+        la zone est  de la forme (x, y, r) ou:
+        x = coordonne x du centre de la zone
+        y = coordonne y du centre de la zone
+        r = le rayon de la zone
+        """
+        indexes = []
+        x,y,r=zone
+        for i in range(self.generationX):
+            for j in range(self.generationY):
+                # Calculer la distance entre le point actuel et le centre
+                distance = ((i - x) ** 2 + (j - y) ** 2) ** 0.5
+                # Si la distance est dans le rayon, ajouter l'index à la liste
+                if distance <= r:
+                    indexes.append((i, j))  # Format (ligne, colonne)
+
+        #compteur pour les noms
+        ind_nom=0
+        for _ in range(n):
+            x_pivot = random.expovariate(1) * 2 * r + (x - r)
+            y_pivot = random.expovariate(1) * 2 * r + (y - r)
+            #x_pivot et y_pivot sont des floats, donc on veut trouver les indexes les plus proches
+            index_plus_proche = min(indexes,key=lambda idx: (idx[0] - y_pivot) ** 2 + (idx[1] - x_pivot) ** 2)
+            nom = ((chr((ord('a')+(j%26))))*(i+1)*(ind_nom+1))
+            i,j = index_plus_proche
+            if self.population[i][j] != None:
+                ind = self.population[i][j]
+                ind.c.append(random.uniform(0, 1))
+                ind.poids.append(1)
+                ind.nom.append(nom)
+            else:
+                self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
+            ind_nom+=1
+        
+    def generationPopulationUnif(self,zone,n):
+        """
+        Genere la population avec la loi beta dans une zone donne
+        la zone est  de la forme (x, y, r) ou:
+        x = coordonne x du centre de la zone
+        y = coordonne y du centre de la zone
+        r = le rayon de la zone
+        """
+        indexes = []
+        x,y,r=zone
+        for i in range(self.generationX):
+            for j in range(self.generationY):
+                # Calculer la distance entre le point actuel et le centre
+                distance = ((i - x) ** 2 + (j - y) ** 2) ** 0.5
+                # Si la distance est dans le rayon, ajouter l'index à la liste
+                if distance <= r:
+                    indexes.append((i, j))  # Format (ligne, colonne)
+
+        #compteur pour les noms
+        ind_nom=0
+        for _ in range(n):
+            x_pivot = random.uniform(x - r, x + r)
+            y_pivot = random.uniform(y - r, y + r)
+            #x_pivot et y_pivot sont des floats, donc on veut trouver les indexes les plus proches
+            index_plus_proche = min(indexes,key=lambda idx: (idx[0] - y_pivot) ** 2 + (idx[1] - x_pivot) ** 2)
+            nom = ((chr((ord('a')+(j%26))))*(i+1)*(ind_nom+1))
+            i,j = index_plus_proche
+            if self.population[i][j] != None:
+                ind = self.population[i][j]
+                ind.c.append(random.uniform(0, 1))
+                ind.poids.append(1)
+                ind.nom.append(nom)
+            else:
+                self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
+            ind_nom+=1
 
     
     def refresh_Candidat(self):
