@@ -18,6 +18,7 @@ class SideMenu(QMainWindow):
         super().__init__()
 
         self.bd = bd
+        ic(self.bd," MenuLateral")
         self.Blongeur = Blongeur
         self.Bhauteur = Bhauteur
         self.tailleMap = tailleMap

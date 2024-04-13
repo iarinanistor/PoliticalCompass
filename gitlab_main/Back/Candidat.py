@@ -161,3 +161,4 @@ class Candidat:
         #logging.info('<Candidat.affiche_candidat> candidat: {}'.format(candidat))
 
         print(candidat.nom() + " " + candidat.prenom() + " age:" + str(candidat.age()) + " charisme:" + str(candidat.charisme()))
+

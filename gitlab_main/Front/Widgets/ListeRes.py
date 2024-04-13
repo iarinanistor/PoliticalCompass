@@ -2,9 +2,12 @@ from PySide6.QtWidgets import QApplication, QWidget, QHBoxLayout, QListWidget, Q
 from PySide6.QtGui import QColor
 from PySide6.QtCore import QTimer
 import logging
-
+from icecream import ic
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
+################################################################
+# nouvelle version utliser , utliser Resultat. Ce fichier sera bientot suprimer 
+################################################################
 class PointWidget(QWidget):
     def __init__(self, color, name, value):
         super().__init__()

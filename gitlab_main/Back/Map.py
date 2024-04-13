@@ -25,7 +25,20 @@ class Map:
         self.L_population = None
         self.generationX = generationX
         self.generationY = generationY
-
+        self.bd = bd
+                
+    def generation_pers(self,zone,type_generation,n):
+        print('generation',type_generation,zone,n)
+        if type_generation == "Triangulaire":
+            self.generationPopulationTriangulaire(zone,n)
+        elif type_generation == "Uniforme":
+            self.generationPopulationUniforme(zone,n)
+        elif type_generation == "Exponentiel":
+            self.generationPopulationExponentiel(zone,n)
+        elif type_generation == "Beta":
+            self.generationPopulationBeta(zone,n)
+        else : raise ValueError("type_generation no trouver ")
+        
         
     def generation(self): # genere la matrice des individus linéairement 
         '''
@@ -219,8 +232,6 @@ class Map:
         if(random.random()<0.35): logging.info('</Map.genereCand>') ; return Individus(nom,int(random.uniform(0,dbt)),int(random.uniform(0,dbt)),liste)
         else: logging.info('</Map.genereCand>');  return Individus(nom,int(random.uniform(fin,self.generationX)),int(random.uniform(fin,self.generationY)),liste)
         
-  
-            
     def generationTest(self,dbt,fin):
         logging.info('<Map.generationTest> dbt: {}, fin: {}'.format(dbt, fin))
         self.population = [
@@ -253,18 +264,16 @@ class Map:
         self.L_population = concat(self.population)
         logging.info('</Map.creer_L_population>')
     
-    def ajoute_candidat(self,newC):
+    def ajoute_candidat(self,candidat):
         '''
         Ajoute un nouveau candidat à la liste des candidats.
         
         Parameters:
-            newC (tuple): Tuple contenant les informations du nouveau candidat (nom, prénom, charisme, x, y).
+            candidat: nouveau candidat à ajouter.
         '''
-        logging.info('<Map.ajoute_candidat> newC: {}'.format(newC))
-        nom,prenom,charisme,x,y = newC
-        candidat = Candidat(nom,prenom,int(charisme),20,int(x),int(y))
+        logging.info('<Map.ajoute_candidat> newC: {}'.format(candidat))
         self.liste_electeur.append(candidat)
-        logging.info('</Map.ajoute_candidat> newC: {}'.format(newC))
+        logging.info('</Map.ajoute_candidat> newC: {}'.format(candidat))
          
     def listes_listes_votes(self): # genre la liste des listes des votes ordonnée de chaque indiv de la map
         '''
@@ -378,10 +387,13 @@ class Map:
         
         # Ce point du code ne devrait normalement pas être atteint
         return None
-
-
-
-
+    
+    def affiche(self):
+        for liste in self.population:
+            for ind in liste:
+                if ind == None : print("0 ", end='')  
+                else: print("1",end = " ") 
+            print("\n")
             
     def liste_poids(self,rayon):
         """Met à jour le poids"""
@@ -401,8 +413,9 @@ class Map:
                 continue
         return l
         
-    ################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 # gestion I / O
+    
     def ecrire(self,nomFichier):
         '''
         Écrit les données de la carte dans un fichier.

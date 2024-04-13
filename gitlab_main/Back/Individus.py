@@ -8,9 +8,9 @@ class Individus:
         self.x = x
         self.y = y
         self.liste_electeur = liste_electeur
-        self.poids = 1
-        self.c = uniform(0, 1)
-        self.adelegue = False
+        self.poids = [1]
+        self.c = [uniform(0, 1)]
+        self.adelegue = [False]
 
     # Getter pour obtenir le niveau de compétence de l'électeur
     def get_c(self):

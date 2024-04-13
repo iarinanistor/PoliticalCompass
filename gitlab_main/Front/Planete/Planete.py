@@ -1,6 +1,7 @@
 import logging
 import sys
 import math
+from Front.Utilitaire import generate_unique_colors
 from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QLabel, QLineEdit
 from PySide6.QtOpenGLWidgets import QOpenGLWidget
 from PySide6.QtGui import QImage, QVector2D, QColor
@@ -136,15 +137,18 @@ class Planete(QOpenGLWidget):
 
     def refresh_Map( self, new):
         """
-        Actualise la carte avec de nouveaux points.
+        Actualise la carte avec des nouveaux candidats.
 
         Args:
-            new (list): Liste des nouveaux points à afficher.
+            new (list): Liste des nouveaux candidats à afficher.
         """
         logging.info('<Planete.refresh_Map>')
         self.clear_spheres()
         
-        for name, color, score,(x,y) in new:
+        for cand in new:
+            x = cand.x()
+            y = cand.y()
+            color = generate_unique_colors(x, y)
             self.add_sphere(x,y,color)
         logging.info('</Planete.refresh_Map>')
 

@@ -3,7 +3,7 @@ from Front.Utilitaire import *
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QSpinBox
 from PySide6.QtGui import QIcon
 import logging
-
+from icecream import ic
 #Variable global du fichier 
 type1 ="Copeland" or "Copeland liquide"
 type2="Borda" or "Borda liquide"
@@ -126,19 +126,19 @@ class Bouton_Mvote(QWidget):
         
         self.button.setEnabled(False)
         if self.type_m == type1:
-            self.bd.refresh_MV([normalise_Ind(self.map.Copeland(self.rayon),1)])
+            self.bd.refresh_MV([(self.map.Copeland(self.rayon),1)])
             
         elif self.type_m == type2:
-            self.bd.refresh_MV([normalise_Ind(self.map.Borda(self.rayon),1)])
+            self.bd.refresh_MV([(self.map.Borda(self.rayon),1)])
             
         elif self.type_m == type3:
-            self.bd.refresh_MV([normalise_Ind(self.map.Pluralite(self.rayon),1)])
+            self.bd.refresh_MV([(self.map.Pluralite(self.rayon),1)])
             
         elif self.type_m == type4:
-            self.bd.refresh_MV([normalise_Ind(self.map.STV(self.rayon),1)])
+            self.bd.refresh_MV([(self.map.STV(self.rayon),1)])
             
         else :
-            self.bd.refresh_MV([normalise_Ind(self.map.Approbation(3,self.rayon),1)])
+            self.bd.refresh_MV([(self.map.Approbation(3,self.rayon),1)])
         logging.info("<Fin Gestion des Boutons des regles de vote>")
         self.button.setEnabled(True)
 
@@ -150,7 +150,7 @@ class Boutoun_GenerAleatoire(QWidget):
         self.l = l
         self.setFixedSize(self.l, self.h)
         self.bd = bd
-        
+        ic(bd,"button genere alteatoire")
         layout = QVBoxLayout()
         
         # Créer un bouton
@@ -168,14 +168,8 @@ class Boutoun_GenerAleatoire(QWidget):
     def on_button_clicked(self):
 
         self.button.setEnabled(False)
-        cd = self.bd.genere_aleatoire_candidat_BM()
-        nom =cd.nom()
-        prenom = cd.prenom()
-        valeurs=[cd.charisme(),int(cd.x()),int(cd.y())]
-        
-        new = normalise_button( nom,prenom,valeurs)
-        newC = normalise_button_C( nom,prenom,valeurs)
-        self.bd.ajoute(new,newC)
+        candidat = self.bd.genere_aleatoire_candidat_BM()
+        self.bd.ajoute(candidat)
         self.button.setEnabled(True)
 
 class BoutonIO(QWidget):

@@ -64,7 +64,8 @@ def is_majority(n,electeurs) :
     '''
     nb_electeurs = 0
     for elec in electeurs:
-        nb_electeurs += elec.poids
+        for p in elec.poids:
+            nb_electeurs += p
     return n > (nb_electeurs/2)
 
 
@@ -80,7 +81,8 @@ def comptage_votes(candidats,electeurs):
     nb_votes = {candidate:0 for candidate in candidats}
 
     for electeur in electeurs :
-        nb_votes[(electeur.liste_vote())[0]] += electeur.poids
+        for p in electeur.poids:
+            nb_votes[(electeur.liste_vote())[0]] += p
 
     return nb_votes
 
@@ -163,7 +165,8 @@ def approbation(candidats, electeurs, nb_approbation):
         for i in range(nb_approbation):
             votes = electeur.liste_vote()
             if i < len(votes):  # Vérifier si la liste des votes contient suffisamment de candidats
-                nb_votes[votes[i]] += electeur.poids
+                for poids in electeur.poids:
+                    nb_votes[votes[i]] += electeur.poids
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate, score in nb_votes.items() if score == max_vote]
@@ -221,7 +224,8 @@ def battleOneToOne(candidats,electeurs):
         ordre_votes = electeur.liste_vote()
         for i, c1 in enumerate(ordre_votes):
             for c2 in ordre_votes[i+1:]:
-                pairs_votes[(c1,c2)] += electeur.poids
+                for poid in electeur.poids:
+                    pairs_votes[(c1,c2)] += poid
     return pairs_votes
 
 def vainqueurCondorcet(candidats,electeurs):

@@ -4,7 +4,7 @@ from Widgets.ListeRes import ListePoint
 from PySide6.QtCore import Qt,QTimer
 from PySide6.QtGui import QColor
 from Widgets.MapQT import Compass
-from BaseDonnee.Base_Donnee import Base_donnee
+from BaseDonnee.BaseDonnee import Base_donnee
 import sys
 
 

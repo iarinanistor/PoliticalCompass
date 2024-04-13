@@ -3,8 +3,19 @@
 
 Methodes de votes et leurs consequences.
 
-On cree un Political Compass avec des electeurs et des candidtas. Chaque votant a une liste ordonne des candidats(prefere au moins prefere), et on teste les differentes methodes de vote pour voir leurs influences sur le resultat final. On implemente une methode de Monte-Carlo en focntion des differnet type de vote , et des maps predefinis ( par exemple une maps representant la france en focntion de statique des different election etc).
+Ce projet vise à explorer et à comparer les différentes méthodes de vote en utilisant un Political Compass fictif, avec des électeurs et des candidats. Chaque électeur possède une liste ordonnée des candidats (préféré au moins préféré), et différentes méthodes de vote sont testées pour voir leurs influences sur le résultat final.
 
+Les Méthodes de votes:
+
+Méthode de Pluralité
+
+Système de vote pondéré (par exemple, le vote par approbation)
+
+Méthode de Condorcet
+
+Méthode de Borda
+
+Règle par eliminations successives (STV)
 
 Credits:
 

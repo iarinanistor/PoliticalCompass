@@ -7,6 +7,9 @@ def generate_unique_colors(int1, int2):
     """
     Génère une couleur unique en fonction de deux entiers donnés.
     
+    Utilise une combinaison des deux entiers pour calculer les composantes RGB de la couleur.
+    Ceci est utile pour attribuer une couleur distinctive à chaque candidat basée sur des attributs uniques.
+    
     Args:
         int1 (int): Premier entier.
         int2 (int): Deuxième entier.
@@ -16,7 +19,6 @@ def generate_unique_colors(int1, int2):
     """
     logging.info('<generate_unique_colors> int1: {}, int2: {}'.format(int1, int2))
 
-    # Utilisation des entiers pour calculer les composantes RGB
     r = int(int1) % 256
     g = int(int2) % 256
     b = int(int1 * int2) % 256

@@ -1,9 +1,94 @@
 import logging
 from PySide6.QtWidgets import QGraphicsView, QVBoxLayout, QWidget, QGraphicsScene, QGraphicsEllipseItem, QGraphicsItem, QApplication, QMainWindow
-from PySide6.QtGui import QPen, QColor, QBrush
-from PySide6.QtCore import Qt
+from PySide6.QtGui import QPen, QColor, QBrush,QTransform
+from PySide6.QtCore import Qt,Signal,QObject
+from icecream import ic
+from PySide6.QtCore import Signal,QPoint
+from Front.Utilitaire import generate_unique_colors
 
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class NotFoundException(Exception):
+    def __init__(self,x,y, message="Point not found"):
+        self.message = message
+        super().__init__(self.message+" x :",x," y:",y)
+        
+class ValException(Exception):
+    def __init__(self, message):
+        self.message = message
+        super().__init__(self.message)
+        
+class ExistException(Exception):
+    def __init__(self, message="Il exist deja un point ans cette position"):
+        self.message = message
+        super().__init__(self.message)
+
+class InteractiveEllipse(QGraphicsEllipseItem):
+    pass
+
+# Classe d'assistance pour gérer les signaux
+class SignalHelper(QObject):
+    touched_point = Signal(InteractiveEllipse)
+
+# Modification de votre classe InteractiveEllipse
+class InteractiveEllipse(QGraphicsEllipseItem):
+    def __init__(self, x, y, r, color, signal_helper):
+        super().__init__(-r / 2, -r / 2, r, r)
+        self.setPos(x, y)
+        self.color_initial = color
+        self.setBrush(QBrush(color))
+        self.setFlags(QGraphicsItem.ItemIsSelectable | QGraphicsItem.ItemIsMovable)
+        self.signal_helper = signal_helper  # Stocke la référence au helper de signal
+
+    def get_x(self):
+        return self.pos().x()
+
+    def get_y(self):
+        return self.pos().y()
+
+    def get_rayon(self):
+        return self.rect().width() / 2
+    
+    def mousePressEvent(self, event):
+        """
+        permet de detecter la un clicuqe sur la surface du point
+        """
+        self.signal_helper.touched_point.emit(self)  # Utilise le helper pour émettre le signal
+        super().mousePressEvent(event)
+
+    def change_taille(self, delta_r):
+        """
+        augment la taille d'un point de 'delta_r' , si le rayon du point devient plus petit que 1 alors la fonction ne faire rien.
+        """
+        # Obtenez les dimensions actuelles de l'ellipse.
+        print("chnage_taille")
+        rect = self.rect()
+        current_width = rect.width()
+        current_height = rect.height()
+
+        # Calculez les nouvelles dimensions en ajoutant delta_r à la largeur et à la hauteur actuelles.
+        new_width = current_width + delta_r
+        new_height = current_height + delta_r
+        if(new_width <= 1) and (new_height <= 1): 
+            self.setRect(-5/ 2, -5 / 2,5,5)
+            return  
+        # Mettez à jour le rectangle de l'ellipse pour utiliser les nouvelles dimensions.
+        # Ajustez également la position pour que le centre de l'ellipse ne change pas.
+        self.setRect(-new_width / 2, -new_height / 2, new_width, new_height)
+        # Aucun ajustement de setPos n'est nécessaire ici car le rectangle est ajusté relativement à son centre.
+        
+    def change_color(self,color):
+        """
+        change la couleur d'un point
+        """
+        self.setBrush(QBrush(color))
+
+    def reinitialise_color(self):
+        """
+        reintialise la couleur d'un point
+        """
+        self.change_color(self.color_initial)
+
 
 class Map_QT(QWidget):
     def __init__(self, color=Qt.white, size=500, nb_lines=10):
@@ -12,6 +97,9 @@ class Map_QT(QWidget):
         self.view = QGraphicsView(self.scene)
         self.scene.setSceneRect(0, 0, size, size)
         self.view.setGeometry(0, 0, size, size)
+        self.view.setSceneRect(0, 0, size, size)
+        # Assurez-vous que la scène est bien alignée et visualisée dans la vue.
+        self.view.setAlignment(Qt.AlignLeft | Qt.AlignTop)
 
         self.color = color
         self.size = size
@@ -65,12 +153,14 @@ class Map_QT(QWidget):
         Actualise la carte avec de nouveaux points.
 
         Args:
-            new (list): Liste des nouveaux points à afficher.
+            new (list): Liste des nouveaux Candidat à afficher.
         """
         logging.info('<Map_QT.refresh_Map>')
         self.clearPoints()
-        for name, color, score, (x, y) in new:
-            self.placePoint(x, y, color)
+        for cand in new:
+            x = cand.x()
+            y = cand.y()
+            self.placePoint(x, y, generate_unique_colors(x,y))
         self.show()
         logging.info('</Map_QT.refresh_Map>')
 
@@ -100,7 +190,72 @@ class Compass(Map_QT):
         self.compass_layout.addWidget(self.view)
 
         self.createGrid()
+        
 
+class PreMap(Compass):
+    clicked = Signal(QPoint)
+    
+    def __init__(self):
+        super().__init__(500, 100)
+        self.signal_helper = SignalHelper()
+        self.liste_points=[]
+        
+    def place_point(self, x, y, color, r,fonction):
+        """
+        x,y : int
+        Qcolor : color
+        double : r
+        pointeur de fonction : fonction 
+        
+        permet de placer un point et envoie un sigale a la fonction 'ellipse touche' permet de traiter les cliques sur InteractiveEllipse depuis Lwindow
+        
+        Place un point
+        """
+        # Utilise InteractiveEllipse pour ajouter des ellipses interactives à la scène.
+        ellipse = InteractiveEllipse(x, y, r, color,self.signal_helper)
+        self.signal_helper.touched_point.connect(fonction)
+        self.liste_points.append(ellipse)
+        self.scene.addItem(ellipse)
+        return ellipse
+
+    """def change_color_p(self, p, color):
+        # Directement sur l'ellipse, si p est une référence à une InteractiveEllipse.
+        if isinstance(p, InteractiveEllipse):
+            p.setBrush(QColor(color))"""
+                
+    def mousePressEvent(self, event):
+        """
+        detect un clique sur la hitbox de PreMap
+        """
+        # Émet le signal clicked avec la position du clic convertie en coordonnées de la scène.
+        scenePoint = self.view.mapToScene(event.pos())
+        self.clicked.emit(scenePoint.toPoint())
+        event.accept()
+    
+    def suprime_point(self, point_a_supprimer):
+        """
+        InteractiveEllipse  : point_a_supprimer
+        suprime un point 
+        """
+        if point_a_supprimer in self.liste_points:
+            self.liste_points.remove(point_a_supprimer) 
+        
+    def affiche_point(self):
+        print("\n")
+        for point in self.liste_points:
+            print(" ",point)
+        print("\n")
+    
+    def refresh(self):
+        """
+        permet de refresh la scene 
+        """
+        self.scene.update()
+        self.view.update()
+
+
+                
+                 
 class HitMap(Compass):
     def __init__(self, taille, taille_grille=550, nbLigne=100):
         super().__init__(taille_grille, nbLigne)
@@ -148,8 +303,13 @@ if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
     logging.info('<__main__>')
-    hitmap = HitMap(50)
-    hitmap.placePoint(24.5, 24.5, QColor(255, 0, 0))
-    hitmap.show()
+    map = PreMap()
+    x,y = 250,250
+    map.place_point(x,y, QColor(255, 0, 0),30)
+    for item in map.scene.items():
+        if isinstance(item, QGraphicsEllipseItem):
+            print(f"Élément à x={item.pos().x()}, y={item.pos().y()}, rect={item.rect()}")
+    #map.change_rayon(x,y,10)
+    map.show()
     logging.info('</__main__>')
     sys.exit(app.exec())

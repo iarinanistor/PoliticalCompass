@@ -1,14 +1,15 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QSizePolicy, QSpacerItem, QFrame
 from Front.Widgets.MenuLateral import SideMenu
-from Front.Widgets.ListeRes import ListePoint
 from PySide6.QtCore import Qt, QTimer, QSize, QRect
 from PySide6.QtGui import QColor
 from Front.Widgets.MapQT import Compass
 from Front.Planete.Planete import Planete
+from Front.Widgets.Resultat import ListeResultat
+from Front.Utilitaire import generate_unique_colors
 from resources_rc import *
 import logging
-
+from icecream import ic
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class MainWindow(QMainWindow):
@@ -25,12 +26,14 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Main Window")
         self.bd = bd
+        ic(self.bd,"Main Window")
         self.tailleMap = tailleMap
         # Taille des boutons
         self.Blongeur = 300
         self.Bhauteur = 40
         self.Planete = Pl
-        self.listeResultat = []
+        self.liste_des_resultats = [] # liste de couples ( candidat , score)
+        
 
         # Créer les widgets
         if Pl:
@@ -40,7 +43,7 @@ class MainWindow(QMainWindow):
             self.compass = Compass(size=self.tailleMap, nb_lines=100)
 
         self.menu = SideMenu(self.bd, self.Blongeur, self.Bhauteur, self.tailleMap)
-        self.listePoint = ListePoint(self.listeResultat)
+        self.liste_resultats = ListeResultat(self.liste_des_resultats)
 
         # Créer un widget central pour la fenêtre principale
         central_widget = QWidget()
@@ -99,14 +102,13 @@ class MainWindow(QMainWindow):
         # Ajouter le layout horizontal supérieur au layout principal
         main_layout.addLayout(top_layout)
 
-        # Ajouter un espace extensible pour pousser ListePoint vers la droite
+        # Ajouter un espace extensible pour pousser liste_resulat vers la droite
         main_layout.addSpacerItem(QSpacerItem(0, 0, QSizePolicy.Expanding, QSizePolicy.Minimum))
 
-        # Ajouter ListePoint en bas à droite
-        main_layout.addWidget(self.listePoint, alignment=Qt.AlignBottom | Qt.AlignRight)
-
-        # Configurer la taille maximale de ListePoint
-        self.listePoint.setMaximumWidth(500)
+        # Ajouter liste_resultat en bas à droite
+        main_layout.addWidget(self.liste_resultats, alignment=Qt.AlignBottom | Qt.AlignRight)
+        # Configurer la taille maximale de liste_resulat
+        self.liste_resultats.setMaximumWidth(500)
 
         # Configurer la géométrie de la fenêtre principale
         self.setGeometry(100, 100, 1250, 900)
@@ -127,30 +129,33 @@ class MainWindow(QMainWindow):
 
         self.compass.show()
 
-    def ajoutePoint_Map(self, element_normaliser):
+
+    def ajoute_point_map(self, candidat):
         """
         Méthode pour ajouter un point sur la carte.
 
         Args:
             element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
         """
-        logging.info('<MainWindow.ajoutePoint_Map> element_normaliser: {}'.format(element_normaliser))
-        _, color, _, (x, y) = element_normaliser
+        logging.info('<MainWindow.ajoutePoint_Map> element_normaliser: {}'.format(candidat))
+        
+        x = candidat.x() 
+        y = candidat.y()
+        
         if self.Planete:
-            self.compass.add_sphere(x, y, color)
+            self.compass.add_sphere(x,y, generate_unique_colors(x,y))
         else:
-            self.compass.placePoint(x, y, color)
+            self.compass.placePoint(x,y, generate_unique_colors(x,y))
 
-    def ajouterPoint_Liste(self, element_normaliser):
+    
+    def ajouter_resultat(self,candidat):
         """
-        Méthode pour ajouter un point à la liste.
+        Méthode pour ajouter un cand à listeResulatat.
 
         Args:
-            element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
+            candidat (Candidat): Candidat a ajouter dans listeResultat
         """
-        logging.info('<MainWindow.ajouterPoint_Liste> element_normaliser: {}'.format(element_normaliser))
-        nom, color, score, pos = element_normaliser
-        self.listePoint.ajouter_element(nom, color, score, pos)
+        self.liste_resultats.ajouter_element(candidat,0)
 
     def afficheListe(self):
         """Méthode pour afficher la liste."""
@@ -170,39 +175,40 @@ class MainWindow(QMainWindow):
     def refresh(self, new):
         """
         Méthode pour actualiser la fenêtre principale avec de nouveaux points.
-
+        Utiliser dans base donnee (self.recharge).
         Args:
-            new (list): Liste des nouveaux points à afficher.
+            new (list): Liste des nouveaux candidat à afficher.
         """
         logging.info('<MainWindow.refresh> new: {}'.format(new))
 
         self.compass.refresh_Map(new)
-        self.listePoint.refresh_ListPoint(new)
+        self.liste_resultats.refresh_list_resultat(new)
 
-    def ajouteElement(self, element_normaliser):
+    def ajoute_element(self,candidat):
         """
         Méthode pour ajouter un élément à la liste et à la carte.
 
         Args:
             element_normaliser (tuple): Tuple représentant les informations d'un point normalisé.
         """
-        logging.info('<MainWindow.ajouteElement> element_normaliser: {}'.format(element_normaliser))
+        logging.info('<MainWindow.ajouteElement> element_normaliser: {}'.format(candidat))
 
-        self.listeResultat.append(element_normaliser)
-        self.ajoutePoint_Map(element_normaliser)
-        self.ajouterPoint_Liste(element_normaliser)
+        self.liste_des_resultats.append((candidat,0))
+        self.ajoute_point_map(candidat)
+        self.ajouter_resultat(candidat)
 
-    def refresh_Liste(self, l):
-        """
+     # je ne sais pas elle sert a quoi , je la met de coter on sait jamais 
+    """
+        def refresh_Liste(self, l): 
+        "
         Méthode pour actualiser la liste de résultats.
-
+        "
         Args:
             l (list): Liste des résultats à afficher.
-        """
         logging.info('<MainWindow.refresh_Liste> l: {}'.format(l))
 
-        self.listePoint.refresh_MV(l)
-
+                self.listePoint.refresh_MV(l)
+    """
                            
 def test_refresh_MainWindow():
     """
@@ -226,7 +232,7 @@ def test_refresh_MainWindow():
     ]))
 
     # Attendre 3 secondes avant d'ajouter un nouveau point
-    QTimer.singleShot(3000, lambda: window.ajouteElement("Monsieur low", QColor(0, 255, 0), 6, (150, 50)))
+    QTimer.singleShot(3000, lambda: window.ajoute_element("Monsieur low", QColor(0, 255, 0), 6, (150, 50)))
 
     # Attendre 6 secondes avant de quitter
     QTimer.singleShot(6000, app.quit)
@@ -244,5 +250,5 @@ if __name__ == "__main__":
         ("Monsieur Orange", QColor(255, 165, 0), 7, (100, 100)),
         ("Monsieur Purple", QColor(128, 0, 128), 8, (150, 150))
     ])
-    window.ajouteElement(("Monsieur low", QColor(0, 255, 0), 6, (150, 50)))
+    window.ajoute_element(("Monsieur low", QColor(0, 255, 0), 6, (150, 50)))
     app.exec()
