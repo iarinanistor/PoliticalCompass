@@ -115,7 +115,8 @@ def borda(candidats,electeurs):
 
     for electeur in electeurs :
         for i in range(n):
-            nb_votes[electeur.liste_vote()[i]] += (n-1-i)*electeur.poids
+            for poid in electeur.poids:
+                nb_votes[electeur.liste_vote()[i]] += (n-1-i)*poid
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate,score in nb_votes.items() if score == max_vote]
@@ -165,8 +166,8 @@ def approbation(candidats, electeurs, nb_approbation):
         for i in range(nb_approbation):
             votes = electeur.liste_vote()
             if i < len(votes):  # Vérifier si la liste des votes contient suffisamment de candidats
-                for poids in electeur.poids:
-                    nb_votes[votes[i]] += electeur.poids
+                for poid in electeur.poids:
+                    nb_votes[votes[i]] += poid
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate, score in nb_votes.items() if score == max_vote]
@@ -174,38 +175,21 @@ def approbation(candidats, electeurs, nb_approbation):
     return un_seul_vainqueur(vainqueurs)
 
 def liste_approbation(candidats,votant):
-    """
-    Retourne une liste des candidats approuvés par un votant.
-
-    Args:
-        candidats (list): Liste des candidats.
-        votant (Point): Les coordonnées du votant.
-
-    Returns:
-        list: Liste des candidats approuvés par le votant.
-    """
+    def dist(x1,y1,x2,y2):
+        return ((x1-x2)**2+(y1-y2)**2)**0.5
     l=[]
     for candidat in candidats:
-        if F(candidat.x(),candidat.y(),votant.x,votant.y)<=50:
+        if dist(candidat.x(),candidat.y(),votant.x,votant.y)<=50:
             l.append(candidat)
     return l
 
 def liste_approb_totale(candidats,votants):
-    """
-    Retourne une liste des candidats vainqueurs par approbation totale.
-
-    Args:
-        candidats (list): Liste des candidats.
-        votants (list): Liste des votants.
-
-    Returns:
-        list: Liste des candidats vainqueurs.
-    """
-    nb_votes={candidats:0 for candidat in candidats}
+    nb_votes={candidat:0 for candidat in candidats}
     for votant in votants:
         l=liste_approbation(candidats,votant)
         for cand in l:
-            nb_votes[cand]+=1
+            for poid in votant.poids:
+                nb_votes[cand]+=1
 
     max_vote = max(nb_votes.values())
     vainqueurs = [candidate for candidate,score in nb_votes.items() if score == max_vote]
@@ -229,16 +213,6 @@ def battleOneToOne(candidats,electeurs):
     return pairs_votes
 
 def vainqueurCondorcet(candidats,electeurs):
-    """
-    Retourne le vainqueur selon le critère de Condorcet.
-
-    Args:
-        candidats (list): Liste des candidats.
-        electeurs (list): Liste des électeurs.
-
-    Returns:
-        any: Le candidat vainqueur selon le critère de Condorcet, ou None s'il n'y en a pas.
-    """
     pairs_votes = battleOneToOne(candidats,electeurs)
     for candidat in candidats:
         gagne = 0
