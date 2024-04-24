@@ -5,7 +5,7 @@ from Back.Candidat import Candidat
 from Back.Individus import Individus
 import random
 import logging 
-#from icecream import ic
+from icecream import ic
 class Map:
     def __init__ (self,bd,nom=None,liste_electeur=[],population=[],generationX=None,generationY=None):
         '''
@@ -458,40 +458,83 @@ class Map:
         
 ################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 # gestion I / O
-    
     def ecrire(self,nomFichier):
         '''
-        Écrit les données de la carte dans un fichier.
+        Écrit les donnees de la carte dans un fichier.
         
         Parameters:
-            nomFichier (str): Nom du fichier de sortie.
+            nomFichier (str): Nom du fichier ou les donnees seront ecrites.
+        
+        Returns:
+            void
         '''
-        logging.info('<Map.ecrire> nomFichier: {}'.format(nomFichier))
-        with open(nomFichier, "w") as fichier:
-            fichier.write( str(self.generationX)+"\n")
-            fichier.write( str(self.generationY)+"\n")
-            fichier.write("<candidat> \n")   
-            for cd in self.liste_electeur:
-                fichier.write(str(cd.nom()) + " " + str(cd.prenom()) + " " + str(cd.charisme()) + " " + str(cd.age()) + " " + str(int(cd.x())) + " " + str(int(cd.y())) + "\n")
-            fichier.write("</candidat> \n")  # Fermez la balise candidat
+        if nomFichier == "":
+            print("Veuillez entrer le nom du fichier où enregistrer")
+        else:
+            logging.info('<Map.ecrire> nomFichier: {}'.format(nomFichier))
+            with open(nomFichier, "w") as fichier:
+                fichier.write(str(self.generationX)+"\n")
+                fichier.write(str(self.generationY)+"\n")
+                fichier.write("<candidat> \n")
+                for cd in self.liste_electeur:
+                    fichier.write(str(cd.nom()) + " " + str(cd.prenom()) + " " + str(cd.charisme()) + " " + str(cd.age()) + " " + str(cd.x()) + " " + str(cd.y()) + "\n")
+                fichier.write("</candidat> \n")  # Fermez la balise candidat
 
-            fichier.write("<population> \n")
-            for liste_ind in self.population:
-                for ind in liste_ind:
-                    if ind != None: fichier.write(str(ind.nom) + " " + str(ind.x) + " " + str(ind.y) + "\n")
-            fichier.write("</population> \n")  # Fermez la balise population
-            fichier.close()  
-            logging.info('</Map.ecrire> nomFichier: {}'.format(nomFichier))
-            
+                fichier.write("<population> \n")
+                for liste_ind in self.population:
+                    for ind in liste_ind:
+                        if ind != None: 
+                            # Ecriture de la liste des noms
+                            fichier.write(str("["))
+                            for i in range (len(ind.nom)):
+                                fichier.write(str(ind.nom[i]))
+                                if (i+1 < len(ind.nom)):
+                                    fichier.write(str(","))
+                            fichier.write(str("] "))
+
+                            #Ecriture des coordonnees x et y
+                            fichier.write(str(ind.x) + " " + str(ind.y) + " ")
+                            
+                            #Ecriture de la liste des poids
+                            fichier.write(str("["))
+                            for i in range (len(ind.poids)):
+                                fichier.write(str(ind.poids[i]))
+                                if (i+1 < len(ind.poids)):
+                                    fichier.write(str(","))
+                            fichier.write(str("] "))
+
+                            #Ecriture de la liste des c
+                            fichier.write(str("["))
+                            for i in range (len(ind.c)):
+                                fichier.write(str(ind.c[i]))
+                                if (i+1 < len(ind.c)):
+                                    fichier.write(str(","))
+                            fichier.write(str("] "))
+
+                            #Ecriture de la liste des adelegue
+                            fichier.write(str("["))
+                            for i in range (len(ind.adelegue)):
+                                fichier.write(str(ind.adelegue[i]))
+                                if (i+1 < len(ind.adelegue)):
+                                    fichier.write(str(","))
+                            fichier.write(str("]"))
+
+                            fichier.write("\n")
+
+                fichier.write("</population> \n")  # Fermez la balise population
+                fichier.close()  
+                logging.info('</Map.ecrire> nomFichier: {}'.format(nomFichier))
+
+
     def lire(self, nomFichier):
         '''
-        Lit les données d'un fichier et retourne les candidats et la population.
+        Lit les données dans un fichier et retourne les candidats et la population.
         
         Parameters:
             nomFichier (str): Nom du fichier à lire.
         
         Returns:
-            tuple: Tuple contenant une liste de candidats et une liste de populations.
+            candidats, population: Tuple contenant une liste de candidats et une liste de populations.
         '''
         logging.info('<Map.lire> nomFichier: {}'.format(nomFichier))
         with open(nomFichier, "r") as fichier:
@@ -516,7 +559,7 @@ class Map:
                     if len(elements) == 6:  # Vérifier si la ligne contient le bon nombre d'éléments
                         # Ajouter les données des candidats à une liste
                         nom, prenom, charisme, age, x, y = elements
-                        candidats.append(Candidat(nom, prenom, int(charisme), int(age), int(x), int(y)))
+                        candidats.append(Candidat(nom, prenom, int(charisme), int(age), int(float(x)), int(float(y))))
                         
                 elif ligne.startswith("<population>"):
                     en_population = True
@@ -525,10 +568,26 @@ class Map:
                 elif en_population:
                     # Diviser la ligne en éléments individuels
                     elements = ligne.split()
-                    if len(elements) == 3:  # Vérifier si la ligne contient le bon nombre d'éléments
-                        # Ajouter les données de la population à une liste
-                        nom, x_coord, y_coord = elements
-                        population.append(Individus(nom, int(x_coord), int(y_coord), candidats))
+                    if len(elements) == 6:  # Vérifier si la ligne contient le bon nombre d'éléments
+                        liste_nom, x_coord, y_coord, liste_poids, liste_c, liste_adelegue = elements
+                        
+                        liste_nom = liste_nom.strip('[]')
+                        liste_nom = [nom.strip() for nom in liste_nom.split(',')]
+                        x_coord = int(x_coord)
+                        y_coord = int(y_coord)
+                        liste_poids = liste_poids.strip('[]')
+                        liste_poids = [int(poids.strip()) for poids in liste_poids.split(',')]
+                        liste_c = liste_c.strip('[]')
+                        liste_c = [float(c.strip()) for c in liste_c.split(',')]
+                        liste_adelegue = liste_adelegue.strip('[]')
+                        liste_adelegue = [bool(adelegue.strip()) for adelegue in liste_adelegue.split(',')]
+                        new = Individus(x=x_coord,y=y_coord,liste_electeur=candidats)
+                        new.nom = liste_nom
+                        new.poids = liste_poids
+                        new.c = liste_c
+                        new.adelegue = liste_adelegue
+                        population.append(new)
+
         logging.info('</Map.lire> nomFichier: {}'.format(nomFichier))
         # Retourner les données lues
         return candidats, population

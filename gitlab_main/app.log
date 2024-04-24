@@ -1,0 +1,1183 @@
+2024-04-24 10:12:14,087 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:12:14,102 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:12:14,398 - INFO - <Map_QT.createGrid>
+2024-04-24 10:12:14,398 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:12:14,399 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:12:14,399 - INFO - </Map_QT.createGrid>
+2024-04-24 10:12:14,399 - INFO - <Map_QT.createGrid>
+2024-04-24 10:12:14,399 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:12:14,399 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:12:14,400 - INFO - </Map_QT.createGrid>
+2024-04-24 10:12:28,440 - INFO - <Map.creer_L_population>
+2024-04-24 10:12:28,440 - INFO - </Map.creer_L_population>
+2024-04-24 10:12:28,716 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:12:31,527 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-24 10:12:31,527 - INFO - <Candidat.__init__> nom: Dupont, prenom: Chloe, charisme: 2, age: 66, x: 18.572397134558962, y: 34.104928749665895
+2024-04-24 10:12:31,527 - INFO - <Ajout bd>
+2024-04-24 10:12:31,527 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-24 10:12:31,527 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14370>
+2024-04-24 10:12:31,527 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14370>
+2024-04-24 10:12:31,527 - INFO - <generate_unique_colors> int1: 92.86198567279482, int2: 170.52464374832948
+2024-04-24 10:12:31,527 - INFO - <Planete.add_sphere>
+2024-04-24 10:12:31,528 - INFO - <Planete.add_sphere.INFO> latitude: 92.86198567279482, longitude: 170.52464374832948, color: #aca2db
+2024-04-24 10:12:31,528 - INFO - </Planete.add_sphere>
+2024-04-24 10:12:31,528 - INFO - <Ajout d'element>
+2024-04-24 10:12:31,528 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 0.
+2024-04-24 10:12:31,535 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:31,537 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:31,537 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-24 10:12:31,537 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14370>
+2024-04-24 10:12:31,537 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14370>
+2024-04-24 10:12:31,537 - INFO - <Fin ajout bd>
+2024-04-24 10:12:31,694 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-24 10:12:31,695 - INFO - <Candidat.__init__> nom: LeGall, prenom: Gabriel, charisme: 62, age: 26, x: 33.05508868700058, y: 38.544610909650565
+2024-04-24 10:12:31,695 - INFO - <Ajout bd>
+2024-04-24 10:12:31,695 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-24 10:12:31,695 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14670>
+2024-04-24 10:12:31,695 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14670>
+2024-04-24 10:12:31,695 - INFO - <generate_unique_colors> int1: 165.2754434350029, int2: 192.72305454825283
+2024-04-24 10:12:31,695 - INFO - <Planete.add_sphere>
+2024-04-24 10:12:31,695 - INFO - <Planete.add_sphere.INFO> latitude: 165.2754434350029, longitude: 192.72305454825283, color: #61c06c
+2024-04-24 10:12:31,696 - INFO - </Planete.add_sphere>
+2024-04-24 10:12:31,696 - INFO - <Ajout d'element>
+2024-04-24 10:12:31,696 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:31,697 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:31,700 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:31,700 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-24 10:12:31,700 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14670>
+2024-04-24 10:12:31,700 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14670>
+2024-04-24 10:12:31,700 - INFO - <Fin ajout bd>
+2024-04-24 10:12:31,877 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-24 10:12:31,877 - INFO - <Candidat.__init__> nom: Dupont, prenom: Marceau, charisme: 73, age: 71, x: 77.66717811340646, y: 9.905087406569102
+2024-04-24 10:12:31,878 - INFO - <Ajout bd>
+2024-04-24 10:12:31,878 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-24 10:12:31,878 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14310>
+2024-04-24 10:12:31,878 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x2e2d14310>
+2024-04-24 10:12:31,878 - INFO - <generate_unique_colors> int1: 388.3358905670323, int2: 49.52543703284551
+2024-04-24 10:12:31,878 - INFO - <Planete.add_sphere>
+2024-04-24 10:12:31,878 - INFO - <Planete.add_sphere.INFO> latitude: 388.3358905670323, longitude: 49.52543703284551, color: #b47d20
+2024-04-24 10:12:31,878 - INFO - </Planete.add_sphere>
+2024-04-24 10:12:31,878 - INFO - <Ajout d'element>
+2024-04-24 10:12:31,878 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:31,880 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:31,881 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:31,881 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-24 10:12:31,882 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14310>
+2024-04-24 10:12:31,882 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x2e2d14310>
+2024-04-24 10:12:31,882 - INFO - <Fin ajout bd>
+2024-04-24 10:12:35,391 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:35,392 - INFO -           Bouton Copeland clique.
+2024-04-24 10:12:35,392 - INFO - <Map.Copeland/>
+2024-04-24 10:12:35,392 - INFO - <Map.creer_L_population>
+2024-04-24 10:12:35,392 - INFO - </Map.creer_L_population>
+2024-04-24 10:12:35,406 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:35,406 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:35,406 - INFO - <Nettoyage
+2024-04-24 10:12:35,407 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:35,407 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:35,407 - INFO - <Ajout d'element>
+2024-04-24 10:12:35,407 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 1.
+2024-04-24 10:12:35,407 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:35,409 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:35,409 - INFO - <Ajout d'element>
+2024-04-24 10:12:35,409 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:35,410 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:35,412 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:35,412 - INFO - <Ajout d'element>
+2024-04-24 10:12:35,412 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:35,412 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:35,414 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:35,414 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:35,414 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:36,725 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:36,725 - INFO -           Bouton Approbation clique.
+2024-04-24 10:12:36,725 - INFO - <Map.Approbation>
+2024-04-24 10:12:36,740 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:36,740 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:36,740 - INFO - <Nettoyage
+2024-04-24 10:12:36,741 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:36,741 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:36,741 - INFO - <Ajout d'element>
+2024-04-24 10:12:36,741 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 1.
+2024-04-24 10:12:36,741 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:36,743 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:36,743 - INFO - <Ajout d'element>
+2024-04-24 10:12:36,743 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 0.
+2024-04-24 10:12:36,744 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:36,745 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:36,745 - INFO - <Ajout d'element>
+2024-04-24 10:12:36,745 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:36,746 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:36,747 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:36,747 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:36,747 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:37,574 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:37,574 - INFO -           Bouton STV clique.
+2024-04-24 10:12:37,574 - INFO - <Map.STV/>
+2024-04-24 10:12:37,580 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:37,580 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:37,580 - INFO - <Nettoyage
+2024-04-24 10:12:37,580 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:37,580 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:37,580 - INFO - <Ajout d'element>
+2024-04-24 10:12:37,580 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 1.
+2024-04-24 10:12:37,581 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:37,583 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:37,583 - INFO - <Ajout d'element>
+2024-04-24 10:12:37,583 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:37,583 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:37,585 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:37,585 - INFO - <Ajout d'element>
+2024-04-24 10:12:37,585 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:37,585 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:37,586 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:37,586 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:37,586 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:38,626 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:38,627 - INFO -           Bouton Pluralite clique.
+2024-04-24 10:12:38,627 - INFO - <Map.Pluralite/>
+2024-04-24 10:12:38,632 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:38,632 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:38,632 - INFO - <Nettoyage
+2024-04-24 10:12:38,632 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:38,632 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:38,633 - INFO - <Ajout d'element>
+2024-04-24 10:12:38,633 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 1.
+2024-04-24 10:12:38,634 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:38,636 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:38,636 - INFO - <Ajout d'element>
+2024-04-24 10:12:38,636 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:38,637 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:38,639 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:38,639 - INFO - <Ajout d'element>
+2024-04-24 10:12:38,639 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:38,640 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:38,641 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:38,642 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:38,642 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:39,358 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:39,358 - INFO -           Bouton Borda clique.
+2024-04-24 10:12:39,358 - INFO - <Map.Borda/>
+2024-04-24 10:12:39,429 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:39,429 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:39,429 - INFO - <Nettoyage
+2024-04-24 10:12:39,429 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:39,429 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:39,429 - INFO - <Ajout d'element>
+2024-04-24 10:12:39,429 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 1.
+2024-04-24 10:12:39,429 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:39,430 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:39,430 - INFO - <Ajout d'element>
+2024-04-24 10:12:39,430 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:39,431 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:39,431 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:39,431 - INFO - <Ajout d'element>
+2024-04-24 10:12:39,431 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:39,432 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:39,432 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:39,433 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:39,433 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:40,291 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:40,292 - INFO -           Bouton STV clique.
+2024-04-24 10:12:40,293 - INFO - <Map.STV/>
+2024-04-24 10:12:40,303 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:40,303 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:40,303 - INFO - <Nettoyage
+2024-04-24 10:12:40,303 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:40,303 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:40,303 - INFO - <Ajout d'element>
+2024-04-24 10:12:40,304 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 1.
+2024-04-24 10:12:40,304 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:40,306 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:40,306 - INFO - <Ajout d'element>
+2024-04-24 10:12:40,306 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 0.
+2024-04-24 10:12:40,307 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:40,308 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:40,308 - INFO - <Ajout d'element>
+2024-04-24 10:12:40,308 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:40,309 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:40,311 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:40,311 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:40,311 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:41,024 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:12:41,025 - INFO -           Bouton Approbation clique.
+2024-04-24 10:12:41,025 - INFO - <Map.Approbation>
+2024-04-24 10:12:41,040 - INFO - <Rafraichissement carte>
+2024-04-24 10:12:41,040 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:12:41,040 - INFO - <Nettoyage
+2024-04-24 10:12:41,041 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:12:41,041 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:12:41,041 - INFO - <Ajout d'element>
+2024-04-24 10:12:41,041 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14310>,Score: 1.
+2024-04-24 10:12:41,041 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:41,043 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:41,043 - INFO - <Ajout d'element>
+2024-04-24 10:12:41,043 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14370>,Score: 0.
+2024-04-24 10:12:41,044 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:41,045 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:41,046 - INFO - <Ajout d'element>
+2024-04-24 10:12:41,046 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e2d14670>,Score: 0.
+2024-04-24 10:12:41,046 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:41,048 - INFO - <Fin Ajout d'element>
+2024-04-24 10:12:41,048 - INFO - </Rafraichissement carte>
+2024-04-24 10:12:41,048 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:12:42,641 - INFO - <Map.creer_L_population>
+2024-04-24 10:12:42,641 - INFO - </Map.creer_L_population>
+2024-04-24 10:12:42,650 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:42,650 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:42,650 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:42,652 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:42,652 - INFO - <generate_unique_colors> int1: 33.05508868700058, int2: 38.544610909650565
+2024-04-24 10:12:42,652 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:42,653 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:42,653 - INFO - <generate_unique_colors> int1: 77.66717811340646, int2: 9.905087406569102
+2024-04-24 10:12:42,653 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:12:42,653 - INFO - <generate_unique_colors> int1: 18.572397134558962, int2: 34.104928749665895
+2024-04-24 10:17:09,243 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:17:09,257 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:17:09,538 - INFO - <Map_QT.createGrid>
+2024-04-24 10:17:09,538 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:17:09,539 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:17:09,540 - INFO - </Map_QT.createGrid>
+2024-04-24 10:17:09,540 - INFO - <Map_QT.createGrid>
+2024-04-24 10:17:09,540 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:17:09,540 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:17:09,541 - INFO - </Map_QT.createGrid>
+2024-04-24 10:17:19,432 - INFO - <Map.creer_L_population>
+2024-04-24 10:17:19,432 - INFO - </Map.creer_L_population>
+2024-04-24 10:17:19,743 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:17:30,790 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:17:30,791 - INFO -           Fichier de recharge specifie: test.
+2024-04-24 10:17:30,791 - INFO - <Rchargement>
+2024-04-24 10:17:30,791 - INFO -   Rechargement des donnees a partir du fichier test.
+2024-04-24 10:17:30,791 - INFO - <Map.chargement> nomfichier: test
+2024-04-24 10:17:30,792 - INFO - <Map.lire> nomFichier: test
+2024-04-24 10:17:48,039 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:17:48,043 - INFO -           Fichier de sauvegarde specifie: ttt.
+2024-04-24 10:17:48,044 - INFO - <Sauvegarde>
+2024-04-24 10:17:48,044 - INFO -   Sauvegarde des donnees dans le fichier ttt.
+2024-04-24 10:17:48,044 - INFO - <Map.ecrire> nomFichier: ttt
+2024-04-24 10:17:48,046 - INFO - </Map.ecrire> nomFichier: ttt
+2024-04-24 10:17:48,046 - INFO - <Fin sauvegarde>
+2024-04-24 10:17:48,046 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:18:24,350 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:18:24,361 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:18:24,617 - INFO - <Map_QT.createGrid>
+2024-04-24 10:18:24,617 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:18:24,617 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:18:24,618 - INFO - </Map_QT.createGrid>
+2024-04-24 10:18:24,618 - INFO - <Map_QT.createGrid>
+2024-04-24 10:18:24,618 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:18:24,618 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:18:24,619 - INFO - </Map_QT.createGrid>
+2024-04-24 10:18:41,955 - INFO - <Map.creer_L_population>
+2024-04-24 10:18:41,955 - INFO - </Map.creer_L_population>
+2024-04-24 10:18:42,232 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:18:48,322 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:18:48,323 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:18:48,323 - INFO - <Rchargement>
+2024-04-24 10:18:48,323 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:18:48,323 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:18:48,323 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:18:48,325 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:18:48,325 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:18:48,325 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:18:48,327 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:18:48,328 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:21:48,037 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:21:48,050 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:21:48,310 - INFO - <Map_QT.createGrid>
+2024-04-24 10:21:48,310 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:21:48,310 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:21:48,310 - INFO - </Map_QT.createGrid>
+2024-04-24 10:21:48,310 - INFO - <Map_QT.createGrid>
+2024-04-24 10:21:48,310 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:21:48,310 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:21:48,311 - INFO - </Map_QT.createGrid>
+2024-04-24 10:22:00,799 - INFO - <Map.creer_L_population>
+2024-04-24 10:22:00,799 - INFO - </Map.creer_L_population>
+2024-04-24 10:22:01,083 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:22:07,782 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:22:07,783 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:22:07,783 - INFO - <Rchargement>
+2024-04-24 10:22:07,783 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:22:07,783 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:22:07,783 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:22:07,785 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:22:07,785 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:22:07,785 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:22:07,787 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:22:07,787 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:23:33,255 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:23:33,270 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:23:33,559 - INFO - <Map_QT.createGrid>
+2024-04-24 10:23:33,560 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:23:33,560 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:23:33,561 - INFO - </Map_QT.createGrid>
+2024-04-24 10:23:33,561 - INFO - <Map_QT.createGrid>
+2024-04-24 10:23:33,561 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:23:33,561 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:23:33,562 - INFO - </Map_QT.createGrid>
+2024-04-24 10:23:46,895 - INFO - <Map.creer_L_population>
+2024-04-24 10:23:46,895 - INFO - </Map.creer_L_population>
+2024-04-24 10:23:47,178 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:23:57,850 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:23:57,851 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:23:57,851 - INFO - <Rchargement>
+2024-04-24 10:23:57,851 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:23:57,851 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:23:57,851 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:23:57,852 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:23:57,853 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:23:57,853 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:23:57,855 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:23:57,855 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:24:43,603 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:24:43,616 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:24:43,883 - INFO - <Map_QT.createGrid>
+2024-04-24 10:24:43,883 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:24:43,884 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:24:43,884 - INFO - </Map_QT.createGrid>
+2024-04-24 10:24:43,884 - INFO - <Map_QT.createGrid>
+2024-04-24 10:24:43,884 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:24:43,884 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:24:43,885 - INFO - </Map_QT.createGrid>
+2024-04-24 10:24:53,326 - INFO - <Map.creer_L_population>
+2024-04-24 10:24:53,326 - INFO - </Map.creer_L_population>
+2024-04-24 10:24:53,643 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:25:58,665 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:25:58,666 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:25:58,666 - INFO - <Rchargement>
+2024-04-24 10:25:58,667 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:25:58,667 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:25:58,667 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:25:58,668 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:25:58,668 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:25:58,668 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:25:58,671 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:25:58,671 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:35:21,500 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:35:21,516 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:35:21,832 - INFO - <Map_QT.createGrid>
+2024-04-24 10:35:21,833 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:35:21,834 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:35:21,834 - INFO - </Map_QT.createGrid>
+2024-04-24 10:35:21,834 - INFO - <Map_QT.createGrid>
+2024-04-24 10:35:21,834 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:35:21,834 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:35:21,835 - INFO - </Map_QT.createGrid>
+2024-04-24 10:35:34,361 - INFO - <Map.creer_L_population>
+2024-04-24 10:35:34,361 - INFO - </Map.creer_L_population>
+2024-04-24 10:35:34,669 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:35:43,282 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:35:43,283 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:35:43,283 - INFO - <Rchargement>
+2024-04-24 10:35:43,283 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:35:43,283 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:35:43,283 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:35:43,285 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:35:43,285 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:35:43,285 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:36:28,000 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:36:28,014 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:36:28,266 - INFO - <Map_QT.createGrid>
+2024-04-24 10:36:28,266 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:36:28,267 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:36:28,267 - INFO - </Map_QT.createGrid>
+2024-04-24 10:36:28,267 - INFO - <Map_QT.createGrid>
+2024-04-24 10:36:28,267 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:36:28,267 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:36:28,268 - INFO - </Map_QT.createGrid>
+2024-04-24 10:36:39,008 - INFO - <Map.creer_L_population>
+2024-04-24 10:36:39,008 - INFO - </Map.creer_L_population>
+2024-04-24 10:36:39,320 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:36:47,199 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:36:47,200 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:36:47,200 - INFO - <Rchargement>
+2024-04-24 10:36:47,200 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:36:47,201 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:36:47,201 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:36:47,202 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:36:47,202 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:36:47,202 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:36:47,208 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:36:47,208 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:37:48,320 - DEBUG - OpenGL_accelerate module loaded
+2024-04-24 10:37:48,332 - DEBUG - Using accelerated ArrayDatatype
+2024-04-24 10:37:48,598 - INFO - <Map_QT.createGrid>
+2024-04-24 10:37:48,599 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:37:48,599 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:37:48,599 - INFO - </Map_QT.createGrid>
+2024-04-24 10:37:48,599 - INFO - <Map_QT.createGrid>
+2024-04-24 10:37:48,599 - INFO - <Map_QT.drawColoredBackground>
+2024-04-24 10:37:48,599 - INFO - </Map_QT.drawColoredBackground>
+2024-04-24 10:37:48,600 - INFO - </Map_QT.createGrid>
+2024-04-24 10:38:00,124 - INFO - <Map.creer_L_population>
+2024-04-24 10:38:00,125 - INFO - </Map.creer_L_population>
+2024-04-24 10:38:00,427 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-24 10:38:06,297 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:38:06,297 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:38:06,297 - INFO - <Rchargement>
+2024-04-24 10:38:06,297 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:38:06,298 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:38:06,298 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:38:06,298 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:38:06,298 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:38:06,298 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:38:06,304 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:38:06,305 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:38:06,485 - INFO - </Map.liste_to_matrice>
+2024-04-24 10:38:06,485 - INFO - </Map.chargement> nomfichier: test_save
+2024-04-24 10:38:06,485 - INFO - <MainWindow.refresh> new: [<Back.Candidat.Candidat object at 0x2e1abadf0>, <Back.Candidat.Candidat object at 0x2e1abae50>, <Back.Candidat.Candidat object at 0x2e1aba7c0>]
+2024-04-24 10:38:06,485 - INFO - <Planete.refresh_Map>
+2024-04-24 10:38:06,485 - INFO - <Planete.clear_spheres>
+2024-04-24 10:38:06,485 - INFO - </Planete.clear_spheres>
+2024-04-24 10:38:06,485 - INFO - <generate_unique_colors> int1: 390, int2: 215
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere.INFO> latitude: 390, longitude: 215, color: #ceeb8a
+2024-04-24 10:38:06,485 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - <generate_unique_colors> int1: 445, int2: 110
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere.INFO> latitude: 445, longitude: 110, color: #999636
+2024-04-24 10:38:06,485 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - <generate_unique_colors> int1: 60, int2: 85
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - <Planete.add_sphere.INFO> latitude: 60, longitude: 85, color: #0c51ec
+2024-04-24 10:38:06,485 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:06,485 - INFO - </Planete.refresh_Map>
+2024-04-24 10:38:06,485 - INFO - <Rafraichissement de liste>
+2024-04-24 10:38:06,485 - INFO - <Nettoyage
+2024-04-24 10:38:06,485 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:06,485 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:06,485 - INFO - <Ajout d'element>
+2024-04-24 10:38:06,485 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e1abadf0>,Score: 0.
+2024-04-24 10:38:06,489 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:06,491 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:06,491 - INFO - <Ajout d'element>
+2024-04-24 10:38:06,491 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e1abae50>,Score: 0.
+2024-04-24 10:38:06,491 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:06,492 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:06,492 - INFO - <Ajout d'element>
+2024-04-24 10:38:06,492 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x2e1aba7c0>,Score: 0.
+2024-04-24 10:38:06,492 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:06,493 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:06,493 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:06,493 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:06,493 - INFO - <Fin Rechargement>
+2024-04-24 10:38:06,493 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:38:15,187 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-24 10:38:15,188 - INFO - <Candidat.__init__> nom: Laurent, prenom: Arthur, charisme: 54, age: 27, x: 83.47359144207806, y: 21.820332739549762
+2024-04-24 10:38:15,189 - INFO - <Ajout bd>
+2024-04-24 10:38:15,189 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-24 10:38:15,189 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x3066163a0>
+2024-04-24 10:38:15,189 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x3066163a0>
+2024-04-24 10:38:15,189 - INFO - <generate_unique_colors> int1: 417.3679572103903, int2: 109.10166369774882
+2024-04-24 10:38:15,189 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:15,189 - INFO - <Planete.add_sphere.INFO> latitude: 417.3679572103903, longitude: 109.10166369774882, color: #2d89df
+2024-04-24 10:38:15,189 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:15,189 - INFO - <Ajout d'element>
+2024-04-24 10:38:15,189 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066163a0>,Score: 0.
+2024-04-24 10:38:15,190 - INFO - <generate_unique_colors> int1: 83.47359144207806, int2: 21.820332739549762
+2024-04-24 10:38:15,192 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:15,192 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-24 10:38:15,192 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x3066163a0>
+2024-04-24 10:38:15,192 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x3066163a0>
+2024-04-24 10:38:15,192 - INFO - <Fin ajout bd>
+2024-04-24 10:38:15,415 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-24 10:38:15,415 - INFO - <Candidat.__init__> nom: Henry, prenom: Emma, charisme: 12, age: 36, x: 11.938461407533008, y: 75.90233756135699
+2024-04-24 10:38:15,415 - INFO - <Ajout bd>
+2024-04-24 10:38:15,415 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-24 10:38:15,415 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x306616340>
+2024-04-24 10:38:15,415 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x306616340>
+2024-04-24 10:38:15,415 - INFO - <generate_unique_colors> int1: 59.692307037665046, int2: 379.51168780678495
+2024-04-24 10:38:15,415 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:15,415 - INFO - <Planete.add_sphere.INFO> latitude: 59.692307037665046, longitude: 379.51168780678495, color: #ff3f7d
+2024-04-24 10:38:15,415 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:15,415 - INFO - <Ajout d'element>
+2024-04-24 10:38:15,415 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306616340>,Score: 0.
+2024-04-24 10:38:15,416 - INFO - <generate_unique_colors> int1: 11.938461407533008, int2: 75.90233756135699
+2024-04-24 10:38:15,417 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:15,418 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-24 10:38:15,418 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x306616340>
+2024-04-24 10:38:15,418 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x306616340>
+2024-04-24 10:38:15,418 - INFO - <Fin ajout bd>
+2024-04-24 10:38:18,931 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:38:18,932 - INFO -           Fichier de sauvegarde specifie: ttr.
+2024-04-24 10:38:18,932 - INFO - <Sauvegarde>
+2024-04-24 10:38:18,932 - INFO -   Sauvegarde des donnees dans le fichier ttr.
+2024-04-24 10:38:18,932 - INFO - <Map.ecrire> nomFichier: ttr
+2024-04-24 10:38:18,943 - INFO - </Map.ecrire> nomFichier: ttr
+2024-04-24 10:38:18,943 - INFO - <Fin sauvegarde>
+2024-04-24 10:38:18,943 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:38:24,480 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:38:24,480 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:38:24,480 - INFO - <Rchargement>
+2024-04-24 10:38:24,480 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:38:24,480 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:38:24,480 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:38:24,481 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:38:24,481 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:38:24,482 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:38:24,488 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:38:24,488 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:38:24,589 - INFO - </Map.liste_to_matrice>
+2024-04-24 10:38:24,589 - INFO - </Map.chargement> nomfichier: test_save
+2024-04-24 10:38:24,589 - INFO - <MainWindow.refresh> new: [<Back.Candidat.Candidat object at 0x306614f70>, <Back.Candidat.Candidat object at 0x306614d30>, <Back.Candidat.Candidat object at 0x306614d00>]
+2024-04-24 10:38:24,589 - INFO - <Planete.refresh_Map>
+2024-04-24 10:38:24,589 - INFO - <Planete.clear_spheres>
+2024-04-24 10:38:24,589 - INFO - </Planete.clear_spheres>
+2024-04-24 10:38:24,589 - INFO - <generate_unique_colors> int1: 390, int2: 215
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere.INFO> latitude: 390, longitude: 215, color: #ceeb8a
+2024-04-24 10:38:24,589 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - <generate_unique_colors> int1: 445, int2: 110
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere.INFO> latitude: 445, longitude: 110, color: #999636
+2024-04-24 10:38:24,589 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - <generate_unique_colors> int1: 60, int2: 85
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - <Planete.add_sphere.INFO> latitude: 60, longitude: 85, color: #0c51ec
+2024-04-24 10:38:24,589 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:24,589 - INFO - </Planete.refresh_Map>
+2024-04-24 10:38:24,589 - INFO - <Rafraichissement de liste>
+2024-04-24 10:38:24,589 - INFO - <Nettoyage
+2024-04-24 10:38:24,589 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:24,589 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:24,589 - INFO - <Ajout d'element>
+2024-04-24 10:38:24,589 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614f70>,Score: 0.
+2024-04-24 10:38:24,590 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:24,590 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:24,590 - INFO - <Ajout d'element>
+2024-04-24 10:38:24,590 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d30>,Score: 0.
+2024-04-24 10:38:24,591 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:24,591 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:24,591 - INFO - <Ajout d'element>
+2024-04-24 10:38:24,592 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d00>,Score: 0.
+2024-04-24 10:38:24,592 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:24,592 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:24,592 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:24,592 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:24,592 - INFO - <Fin Rechargement>
+2024-04-24 10:38:24,592 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:38:29,779 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:38:29,780 - INFO -           Fichier de recharge specifie: ttr.
+2024-04-24 10:38:29,780 - INFO - <Rchargement>
+2024-04-24 10:38:29,780 - INFO -   Rechargement des donnees a partir du fichier ttr.
+2024-04-24 10:38:29,780 - INFO - <Map.chargement> nomfichier: ttr
+2024-04-24 10:38:29,780 - INFO - <Map.lire> nomFichier: ttr
+2024-04-24 10:38:29,780 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:38:29,780 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:38:29,780 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:38:29,781 - INFO - <Candidat.__init__> nom: Laurent, prenom: Arthur, charisme: 54, age: 27, x: 83, y: 21
+2024-04-24 10:38:29,781 - INFO - <Candidat.__init__> nom: Henry, prenom: Emma, charisme: 12, age: 36, x: 11, y: 75
+2024-04-24 10:38:29,787 - INFO - </Map.lire> nomFichier: ttr
+2024-04-24 10:38:29,787 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:38:29,889 - INFO - </Map.liste_to_matrice>
+2024-04-24 10:38:29,889 - INFO - </Map.chargement> nomfichier: ttr
+2024-04-24 10:38:29,889 - INFO - <MainWindow.refresh> new: [<Back.Candidat.Candidat object at 0x306622b50>, <Back.Candidat.Candidat object at 0x306622c10>, <Back.Candidat.Candidat object at 0x306622f40>, <Back.Candidat.Candidat object at 0x306622dc0>, <Back.Candidat.Candidat object at 0x306622e50>]
+2024-04-24 10:38:29,889 - INFO - <Planete.refresh_Map>
+2024-04-24 10:38:29,889 - INFO - <Planete.clear_spheres>
+2024-04-24 10:38:29,889 - INFO - </Planete.clear_spheres>
+2024-04-24 10:38:29,889 - INFO - <generate_unique_colors> int1: 390, int2: 215
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere.INFO> latitude: 390, longitude: 215, color: #ceeb8a
+2024-04-24 10:38:29,889 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <generate_unique_colors> int1: 445, int2: 110
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere.INFO> latitude: 445, longitude: 110, color: #999636
+2024-04-24 10:38:29,889 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <generate_unique_colors> int1: 60, int2: 85
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere.INFO> latitude: 60, longitude: 85, color: #0c51ec
+2024-04-24 10:38:29,889 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <generate_unique_colors> int1: 415, int2: 105
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere.INFO> latitude: 415, longitude: 105, color: #135537
+2024-04-24 10:38:29,889 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <generate_unique_colors> int1: 55, int2: 375
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - <Planete.add_sphere.INFO> latitude: 55, longitude: 375, color: #cb0b91
+2024-04-24 10:38:29,889 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:29,889 - INFO - </Planete.refresh_Map>
+2024-04-24 10:38:29,889 - INFO - <Rafraichissement de liste>
+2024-04-24 10:38:29,889 - INFO - <Nettoyage
+2024-04-24 10:38:29,889 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:29,889 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:29,890 - INFO - <Ajout d'element>
+2024-04-24 10:38:29,890 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:29,890 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:29,891 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:29,891 - INFO - <Ajout d'element>
+2024-04-24 10:38:29,891 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 0.
+2024-04-24 10:38:29,891 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:29,891 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:29,891 - INFO - <Ajout d'element>
+2024-04-24 10:38:29,891 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:29,892 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:29,892 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:29,892 - INFO - <Ajout d'element>
+2024-04-24 10:38:29,892 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:29,893 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:29,893 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:29,893 - INFO - <Ajout d'element>
+2024-04-24 10:38:29,893 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:29,893 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:29,894 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:29,894 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:29,894 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:29,894 - INFO - <Fin Rechargement>
+2024-04-24 10:38:29,894 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:38:36,048 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:36,048 - INFO -           Bouton Copeland clique.
+2024-04-24 10:38:36,049 - INFO - <Map.Copeland/>
+2024-04-24 10:38:36,077 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:36,077 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:36,077 - INFO - <Nettoyage
+2024-04-24 10:38:36,077 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:36,077 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:36,077 - INFO - <Ajout d'element>
+2024-04-24 10:38:36,077 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:36,078 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:36,079 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:36,079 - INFO - <Ajout d'element>
+2024-04-24 10:38:36,080 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:36,080 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:36,081 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:36,081 - INFO - <Ajout d'element>
+2024-04-24 10:38:36,081 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:36,082 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:36,083 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:36,083 - INFO - <Ajout d'element>
+2024-04-24 10:38:36,083 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:36,084 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:36,085 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:36,085 - INFO - <Ajout d'element>
+2024-04-24 10:38:36,085 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:36,085 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:36,086 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:36,087 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:36,087 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:37,415 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:37,415 - INFO -           Bouton Approbation clique.
+2024-04-24 10:38:37,415 - INFO - <Map.Approbation>
+2024-04-24 10:38:37,433 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:37,433 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:37,433 - INFO - <Nettoyage
+2024-04-24 10:38:37,434 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:37,434 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:37,434 - INFO - <Ajout d'element>
+2024-04-24 10:38:37,434 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:37,434 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:37,436 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:37,436 - INFO - <Ajout d'element>
+2024-04-24 10:38:37,436 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:37,436 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:37,438 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:37,438 - INFO - <Ajout d'element>
+2024-04-24 10:38:37,438 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:37,438 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:37,440 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:37,440 - INFO - <Ajout d'element>
+2024-04-24 10:38:37,440 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:37,440 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:37,442 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:37,442 - INFO - <Ajout d'element>
+2024-04-24 10:38:37,442 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:37,442 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:37,443 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:37,443 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:37,443 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:38,515 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:38,515 - INFO -           Bouton Approbation clique.
+2024-04-24 10:38:38,515 - INFO - <Map.Approbation>
+2024-04-24 10:38:38,535 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:38,535 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:38,535 - INFO - <Nettoyage
+2024-04-24 10:38:38,536 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:38,536 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:38,536 - INFO - <Ajout d'element>
+2024-04-24 10:38:38,536 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:38,536 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:38,538 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:38,538 - INFO - <Ajout d'element>
+2024-04-24 10:38:38,538 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:38,539 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:38,540 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:38,540 - INFO - <Ajout d'element>
+2024-04-24 10:38:38,540 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:38,541 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:38,542 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:38,542 - INFO - <Ajout d'element>
+2024-04-24 10:38:38,542 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:38,543 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:38,544 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:38,544 - INFO - <Ajout d'element>
+2024-04-24 10:38:38,544 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:38,545 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:38,546 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:38,546 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:38,546 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:41,281 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:41,282 - INFO -           Bouton STV clique.
+2024-04-24 10:38:41,282 - INFO - <Map.STV/>
+2024-04-24 10:38:41,294 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:41,294 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:41,294 - INFO - <Nettoyage
+2024-04-24 10:38:41,294 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:41,294 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:41,294 - INFO - <Ajout d'element>
+2024-04-24 10:38:41,294 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:41,295 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:41,297 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:41,297 - INFO - <Ajout d'element>
+2024-04-24 10:38:41,297 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:41,298 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:41,300 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:41,300 - INFO - <Ajout d'element>
+2024-04-24 10:38:41,300 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:41,300 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:41,302 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:41,302 - INFO - <Ajout d'element>
+2024-04-24 10:38:41,302 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:41,302 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:41,303 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:41,304 - INFO - <Ajout d'element>
+2024-04-24 10:38:41,304 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:41,304 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:41,305 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:41,306 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:41,306 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:42,197 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:42,198 - INFO -           Bouton Pluralite clique.
+2024-04-24 10:38:42,198 - INFO - <Map.Pluralite/>
+2024-04-24 10:38:42,201 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:42,201 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:42,201 - INFO - <Nettoyage
+2024-04-24 10:38:42,201 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:42,202 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:42,202 - INFO - <Ajout d'element>
+2024-04-24 10:38:42,202 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:42,202 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:42,203 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:42,203 - INFO - <Ajout d'element>
+2024-04-24 10:38:42,203 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:42,204 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:42,205 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:42,205 - INFO - <Ajout d'element>
+2024-04-24 10:38:42,205 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:42,205 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:42,206 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:42,206 - INFO - <Ajout d'element>
+2024-04-24 10:38:42,206 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:42,207 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:42,208 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:42,208 - INFO - <Ajout d'element>
+2024-04-24 10:38:42,208 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:42,208 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:42,209 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:42,209 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:42,209 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:43,080 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:43,080 - INFO -           Bouton Borda clique.
+2024-04-24 10:38:43,080 - INFO - <Map.Borda/>
+2024-04-24 10:38:43,197 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:43,198 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:43,198 - INFO - <Nettoyage
+2024-04-24 10:38:43,198 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:43,198 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:43,198 - INFO - <Ajout d'element>
+2024-04-24 10:38:43,198 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:43,198 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:43,199 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:43,199 - INFO - <Ajout d'element>
+2024-04-24 10:38:43,199 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:43,199 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:43,200 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:43,200 - INFO - <Ajout d'element>
+2024-04-24 10:38:43,200 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:43,200 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:43,200 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:43,200 - INFO - <Ajout d'element>
+2024-04-24 10:38:43,200 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:43,201 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:43,201 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:43,201 - INFO - <Ajout d'element>
+2024-04-24 10:38:43,201 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:43,201 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:43,202 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:43,202 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:43,202 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:52,647 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:52,647 - INFO -           Bouton Copeland clique.
+2024-04-24 10:38:52,647 - INFO - <Map.Copeland/>
+2024-04-24 10:38:52,666 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:52,666 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:52,666 - INFO - <Nettoyage
+2024-04-24 10:38:52,666 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:52,666 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:52,666 - INFO - <Ajout d'element>
+2024-04-24 10:38:52,666 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:52,667 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:52,668 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:52,668 - INFO - <Ajout d'element>
+2024-04-24 10:38:52,668 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:52,669 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:52,670 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:52,670 - INFO - <Ajout d'element>
+2024-04-24 10:38:52,670 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:52,670 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:52,671 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:52,671 - INFO - <Ajout d'element>
+2024-04-24 10:38:52,671 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:52,671 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:52,672 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:52,672 - INFO - <Ajout d'element>
+2024-04-24 10:38:52,672 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:52,673 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:52,673 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:52,673 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:52,674 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:53,736 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:53,737 - INFO -           Bouton Borda clique.
+2024-04-24 10:38:53,737 - INFO - <Map.Borda/>
+2024-04-24 10:38:53,852 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:53,852 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:53,852 - INFO - <Nettoyage
+2024-04-24 10:38:53,852 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:53,852 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:53,852 - INFO - <Ajout d'element>
+2024-04-24 10:38:53,852 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622c10>,Score: 1.
+2024-04-24 10:38:53,852 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:53,853 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:53,853 - INFO - <Ajout d'element>
+2024-04-24 10:38:53,853 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622b50>,Score: 0.
+2024-04-24 10:38:53,853 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:53,854 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:53,854 - INFO - <Ajout d'element>
+2024-04-24 10:38:53,854 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622f40>,Score: 0.
+2024-04-24 10:38:53,854 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:53,855 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:53,855 - INFO - <Ajout d'element>
+2024-04-24 10:38:53,855 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622dc0>,Score: 0.
+2024-04-24 10:38:53,855 - INFO - <generate_unique_colors> int1: 83, int2: 21
+2024-04-24 10:38:53,855 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:53,855 - INFO - <Ajout d'element>
+2024-04-24 10:38:53,855 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306622e50>,Score: 0.
+2024-04-24 10:38:53,856 - INFO - <generate_unique_colors> int1: 11, int2: 75
+2024-04-24 10:38:53,856 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:53,856 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:53,856 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:38:58,455 - INFO - <Gestion des Boutons de recharge>
+2024-04-24 10:38:58,456 - INFO -           Fichier de recharge specifie: test_save.
+2024-04-24 10:38:58,456 - INFO - <Rchargement>
+2024-04-24 10:38:58,456 - INFO -   Rechargement des donnees a partir du fichier test_save.
+2024-04-24 10:38:58,456 - INFO - <Map.chargement> nomfichier: test_save
+2024-04-24 10:38:58,456 - INFO - <Map.lire> nomFichier: test_save
+2024-04-24 10:38:58,457 - INFO - <Candidat.__init__> nom: Bernard, prenom: Louis, charisme: 74, age: 34, x: 78, y: 43
+2024-04-24 10:38:58,457 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 15, age: 66, x: 89, y: 22
+2024-04-24 10:38:58,457 - INFO - <Candidat.__init__> nom: Dupont, prenom: Theo, charisme: 51, age: 66, x: 12, y: 17
+2024-04-24 10:38:58,462 - INFO - </Map.lire> nomFichier: test_save
+2024-04-24 10:38:58,462 - INFO - <Map.liste_to_matrice>
+2024-04-24 10:38:58,559 - INFO - </Map.liste_to_matrice>
+2024-04-24 10:38:58,559 - INFO - </Map.chargement> nomfichier: test_save
+2024-04-24 10:38:58,559 - INFO - <MainWindow.refresh> new: [<Back.Candidat.Candidat object at 0x306614d90>, <Back.Candidat.Candidat object at 0x306614df0>, <Back.Candidat.Candidat object at 0x3066804c0>]
+2024-04-24 10:38:58,559 - INFO - <Planete.refresh_Map>
+2024-04-24 10:38:58,559 - INFO - <Planete.clear_spheres>
+2024-04-24 10:38:58,559 - INFO - </Planete.clear_spheres>
+2024-04-24 10:38:58,559 - INFO - <generate_unique_colors> int1: 390, int2: 215
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere.INFO> latitude: 390, longitude: 215, color: #ceeb8a
+2024-04-24 10:38:58,559 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - <generate_unique_colors> int1: 445, int2: 110
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere.INFO> latitude: 445, longitude: 110, color: #999636
+2024-04-24 10:38:58,559 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - <generate_unique_colors> int1: 60, int2: 85
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - <Planete.add_sphere.INFO> latitude: 60, longitude: 85, color: #0c51ec
+2024-04-24 10:38:58,559 - INFO - </Planete.add_sphere>
+2024-04-24 10:38:58,559 - INFO - </Planete.refresh_Map>
+2024-04-24 10:38:58,559 - INFO - <Rafraichissement de liste>
+2024-04-24 10:38:58,559 - INFO - <Nettoyage
+2024-04-24 10:38:58,559 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:58,559 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:58,559 - INFO - <Ajout d'element>
+2024-04-24 10:38:58,559 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:38:58,559 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:58,560 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:58,560 - INFO - <Ajout d'element>
+2024-04-24 10:38:58,560 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 0.
+2024-04-24 10:38:58,561 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:58,561 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:58,561 - INFO - <Ajout d'element>
+2024-04-24 10:38:58,561 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:38:58,562 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:58,562 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:58,562 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:58,562 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:58,562 - INFO - <Fin Rechargement>
+2024-04-24 10:38:58,562 - INFO - <Fin Gestion des Boutons de sauvegarde>
+2024-04-24 10:38:59,832 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:38:59,832 - INFO -           Bouton Copeland clique.
+2024-04-24 10:38:59,832 - INFO - <Map.Copeland/>
+2024-04-24 10:38:59,844 - INFO - <Rafraichissement carte>
+2024-04-24 10:38:59,844 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:38:59,844 - INFO - <Nettoyage
+2024-04-24 10:38:59,844 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:38:59,844 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:38:59,844 - INFO - <Ajout d'element>
+2024-04-24 10:38:59,844 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:38:59,845 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:38:59,847 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:59,847 - INFO - <Ajout d'element>
+2024-04-24 10:38:59,847 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:38:59,848 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:38:59,849 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:59,850 - INFO - <Ajout d'element>
+2024-04-24 10:38:59,850 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:38:59,850 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:38:59,852 - INFO - <Fin Ajout d'element>
+2024-04-24 10:38:59,852 - INFO - </Rafraichissement carte>
+2024-04-24 10:38:59,852 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:01,263 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:01,263 - INFO -           Bouton Approbation clique.
+2024-04-24 10:39:01,263 - INFO - <Map.Approbation>
+2024-04-24 10:39:01,279 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:01,279 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:01,279 - INFO - <Nettoyage
+2024-04-24 10:39:01,279 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:01,279 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:01,280 - INFO - <Ajout d'element>
+2024-04-24 10:39:01,280 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 1.
+2024-04-24 10:39:01,280 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:01,282 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:01,282 - INFO - <Ajout d'element>
+2024-04-24 10:39:01,282 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 0.
+2024-04-24 10:39:01,283 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:01,284 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:01,284 - INFO - <Ajout d'element>
+2024-04-24 10:39:01,284 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:01,285 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:01,286 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:01,286 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:01,286 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:02,366 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:02,366 - INFO -           Bouton STV clique.
+2024-04-24 10:39:02,366 - INFO - <Map.STV/>
+2024-04-24 10:39:02,375 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:02,375 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:02,375 - INFO - <Nettoyage
+2024-04-24 10:39:02,376 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:02,376 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:02,376 - INFO - <Ajout d'element>
+2024-04-24 10:39:02,376 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:02,376 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:02,378 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:02,378 - INFO - <Ajout d'element>
+2024-04-24 10:39:02,378 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:02,379 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:02,381 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:02,381 - INFO - <Ajout d'element>
+2024-04-24 10:39:02,381 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:02,382 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:02,384 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:02,384 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:02,384 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:03,353 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:03,354 - INFO -           Bouton Pluralite clique.
+2024-04-24 10:39:03,354 - INFO - <Map.Pluralite/>
+2024-04-24 10:39:03,358 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:03,358 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:03,358 - INFO - <Nettoyage
+2024-04-24 10:39:03,358 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:03,358 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:03,358 - INFO - <Ajout d'element>
+2024-04-24 10:39:03,358 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:03,359 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:03,361 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:03,361 - INFO - <Ajout d'element>
+2024-04-24 10:39:03,361 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:03,362 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:03,363 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:03,363 - INFO - <Ajout d'element>
+2024-04-24 10:39:03,363 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:03,364 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:03,366 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:03,366 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:03,366 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:04,515 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:04,515 - INFO -           Bouton Borda clique.
+2024-04-24 10:39:04,515 - INFO - <Map.Borda/>
+2024-04-24 10:39:04,578 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:04,578 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:04,578 - INFO - <Nettoyage
+2024-04-24 10:39:04,578 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:04,578 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:04,578 - INFO - <Ajout d'element>
+2024-04-24 10:39:04,578 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:04,578 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:04,579 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:04,579 - INFO - <Ajout d'element>
+2024-04-24 10:39:04,579 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:04,580 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:04,580 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:04,580 - INFO - <Ajout d'element>
+2024-04-24 10:39:04,580 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:04,581 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:04,581 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:04,582 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:04,582 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:05,581 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:05,581 - INFO -           Bouton Copeland clique.
+2024-04-24 10:39:05,581 - INFO - <Map.Copeland/>
+2024-04-24 10:39:05,593 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:05,593 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:05,593 - INFO - <Nettoyage
+2024-04-24 10:39:05,593 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:05,593 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:05,593 - INFO - <Ajout d'element>
+2024-04-24 10:39:05,593 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:05,594 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:05,596 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:05,596 - INFO - <Ajout d'element>
+2024-04-24 10:39:05,596 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:05,597 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:05,598 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:05,598 - INFO - <Ajout d'element>
+2024-04-24 10:39:05,598 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:05,599 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:05,600 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:05,600 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:05,600 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:06,781 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:06,781 - INFO -           Bouton Approbation clique.
+2024-04-24 10:39:06,781 - INFO - <Map.Approbation>
+2024-04-24 10:39:06,796 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:06,796 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:06,796 - INFO - <Nettoyage
+2024-04-24 10:39:06,796 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:06,796 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:06,796 - INFO - <Ajout d'element>
+2024-04-24 10:39:06,797 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 1.
+2024-04-24 10:39:06,797 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:06,799 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:06,799 - INFO - <Ajout d'element>
+2024-04-24 10:39:06,799 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 0.
+2024-04-24 10:39:06,800 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:06,802 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:06,802 - INFO - <Ajout d'element>
+2024-04-24 10:39:06,802 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:06,802 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:06,804 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:06,804 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:06,804 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:08,581 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:08,582 - INFO -           Bouton Copeland clique.
+2024-04-24 10:39:08,582 - INFO - <Map.Copeland/>
+2024-04-24 10:39:08,594 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:08,594 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:08,594 - INFO - <Nettoyage
+2024-04-24 10:39:08,594 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:08,595 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:08,595 - INFO - <Ajout d'element>
+2024-04-24 10:39:08,595 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:08,595 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:08,597 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:08,597 - INFO - <Ajout d'element>
+2024-04-24 10:39:08,597 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:08,598 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:08,600 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:08,600 - INFO - <Ajout d'element>
+2024-04-24 10:39:08,600 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:08,600 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:08,602 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:08,602 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:08,602 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:10,697 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:10,697 - INFO -           Bouton Approbation clique.
+2024-04-24 10:39:10,697 - INFO - <Map.Approbation>
+2024-04-24 10:39:10,712 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:10,712 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:10,712 - INFO - <Nettoyage
+2024-04-24 10:39:10,712 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:10,712 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:10,712 - INFO - <Ajout d'element>
+2024-04-24 10:39:10,712 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 1.
+2024-04-24 10:39:10,713 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:10,715 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:10,715 - INFO - <Ajout d'element>
+2024-04-24 10:39:10,715 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 0.
+2024-04-24 10:39:10,716 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:10,717 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:10,717 - INFO - <Ajout d'element>
+2024-04-24 10:39:10,717 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:10,718 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:10,719 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:10,719 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:10,720 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:11,587 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:11,587 - INFO -           Bouton STV clique.
+2024-04-24 10:39:11,587 - INFO - <Map.STV/>
+2024-04-24 10:39:11,594 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:11,594 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:11,594 - INFO - <Nettoyage
+2024-04-24 10:39:11,594 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:11,594 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:11,594 - INFO - <Ajout d'element>
+2024-04-24 10:39:11,594 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:11,595 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:11,597 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:11,597 - INFO - <Ajout d'element>
+2024-04-24 10:39:11,597 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:11,598 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:11,599 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:11,599 - INFO - <Ajout d'element>
+2024-04-24 10:39:11,599 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:11,600 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:11,601 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:11,601 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:11,601 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:12,512 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:12,513 - INFO -           Bouton Approbation clique.
+2024-04-24 10:39:12,513 - INFO - <Map.Approbation>
+2024-04-24 10:39:12,527 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:12,527 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:12,527 - INFO - <Nettoyage
+2024-04-24 10:39:12,527 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:12,527 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:12,527 - INFO - <Ajout d'element>
+2024-04-24 10:39:12,527 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 1.
+2024-04-24 10:39:12,528 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:12,530 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:12,530 - INFO - <Ajout d'element>
+2024-04-24 10:39:12,530 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 0.
+2024-04-24 10:39:12,531 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:12,532 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:12,532 - INFO - <Ajout d'element>
+2024-04-24 10:39:12,532 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:12,533 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:12,534 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:12,534 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:12,534 - INFO - <Fin Gestion des Boutons des regles de vote>
+2024-04-24 10:39:13,432 - INFO - <Gestion des Boutons des regles de vote>
+2024-04-24 10:39:13,432 - INFO -           Bouton Borda clique.
+2024-04-24 10:39:13,432 - INFO - <Map.Borda/>
+2024-04-24 10:39:13,496 - INFO - <Rafraichissement carte>
+2024-04-24 10:39:13,496 - INFO -   Rafraichissement de la vue de la carte effectue avec succes.
+2024-04-24 10:39:13,496 - INFO - <Nettoyage
+2024-04-24 10:39:13,496 - INFO -               Liste rafraichie avec les nouveaux points.
+2024-04-24 10:39:13,497 - INFO - <Fin rafraichissement de liste>
+2024-04-24 10:39:13,497 - INFO - <Ajout d'element>
+2024-04-24 10:39:13,497 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614df0>,Score: 1.
+2024-04-24 10:39:13,497 - INFO - <generate_unique_colors> int1: 89, int2: 22
+2024-04-24 10:39:13,498 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:13,498 - INFO - <Ajout d'element>
+2024-04-24 10:39:13,498 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x3066804c0>,Score: 0.
+2024-04-24 10:39:13,498 - INFO - <generate_unique_colors> int1: 12, int2: 17
+2024-04-24 10:39:13,499 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:13,499 - INFO - <Ajout d'element>
+2024-04-24 10:39:13,499 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x306614d90>,Score: 0.
+2024-04-24 10:39:13,499 - INFO - <generate_unique_colors> int1: 78, int2: 43
+2024-04-24 10:39:13,500 - INFO - <Fin Ajout d'element>
+2024-04-24 10:39:13,500 - INFO - </Rafraichissement carte>
+2024-04-24 10:39:13,500 - INFO - <Fin Gestion des Boutons des regles de vote>
