@@ -3,9 +3,11 @@ from Front.Utilitaire import *
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QSpinBox, QMainWindow
 from PySide6.QtGui import QIcon
 import logging
+import matplotlib.pyplot as plt
 from Back.Statistique.MonteCarlo import CreationSimulation
 from Back.Candidat import Candidat
 from Tournoi.TreeView import Tournoi
+from Back.Visialisation3D import  VisualisationThread
 from icecream import ic
 
 #Variable global du fichier 
@@ -195,7 +197,36 @@ class BoutonMC(QPushButton):
         print("Finish")
         hitmap.show()
         self.setEnabled(True)  # Réactiver le bouton après l'exécution
-        
+
+class BoutonVisuel3D(QPushButton):
+    def __init__(self, bd):
+        super().__init__("Visualisation 3D")
+        self.bd = bd
+        self.map = self.bd.map
+        if self.map.L_population is None or []: self.map.creer_L_population()
+        self.clicked.connect(self.on_button_clicked)
+        self.thread = None
+
+    def on_button_clicked(self):
+        if self.thread is None or not self.thread.isRunning():
+            self.thread = VisualisationThread(self.map)
+            self.thread.dataReady.connect(self.display_plot)
+            self.thread.start()
+
+    def display_plot(self, xi, yi, zi):
+        try:
+            fig = plt.figure(figsize=(10, 7))
+            ax = fig.add_subplot(111, projection='3d')
+            surf = ax.plot_surface(xi, yi, zi, cmap='viridis', edgecolor='none')
+            fig.colorbar(surf, shrink=0.5, aspect=5)
+            ax.set_xlabel('X')
+            ax.set_ylabel('Y')
+            ax.set_zlabel('Hauteur')
+            ax.set_title('Surface 3D lisse des Individus')
+            plt.show()
+        except Exception as e:
+            print(f"Erreur lors de l'affichage : {e}")
+                   
 class BoutonTournoi(QPushButton):
     """
     Bouton pour lancer un tournoi

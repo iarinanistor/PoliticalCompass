@@ -4,6 +4,7 @@ from mpl_toolkits.mplot3d import Axes3D
 from scipy.interpolate import griddata
 from random import uniform
 from Back.Map import Map
+from PySide6.QtCore import QThread, Signal
 
 def projection_3D(map): # affiche le graphique 
     # Création de la matrice de hauteur
@@ -68,6 +69,36 @@ def visualiser_surface_3d(map): # affichage par interpolation polynomial
     ax.set_title('Surface 3D lisse des Individus')
     plt.show()
  
+class VisualisationThread(QThread):
+    dataReady = Signal(object, object, object)
+
+    def __init__(self, map):
+        super().__init__()
+        self.map = map
+
+    def run(self):
+        try:
+            individus = self.map.L_population
+            if not individus:
+                print("Aucun individu disponible.")
+                return
+            x = np.array([individu.x for individu in individus])
+            y = np.array([individu.y for individu in individus])
+            hauteurs = np.array([sum(individu.poids) for individu in individus])
+
+            qualité = 100
+            xi = np.linspace(x.min(), x.max(), qualité)
+            yi = np.linspace(y.min(), y.max(), qualité)
+            
+            xi = np.linspace(0,100, qualité)
+            yi = np.linspace(0, 100, qualité)
+            xi, yi = np.meshgrid(xi, yi)
+
+            zi = griddata((x, y), hauteurs, (xi, yi), method='cubic')
+            self.dataReady.emit(xi, yi, zi)
+        except Exception as e:
+            print(f"Erreur lors du traitement des données : {e}")
+        
 if __name__ == '__main__':
     a="Triangulaire"
     b="Uniforme"

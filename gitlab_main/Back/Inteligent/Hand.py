@@ -2,6 +2,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
+# code Intial de SCV a du etre replacer par hand2 car conflit entre cv2 et mediapipe
 class testf:
     
     def __init__(self) :

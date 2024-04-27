@@ -146,10 +146,10 @@ QPushButton:pressed {
         bouton_taux_satisfaction = QPushButton("Taux de satisfaction")
         bouton_taux_satisfaction.setStyleSheet(style_sidebar_1_buttons)
         self.sidebar_layout_1.addWidget(bouton_taux_satisfaction)
-        self.democratie = QPushButton("Démocratie liquide")
-        self.democratie.setStyleSheet(style_sidebar_1_buttons)
-        self.democratie.clicked.connect(self.democratie_liquide)
-        self.sidebar_layout_1.addWidget(self.democratie)
+        
+        self.bouton_visualisation_3d = BoutonVisuel3D(self.bd)
+        self.bouton_visualisation_3d.setStyleSheet(style_sidebar_1_buttons)
+        self.sidebar_layout_1.addWidget(self.bouton_visualisation_3d)
 
     
     def add_sidebar_buttons(self) -> None:

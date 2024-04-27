@@ -1,45 +1,107 @@
+import imageio
 import mediapipe as mp
 import numpy as np
-import imageio
 
-# Function to calculate Euclidean distance between two points
-def calculate_distance(p1, p2):
-    return np.linalg.norm(np.array(p1) - np.array(p2))
+class TestFunction:
+    def fonction_SCV(self, argument):
+        print(argument)
 
-# Initialize MediaPipe Hands
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(static_image_mode=False,
-                       max_num_hands=1,
-                       min_detection_confidence=0.5,
-                       min_tracking_confidence=0.5)
+class KalmanFilter:
+    def __init__(self, process_noise, measurement_noise, initial_estimate):
+        self.process_noise = process_noise
+        self.measurement_noise = measurement_noise
+        self.current_estimate = initial_estimate
+        self.current_error_estimate = 1.0
 
-# Initialize imageio reader to capture video from the first camera device
-reader = imageio.get_reader('<video0>')
+    def update(self, measurement):
+        predicted_estimate = self.current_estimate
+        predicted_error_estimate = self.current_error_estimate + self.process_noise
+        kalman_gain = predicted_error_estimate / (predicted_error_estimate + self.measurement_noise)
+        self.current_estimate = predicted_estimate + kalman_gain * (measurement - predicted_estimate)
+        self.current_error_estimate = (1 - kalman_gain) * predicted_error_estimate
+        return self.current_estimate
 
-# Loop over each frame from the video stream
-try:
-    for frame in reader:
-        image = frame[:, :, :3]
+class Finger:
+    def __init__(self, base=None, point=None, point2=None, extremite=None):
+        self.base = base
+        self.point = point
+        self.point2 = point2
+        self.extremite = extremite
 
-        # Process the frame with MediaPipe Hands
-        results = hands.process(image)
+    def distance(self, point1, point2):
+        return np.linalg.norm([point1.x - point2.x, point1.y - point2.y])
 
-        # Calculate distance if hands are detected
-        if results.multi_hand_landmarks:
-            for hand_landmarks in results.multi_hand_landmarks:
-                thumb_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].x * image.shape[1],
-                             hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP].y * image.shape[0])
-                index_tip = (hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].x * image.shape[1],
-                             hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP].y * image.shape[0])
+class Hand:
+    def __init__(self, hand_landmarks):
+        self.fingers = [Finger(hand_landmarks.landmark[i], hand_landmarks.landmark[i+1], hand_landmarks.landmark[i+2], hand_landmarks.landmark[i+3])
+                        for i in range(0, 21, 4) if i + 4 < 21]
 
-                # Print the distance in pixels
-                distance = calculate_distance(thumb_tip, index_tip)
-                print(f'Distance: {distance:.2f} pixels')
+    def thumb_index_distance(self):
+        return self.fingers[0].distance(self.fingers[0].extremite, self.fingers[1].extremite)
 
-except KeyboardInterrupt:
-    # Close the video stream on interrupt
-    reader.close()
+    def thumb_size(self):
+        return self.fingers[0].distance(self.fingers[0].base, self.fingers[0].extremite)
 
-# Release resources
-hands.close()
-reader.close()
+    def normalized_distance(self):
+        return self.thumb_index_distance() / self.thumb_size()
+
+class SLH:
+    def __init__(self, hand):
+        self.hand = hand
+        self.filter = KalmanFilter(0.1, 0.1, 0)
+
+    def smooth(self):
+        measurement = abs(self.hand.normalized_distance() * 100)
+        return abs(int(self.filter.update(measurement)))
+
+class SCV:
+    def __init__(self, printer):
+        self.printer = printer
+        self.old_distance = 0
+        self.counter = 0
+
+    def restart_old(self, new):
+        if abs(self.old_distance - new) >= 10:
+            self.old_distance = new
+
+    def detection(self):
+        if self.old_distance >= 99:
+            self.printer.fonction_SCV(-1)
+        elif self.old_distance >= 70:
+            self.printer.fonction_SCV(0.02)
+        elif self.old_distance >= 35:
+            self.printer.fonction_SCV(0.01)
+        else:
+            self.printer.fonction_SCV(0)
+
+    def start(self):
+        with mp.solutions.hands.Hands(
+            static_image_mode=False,
+            max_num_hands=2,
+            min_detection_confidence=0.5,
+            min_tracking_confidence=0.5) as mp_hands:
+
+            reader = imageio.get_reader('<video0>')
+
+            try:
+                for frame in reader:
+                    frame_rgb = frame[:, :, :3]  # Convert to RGB
+                    results = mp_hands.process(frame_rgb)
+                    if results.multi_hand_landmarks:
+                        for hand_landmarks in results.multi_hand_landmarks:
+                            hand = Hand(hand_landmarks)
+                            slh = SLH(hand)
+                            self.restart_old(slh.smooth())
+                            self.detection()
+                    else:
+                        self.counter += 1
+                        if self.counter >= 90:
+                            self.counter = 0
+                            break
+            finally:
+                reader.close()
+
+if __name__ == "__main__":
+    printer = TestFunction()
+    scv = SCV(printer)
+    scv.start()
