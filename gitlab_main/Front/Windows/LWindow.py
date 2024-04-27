@@ -5,12 +5,14 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from Front.Widgets.MapQT import PreMap
 from Back.Map import *
+from Back.Inteligent.Hand import SCV
 from BaseDonnee.BaseDonnee import *
 import logging
 from icecream import ic
 import time
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 from PySide6.QtCore import QObject, QEvent
+
 
 class EventFilter(QObject):
     """

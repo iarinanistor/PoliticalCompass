@@ -3335,3 +3335,53 @@
 2024-04-27 12:59:20,211 - DEBUG - findfont: score(FontEntry(fname='/System/Library/Fonts/Supplemental/STIXIntUpDBol.otf', name='STIXIntegralsUpD', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
 2024-04-27 12:59:20,211 - DEBUG - findfont: score(FontEntry(fname='/System/Library/Fonts/Supplemental/NotoSerifAhom-Regular.ttf', name='Noto Serif Ahom', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
 2024-04-27 12:59:20,211 - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/Users/isaac/Library/Python/3.9/lib/python/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2024-04-27 17:54:30,105 - DEBUG - OpenGL_accelerate module loaded
+2024-04-27 17:54:30,222 - DEBUG - Using accelerated ArrayDatatype
+2024-04-27 17:54:30,704 - INFO - <Map_QT.createGrid>
+2024-04-27 17:54:30,704 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 17:54:30,705 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 17:54:30,705 - INFO - </Map_QT.createGrid>
+2024-04-27 17:54:30,705 - INFO - <Map_QT.createGrid>
+2024-04-27 17:54:30,705 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 17:54:30,705 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 17:54:30,706 - INFO - </Map_QT.createGrid>
+2024-04-27 18:01:17,507 - DEBUG - OpenGL_accelerate module loaded
+2024-04-27 18:01:17,524 - DEBUG - Using accelerated ArrayDatatype
+2024-04-27 18:01:17,919 - INFO - <Map_QT.createGrid>
+2024-04-27 18:01:17,919 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:01:17,919 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:01:17,920 - INFO - </Map_QT.createGrid>
+2024-04-27 18:01:17,920 - INFO - <Map_QT.createGrid>
+2024-04-27 18:01:17,920 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:01:17,920 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:01:17,920 - INFO - </Map_QT.createGrid>
+2024-04-27 18:02:21,234 - DEBUG - OpenGL_accelerate module loaded
+2024-04-27 18:02:21,250 - DEBUG - Using accelerated ArrayDatatype
+2024-04-27 18:02:21,507 - INFO - <Map_QT.createGrid>
+2024-04-27 18:02:21,507 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:02:21,507 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:02:21,507 - INFO - </Map_QT.createGrid>
+2024-04-27 18:02:21,508 - INFO - <Map_QT.createGrid>
+2024-04-27 18:02:21,508 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:02:21,508 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:02:21,508 - INFO - </Map_QT.createGrid>
+2024-04-27 18:05:04,254 - DEBUG - OpenGL_accelerate module loaded
+2024-04-27 18:05:04,270 - DEBUG - Using accelerated ArrayDatatype
+2024-04-27 18:05:04,646 - INFO - <Map_QT.createGrid>
+2024-04-27 18:05:04,647 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:05:04,647 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:05:04,648 - INFO - </Map_QT.createGrid>
+2024-04-27 18:05:04,648 - INFO - <Map_QT.createGrid>
+2024-04-27 18:05:04,648 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:05:04,648 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:05:04,648 - INFO - </Map_QT.createGrid>
+2024-04-27 18:06:44,464 - DEBUG - OpenGL_accelerate module loaded
+2024-04-27 18:06:44,478 - DEBUG - Using accelerated ArrayDatatype
+2024-04-27 18:06:44,761 - INFO - <Map_QT.createGrid>
+2024-04-27 18:06:44,761 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:06:44,762 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:06:44,762 - INFO - </Map_QT.createGrid>
+2024-04-27 18:06:44,762 - INFO - <Map_QT.createGrid>
+2024-04-27 18:06:44,762 - INFO - <Map_QT.drawColoredBackground>
+2024-04-27 18:06:44,762 - INFO - </Map_QT.drawColoredBackground>
+2024-04-27 18:06:44,763 - INFO - </Map_QT.createGrid>

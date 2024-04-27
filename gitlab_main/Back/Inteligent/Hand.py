@@ -2,7 +2,9 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-# code Intial de SCV a du etre replacer par hand2 car conflit entre cv2 et mediapipe
+# code Intial de SCV a voulais etre replacer par hand2 car conflit 
+# entre cv2 et mediapipe
+
 class testf:
     
     def __init__(self) :
@@ -139,9 +141,10 @@ class SCV():
         if abs(self.old_distance-new)>=10 : self.old_distance = new 
     
     def detection(self):
+        print(self.old_distance)
         if self.old_distance >=350 : self.classe.fonction_SCV(-1)
         elif self.old_distance>=200 : self.classe.fonction_SCV(0.02)
-        elif self.old_distance >=60: self.classe.fonction_SCV(0.01)
+        elif self.old_distance >=70: self.classe.fonction_SCV(0.01)
         else : self.classe.fonction_SCV(0)
         
     def start(self):
