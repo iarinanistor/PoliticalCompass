@@ -67,7 +67,7 @@ python LWindow.py
 ```
 
 
-### Fonctionnalités :
+## Fonctionnalités :
 
 Dans la fenêtre principale, plusieurs options afin de paramétrer la map :
 
