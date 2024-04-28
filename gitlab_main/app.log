@@ -1,0 +1,997 @@
+2024-04-28 15:52:29,298 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 15:52:29,538 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 15:52:29,602 - INFO - <Map_QT.createGrid>
+2024-04-28 15:52:29,602 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 15:52:29,602 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 15:52:29,602 - INFO - </Map_QT.createGrid>
+2024-04-28 15:52:29,602 - INFO - <Map_QT.createGrid>
+2024-04-28 15:52:29,602 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 15:52:29,603 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 15:52:29,603 - INFO - </Map_QT.createGrid>
+2024-04-28 15:52:43,608 - INFO - <Map.creer_L_population>
+2024-04-28 15:52:43,608 - INFO - </Map.creer_L_population>
+2024-04-28 15:52:44,500 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 15:52:48,190 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:52:48,190 - INFO - <Candidat.__init__> nom: Jouve, prenom: Tom, charisme: 28, age: 68, x: 5.148387035241441, y: 19.171739177058956
+2024-04-28 15:52:48,190 - INFO - <Ajout bd>
+2024-04-28 15:52:48,190 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:52:48,190 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002B4721F7C50>
+2024-04-28 15:52:48,190 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002B4721F7C50>
+2024-04-28 15:52:48,190 - INFO - <generate_unique_colors> int1: 25.741935176207207, int2: 95.85869588529478
+2024-04-28 15:52:48,191 - INFO - <Planete.add_sphere>
+2024-04-28 15:52:48,191 - INFO - <Planete.add_sphere.INFO> latitude: 25.741935176207207, longitude: 95.85869588529478, color: #45d3a3
+2024-04-28 15:52:48,191 - INFO - </Planete.add_sphere>
+2024-04-28 15:52:48,191 - INFO - <Ajout d'element>
+2024-04-28 15:52:48,191 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002B4721F7C50>,Score: 0.
+2024-04-28 15:52:48,195 - INFO - <generate_unique_colors> int1: 5.148387035241441, int2: 19.171739177058956
+2024-04-28 15:52:48,198 - INFO - <Fin Ajout d'element>
+2024-04-28 15:52:48,198 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:52:48,198 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B4721F7C50>
+2024-04-28 15:52:48,198 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B4721F7C50>
+2024-04-28 15:52:48,198 - INFO - <Fin ajout bd>
+2024-04-28 15:52:48,409 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:52:48,409 - INFO - <Candidat.__init__> nom: Jouve, prenom: Theo, charisme: 26, age: 48, x: 17.79884739835309, y: 38.595551889336576
+2024-04-28 15:52:48,409 - INFO - <Ajout bd>
+2024-04-28 15:52:48,409 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:52:48,409 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002B471C1AC90>
+2024-04-28 15:52:48,409 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002B471C1AC90>
+2024-04-28 15:52:48,409 - INFO - <generate_unique_colors> int1: 88.99423699176545, int2: 192.97775944668288
+2024-04-28 15:52:48,409 - INFO - <Planete.add_sphere>
+2024-04-28 15:52:48,409 - INFO - <Planete.add_sphere.INFO> latitude: 88.99423699176545, longitude: 192.97775944668288, color: #78c015
+2024-04-28 15:52:48,409 - INFO - </Planete.add_sphere>
+2024-04-28 15:52:48,409 - INFO - <Ajout d'element>
+2024-04-28 15:52:48,409 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002B471C1AC90>,Score: 0.
+2024-04-28 15:52:48,410 - INFO - <generate_unique_colors> int1: 17.79884739835309, int2: 38.595551889336576
+2024-04-28 15:52:48,412 - INFO - <Fin Ajout d'element>
+2024-04-28 15:52:48,412 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:52:48,412 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B471C1AC90>
+2024-04-28 15:52:48,412 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B471C1AC90>
+2024-04-28 15:52:48,412 - INFO - <Fin ajout bd>
+2024-04-28 15:52:48,768 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:52:48,768 - INFO - <Candidat.__init__> nom: LeGall, prenom: Louis, charisme: 54, age: 72, x: 22.5432911930471, y: 98.77064046367774
+2024-04-28 15:52:48,768 - INFO - <Ajout bd>
+2024-04-28 15:52:48,768 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:52:48,768 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002B4000C6A50>
+2024-04-28 15:52:48,768 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002B4000C6A50>
+2024-04-28 15:52:48,768 - INFO - <generate_unique_colors> int1: 112.7164559652355, int2: 493.8532023183887
+2024-04-28 15:52:48,768 - INFO - <Planete.add_sphere>
+2024-04-28 15:52:48,768 - INFO - <Planete.add_sphere.INFO> latitude: 112.7164559652355, longitude: 493.8532023183887, color: #b00971
+2024-04-28 15:52:48,768 - INFO - </Planete.add_sphere>
+2024-04-28 15:52:48,768 - INFO - <Ajout d'element>
+2024-04-28 15:52:48,768 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002B4000C6A50>,Score: 0.
+2024-04-28 15:52:48,769 - INFO - <generate_unique_colors> int1: 22.5432911930471, int2: 98.77064046367774
+2024-04-28 15:52:48,772 - INFO - <Fin Ajout d'element>
+2024-04-28 15:52:48,772 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:52:48,772 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B4000C6A50>
+2024-04-28 15:52:48,772 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002B4000C6A50>
+2024-04-28 15:52:48,772 - INFO - <Fin ajout bd>
+2024-04-28 15:52:50,081 - INFO - <Map.creer_L_population>
+2024-04-28 15:52:50,081 - INFO - </Map.creer_L_population>
+2024-04-28 15:58:57,380 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 15:58:57,653 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 15:58:57,727 - INFO - <Map_QT.createGrid>
+2024-04-28 15:58:57,727 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 15:58:57,727 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 15:58:57,727 - INFO - </Map_QT.createGrid>
+2024-04-28 15:58:57,728 - INFO - <Map_QT.createGrid>
+2024-04-28 15:58:57,728 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 15:58:57,728 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 15:58:57,728 - INFO - </Map_QT.createGrid>
+2024-04-28 15:59:06,471 - INFO - <Map.creer_L_population>
+2024-04-28 15:59:06,471 - INFO - </Map.creer_L_population>
+2024-04-28 15:59:07,290 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 15:59:10,909 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:59:10,909 - INFO - <Candidat.__init__> nom: Duval, prenom: Arthur, charisme: 9, age: 49, x: 80.70688609644614, y: 65.01237912465348
+2024-04-28 15:59:10,909 - INFO - <Ajout bd>
+2024-04-28 15:59:10,909 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:59:10,909 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF7726D290>
+2024-04-28 15:59:10,909 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF7726D290>
+2024-04-28 15:59:10,910 - INFO - <generate_unique_colors> int1: 403.53443048223073, int2: 325.0618956232674
+2024-04-28 15:59:10,910 - INFO - <Planete.add_sphere>
+2024-04-28 15:59:10,910 - INFO - <Planete.add_sphere.INFO> latitude: 403.53443048223073, longitude: 325.0618956232674, color: #778165
+2024-04-28 15:59:10,910 - INFO - </Planete.add_sphere>
+2024-04-28 15:59:10,910 - INFO - <Ajout d'element>
+2024-04-28 15:59:10,910 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001DF7726D290>,Score: 0.
+2024-04-28 15:59:10,914 - INFO - <generate_unique_colors> int1: 80.70688609644614, int2: 65.01237912465348
+2024-04-28 15:59:10,917 - INFO - <Fin Ajout d'element>
+2024-04-28 15:59:10,917 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:59:10,917 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF7726D290>
+2024-04-28 15:59:10,917 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF7726D290>
+2024-04-28 15:59:10,917 - INFO - <Fin ajout bd>
+2024-04-28 15:59:11,048 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:59:11,048 - INFO - <Candidat.__init__> nom: Duval, prenom: Emma, charisme: 46, age: 76, x: 11.278766106647996, y: 96.62183997644048
+2024-04-28 15:59:11,048 - INFO - <Ajout bd>
+2024-04-28 15:59:11,048 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:59:11,048 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF76CA7FD0>
+2024-04-28 15:59:11,048 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF76CA7FD0>
+2024-04-28 15:59:11,048 - INFO - <generate_unique_colors> int1: 56.39383053323998, int2: 483.1091998822024
+2024-04-28 15:59:11,048 - INFO - <Planete.add_sphere>
+2024-04-28 15:59:11,048 - INFO - <Planete.add_sphere.INFO> latitude: 56.39383053323998, longitude: 483.1091998822024, color: #d8876c
+2024-04-28 15:59:11,048 - INFO - </Planete.add_sphere>
+2024-04-28 15:59:11,048 - INFO - <Ajout d'element>
+2024-04-28 15:59:11,049 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001DF76CA7FD0>,Score: 0.
+2024-04-28 15:59:11,049 - INFO - <generate_unique_colors> int1: 11.278766106647996, int2: 96.62183997644048
+2024-04-28 15:59:11,051 - INFO - <Fin Ajout d'element>
+2024-04-28 15:59:11,051 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:59:11,051 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF76CA7FD0>
+2024-04-28 15:59:11,051 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF76CA7FD0>
+2024-04-28 15:59:11,051 - INFO - <Fin ajout bd>
+2024-04-28 15:59:11,278 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 15:59:11,278 - INFO - <Candidat.__init__> nom: Petit, prenom: Louis, charisme: 54, age: 68, x: 1.9685773015247876, y: 1.442781486067446
+2024-04-28 15:59:11,278 - INFO - <Ajout bd>
+2024-04-28 15:59:11,278 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 15:59:11,278 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF04DB9690>
+2024-04-28 15:59:11,278 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001DF04DB9690>
+2024-04-28 15:59:11,278 - INFO - <generate_unique_colors> int1: 9.842886507623938, int2: 7.21390743033723
+2024-04-28 15:59:11,278 - INFO - <Planete.add_sphere>
+2024-04-28 15:59:11,279 - INFO - <Planete.add_sphere.INFO> latitude: 9.842886507623938, longitude: 7.21390743033723, color: #755b47
+2024-04-28 15:59:11,279 - INFO - </Planete.add_sphere>
+2024-04-28 15:59:11,279 - INFO - <Ajout d'element>
+2024-04-28 15:59:11,279 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001DF04DB9690>,Score: 0.
+2024-04-28 15:59:11,279 - INFO - <generate_unique_colors> int1: 1.9685773015247876, int2: 1.442781486067446
+2024-04-28 15:59:11,281 - INFO - <Fin Ajout d'element>
+2024-04-28 15:59:11,281 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 15:59:11,281 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF04DB9690>
+2024-04-28 15:59:11,281 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001DF04DB9690>
+2024-04-28 15:59:11,281 - INFO - <Fin ajout bd>
+2024-04-28 16:04:24,512 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:04:24,724 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:04:24,784 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:24,784 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:24,784 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:24,785 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:24,787 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:24,787 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:24,787 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:24,787 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:33,314 - INFO - <Map.creer_L_population>
+2024-04-28 16:04:33,315 - INFO - </Map.creer_L_population>
+2024-04-28 16:04:34,112 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:04:47,167 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:04:47,388 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:04:47,437 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:47,437 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:47,437 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:47,438 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:47,439 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:47,439 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:47,441 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:47,441 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:54,702 - INFO - <Map.creer_L_population>
+2024-04-28 16:04:54,702 - INFO - </Map.creer_L_population>
+2024-04-28 16:04:55,102 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:55,102 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:55,102 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:55,103 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:55,105 - INFO - <Map_QT.createGrid>
+2024-04-28 16:04:55,105 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:04:55,105 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:04:55,106 - INFO - </Map_QT.createGrid>
+2024-04-28 16:04:55,531 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:05:36,528 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:05:36,746 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:05:36,792 - INFO - <Map_QT.createGrid>
+2024-04-28 16:05:36,792 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:05:36,793 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:05:36,793 - INFO - </Map_QT.createGrid>
+2024-04-28 16:05:36,793 - INFO - <Map_QT.createGrid>
+2024-04-28 16:05:36,794 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:05:36,794 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:05:36,794 - INFO - </Map_QT.createGrid>
+2024-04-28 16:05:46,485 - INFO - <Map.creer_L_population>
+2024-04-28 16:05:46,486 - INFO - </Map.creer_L_population>
+2024-04-28 16:05:46,835 - INFO - <Map_QT.createGrid>
+2024-04-28 16:05:46,835 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:05:46,836 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:05:46,836 - INFO - </Map_QT.createGrid>
+2024-04-28 16:05:46,837 - INFO - <Map_QT.createGrid>
+2024-04-28 16:05:46,837 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:05:46,837 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:05:46,838 - INFO - </Map_QT.createGrid>
+2024-04-28 16:05:47,283 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:05:59,970 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:06:00,215 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:06:00,260 - INFO - <Map_QT.createGrid>
+2024-04-28 16:06:00,261 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:06:00,261 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:06:00,262 - INFO - </Map_QT.createGrid>
+2024-04-28 16:06:00,263 - INFO - <Map_QT.createGrid>
+2024-04-28 16:06:00,263 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:06:00,263 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:06:00,264 - INFO - </Map_QT.createGrid>
+2024-04-28 16:06:10,367 - INFO - <Map.creer_L_population>
+2024-04-28 16:06:10,367 - INFO - </Map.creer_L_population>
+2024-04-28 16:06:10,718 - INFO - <Map_QT.createGrid>
+2024-04-28 16:06:10,718 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:06:10,718 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:06:10,719 - INFO - </Map_QT.createGrid>
+2024-04-28 16:06:10,721 - INFO - <Map_QT.createGrid>
+2024-04-28 16:06:10,721 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:06:10,721 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:06:10,721 - INFO - </Map_QT.createGrid>
+2024-04-28 16:06:11,150 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:13:52,151 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:13:52,335 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:13:52,408 - INFO - <Map_QT.createGrid>
+2024-04-28 16:13:52,409 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:13:52,409 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:13:52,410 - INFO - </Map_QT.createGrid>
+2024-04-28 16:13:52,410 - INFO - <Map_QT.createGrid>
+2024-04-28 16:13:52,410 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:13:52,411 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:13:52,411 - INFO - </Map_QT.createGrid>
+2024-04-28 16:14:01,320 - INFO - <Map.creer_L_population>
+2024-04-28 16:14:01,320 - INFO - </Map.creer_L_population>
+2024-04-28 16:14:01,828 - INFO - <Map_QT.createGrid>
+2024-04-28 16:14:01,829 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:14:01,829 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:14:01,829 - INFO - </Map_QT.createGrid>
+2024-04-28 16:14:01,830 - INFO - <Map_QT.createGrid>
+2024-04-28 16:14:01,830 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:14:01,830 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:14:01,831 - INFO - </Map_QT.createGrid>
+2024-04-28 16:14:02,290 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:14:09,105 - INFO - <Map.creer_L_population>
+2024-04-28 16:14:09,106 - INFO - </Map.creer_L_population>
+2024-04-28 16:16:26,589 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:16:26,748 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:16:26,793 - INFO - <Map_QT.createGrid>
+2024-04-28 16:16:26,794 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:16:26,794 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:16:26,794 - INFO - </Map_QT.createGrid>
+2024-04-28 16:16:26,795 - INFO - <Map_QT.createGrid>
+2024-04-28 16:16:26,795 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:16:26,795 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:16:26,796 - INFO - </Map_QT.createGrid>
+2024-04-28 16:16:34,948 - INFO - <Map.creer_L_population>
+2024-04-28 16:16:34,949 - INFO - </Map.creer_L_population>
+2024-04-28 16:16:35,914 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:16:49,554 - INFO - <Map.creer_L_population>
+2024-04-28 16:16:49,555 - INFO - </Map.creer_L_population>
+2024-04-28 16:16:55,312 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:16:55,313 - INFO - <Candidat.__init__> nom: Jouve, prenom: Iris, charisme: 33, age: 47, x: 80.43277276263743, y: 18.100375199076502
+2024-04-28 16:16:55,313 - INFO - <Ajout bd>
+2024-04-28 16:16:55,313 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:16:55,313 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D6C4EC50>
+2024-04-28 16:16:55,314 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D6C4EC50>
+2024-04-28 16:16:55,314 - INFO - <generate_unique_colors> int1: 402.16386381318716, int2: 90.5018759953825
+2024-04-28 16:16:55,314 - INFO - <Planete.add_sphere>
+2024-04-28 16:16:55,314 - INFO - <Planete.add_sphere.INFO> latitude: 402.16386381318716, longitude: 90.5018759953825, color: #6a922c
+2024-04-28 16:16:55,314 - INFO - </Planete.add_sphere>
+2024-04-28 16:16:55,314 - INFO - <Ajout d'element>
+2024-04-28 16:16:55,314 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x00000279D6C4EC50>,Score: 0.
+2024-04-28 16:16:55,319 - INFO - <generate_unique_colors> int1: 80.43277276263743, int2: 18.100375199076502
+2024-04-28 16:16:55,321 - INFO - <Fin Ajout d'element>
+2024-04-28 16:16:55,322 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:16:55,322 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D6C4EC50>
+2024-04-28 16:16:55,322 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D6C4EC50>
+2024-04-28 16:16:55,322 - INFO - <Fin ajout bd>
+2024-04-28 16:16:55,435 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:16:55,435 - INFO - <Candidat.__init__> nom: Baron, prenom: Iris, charisme: 71, age: 64, x: 72.52103735167631, y: 22.301016698083853
+2024-04-28 16:16:55,435 - INFO - <Ajout bd>
+2024-04-28 16:16:55,436 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:16:55,436 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D67F4750>
+2024-04-28 16:16:55,436 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D67F4750>
+2024-04-28 16:16:55,436 - INFO - <generate_unique_colors> int1: 362.6051867583816, int2: 111.50508349041927
+2024-04-28 16:16:55,436 - INFO - <Planete.add_sphere>
+2024-04-28 16:16:55,436 - INFO - <Planete.add_sphere.INFO> latitude: 362.6051867583816, longitude: 111.50508349041927, color: #62a3f0
+2024-04-28 16:16:55,436 - INFO - </Planete.add_sphere>
+2024-04-28 16:16:55,436 - INFO - <Ajout d'element>
+2024-04-28 16:16:55,436 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x00000279D67F4750>,Score: 0.
+2024-04-28 16:16:55,437 - INFO - <generate_unique_colors> int1: 72.52103735167631, int2: 22.301016698083853
+2024-04-28 16:16:55,438 - INFO - <Fin Ajout d'element>
+2024-04-28 16:16:55,438 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:16:55,438 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D67F4750>
+2024-04-28 16:16:55,438 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D67F4750>
+2024-04-28 16:16:55,438 - INFO - <Fin ajout bd>
+2024-04-28 16:16:55,575 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:16:55,575 - INFO - <Candidat.__init__> nom: LeGall, prenom: Tom, charisme: 21, age: 72, x: 78.46237508694017, y: 63.81954896765455
+2024-04-28 16:16:55,575 - INFO - <Ajout bd>
+2024-04-28 16:16:55,575 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:16:55,576 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x00000279E423AED0>
+2024-04-28 16:16:55,576 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x00000279E423AED0>
+2024-04-28 16:16:55,576 - INFO - <generate_unique_colors> int1: 392.3118754347008, int2: 319.0977448382727
+2024-04-28 16:16:55,576 - INFO - <Planete.add_sphere>
+2024-04-28 16:16:55,576 - INFO - <Planete.add_sphere.INFO> latitude: 392.3118754347008, longitude: 319.0977448382727, color: #e83301
+2024-04-28 16:16:55,576 - INFO - </Planete.add_sphere>
+2024-04-28 16:16:55,576 - INFO - <Ajout d'element>
+2024-04-28 16:16:55,576 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x00000279E423AED0>,Score: 0.
+2024-04-28 16:16:55,577 - INFO - <generate_unique_colors> int1: 78.46237508694017, int2: 63.81954896765455
+2024-04-28 16:16:55,578 - INFO - <Fin Ajout d'element>
+2024-04-28 16:16:55,578 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:16:55,578 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279E423AED0>
+2024-04-28 16:16:55,578 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279E423AED0>
+2024-04-28 16:16:55,578 - INFO - <Fin ajout bd>
+2024-04-28 16:16:55,797 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:16:55,798 - INFO - <Candidat.__init__> nom: Jouve, prenom: Theo, charisme: 9, age: 19, x: 0.6114690305535131, y: 57.829545773763414
+2024-04-28 16:16:55,798 - INFO - <Ajout bd>
+2024-04-28 16:16:55,798 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:16:55,798 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D6792110>
+2024-04-28 16:16:55,798 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x00000279D6792110>
+2024-04-28 16:16:55,798 - INFO - <generate_unique_colors> int1: 3.0573451527675655, int2: 289.14772886881707
+2024-04-28 16:16:55,798 - INFO - <Planete.add_sphere>
+2024-04-28 16:16:55,798 - INFO - <Planete.add_sphere.INFO> latitude: 3.0573451527675655, longitude: 289.14772886881707, color: #27ad74
+2024-04-28 16:16:55,798 - INFO - </Planete.add_sphere>
+2024-04-28 16:16:55,798 - INFO - <Ajout d'element>
+2024-04-28 16:16:55,798 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x00000279D6792110>,Score: 0.
+2024-04-28 16:16:55,799 - INFO - <generate_unique_colors> int1: 0.6114690305535131, int2: 57.829545773763414
+2024-04-28 16:16:55,801 - INFO - <Fin Ajout d'element>
+2024-04-28 16:16:55,801 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:16:55,801 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D6792110>
+2024-04-28 16:16:55,801 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x00000279D6792110>
+2024-04-28 16:16:55,801 - INFO - <Fin ajout bd>
+2024-04-28 16:18:38,012 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:18:38,185 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:18:38,229 - INFO - <Map_QT.createGrid>
+2024-04-28 16:18:38,231 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:18:38,231 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:18:38,232 - INFO - </Map_QT.createGrid>
+2024-04-28 16:18:38,232 - INFO - <Map_QT.createGrid>
+2024-04-28 16:18:38,232 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:18:38,232 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:18:38,233 - INFO - </Map_QT.createGrid>
+2024-04-28 16:22:33,377 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:22:33,548 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:22:33,609 - INFO - <Map_QT.createGrid>
+2024-04-28 16:22:33,610 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:22:33,610 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:22:33,611 - INFO - </Map_QT.createGrid>
+2024-04-28 16:22:33,611 - INFO - <Map_QT.createGrid>
+2024-04-28 16:22:33,611 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:22:33,612 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:22:33,613 - INFO - </Map_QT.createGrid>
+2024-04-28 16:22:41,760 - INFO - <Map.creer_L_population>
+2024-04-28 16:22:41,760 - INFO - </Map.creer_L_population>
+2024-04-28 16:22:42,624 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:23:18,473 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:18,473 - INFO - <Candidat.__init__> nom: Laurent, prenom: Arthur, charisme: 83, age: 33, x: 63.58129132517841, y: 15.04460236145877
+2024-04-28 16:23:18,473 - INFO - <Ajout bd>
+2024-04-28 16:23:18,473 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:18,473 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000017416AF1790>
+2024-04-28 16:23:18,474 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000017416AF1790>
+2024-04-28 16:23:18,474 - INFO - <generate_unique_colors> int1: 317.9064566258921, int2: 75.22301180729384
+2024-04-28 16:23:18,474 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:18,474 - INFO - <Planete.add_sphere.INFO> latitude: 317.9064566258921, longitude: 75.22301180729384, color: #19cf69
+2024-04-28 16:23:18,474 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:18,474 - INFO - <Ajout d'element>
+2024-04-28 16:23:18,475 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000017416AF1790>,Score: 0.
+2024-04-28 16:23:18,477 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:18,479 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:18,479 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:18,479 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017416AF1790>
+2024-04-28 16:23:18,480 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017416AF1790>
+2024-04-28 16:23:18,480 - INFO - <Fin ajout bd>
+2024-04-28 16:23:18,606 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:18,606 - INFO - <Candidat.__init__> nom: Petit, prenom: Tom, charisme: 5, age: 71, x: 93.20943091614203, y: 82.5194934397273
+2024-04-28 16:23:18,606 - INFO - <Ajout bd>
+2024-04-28 16:23:18,606 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:18,606 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000017419F1B510>
+2024-04-28 16:23:18,606 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000017419F1B510>
+2024-04-28 16:23:18,606 - INFO - <generate_unique_colors> int1: 466.0471545807101, int2: 412.5974671986365
+2024-04-28 16:23:18,606 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:18,606 - INFO - <Planete.add_sphere.INFO> latitude: 466.0471545807101, longitude: 412.5974671986365, color: #aaec21
+2024-04-28 16:23:18,606 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:18,606 - INFO - <Ajout d'element>
+2024-04-28 16:23:18,606 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000017419F1B510>,Score: 0.
+2024-04-28 16:23:18,607 - INFO - <generate_unique_colors> int1: 93.20943091614203, int2: 82.5194934397273
+2024-04-28 16:23:18,609 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:18,609 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:18,609 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017419F1B510>
+2024-04-28 16:23:18,609 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017419F1B510>
+2024-04-28 16:23:18,609 - INFO - <Fin ajout bd>
+2024-04-28 16:23:18,740 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:18,740 - INFO - <Candidat.__init__> nom: Henry, prenom: Rose, charisme: 27, age: 72, x: 1.725447044851991, y: 86.89267308832278
+2024-04-28 16:23:18,740 - INFO - <Ajout bd>
+2024-04-28 16:23:18,740 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:18,740 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001741B21F510>
+2024-04-28 16:23:18,740 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001741B21F510>
+2024-04-28 16:23:18,740 - INFO - <generate_unique_colors> int1: 8.627235224259955, int2: 434.4633654416139
+2024-04-28 16:23:18,741 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:18,741 - INFO - <Planete.add_sphere.INFO> latitude: 8.627235224259955, longitude: 434.4633654416139, color: #680aa4
+2024-04-28 16:23:18,741 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:18,741 - INFO - <Ajout d'element>
+2024-04-28 16:23:18,741 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001741B21F510>,Score: 0.
+2024-04-28 16:23:18,742 - INFO - <generate_unique_colors> int1: 1.725447044851991, int2: 86.89267308832278
+2024-04-28 16:23:18,743 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:18,743 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:18,743 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001741B21F510>
+2024-04-28 16:23:18,743 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001741B21F510>
+2024-04-28 16:23:18,743 - INFO - <Fin ajout bd>
+2024-04-28 16:23:18,853 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:18,854 - INFO - <Candidat.__init__> nom: Baron, prenom: Gabriel, charisme: 43, age: 48, x: 77.80863201418771, y: 35.34894922851151
+2024-04-28 16:23:18,854 - INFO - <Ajout bd>
+2024-04-28 16:23:18,854 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:18,854 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000017416B6BB10>
+2024-04-28 16:23:18,854 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000017416B6BB10>
+2024-04-28 16:23:18,854 - INFO - <generate_unique_colors> int1: 389.04316007093854, int2: 176.74474614255755
+2024-04-28 16:23:18,854 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:18,854 - INFO - <Planete.add_sphere.INFO> latitude: 389.04316007093854, longitude: 176.74474614255755, color: #c1f099
+2024-04-28 16:23:18,854 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:18,854 - INFO - <Ajout d'element>
+2024-04-28 16:23:18,854 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000017416B6BB10>,Score: 0.
+2024-04-28 16:23:18,855 - INFO - <generate_unique_colors> int1: 77.80863201418771, int2: 35.34894922851151
+2024-04-28 16:23:18,857 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:18,857 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:18,857 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017416B6BB10>
+2024-04-28 16:23:18,857 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017416B6BB10>
+2024-04-28 16:23:18,857 - INFO - <Fin ajout bd>
+2024-04-28 16:23:19,077 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:19,077 - INFO - <Candidat.__init__> nom: Martin, prenom: Chloe, charisme: 62, age: 36, x: 10.950353940942792, y: 25.84182526990243
+2024-04-28 16:23:19,077 - INFO - <Ajout bd>
+2024-04-28 16:23:19,077 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:19,077 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000017408E421D0>
+2024-04-28 16:23:19,077 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000017408E421D0>
+2024-04-28 16:23:19,077 - INFO - <generate_unique_colors> int1: 54.75176970471396, int2: 129.20912634951213
+2024-04-28 16:23:19,077 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:19,077 - INFO - <Planete.add_sphere.INFO> latitude: 54.75176970471396, longitude: 129.20912634951213, color: #be8da2
+2024-04-28 16:23:19,077 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:19,077 - INFO - <Ajout d'element>
+2024-04-28 16:23:19,077 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000017408E421D0>,Score: 0.
+2024-04-28 16:23:19,078 - INFO - <generate_unique_colors> int1: 10.950353940942792, int2: 25.84182526990243
+2024-04-28 16:23:19,080 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:19,080 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:19,080 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017408E421D0>
+2024-04-28 16:23:19,080 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017408E421D0>
+2024-04-28 16:23:19,080 - INFO - <Fin ajout bd>
+2024-04-28 16:23:19,674 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:23:19,674 - INFO - <Candidat.__init__> nom: Baron, prenom: Rose, charisme: 22, age: 70, x: 23.93865011566171, y: 37.569565685453846
+2024-04-28 16:23:19,674 - INFO - <Ajout bd>
+2024-04-28 16:23:19,674 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:23:19,674 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001741B21C1D0>
+2024-04-28 16:23:19,674 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001741B21C1D0>
+2024-04-28 16:23:19,674 - INFO - <generate_unique_colors> int1: 119.69325057830855, int2: 187.84782842726923
+2024-04-28 16:23:19,674 - INFO - <Planete.add_sphere>
+2024-04-28 16:23:19,674 - INFO - <Planete.add_sphere.INFO> latitude: 119.69325057830855, longitude: 187.84782842726923, color: #0b7fd4
+2024-04-28 16:23:19,674 - INFO - </Planete.add_sphere>
+2024-04-28 16:23:19,674 - INFO - <Ajout d'element>
+2024-04-28 16:23:19,674 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001741B21C1D0>,Score: 0.
+2024-04-28 16:23:19,675 - INFO - <generate_unique_colors> int1: 23.93865011566171, int2: 37.569565685453846
+2024-04-28 16:23:19,676 - INFO - <Fin Ajout d'element>
+2024-04-28 16:23:19,678 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:23:19,678 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001741B21C1D0>
+2024-04-28 16:23:19,678 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001741B21C1D0>
+2024-04-28 16:23:19,678 - INFO - <Fin ajout bd>
+2024-04-28 16:23:20,773 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:20,773 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,821 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,822 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,823 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,824 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,825 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,826 - INFO - <Map.creer_L_population>
+2024-04-28 16:23:22,826 - INFO - </Map.creer_L_population>
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 93.20943091614203, int2: 82.5194934397273
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 1.725447044851991, int2: 86.89267308832278
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 77.80863201418771, int2: 35.34894922851151
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 10.950353940942792, int2: 25.84182526990243
+2024-04-28 16:23:22,830 - INFO - <generate_unique_colors> int1: 23.93865011566171, int2: 37.569565685453846
+2024-04-28 16:23:22,835 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,835 - INFO - <generate_unique_colors> int1: 93.20943091614203, int2: 82.5194934397273
+2024-04-28 16:23:22,835 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,835 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,835 - INFO - <generate_unique_colors> int1: 1.725447044851991, int2: 86.89267308832278
+2024-04-28 16:23:22,836 - INFO - <generate_unique_colors> int1: 77.80863201418771, int2: 35.34894922851151
+2024-04-28 16:23:22,836 - INFO - <generate_unique_colors> int1: 1.725447044851991, int2: 86.89267308832278
+2024-04-28 16:23:22,836 - INFO - <generate_unique_colors> int1: 1.725447044851991, int2: 86.89267308832278
+2024-04-28 16:23:22,836 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,836 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 10.950353940942792, int2: 25.84182526990243
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 23.93865011566171, int2: 37.569565685453846
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 10.950353940942792, int2: 25.84182526990243
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 10.950353940942792, int2: 25.84182526990243
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:23:22,837 - INFO - <generate_unique_colors> int1: 63.58129132517841, int2: 15.04460236145877
+2024-04-28 16:32:50,173 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:32:50,343 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:33:27,993 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:33:28,158 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:33:28,206 - INFO - <Map_QT.createGrid>
+2024-04-28 16:33:28,206 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:33:28,206 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:33:28,207 - INFO - </Map_QT.createGrid>
+2024-04-28 16:33:28,207 - INFO - <Map_QT.createGrid>
+2024-04-28 16:33:28,207 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:33:28,207 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:33:28,208 - INFO - </Map_QT.createGrid>
+2024-04-28 16:34:59,792 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:34:59,948 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:35:00,001 - INFO - <Map_QT.createGrid>
+2024-04-28 16:35:00,001 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:35:00,002 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:35:00,002 - INFO - </Map_QT.createGrid>
+2024-04-28 16:35:00,003 - INFO - <Map_QT.createGrid>
+2024-04-28 16:35:00,003 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:35:00,003 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:35:00,004 - INFO - </Map_QT.createGrid>
+2024-04-28 16:35:21,590 - INFO - <Map.creer_L_population>
+2024-04-28 16:35:21,591 - INFO - </Map.creer_L_population>
+2024-04-28 16:35:22,053 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:36:35,534 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:36:35,760 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:36:35,807 - INFO - <Map_QT.createGrid>
+2024-04-28 16:36:35,807 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:36:35,807 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:36:35,808 - INFO - </Map_QT.createGrid>
+2024-04-28 16:36:35,808 - INFO - <Map_QT.createGrid>
+2024-04-28 16:36:35,808 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:36:35,809 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:36:35,810 - INFO - </Map_QT.createGrid>
+2024-04-28 16:37:00,669 - INFO - <Map.creer_L_population>
+2024-04-28 16:37:00,669 - INFO - </Map.creer_L_population>
+2024-04-28 16:37:01,063 - INFO - <Map_QT.createGrid>
+2024-04-28 16:37:01,063 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:37:01,063 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:37:01,064 - INFO - </Map_QT.createGrid>
+2024-04-28 16:37:01,064 - INFO - <Map_QT.createGrid>
+2024-04-28 16:37:01,065 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:37:01,065 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:37:01,065 - INFO - </Map_QT.createGrid>
+2024-04-28 16:37:01,142 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:37:08,338 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:37:08,338 - INFO - <Candidat.__init__> nom: Henry, prenom: Theo, charisme: 32, age: 38, x: 3.1896284292125987, y: 70.15841586875128
+2024-04-28 16:37:08,339 - INFO - <Ajout bd>
+2024-04-28 16:37:08,339 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:37:08,339 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7CC5CD450>
+2024-04-28 16:37:08,339 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7CC5CD450>
+2024-04-28 16:37:08,339 - INFO - <generate_unique_colors> int1: 15.948142146062994, int2: 350.79207934375637
+2024-04-28 16:37:08,339 - INFO - <Map_QT.placePoint>
+2024-04-28 16:37:08,339 - INFO - <Map_QT.placePoint.INFO> x: 15.948142146062994, y: 350.79207934375637, color: #c3c6da, taille: 10
+2024-04-28 16:37:08,339 - INFO - Point placé aux coordonnées (15.948142146062994, 350.79207934375637) avec la couleur #c3c6da.
+2024-04-28 16:37:08,339 - INFO - </Map_QT.placePoint.INFO>
+2024-04-28 16:37:08,340 - INFO - </Map_QT.placePoint>
+2024-04-28 16:37:08,340 - INFO - <Ajout d'element>
+2024-04-28 16:37:08,340 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001C7CC5CD450>,Score: 0.
+2024-04-28 16:37:08,343 - INFO - <generate_unique_colors> int1: 3.1896284292125987, int2: 70.15841586875128
+2024-04-28 16:37:08,345 - INFO - <Fin Ajout d'element>
+2024-04-28 16:37:08,345 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:37:08,345 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7CC5CD450>
+2024-04-28 16:37:08,345 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7CC5CD450>
+2024-04-28 16:37:08,345 - INFO - <Fin ajout bd>
+2024-04-28 16:37:08,514 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:37:08,514 - INFO - <Candidat.__init__> nom: Baron, prenom: Arthur, charisme: 6, age: 47, x: 55.15929214856832, y: 68.5891388564368
+2024-04-28 16:37:08,514 - INFO - <Ajout bd>
+2024-04-28 16:37:08,514 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:37:08,514 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7CC5CE750>
+2024-04-28 16:37:08,514 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7CC5CE750>
+2024-04-28 16:37:08,514 - INFO - <generate_unique_colors> int1: 275.7964607428416, int2: 342.94569428218404
+2024-04-28 16:37:08,514 - INFO - <Map_QT.placePoint>
+2024-04-28 16:37:08,515 - INFO - <Map_QT.placePoint.INFO> x: 275.7964607428416, y: 342.94569428218404, color: #f75e77, taille: 10
+2024-04-28 16:37:08,515 - INFO - Point placé aux coordonnées (275.7964607428416, 342.94569428218404) avec la couleur #f75e77.
+2024-04-28 16:37:08,515 - INFO - </Map_QT.placePoint.INFO>
+2024-04-28 16:37:08,515 - INFO - </Map_QT.placePoint>
+2024-04-28 16:37:08,515 - INFO - <Ajout d'element>
+2024-04-28 16:37:08,515 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001C7CC5CE750>,Score: 0.
+2024-04-28 16:37:08,515 - INFO - <generate_unique_colors> int1: 55.15929214856832, int2: 68.5891388564368
+2024-04-28 16:37:08,517 - INFO - <Fin Ajout d'element>
+2024-04-28 16:37:08,517 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:37:08,517 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7CC5CE750>
+2024-04-28 16:37:08,517 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7CC5CE750>
+2024-04-28 16:37:08,517 - INFO - <Fin ajout bd>
+2024-04-28 16:37:08,669 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:37:08,669 - INFO - <Candidat.__init__> nom: Duval, prenom: Tom, charisme: 7, age: 19, x: 90.65421507244808, y: 79.17578946415314
+2024-04-28 16:37:08,669 - INFO - <Ajout bd>
+2024-04-28 16:37:08,669 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:37:08,670 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1742D10>
+2024-04-28 16:37:08,670 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1742D10>
+2024-04-28 16:37:08,670 - INFO - <generate_unique_colors> int1: 453.2710753622404, int2: 395.8789473207657
+2024-04-28 16:37:08,670 - INFO - <Map_QT.placePoint>
+2024-04-28 16:37:08,670 - INFO - <Map_QT.placePoint.INFO> x: 453.2710753622404, y: 395.8789473207657, color: #010ff0, taille: 10
+2024-04-28 16:37:08,670 - INFO - Point placé aux coordonnées (453.2710753622404, 395.8789473207657) avec la couleur #010ff0.
+2024-04-28 16:37:08,670 - INFO - </Map_QT.placePoint.INFO>
+2024-04-28 16:37:08,670 - INFO - </Map_QT.placePoint>
+2024-04-28 16:37:08,670 - INFO - <Ajout d'element>
+2024-04-28 16:37:08,670 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001C7D1742D10>,Score: 0.
+2024-04-28 16:37:08,671 - INFO - <generate_unique_colors> int1: 90.65421507244808, int2: 79.17578946415314
+2024-04-28 16:37:08,672 - INFO - <Fin Ajout d'element>
+2024-04-28 16:37:08,673 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:37:08,673 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1742D10>
+2024-04-28 16:37:08,673 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1742D10>
+2024-04-28 16:37:08,673 - INFO - <Fin ajout bd>
+2024-04-28 16:37:08,846 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:37:08,846 - INFO - <Candidat.__init__> nom: LeGall, prenom: Arthur, charisme: 75, age: 74, x: 82.87045949508297, y: 93.15100296582568
+2024-04-28 16:37:08,846 - INFO - <Ajout bd>
+2024-04-28 16:37:08,846 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:37:08,846 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1743610>
+2024-04-28 16:37:08,846 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1743610>
+2024-04-28 16:37:08,846 - INFO - <generate_unique_colors> int1: 414.35229747541484, int2: 465.7550148291284
+2024-04-28 16:37:08,846 - INFO - <Map_QT.placePoint>
+2024-04-28 16:37:08,846 - INFO - <Map_QT.placePoint.INFO> x: 414.35229747541484, y: 465.7550148291284, color: #069dda, taille: 10
+2024-04-28 16:37:08,846 - INFO - Point placé aux coordonnées (414.35229747541484, 465.7550148291284) avec la couleur #069dda.
+2024-04-28 16:37:08,846 - INFO - </Map_QT.placePoint.INFO>
+2024-04-28 16:37:08,846 - INFO - </Map_QT.placePoint>
+2024-04-28 16:37:08,846 - INFO - <Ajout d'element>
+2024-04-28 16:37:08,846 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001C7D1743610>,Score: 0.
+2024-04-28 16:37:08,847 - INFO - <generate_unique_colors> int1: 82.87045949508297, int2: 93.15100296582568
+2024-04-28 16:37:08,848 - INFO - <Fin Ajout d'element>
+2024-04-28 16:37:08,848 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:37:08,848 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1743610>
+2024-04-28 16:37:08,848 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1743610>
+2024-04-28 16:37:08,848 - INFO - <Fin ajout bd>
+2024-04-28 16:37:09,066 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:37:09,066 - INFO - <Candidat.__init__> nom: Martin, prenom: Marceau, charisme: 90, age: 83, x: 78.050032377913, y: 44.438958534884655
+2024-04-28 16:37:09,066 - INFO - <Ajout bd>
+2024-04-28 16:37:09,066 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:37:09,066 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1743AD0>
+2024-04-28 16:37:09,066 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000001C7D1743AD0>
+2024-04-28 16:37:09,066 - INFO - <generate_unique_colors> int1: 390.250161889565, int2: 222.19479267442327
+2024-04-28 16:37:09,066 - INFO - <Map_QT.placePoint>
+2024-04-28 16:37:09,066 - INFO - <Map_QT.placePoint.INFO> x: 390.250161889565, y: 222.19479267442327, color: #ce46b7, taille: 10
+2024-04-28 16:37:09,066 - INFO - Point placé aux coordonnées (390.250161889565, 222.19479267442327) avec la couleur #ce46b7.
+2024-04-28 16:37:09,066 - INFO - </Map_QT.placePoint.INFO>
+2024-04-28 16:37:09,066 - INFO - </Map_QT.placePoint>
+2024-04-28 16:37:09,066 - INFO - <Ajout d'element>
+2024-04-28 16:37:09,066 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000001C7D1743AD0>,Score: 0.
+2024-04-28 16:37:09,068 - INFO - <generate_unique_colors> int1: 78.050032377913, int2: 44.438958534884655
+2024-04-28 16:37:09,069 - INFO - <Fin Ajout d'element>
+2024-04-28 16:37:09,069 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:37:09,069 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1743AD0>
+2024-04-28 16:37:09,069 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000001C7D1743AD0>
+2024-04-28 16:37:09,070 - INFO - <Fin ajout bd>
+2024-04-28 16:37:10,122 - INFO - <Map.creer_L_population>
+2024-04-28 16:37:10,123 - INFO - </Map.creer_L_population>
+2024-04-28 16:39:12,351 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:39:12,525 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:39:12,575 - INFO - <Map_QT.createGrid>
+2024-04-28 16:39:12,575 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:39:12,575 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:39:12,576 - INFO - </Map_QT.createGrid>
+2024-04-28 16:39:12,576 - INFO - <Map_QT.createGrid>
+2024-04-28 16:39:12,577 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:39:12,577 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:39:12,578 - INFO - </Map_QT.createGrid>
+2024-04-28 16:39:30,225 - INFO - <Map.creer_L_population>
+2024-04-28 16:39:30,225 - INFO - </Map.creer_L_population>
+2024-04-28 16:39:30,689 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:39:36,731 - INFO - <Map.creer_L_population>
+2024-04-28 16:39:36,731 - INFO - </Map.creer_L_population>
+2024-04-28 16:39:47,421 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:39:47,422 - INFO - <Candidat.__init__> nom: Baron, prenom: Rose, charisme: 55, age: 57, x: 76.9993855578776, y: 12.379747021691445
+2024-04-28 16:39:47,422 - INFO - <Ajout bd>
+2024-04-28 16:39:47,422 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:39:47,422 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000028600F8E8D0>
+2024-04-28 16:39:47,422 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000028600F8E8D0>
+2024-04-28 16:39:47,423 - INFO - <generate_unique_colors> int1: 384.996927789388, int2: 61.898735108457224
+2024-04-28 16:39:47,423 - INFO - <Planete.add_sphere>
+2024-04-28 16:39:47,423 - INFO - <Planete.add_sphere.INFO> latitude: 384.996927789388, longitude: 61.898735108457224, color: #801916
+2024-04-28 16:39:47,423 - INFO - </Planete.add_sphere>
+2024-04-28 16:39:47,423 - INFO - <Ajout d'element>
+2024-04-28 16:39:47,423 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000028600F8E8D0>,Score: 0.
+2024-04-28 16:39:47,427 - INFO - <generate_unique_colors> int1: 76.9993855578776, int2: 12.379747021691445
+2024-04-28 16:39:47,429 - INFO - <Fin Ajout d'element>
+2024-04-28 16:39:47,429 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:39:47,430 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000028600F8E8D0>
+2024-04-28 16:39:47,430 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000028600F8E8D0>
+2024-04-28 16:39:47,430 - INFO - <Fin ajout bd>
+2024-04-28 16:39:47,547 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:39:47,548 - INFO - <Candidat.__init__> nom: Duval, prenom: Chloe, charisme: 77, age: 85, x: 50.089806284319394, y: 64.40873707499208
+2024-04-28 16:39:47,548 - INFO - <Ajout bd>
+2024-04-28 16:39:47,548 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:39:47,548 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x0000028600F91910>
+2024-04-28 16:39:47,548 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x0000028600F91910>
+2024-04-28 16:39:47,548 - INFO - <generate_unique_colors> int1: 250.44903142159697, int2: 322.0436853749604
+2024-04-28 16:39:47,548 - INFO - <Planete.add_sphere>
+2024-04-28 16:39:47,548 - INFO - <Planete.add_sphere.INFO> latitude: 250.44903142159697, longitude: 322.0436853749604, color: #b25a0f
+2024-04-28 16:39:47,548 - INFO - </Planete.add_sphere>
+2024-04-28 16:39:47,548 - INFO - <Ajout d'element>
+2024-04-28 16:39:47,548 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x0000028600F91910>,Score: 0.
+2024-04-28 16:39:47,549 - INFO - <generate_unique_colors> int1: 50.089806284319394, int2: 64.40873707499208
+2024-04-28 16:39:47,551 - INFO - <Fin Ajout d'element>
+2024-04-28 16:39:47,551 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:39:47,551 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000028600F91910>
+2024-04-28 16:39:47,551 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000028600F91910>
+2024-04-28 16:39:47,551 - INFO - <Fin ajout bd>
+2024-04-28 16:39:47,668 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:39:47,669 - INFO - <Candidat.__init__> nom: Baron, prenom: Rose, charisme: 83, age: 81, x: 68.68157631055408, y: 74.7403333194167
+2024-04-28 16:39:47,669 - INFO - <Ajout bd>
+2024-04-28 16:39:47,669 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:39:47,669 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002860E60F550>
+2024-04-28 16:39:47,669 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002860E60F550>
+2024-04-28 16:39:47,669 - INFO - <generate_unique_colors> int1: 343.4078815527704, int2: 373.70166659708354
+2024-04-28 16:39:47,669 - INFO - <Planete.add_sphere>
+2024-04-28 16:39:47,669 - INFO - <Planete.add_sphere.INFO> latitude: 343.4078815527704, longitude: 373.70166659708354, color: #6bf14c
+2024-04-28 16:39:47,669 - INFO - </Planete.add_sphere>
+2024-04-28 16:39:47,669 - INFO - <Ajout d'element>
+2024-04-28 16:39:47,669 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002860E60F550>,Score: 0.
+2024-04-28 16:39:47,670 - INFO - <generate_unique_colors> int1: 68.68157631055408, int2: 74.7403333194167
+2024-04-28 16:39:47,671 - INFO - <Fin Ajout d'element>
+2024-04-28 16:39:47,671 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:39:47,671 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002860E60F550>
+2024-04-28 16:39:47,671 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002860E60F550>
+2024-04-28 16:39:47,671 - INFO - <Fin ajout bd>
+2024-04-28 16:39:47,890 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:39:47,890 - INFO - <Candidat.__init__> nom: Henry, prenom: Arthur, charisme: 3, age: 33, x: 73.76574785463474, y: 19.97256891904946
+2024-04-28 16:39:47,890 - INFO - <Ajout bd>
+2024-04-28 16:39:47,890 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:39:47,890 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002860E60F6D0>
+2024-04-28 16:39:47,890 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002860E60F6D0>
+2024-04-28 16:39:47,890 - INFO - <generate_unique_colors> int1: 368.8287392731737, int2: 99.86284459524731
+2024-04-28 16:39:47,890 - INFO - <Planete.add_sphere>
+2024-04-28 16:39:47,890 - INFO - <Planete.add_sphere.INFO> latitude: 368.8287392731737, longitude: 99.86284459524731, color: #b007e0
+2024-04-28 16:39:47,890 - INFO - </Planete.add_sphere>
+2024-04-28 16:39:47,890 - INFO - <Ajout d'element>
+2024-04-28 16:39:47,891 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002860E60F6D0>,Score: 0.
+2024-04-28 16:39:47,892 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:47,894 - INFO - <Fin Ajout d'element>
+2024-04-28 16:39:47,894 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:39:47,894 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002860E60F6D0>
+2024-04-28 16:39:47,894 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002860E60F6D0>
+2024-04-28 16:39:47,894 - INFO - <Fin ajout bd>
+2024-04-28 16:39:50,809 - INFO - <Map.creer_L_population>
+2024-04-28 16:39:50,809 - INFO - </Map.creer_L_population>
+2024-04-28 16:39:50,811 - INFO - <generate_unique_colors> int1: 76.9993855578776, int2: 12.379747021691445
+2024-04-28 16:39:50,811 - INFO - <generate_unique_colors> int1: 50.089806284319394, int2: 64.40873707499208
+2024-04-28 16:39:50,811 - INFO - <generate_unique_colors> int1: 68.68157631055408, int2: 74.7403333194167
+2024-04-28 16:39:50,811 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:50,812 - INFO - <generate_unique_colors> int1: 76.9993855578776, int2: 12.379747021691445
+2024-04-28 16:39:50,812 - INFO - <generate_unique_colors> int1: 50.089806284319394, int2: 64.40873707499208
+2024-04-28 16:39:50,812 - INFO - <generate_unique_colors> int1: 76.9993855578776, int2: 12.379747021691445
+2024-04-28 16:39:50,812 - INFO - <generate_unique_colors> int1: 76.9993855578776, int2: 12.379747021691445
+2024-04-28 16:39:50,813 - INFO - <generate_unique_colors> int1: 68.68157631055408, int2: 74.7403333194167
+2024-04-28 16:39:50,813 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:50,813 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:50,813 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:50,813 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:39:50,814 - INFO - <generate_unique_colors> int1: 73.76574785463474, int2: 19.97256891904946
+2024-04-28 16:41:13,023 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:41:13,222 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:41:13,273 - INFO - <Map_QT.createGrid>
+2024-04-28 16:41:13,274 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:41:13,274 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:41:13,275 - INFO - </Map_QT.createGrid>
+2024-04-28 16:41:13,275 - INFO - <Map_QT.createGrid>
+2024-04-28 16:41:13,275 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:41:13,275 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:41:13,276 - INFO - </Map_QT.createGrid>
+2024-04-28 16:41:27,755 - INFO - <Map.creer_L_population>
+2024-04-28 16:41:27,756 - INFO - </Map.creer_L_population>
+2024-04-28 16:41:28,596 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:41:30,716 - INFO - <Map.creer_L_population>
+2024-04-28 16:41:30,716 - INFO - </Map.creer_L_population>
+2024-04-28 16:41:34,284 - INFO - <Map.creer_L_population>
+2024-04-28 16:41:34,285 - INFO - </Map.creer_L_population>
+2024-04-28 16:44:07,730 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:44:07,911 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:44:07,956 - INFO - <Map_QT.createGrid>
+2024-04-28 16:44:07,957 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:44:07,957 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:44:07,957 - INFO - </Map_QT.createGrid>
+2024-04-28 16:44:07,957 - INFO - <Map_QT.createGrid>
+2024-04-28 16:44:07,958 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:44:07,958 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:44:07,959 - INFO - </Map_QT.createGrid>
+2024-04-28 16:44:21,983 - INFO - <Map.creer_L_population>
+2024-04-28 16:44:21,984 - INFO - </Map.creer_L_population>
+2024-04-28 16:44:22,843 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:44:24,681 - INFO - <Map.creer_L_population>
+2024-04-28 16:44:24,681 - INFO - </Map.creer_L_population>
+2024-04-28 16:44:45,414 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:45,415 - INFO - <Candidat.__init__> nom: Baron, prenom: Louis, charisme: 52, age: 59, x: 14.606331300830766, y: 30.615803379140726
+2024-04-28 16:44:45,415 - INFO - <Ajout bd>
+2024-04-28 16:44:45,415 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:45,415 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B911D0>
+2024-04-28 16:44:45,415 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B911D0>
+2024-04-28 16:44:45,415 - INFO - <generate_unique_colors> int1: 73.03165650415383, int2: 153.07901689570363
+2024-04-28 16:44:45,415 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:45,416 - INFO - <Planete.add_sphere.INFO> latitude: 73.03165650415383, longitude: 153.07901689570363, color: #b5c5ab
+2024-04-28 16:44:45,416 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:45,416 - INFO - <Ajout d'element>
+2024-04-28 16:44:45,416 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFB6B911D0>,Score: 0.
+2024-04-28 16:44:45,419 - INFO - <generate_unique_colors> int1: 14.606331300830766, int2: 30.615803379140726
+2024-04-28 16:44:45,421 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:45,421 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:45,422 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B911D0>
+2024-04-28 16:44:45,422 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B911D0>
+2024-04-28 16:44:45,422 - INFO - <Fin ajout bd>
+2024-04-28 16:44:46,221 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:46,221 - INFO - <Candidat.__init__> nom: Petit, prenom: Iris, charisme: 1, age: 37, x: 32.10724189295019, y: 85.50118086868413
+2024-04-28 16:44:46,221 - INFO - <Ajout bd>
+2024-04-28 16:44:46,221 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:46,222 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB643AD10>
+2024-04-28 16:44:46,222 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB643AD10>
+2024-04-28 16:44:46,222 - INFO - <generate_unique_colors> int1: 160.53620946475095, int2: 427.50590434342064
+2024-04-28 16:44:46,222 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:46,222 - INFO - <Planete.add_sphere.INFO> latitude: 160.53620946475095, longitude: 427.50590434342064, color: #20af16
+2024-04-28 16:44:46,222 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:46,222 - INFO - <Ajout d'element>
+2024-04-28 16:44:46,223 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFB643AD10>,Score: 0.
+2024-04-28 16:44:46,223 - INFO - <generate_unique_colors> int1: 32.10724189295019, int2: 85.50118086868413
+2024-04-28 16:44:46,225 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:46,226 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:46,226 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB643AD10>
+2024-04-28 16:44:46,226 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB643AD10>
+2024-04-28 16:44:46,226 - INFO - <Fin ajout bd>
+2024-04-28 16:44:46,910 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:46,911 - INFO - <Candidat.__init__> nom: Jouve, prenom: Gabriel, charisme: 90, age: 46, x: 28.774607631486493, y: 36.22563402245549
+2024-04-28 16:44:46,911 - INFO - <Ajout bd>
+2024-04-28 16:44:46,911 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:46,911 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B92490>
+2024-04-28 16:44:46,911 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B92490>
+2024-04-28 16:44:46,911 - INFO - <generate_unique_colors> int1: 143.87303815743246, int2: 181.12817011227745
+2024-04-28 16:44:46,911 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:46,911 - INFO - <Planete.add_sphere.INFO> latitude: 143.87303815743246, longitude: 181.12817011227745, color: #4331cb
+2024-04-28 16:44:46,911 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:46,911 - INFO - <Ajout d'element>
+2024-04-28 16:44:46,911 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFB6B92490>,Score: 0.
+2024-04-28 16:44:46,912 - INFO - <generate_unique_colors> int1: 28.774607631486493, int2: 36.22563402245549
+2024-04-28 16:44:46,914 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:46,914 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:46,914 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B92490>
+2024-04-28 16:44:46,914 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B92490>
+2024-04-28 16:44:46,914 - INFO - <Fin ajout bd>
+2024-04-28 16:44:47,035 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:47,035 - INFO - <Candidat.__init__> nom: Baron, prenom: Tom, charisme: 41, age: 74, x: 13.68274555408856, y: 17.48332455117868
+2024-04-28 16:44:47,035 - INFO - <Ajout bd>
+2024-04-28 16:44:47,035 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:47,035 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC5859910>
+2024-04-28 16:44:47,035 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC5859910>
+2024-04-28 16:44:47,035 - INFO - <generate_unique_colors> int1: 68.4137277704428, int2: 87.4166227558934
+2024-04-28 16:44:47,035 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:47,035 - INFO - <Planete.add_sphere.INFO> latitude: 68.4137277704428, longitude: 87.4166227558934, color: #746b5c
+2024-04-28 16:44:47,035 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:47,035 - INFO - <Ajout d'element>
+2024-04-28 16:44:47,035 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFC5859910>,Score: 0.
+2024-04-28 16:44:47,036 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:47,039 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:47,039 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:47,039 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC5859910>
+2024-04-28 16:44:47,039 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC5859910>
+2024-04-28 16:44:47,039 - INFO - <Fin ajout bd>
+2024-04-28 16:44:47,160 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:47,160 - INFO - <Candidat.__init__> nom: Petit, prenom: Chloe, charisme: 21, age: 35, x: 49.814330169829, y: 31.946808212572854
+2024-04-28 16:44:47,160 - INFO - <Ajout bd>
+2024-04-28 16:44:47,160 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:47,160 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC5873150>
+2024-04-28 16:44:47,160 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC5873150>
+2024-04-28 16:44:47,160 - INFO - <generate_unique_colors> int1: 249.071650849145, int2: 159.73404106286426
+2024-04-28 16:44:47,160 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:47,160 - INFO - <Planete.add_sphere.INFO> latitude: 249.071650849145, longitude: 159.73404106286426, color: #a51369
+2024-04-28 16:44:47,160 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:47,161 - INFO - <Ajout d'element>
+2024-04-28 16:44:47,161 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFC5873150>,Score: 0.
+2024-04-28 16:44:47,161 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:47,164 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:47,164 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:47,164 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC5873150>
+2024-04-28 16:44:47,164 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC5873150>
+2024-04-28 16:44:47,164 - INFO - <Fin ajout bd>
+2024-04-28 16:44:47,294 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:47,294 - INFO - <Candidat.__init__> nom: Jouve, prenom: Emma, charisme: 11, age: 29, x: 36.26761240963503, y: 57.03437890662866
+2024-04-28 16:44:47,294 - INFO - <Ajout bd>
+2024-04-28 16:44:47,294 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:47,294 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC585A090>
+2024-04-28 16:44:47,294 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFC585A090>
+2024-04-28 16:44:47,294 - INFO - <generate_unique_colors> int1: 181.33806204817515, int2: 285.1718945331433
+2024-04-28 16:44:47,294 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:47,294 - INFO - <Planete.add_sphere.INFO> latitude: 181.33806204817515, longitude: 285.1718945331433, color: #317900
+2024-04-28 16:44:47,294 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:47,294 - INFO - <Ajout d'element>
+2024-04-28 16:44:47,294 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFC585A090>,Score: 0.
+2024-04-28 16:44:47,295 - INFO - <generate_unique_colors> int1: 36.26761240963503, int2: 57.03437890662866
+2024-04-28 16:44:47,298 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:47,298 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:47,298 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC585A090>
+2024-04-28 16:44:47,298 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFC585A090>
+2024-04-28 16:44:47,298 - INFO - <Fin ajout bd>
+2024-04-28 16:44:47,520 - DEBUG - Generation aleatoire d'un candidat.
+2024-04-28 16:44:47,520 - INFO - <Candidat.__init__> nom: Petit, prenom: Tom, charisme: 1, age: 33, x: 78.38331402380898, y: 82.85871864324518
+2024-04-28 16:44:47,520 - INFO - <Ajout bd>
+2024-04-28 16:44:47,520 - INFO -   Ajout d'un nouvel element a windows.
+2024-04-28 16:44:47,520 - INFO - <MainWindow.ajouteElement> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B91E10>
+2024-04-28 16:44:47,520 - INFO - <MainWindow.ajoutePoint_Map> element_normaliser: <Back.Candidat.Candidat object at 0x000002AFB6B91E10>
+2024-04-28 16:44:47,520 - INFO - <generate_unique_colors> int1: 391.9165701190449, int2: 414.29359321622593
+2024-04-28 16:44:47,520 - INFO - <Planete.add_sphere>
+2024-04-28 16:44:47,520 - INFO - <Planete.add_sphere.INFO> latitude: 391.9165701190449, longitude: 414.29359321622593, color: #db0640
+2024-04-28 16:44:47,520 - INFO - </Planete.add_sphere>
+2024-04-28 16:44:47,520 - INFO - <Ajout d'element>
+2024-04-28 16:44:47,520 - INFO -               Element ajoute - Candidat: <Back.Candidat.Candidat object at 0x000002AFB6B91E10>,Score: 0.
+2024-04-28 16:44:47,521 - INFO - <generate_unique_colors> int1: 78.38331402380898, int2: 82.85871864324518
+2024-04-28 16:44:47,523 - INFO - <Fin Ajout d'element>
+2024-04-28 16:44:47,523 - INFO -   Ajout d'un nouvel element a la candidats.
+2024-04-28 16:44:47,523 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B91E10>
+2024-04-28 16:44:47,523 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x000002AFB6B91E10>
+2024-04-28 16:44:47,523 - INFO - <Fin ajout bd>
+2024-04-28 16:44:50,577 - INFO - <Map.creer_L_population>
+2024-04-28 16:44:50,577 - INFO - </Map.creer_L_population>
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 14.606331300830766, int2: 30.615803379140726
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 32.10724189295019, int2: 85.50118086868413
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 28.774607631486493, int2: 36.22563402245549
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 36.26761240963503, int2: 57.03437890662866
+2024-04-28 16:44:50,581 - INFO - <generate_unique_colors> int1: 78.38331402380898, int2: 82.85871864324518
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 14.606331300830766, int2: 30.615803379140726
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 32.10724189295019, int2: 85.50118086868413
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 14.606331300830766, int2: 30.615803379140726
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 14.606331300830766, int2: 30.615803379140726
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 28.774607631486493, int2: 36.22563402245549
+2024-04-28 16:44:50,582 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 36.26761240963503, int2: 57.03437890662866
+2024-04-28 16:44:50,583 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 78.38331402380898, int2: 82.85871864324518
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 49.814330169829, int2: 31.946808212572854
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:44:50,584 - INFO - <generate_unique_colors> int1: 13.68274555408856, int2: 17.48332455117868
+2024-04-28 16:45:29,624 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:45:29,800 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:45:29,847 - INFO - <Map_QT.createGrid>
+2024-04-28 16:45:29,847 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:45:29,849 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:45:29,849 - INFO - </Map_QT.createGrid>
+2024-04-28 16:45:29,849 - INFO - <Map_QT.createGrid>
+2024-04-28 16:45:29,849 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:45:29,849 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:45:29,850 - INFO - </Map_QT.createGrid>
+2024-04-28 16:45:51,326 - INFO - <Map.creer_L_population>
+2024-04-28 16:45:51,326 - INFO - </Map.creer_L_population>
+2024-04-28 16:45:51,723 - INFO - <Map_QT.createGrid>
+2024-04-28 16:45:51,723 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:45:51,723 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:45:51,724 - INFO - </Map_QT.createGrid>
+2024-04-28 16:45:51,724 - INFO - <Map_QT.createGrid>
+2024-04-28 16:45:51,724 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:45:51,725 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:45:51,725 - INFO - </Map_QT.createGrid>
+2024-04-28 16:45:52,166 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:45:57,017 - INFO - <Map.creer_L_population>
+2024-04-28 16:45:57,017 - INFO - </Map.creer_L_population>
+2024-04-28 16:53:31,517 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:53:31,706 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:53:31,758 - INFO - <Map_QT.createGrid>
+2024-04-28 16:53:31,758 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:53:31,759 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:53:31,759 - INFO - </Map_QT.createGrid>
+2024-04-28 16:53:31,760 - INFO - <Map_QT.createGrid>
+2024-04-28 16:53:31,760 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:53:31,760 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:53:31,761 - INFO - </Map_QT.createGrid>
+2024-04-28 16:53:50,545 - INFO - <Map.creer_L_population>
+2024-04-28 16:53:50,545 - INFO - </Map.creer_L_population>
+2024-04-28 16:53:51,082 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:55:49,555 - INFO - No OpenGL_accelerate module loaded: No module named 'OpenGL_accelerate'
+2024-04-28 16:55:49,721 - INFO - Using NT-specific GLUT calls with exit callbacks
+2024-04-28 16:55:49,765 - INFO - <Map_QT.createGrid>
+2024-04-28 16:55:49,765 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:55:49,766 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:55:49,766 - INFO - </Map_QT.createGrid>
+2024-04-28 16:55:49,767 - INFO - <Map_QT.createGrid>
+2024-04-28 16:55:49,767 - INFO - <Map_QT.drawColoredBackground>
+2024-04-28 16:55:49,767 - INFO - </Map_QT.drawColoredBackground>
+2024-04-28 16:55:49,768 - INFO - </Map_QT.createGrid>
+2024-04-28 16:56:05,018 - INFO - <Map.creer_L_population>
+2024-04-28 16:56:05,019 - INFO - </Map.creer_L_population>
+2024-04-28 16:56:05,903 - INFO - Creation d'une nouvelle base de donnees avec ID Your Wolrd.
+2024-04-28 16:56:13,537 - INFO - <Map.creer_L_population>
+2024-04-28 16:56:13,537 - INFO - </Map.creer_L_population>

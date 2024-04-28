@@ -116,19 +116,4 @@ class SLCV():
         int []
         """
         return self.traitement(self.pre_analse(self.ecouter(),self.data_preProcessing),self.data_commands)
-    
-# Exemple d'utilisation
-# Exemple d'utilisation
-slcv = SLCV()  # Créer une instance de la classe SLCV
-input_phrase = slcv.ecouter()  # Appeler la méthode ecouter() à partir de l'instance
-if input_phrase:
-    pre_analysed = slcv.pre_analse(input_phrase, data_set_preProcessing)  # Appeler la méthode pre_analse() à partir de l'instance
-    command_values = slcv.traitement(pre_analysed, data_set_commands)  # Appeler la méthode traitement() à partir de l'instance
-
-    if command_values:
-        print(f"Les commandes dans la phrase '{input_phrase}' correspondent aux valeurs suivantes : {command_values}.")
-    else:
-        print("Aucune correspondance significative trouvée.")
-    
-    print(slcv.use())  # Appeler la méthode use() à partir de l'instance
 

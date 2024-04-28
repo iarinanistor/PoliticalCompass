@@ -48,7 +48,7 @@ class TreeEllipse(QGraphicsEllipseItem):
         refresh_victoire(root=False):
             Met à jour le texte et l'affichage pour les nœuds racines ou les feuilles de l'arbre.
 
-        connect_ellipses(ellipse1, ellipse2, couleur=QColor(255, 255, 255), epaisseur_ligne=5, espace=None):
+        connect_ellipses(ellipse1, ellipse2, couleur=QColor(0, 0, 0), epaisseur_ligne=5, espace=None):
             Dessine une ligne connectant deux ellipses avec un espace optionnel entre elles.
     """
     def __init__(self, x, y, r=100, color=Qt.white):
@@ -129,14 +129,14 @@ class TreeEllipse(QGraphicsEllipseItem):
                 self.text_item.setPos(-self.rayon - 10, text_y)
 
     @staticmethod
-    def connect_ellipses(ellipse1, ellipse2, couleur=QColor(255, 255, 255), epaisseur_ligne=5, espace=None):
+    def connect_ellipses(ellipse1, ellipse2, couleur=QColor(0, 0, 0), epaisseur_ligne=5, espace=None):
         """
         Dessine une ligne connectant deux ellipses avec un espace optionnel entre elles.
 
         Args:
             ellipse1 (TreeEllipse): La première ellipse.
             ellipse2 (TreeEllipse): La deuxième ellipse.
-            couleur (QColor, optionnel): La couleur de la ligne. Par défaut, QColor(255, 255, 255).
+            couleur (QColor, optionnel): La couleur de la ligne. Par défaut, QColor(0, 0, 0).
             epaisseur_ligne (int, optionnel): L'épaisseur de la ligne. Par défaut, 5.
             espace (float, optionnel): L'espace entre les ellipses. Par défaut, None.
 

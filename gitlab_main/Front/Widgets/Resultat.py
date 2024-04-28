@@ -32,8 +32,8 @@ class BarreScore(QWidget):
         
         # Image
         self.image_label = QLabel()
-        pixmap = QPixmap('Front/Widgets/Texture/trophee.png')  # Remplacer par le chemin de votre image
-        self.image_label.setPixmap(pixmap.scaled(40, 40, Qt.KeepAspectRatio))  # Ajuster la taille selon les besoins
+        pixmap = QPixmap('Front/Widgets/Texture/trophee.png') 
+        self.image_label.setPixmap(pixmap.scaled(40, 40, Qt.KeepAspectRatio)) 
         
         self.color_label = QLabel()  
         self.color_label.setFixedSize(20, 20)
@@ -99,7 +99,8 @@ class ListeResultat(QListWidget):
         border-left: 5px solid #FFD700;
     }
     QLabel {
-        background-color: transparent; 
+        background-color: transparent;
+    }
 """)
         self.insertItem(0, " Color,  Nom Prenom, Rang, Taux Satisfaction") # insere en en-tete la description
     

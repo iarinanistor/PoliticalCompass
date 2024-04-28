@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
         Initialise la fenêtre principale avec des configurations spécifiques pour la base de données et la taille de la carte.
         """
         super().__init__()
-        self.setWindowTitle("Main Window")
+        self.setWindowTitle("Sirius - Application de vote")
         self.bd = bd
         ic(self.bd,"Main Window")
         self.tailleMap = tailleMap

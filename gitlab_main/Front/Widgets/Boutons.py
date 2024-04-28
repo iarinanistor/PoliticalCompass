@@ -1,6 +1,6 @@
 import sys
 from Front.Utilitaire import *
-from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QSpinBox, QMainWindow
+from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QLabel, QLineEdit, QSpinBox, QMainWindow, QMessageBox
 from PySide6.QtGui import QIcon
 import logging
 import matplotlib.pyplot as plt
@@ -333,11 +333,19 @@ class BoutonTournoi(QPushButton):
         Prépare et lance l'affichage du tournoi. Crée une nouvelle fenêtre pour visualiser l'arbre du tournoi,
         initialise les composants nécessaires, et affiche la fenêtre.
         """
-        self.tr = Tournoi(self.bd.map,self.liste)
-        self.tournament_window = QMainWindow()
-        self.tournament_window.setWindowTitle("Tournoi")
-        self.tournament_window.setCentralWidget(self.tr.view)
-        self.tournament_window.show()
+        if len(self.liste) > 1:
+            self.tr = Tournoi(self.bd.map,self.liste)
+            self.tournament_window = QMainWindow()
+            self.tournament_window.setWindowTitle("Tournoi")
+            self.tournament_window.setCentralWidget(self.tr.view)
+            self.tournament_window.show()
+        else:
+            error_msg = QMessageBox(self)
+            error_msg.setWindowTitle("Erreur")
+            error_msg.setText("Pas assez de candidats pour inclure un tricheur.")
+            error_msg.setIcon(QMessageBox.Warning)
+            error_msg.setStyleSheet("QLabel { color: white; } QPushButton { color: black; }")
+            error_msg.exec_()
         
 class BoutonIO(QWidget):
     """
@@ -374,11 +382,11 @@ class BoutonIO(QWidget):
 
         # Bouton I/O
         if self.nom == "recharge":
-            self.io_button = QPushButton(" Sauvegarder")
-            self.io_button.setIcon(QIcon("images/icons/cil-file.png"))
-        else:
             self.io_button = QPushButton(" Recharger")
-            self.io_button.setIcon(QIcon("images/icons/cil-save.png"))
+            self.io_button.setIcon(QIcon("images/icons/cil-cloud-upload.png"))
+        else:
+            self.io_button = QPushButton(" Sauvegarder")
+            self.io_button.setIcon(QIcon("images/icons/cil-cloud-download.png"))
         self.io_button.clicked.connect(self.save_text)
         layout.addWidget(self.io_button)
 

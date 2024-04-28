@@ -13,6 +13,30 @@ import time
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 from PySide6.QtCore import QObject, QEvent
 
+style_spinbox = """
+            QSpinBox {
+        color: #ffffff;  /* Texte blanc pour le contraste */
+        background-color: #555555;  /* Fond légèrement plus clair que celui de l'application */
+        border: 1px solid #777777;  /* Bordure subtile */
+        font-family: 'Arial';  /* Assortir la police avec celle du QLabel */
+        font-size: 14px;  /* Taille de police correspondante */
+        padding: 4px;  /* Marge interne */
+        }
+        QSpinBox::up-button, QSpinBox::down-button {
+            width: 20px;  /* Largeur des boutons */
+            background-color: #666666;  /* Fond des boutons */
+        }
+        QSpinBox::up-arrow {
+            width: 10px;  /* Largeur de la flèche */
+            height: 10px;  /* Hauteur de la flèche */
+            image: url('images/icons/cil-arrow-circle-top.png');  /* Image de la flèche */
+        }
+        QSpinBox::down-arrow {
+            width: 10px;  /* Largeur de la flèche */
+            height: 10px;  /* Hauteur de la flèche */
+            image: url('images/icons/cil-arrow-circle-bottom.png');
+        }
+        """
 
 class EventFilter(QObject):
     """
@@ -175,6 +199,10 @@ class MapTypeDialog(QDialog):
         layout = QVBoxLayout()
         self.map3DButton = QPushButton("Map 3D")
         self.map2DButton = QPushButton("Map 2D")
+        self.loadingLabel_3d = QLabel("Chargement de la planète...", self)  # Message temporaire
+        self.loadingLabel_3d.setFixedSize(400,200)
+        self.loadingLabel_2d = QLabel("Chargement de la carte...", self)  # Message temporaire
+        self.loadingLabel_2d.setFixedSize(400,200)
 
         # Appliquer des styles CSS aux boutons
         button_style = """
@@ -219,15 +247,48 @@ class MapTypeDialog(QDialog):
         self.map3DButton.clicked.connect(lambda: self.selectMapType("3D"))
         self.map2DButton.clicked.connect(lambda: self.selectMapType("2D"))
 
+        # Configuration du QLabel pour le GIF
+        self.loadingLabel_3d.setAlignment(Qt.AlignCenter)
+        movie_3d = QMovie("images/icons/gif_planete.gif")
+        movie_3d.setScaledSize(self.loadingLabel_3d.size())  # Adapter la taille du GIF
+        self.loadingLabel_3d.setMovie(movie_3d)
+        if not movie_3d.isValid():
+            print("Erreur de chargement du GIF")  # Affiche un message d'erreur si le GIF ne peut pas être chargé
+        else:
+            movie_3d.start()
+        self.loadingLabel_3d.hide()  # Cacher le QLabel jusqu'au clic sur le bouton
+
+        # Configuration du QLabel pour le GIF
+        self.loadingLabel_2d.setAlignment(Qt.AlignCenter)
+        movie_2d = QMovie("images/icons/gif_carte.gif")
+        movie_2d.setScaledSize(self.loadingLabel_2d.size())  # Adapter la taille du GIF
+        self.loadingLabel_2d.setMovie(movie_2d)
+        if not movie_2d.isValid():
+            print("Erreur de chargement du GIF")  # Affiche un message d'erreur si le GIF ne peut pas être chargé
+        else:
+            movie_2d.start()
+        self.loadingLabel_2d.hide()  # Cacher le QLabel jusqu'au clic sur le bouton
+
     def selectMapType(self, type):
         """
-        Enregistre le type de carte sélectionné et ferme la boîte de dialogue en signalant un résultat positif.
+        Enregistre le type de carte sélectionné et ferme la boîte de dialogue en affichant un gif.
         
         Args:
             type (str): Type de carte sélectionné ('3D' ou '2D').
         """
         self.mapType = type
-        self.accept()
+        if type == "3D":
+            self.map2DButton.hide()
+            self.map3DButton.hide()
+            self.setWindowTitle("Préparation de la planète...")
+            self.loadingLabel_3d.show()  # Afficher le GIF
+            QTimer.singleShot(4000, self.accept)  # Simuler un chargement et fermer la dialogue après 4 secondes
+        else:
+            self.map2DButton.hide()
+            self.map3DButton.hide()
+            self.loadingLabel_2d.show()  # Afficher le GIF
+            self.setWindowTitle("Préparation de la carte...")
+            QTimer.singleShot(4000, self.accept)  # Simuler un chargement et fermer la dialogue après 4 secondes
 
         
 class CreationButton(QWidget):
@@ -312,6 +373,45 @@ class CreationButton(QWidget):
         Méthode appelée lors du clic sur le bouton. Ouvre une boîte de dialogue pour sélectionner le type de carte,
         puis initie le processus de création de la carte sélectionnée.
         """
+        if not self.premap.liste_points:  # Vérifie si la liste des points est vide
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("Aucun point n'a été ajouté sur la carte. Veuillez ajouter des points avant de continuer.")
+            msgBox.setWindowTitle("Erreur")
+            msgBox.setStyleSheet("""
+        QMessageBox {
+            background-color: #333333;
+            color: #000000;  /* Couleur du texte noir pour une lecture facile */
+            font-family: 'Calibri', 'Arial';
+            font-size: 15px;
+            font-weight: bold;
+        }
+        QLabel {
+            color: white;
+        }
+        QPushButton {
+            color: #ffffff;
+            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #00adee, stop:1 #0078d4); /* Dégradé bleu vif */
+            border: 2px solid #aaaaaa;
+            border-radius: 5px;
+            padding: 6px 24px;
+            font-size: 13px;
+            min-width: 80px;
+            text-align: center;
+        }
+        QPushButton:hover {
+            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #1ab2ff, stop:1 #008ae6); /* Bleu plus clair au survol */
+            border-color: #cccccc;
+        }
+        QPushButton:pressed {
+            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #006ac1, stop:1 #005ba1); /* Bleu foncé lorsqu'appuyé */
+            border-color: #bbbbbb;
+        }
+    """)
+            msgBox.exec()
+            return  # Arrête la fonction ici, donc ne continue pas à exécuter le dialogue ou la création de la map
+        
+
         dialog = MapTypeDialog(self)
         result = dialog.exec()
 
@@ -357,7 +457,6 @@ class CreationButton(QWidget):
                     background-color: #FF4500; /* OrangeRed */
                 }
             """)
-
             
             for i in range(0, 101):
                 progressDialog.setValue(i)
@@ -729,30 +828,7 @@ class ZoneButton(QWidget):
                 font-size: 12px;
             }""")
             edit = QSpinBox()  # Crée un champ de saisie pour entrer la valeur du paramètre.
-            edit.setStyleSheet("""
-                QSpinBox {
-        color: #ffffff;  /* Texte blanc pour le contraste */
-        background-color: #555555;  /* Fond légèrement plus clair que celui de l'application */
-        border: 1px solid #777777;  /* Bordure subtile */
-        font-family: 'Arial';  /* Assortir la police avec celle du QLabel */
-        font-size: 14px;  /* Taille de police correspondante */
-        padding: 4px;  /* Marge interne */
-        }
-        QSpinBox::up-button, QSpinBox::down-button {
-            width: 20px;  /* Largeur des boutons */
-            background-color: #666666;  /* Fond des boutons */
-        }
-        QSpinBox::up-arrow {
-            width: 10px;  /* Largeur de la flèche */
-            height: 10px;  /* Hauteur de la flèche */
-            image: url('images/icons/cil-arrow-circle-top.png');  /* Image de la flèche */
-        }
-        QSpinBox::down-arrow {
-            width: 10px;  /* Largeur de la flèche */
-            height: 10px;  /* Hauteur de la flèche */
-            image: url('images/icons/cil-arrow-circle-bottom.png');
-        }
-            """)
+            edit.setStyleSheet(style_spinbox)
             edit.setMinimum(0)  # Définit la valeur minimale.
             edit.setMaximum(100)  # Définit la valeur maximale.
             valeurs_layout.addWidget(label)  # Ajoute le label au layout horizontal.
@@ -861,15 +937,7 @@ class CustomInputDialog(QDialog):
         self.spinBox = QSpinBox(self)
         self.spinBox.setMinimum(1)
         self.spinBox.setMaximum(2000000)
-        self.spinBox.setStyleSheet("""
-            QSpinBox {
-                background-color: white;
-                color: black;
-                border: 2px solid #555;
-                border-radius: 5px;
-                padding: 5px;
-            }
-        """)
+        self.spinBox.setStyleSheet(style_spinbox)
 
         okButton = QPushButton("OK")
         okButton.setStyleSheet("background-color: #1E90FF; color: white;")
@@ -968,7 +1036,7 @@ class LWindow(QMainWindow):
 
         self.main_content_widget_2 = QWidget()
         self.main_content_widget_2.setLayout(self.main_content_layout_2)
-        self.main_content_widget_2.setFixedHeight(925)
+        self.main_content_widget_2.setFixedSize(550, 925)
         main_layout.addWidget(self.main_content_widget_2, alignment=Qt.AlignTop | Qt.AlignRight, stretch=0)
           
         self.compass = PreMap()

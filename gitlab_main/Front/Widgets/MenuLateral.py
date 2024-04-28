@@ -1,8 +1,174 @@
 import sys
 from PySide6.QtCore import Qt, QPropertyAnimation, QEasingCurve
-from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QPushButton, QWidget
+from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QPushButton, QWidget, QDialog, QComboBox, QMessageBox
 from Front.Widgets.Boutons import *
 from PySide6.QtGui import QIcon, QFont
+from Back.Inteligent.SLCV import SLCV
+from Tournoi.TreeView import *
+
+# Définition des commandes avec leur valeur
+data_set_commands  = { # data set pour le numero de commandes 
+    "lance borda": 1,
+    "lance copeland": 2,
+    "lance pluralité": 3,
+    "lance STV": 4,
+    "génère un candidats": 5,
+    "Jenner" :5
+}
+
+data_set_preProcessing = { # data set pour pouvoir regroup les commande par classe 
+    "lance": 1,
+    "génère": 2,
+    "Jenner":2
+}
+
+class TournamentOptionsDialog(QDialog):
+    def __init__(self, bd):
+        super().__init__()
+        self.bd = bd
+        self.setWindowTitle("Options de Tournoi")
+        self.setGeometry(100, 100, 300, 200)
+        self.setup_ui()
+
+    def setup_ui(self):
+        layout = QVBoxLayout()
+
+        # Définir la couleur de fond du dialogue
+        self.setStyleSheet("""
+            QDialog {
+                background-color: #003366;  /* Dark blue background */
+                color: #ffffff;  /* White text for better readability */
+            }""")
+
+        # Styles pour les boutons individuels
+        simulate_button_style = """
+            QPushButton {
+                font: bold 14px;
+                border: 2px solid #4CAF50;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: #4CAF50;
+                color: white;
+            }
+            QPushButton:hover {
+                background-color: #66BB6A;
+            }
+            QPushButton:pressed {
+                background-color: #388E3C;
+            }
+        """
+
+        cheater_button_style = """
+            QPushButton {
+                font: bold 14px;
+                border: 2px solid #FF9800;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: #FF9800;
+                color: white;
+            }
+            QPushButton:hover {
+                background-color: #FFB74D;
+            }
+            QPushButton:pressed {
+                background-color: #F57C00;
+            }
+        """
+
+        confirm_button_style = """
+            QPushButton {
+                font: bold 14px;
+                border: 2px solid #2196F3;
+                border-radius: 10px;
+                padding: 5px;
+                background-color: #2196F3;
+                color: white;
+            }
+            QPushButton:hover {
+                background-color: #64B5F6;
+            }
+            QPushButton:pressed {
+                background-color: #1976D2;
+            }
+        """
+
+        # Bouton pour simuler le tournoi
+        simulate_button = BoutonTournoi(self.bd)
+        simulate_button.setStyleSheet(simulate_button_style)
+        layout.addWidget(simulate_button)
+
+        # Bouton pour inclure un tricheur
+        cheater_button = QPushButton("Inclure un tricheur")
+        cheater_button.setStyleSheet(cheater_button_style)
+        cheater_button.clicked.connect(self.load_candidates)
+        layout.addWidget(cheater_button)
+
+        # ComboBox pour choisir un tricheur (non visible initialement)
+        self.cheater_combo = QComboBox()
+        self.cheater_combo.setStyleSheet("""
+            QComboBox {
+                font: 14px;
+                border: 1px solid #BDBDBD;
+                border-radius: 5px;
+                padding: 5px;
+                background-color: white;
+                color: #616161;
+            }
+            QComboBox::drop-down {
+                border: 0px;
+            }
+            QComboBox::down-arrow {
+                image: url(images/icons/cil-down-arrow.png);
+            }
+        """)
+        self.cheater_combo.setVisible(False)
+        layout.addWidget(self.cheater_combo)
+
+        # Bouton pour confirmer le tricheur sélectionné
+        confirm_button = QPushButton("Confirmer le tricheur")
+        confirm_button.setStyleSheet(confirm_button_style)
+        confirm_button.clicked.connect(self.confirm_cheater)
+        confirm_button.setVisible(False)
+        self.confirm_button = confirm_button
+        layout.addWidget(confirm_button)
+        
+        self.setLayout(layout)
+
+    def load_candidates(self):
+        if len(self.bd.map.liste_electeur) > 1:
+            if not self.cheater_combo.isVisible():
+                candidates = self.bd.map.liste_electeur
+                self.cheater_combo.clear()
+                for candidate in candidates:
+                    self.cheater_combo.addItem(f"{Candidat.nom(candidate)} {Candidat.prenom(candidate)}", candidate)
+                self.cheater_combo.setVisible(True)
+                self.confirm_button.setVisible(True)
+            else:
+                self.cheater_combo.setVisible(False)
+                self.confirm_button.setVisible(False)
+        else:
+            error_msg = QMessageBox(self)
+            error_msg.setWindowTitle("Erreur")
+            error_msg.setText("Pas assez de candidats pour inclure un tricheur.")
+            error_msg.setIcon(QMessageBox.Warning)
+            error_msg.setStyleSheet("QLabel { color: white; } QPushButton { color: black; }")
+            error_msg.exec_()
+
+    def confirm_cheater(self):
+        # Récupérer le candidat sélectionné
+        selected_candidate = self.cheater_combo.currentData()
+        print("TEST", selected_candidate)
+        if selected_candidate:
+            print(f"Ajout du tricheur dans le tournoi: {selected_candidate}")
+            TreeView.fait_gagner(selected_candidate)
+        self.tr = Tournoi(self.bd.map,self.bd.map.liste_electeur)
+        self.tr.view.update()# obligatoire sinon la fentre s'affiche en noir
+        self.tournament_window = QMainWindow()
+        self.tournament_window.setWindowTitle("Tournoi")
+        self.tournament_window.setCentralWidget(self.tr.view)
+        self.tournament_window.show()
+        self.cheater_combo.setVisible(False)
+        self.confirm_button.setVisible(False)
 
 class SideMenu(QMainWindow):
     def __init__(self, bd, Blongeur=300, Bhauteur=40, tailleMap=500):
@@ -46,27 +212,27 @@ class SideMenu(QMainWindow):
         # Widget pour contenir les éléments du contenu principal
         self.main_content_widget = QWidget()
         self.main_content_widget.setLayout(self.main_content_layout)
-        self.main_content_widget.setFixedHeight(150)
+        self.main_content_widget.setFixedHeight(200)
         main_layout.addWidget(self.main_content_widget, alignment=Qt.AlignTop | Qt.AlignLeft, stretch=0)
 
         style_sidebar_button = """QPushButton {
-            border: 1px solid #555;
-            border-radius: 10px;
-            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-            stop:0 #555, stop: 1 #888);
-            color: white;
-            padding: 5px;
-            min-width: 100px;
-            min-height: 40px;
-        }
-        QPushButton:hover {
-            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-            stop:0 #777, stop: 1 #aaa);
-        }
-        QPushButton:pressed {
-            background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-            stop:0 #333, stop: 1 #666);
-        }"""
+    border: 1px solid #555;
+    border-radius: 10px;
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #6a1b9a, stop: 1 #ab47bc);  /* Dégradé de violet pour un look plus dynamique */
+    color: white;
+    padding: 5px;
+    min-width: 100px;
+    min-height: 40px;
+}
+QPushButton:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #ec407a, stop: 1 #f06292);  /* Dégradé de rose lors du survol pour une sensation plus interactive */
+}
+QPushButton:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #42a5f5, stop: 1 #64b5f6);  /* Bleu lorsqu'il est pressé pour un feedback visuel clair */
+}"""
 
         # Bouton pour ouvrir/fermer la sidebar 1 (Menu)
         self.sidebar_menu_button = QPushButton()
@@ -86,6 +252,14 @@ class SideMenu(QMainWindow):
         self.sidebar_stats_button.setToolTip("Statistiques")
         self.main_content_layout.addWidget(self.sidebar_stats_button, alignment=Qt.AlignTop | Qt.AlignLeft)
         
+        # Bouton pour activer la commande vocale
+        self.voc_button = QPushButton()
+        self.voc_button.setIcon(QIcon("images/icons/cil-voice-over-record.png"))
+        self.voc_button.setStyleSheet(style_sidebar_button)
+        self.voc_button.setFixedSize(20, self.Bhauteur)
+        self.voc_button.clicked.connect(self.activate_voice_command)
+        self.voc_button.setToolTip("Commande vocale")
+        self.main_content_layout.addWidget(self.voc_button, alignment=Qt.AlignTop | Qt.AlignLeft)
 
         # Ajouter le layout principal à la fenêtre
         central_widget = QWidget()
@@ -137,8 +311,9 @@ QPushButton:pressed {
     border-color: #388e3c;
 }
 """
-        bouton_monte_carlo = BoutonTournoi(self.bd)
+        bouton_monte_carlo = QPushButton("Tournoi")
         bouton_monte_carlo.setStyleSheet(style_sidebar_1_buttons)
+        bouton_monte_carlo.clicked.connect(self.open_tournament_options)
         self.sidebar_layout_1.addWidget(bouton_monte_carlo)
         bouton_bilan_carbone = QPushButton("Bilan Carbone")
         bouton_bilan_carbone.setStyleSheet(style_sidebar_1_buttons)
@@ -368,6 +543,24 @@ QPushButton:pressed {
             self.close_sidebar_2_buttons()
         self.animation_2.start()
         self.sidebar_2_visible = not self.sidebar_2_visible
+
+    def activate_voice_command(self):
+        slcv = SLCV()  # Créer une instance de la classe SLCV
+        input_phrase = slcv.ecouter()  # Appeler la méthode ecouter() à partir de l'instance
+        if input_phrase:
+            pre_analysed = slcv.pre_analse(input_phrase, data_set_preProcessing)  # Appeler la méthode pre_analse() à partir de l'instance
+            command_values = slcv.traitement(pre_analysed, data_set_commands)  # Appeler la méthode traitement() à partir de l'instance
+
+            if command_values:
+                print(f"Les commandes dans la phrase '{input_phrase}' correspondent aux valeurs suivantes : {command_values}.")
+            else:
+                print("Aucune correspondance significative trouvée.")
+            
+            print(slcv.use())  # Appeler la méthode use() à partir de l'instance
+
+    def open_tournament_options(self):
+        self.tournament_dialog = TournamentOptionsDialog(self.bd)
+        self.tournament_dialog.show()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
