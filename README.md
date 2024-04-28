@@ -5,7 +5,6 @@ Méthodes de votes et leurs consequences.
 On crée un Political Compass avec des électeurs et des candidats. Chaque votant a une liste ordonnée des candidats (du préféré au moins préféré), et on teste les différentes méthodes de vote pour voir leurs influences sur le résultat final.
 On implémente une méthode de Monte-Carlo en fonction des différents types de vote, et des cartes prédéfinies (par exemple une carte représentant la France en fonction des statistiques des différentes élections, etc...).
 
-----------------------------------------------------------------------------------------------------
 
 ## Installation et téléchargement :
 
@@ -58,7 +57,6 @@ pip install SpeechRecognition
 
 Télécharger ce dossier et l'extraire dans votre répertoire courant (ou dans un autre répertoire mais il faudra alors faire de ce répertoire le répertoire courant dans le terminal)
 
-----------------------------------------------------------------------------------------------------
 
 ## Lancement :
 
@@ -68,7 +66,6 @@ Dans le terminal, entrer la commande :
 python LWindow.py
 ```
 
-----------------------------------------------------------------------------------------------------
 
 ### Fonctionnalités :
 
@@ -117,7 +114,6 @@ Une fois que la map a été créée :
             - STV liquide
             - Approbation liquide
 
-----------------------------------------------------------------------------------------------------
 
 ## Données émission carbone :
 
@@ -129,7 +125,6 @@ Les mesures sont susceptibles de changer d'un ordinateur à un autre.
 Les mesures sont susceptibles de changer dans le temps.
 
 
-----------------------------------------------------------------------------------------------------
 
 ## Credits :
 
