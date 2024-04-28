@@ -1,0 +1,52 @@
+    QPushButton {
+        background-color: #36a165; /* Vert plus clair pour mieux ressortir sur fond sombre */
+        border: none; /* Suppression de la bordure pour un look plus moderne */
+        border-radius: 5px; /* Coins arrondis */
+        padding: 30px 40px; /* Espacement intérieur */
+        color: white; /* Couleur du texte */
+        font-weight: bold; /* Texte en gras pour améliorer la lisibilité */
+    }
+    QPushButton:hover {
+        background-color: #45a049; /* Vert plus vif */
+    }
+    QPushButton:pressed {
+        background-color: #388e3c; /* Vert plus foncé pour l'état pressé */
+    }
+    QLineEdit {
+        background-color: #555555;
+        color: #ffffff;
+        font-family: 'Arial';
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 3px;
+        font-size: 9pt;
+    }
+
+    QLabel {
+        color: white;
+        font-family: 'Arial';
+        font-size: 12px;
+    }
+
+    QSpinBox {
+        color: #ffffff;  /* Texte blanc pour le contraste */
+        background-color: #555555;  /* Fond légèrement plus clair que celui de l'application */
+        border: 1px solid #777777;  /* Bordure subtile */
+        font-family: 'Arial';  /* Assortir la police avec celle du QLabel */
+        font-size: 14px;  /* Taille de police correspondante */
+        padding: 4px;  /* Marge interne */
+        }
+        QSpinBox::up-button, QSpinBox::down-button {
+            width: 20px;  /* Largeur des boutons */
+            background-color: #666666;  /* Fond des boutons */
+        }
+        QSpinBox::up-arrow {
+            width: 10px;  /* Largeur de la flèche */
+            height: 10px;  /* Hauteur de la flèche */
+            image: url('images/icons/cil-arrow-circle-top.png');  /* Image de la flèche */
+        }
+        QSpinBox::down-arrow {
+            width: 10px;  /* Largeur de la flèche */
+            height: 10px;  /* Hauteur de la flèche */
+            image: url('images/icons/cil-arrow-circle-bottom.png');
+        }
