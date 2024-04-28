@@ -60,7 +60,7 @@ class MainWindow(QMainWindow):
             self.compass = Compass(size=(500), nb_lines=100)
 
         self.menu = SideMenu(self.bd, self.Blongeur, self.Bhauteur, self.tailleMap)
-        self.liste_resultats = ListeResultat(self.liste_des_resultats)
+        self.liste_resultats = ListeResultat(self.liste_des_resultats,self.bd)
 
         # Créer un widget central pour la fenêtre principale
         central_widget = QWidget()

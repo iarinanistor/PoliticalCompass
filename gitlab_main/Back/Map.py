@@ -116,8 +116,6 @@ class Map:
                 self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
             ind_nom+=1
 
-
-    
     def generationPopulationBeta(self,zone,n):
         """
         Genere la population avec la loi beta dans une zone donne
@@ -225,8 +223,29 @@ class Map:
             else:
                 self.population[i][j] = Individus(nom,x=i,y=j,liste_electeur=self.liste_electeur)
             ind_nom+=1
+            
+    def taux_satisfaction(self, cand):
+        """
+        Calcule le taux de satisfaction d'un candidat
 
-    
+        Parameters:
+            cand (Candidat): Candidat dont on veut le taux de satisfaction
+
+        Returns:
+            float: Le taux de satisfaction du candidat en fonction de la map
+        """
+        taux = 0
+        if self.L_population is None or []: self.creer_L_population()
+        for ind in self.L_population:
+            # Création de tableaux NumPy pour les coordonnées
+            cand_coords = np.array([cand.x(), cand.y()])
+            ind_coords = np.array([ind.x, ind.y])
+            # Calcul de la distance entre les coordonnées
+            dist = distance(cand_coords, ind_coords)
+            taux += 1 / dist  # Somme des inverses de la distance
+        return round(taux / len(self.L_population), 2)
+                
+                
     def refresh_Candidat(self):
         logging.info('<Map.refresh_Candidat>')
 

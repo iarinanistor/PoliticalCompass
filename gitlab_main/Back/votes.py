@@ -32,7 +32,7 @@ def F(x, y, xi, yi, wi):
     float: La valeur de la fonction F(x, y) prenant en compte la popularité/charisme du candidat/parti.
     """
     if wi == 0: wi =1
-    argument = -4 * math.log(2) * ((x - int(xi))**2 - (y - int(yi))**2) / (wi**2)
+    argument = -4 * math.log(2) * ((x - int(xi))**2 - (y - int(yi))**2) / (int(wi)**2)
     # Clamper l'argument pour éviter les valeurs extrêmes qui causent l'overflow
     argument = max(min(argument, 709), -709)  # 709 est une limite approximative avant overflow
     return math.exp(argument)

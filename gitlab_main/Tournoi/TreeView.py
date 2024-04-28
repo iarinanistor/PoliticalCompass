@@ -430,10 +430,21 @@ class Tournoi:
         self.root = list_to_binary_tree(self.values, self.map,self.victoire_defaite)
         self.root.find_leaf(copy.deepcopy(liste_candidates))
         self.root.match(True)
-        #tricheur = self.liste_candidates[len(self.liste_candidates)-1]
-        #print(self.dico_contraite(tricheur))
-       #self.fait_gagner(tricheur)
-        
+ 
+    def add_image_to_view(self, image_path):
+        # Charger l'image et créer un QGraphicsPixmapItem
+        pixmap = QPixmap(image_path)
+        pixmap_item = QGraphicsPixmapItem(pixmap)
+
+        # Ajouter l'image à la scène
+        self.scene.addItem(pixmap_item)
+
+        # Centrer l'image dans la vue
+        # Calculer la position centrale en tenant compte de la taille de la vue et de l'image
+        x = (self.view.width() - pixmap.width()) / 2
+        y = (self.view.height() - pixmap.height()) / 2
+        pixmap_item.setPos(x, y)
+           
     def genere_all_match(self,lst, constraints):
         """
         Génère toutes les permutations valides des candidats en respectant les contraintes spécifiées.
@@ -532,7 +543,9 @@ class Tournoi:
             self.root.match(True)
             print(self.root.ellipse.cand.id,"tricher id: ",tricheur.id)
             if self.root.ellipse.cand.id == tricheur.id: print("true");return True
+            
         print("false")
+        self.add_image_to_view("Front/Widgets/Texture/perdant.png")
         return False
 
 def arbre_test():

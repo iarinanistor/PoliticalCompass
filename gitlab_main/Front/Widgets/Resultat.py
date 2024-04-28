@@ -19,8 +19,9 @@ class BarreScore(QWidget):
     Args:
         cand (Candidat): L'instance du candidat à afficher.
         score (int): Le score du candidat.
+        bd ( BaseDonne): L'instance de base donne du logiciel
     """   
-    def __init__(self, cand, score):
+    def __init__(self, cand, score,bd):
         super().__init__()
         if not isinstance(cand, Candidat):
             ic(cand)
@@ -29,7 +30,7 @@ class BarreScore(QWidget):
         layout = QHBoxLayout()
         self.cand = cand
         self.score = score
-        
+        self.bd = bd
         # Image
         self.image_label = QLabel()
         pixmap = QPixmap('Front/Widgets/Texture/trophee.png') 
@@ -41,7 +42,7 @@ class BarreScore(QWidget):
         
         self.name_label = QLabel(self.cand.prenom() + " " + self.cand.nom())
         self.value_label = QLabel(str(score))
-        self.taux_satisfaction = QLabel("-1")
+        self.taux_satisfaction = QLabel(str(self.bd.map.taux_satisfaction(cand)))
         
         layout.addWidget(self.color_label)
         layout.addWidget(self.name_label)
@@ -71,10 +72,12 @@ class ListeResultat(QListWidget):
     
     Args:
         liste_points (list): Liste de tuples (Candidat, score) pour l'initialisation.
+        bd ( BaseDonne): L'instance de base donne du logiciel
     """
     
-    def __init__(self,liste_points):
+    def __init__(self,liste_points,bd):
         super().__init__()
+        self.bd=bd
         self.l_points =liste_points # liste de (Candidats,score)
         self.setStyleSheet("""
     QListWidget {
@@ -110,7 +113,7 @@ class ListeResultat(QListWidget):
         """
         if self.l_points is not None and self.l_points != []:
             for cand,score in self.l_points:
-                barre_score = BarreScore(cand,score)
+                barre_score = BarreScore(cand,score,self.bd)
                 item = QListWidgetItem(self)
                 item.setSizeHint(barre_score.sizeHint())
                 self.addItem(item)
@@ -130,7 +133,7 @@ class ListeResultat(QListWidget):
         logging.info('              Element ajoute - Candidat: {},Score: {}.'.format(cand, score))
         self.l_points.append((cand,score))
         item = QListWidgetItem(self)
-        barre_score = BarreScore(cand,score)
+        barre_score = BarreScore(cand,score,self.bd)
         item.setSizeHint(barre_score.sizeHint())
         self.addItem(item)
         self.setItemWidget(item, barre_score)
