@@ -325,8 +325,16 @@ class BoutonTournoi(QPushButton):
         Appelée lors du clic sur le bouton. Lance la logique de préparation et d'affichage du tournoi,
         puis force une mise à jour de l'affichage pour éviter les problèmes de rendu graphique.
         """
-        self.launch_tournament()
-        self.tr.view.update()# obligatoire sinon la fentre s'affiche en noir
+        if len(self.liste) > 1:
+            self.launch_tournament()
+            self.tr.view.update()# obligatoire sinon la fentre s'affiche en noir
+        else:
+            error_msg = QMessageBox(self)
+            error_msg.setWindowTitle("Erreur")
+            error_msg.setText("Pas assez de candidats pour inclure un tricheur.")
+            error_msg.setIcon(QMessageBox.Warning)
+            error_msg.setStyleSheet("QLabel { color: white; } QPushButton { color: black; }")
+            error_msg.exec_()
          
     def launch_tournament(self):
         """
