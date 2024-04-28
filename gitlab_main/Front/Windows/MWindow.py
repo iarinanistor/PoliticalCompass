@@ -13,16 +13,33 @@ from icecream import ic
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class MainWindow(QMainWindow):
+    """
+    Fenêtre principale de l'application, gérant l'affichage et les interactions avec les données de navigation et de visualisation.
+
+    Attributs:
+        bd (object): Instance de la base de données utilisée pour les opérations de données.
+        tailleMap (int): Taille de la carte pour les visualisations.
+        Pl (bool): Booléen pour déterminer si une représentation spéciale 'Planète' doit être utilisée.
+        compass (Compass or Planete): Widget pour la visualisation de la carte.
+        menu (SideMenu): Menu latéral pour les interactions supplémentaires.
+        liste_resultats (ListeResultat): Widget pour afficher les résultats des calculs ou analyses.
+        liste_des_resultats (list): Stockage des résultats des calculs pour utilisation dans l'interface.
+
+    Méthodes:
+        __init__: Initialise la fenêtre principale avec tous les widgets et layouts nécessaires.
+        SetBd: Définit ou met à jour la base de données utilisée.
+        affiche_Map: Commande l'affichage de la carte.
+        ajoute_point_map: Ajoute un point sur la carte basée sur les données d'un candidat.
+        ajouter_resultat: Ajoute un résultat à la liste des résultats.
+        afficheListe: Gère l'affichage de la liste des points ou résultats.
+        refresh: Rafraîchit les données affichées dans l'ensemble de l'interface.
+        ajoute_element: Ajoute un élément à la fois à la liste et à la carte.
+    """
+    
     def __init__(self, bd, tailleMap=500, Pl=False):
         """
-        Constructeur de la classe MainWindow.
-
-        Args:
-            bd (object): Objet représentant une base de données.
-            tailleMap (int): Taille de la carte. Par défaut, 500.
-            Pl (bool): Indique si la planète est utilisée. Par défaut, False.
+        Initialise la fenêtre principale avec des configurations spécifiques pour la base de données et la taille de la carte.
         """
-
         super().__init__()
         self.setWindowTitle("Main Window")
         self.bd = bd

@@ -9,19 +9,40 @@ from Front.Utilitaire import generate_unique_colors
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class NotFoundException(Exception):
-    def __init__(self,x,y, message="Point not found"):
+    """
+    Exception levée lorsqu'un point attendu n'est pas trouvé aux coordonnées spécifiées.
+    
+    Attributs:
+        x (int) : La coordonnée x du point non trouvé.
+        y (int) : La coordonnée y du point non trouvé.
+        message (str) : Explication de l'erreur.
+    """
+    def __init__(self, x, y, message="Point non trouvé"):
         self.message = message
-        super().__init__(self.message+" x :",x," y:",y)
+        super().__init__(f"{self.message} - x : {x}, y : {y}")
         
 class ValException(Exception):
+    """
+    Exception générale pour les erreurs de validation au sein de l'application.
+    
+    Attributs:
+        message (str) : Explication de l'erreur.
+    """
     def __init__(self, message):
         self.message = message
         super().__init__(self.message)
         
 class ExistException(Exception):
-    def __init__(self, message="Il exist deja un point ans cette position"):
+    """
+    Exception levée lors de la tentative d'ajout d'un point qui existe déjà à une position spécifiée.
+    
+    Attributs:
+        message (str) : Explication de l'erreur.
+    """
+    def __init__(self, message="Il existe déjà un point à cette position"):
         self.message = message
         super().__init__(self.message)
+
 
 class InteractiveEllipse(QGraphicsEllipseItem):
     pass
@@ -32,6 +53,15 @@ class SignalHelper(QObject):
 
 # Modification de votre classe InteractiveEllipse
 class InteractiveEllipse(QGraphicsEllipseItem):
+    """
+    Sous-classe de QGraphicsEllipseItem améliorée avec interactivité, rendant l'ellipse réactive aux événements de la souris et capable de changer ses propriétés dynamiquement.
+    
+    Méthodes:
+        mousePressEvent : Émet un signal lorsque l'ellipse est cliquée, utile pour l'interaction.
+        change_taille : Ajuste la taille de l'ellipse d'un delta spécifié.
+        change_color : Change la couleur de l'ellipse.
+        reinitialise_color : Réinitialise la couleur de l'ellipse à son état initial.
+    """
     def __init__(self, x, y, r, color, signal_helper):
         super().__init__(-r / 2, -r / 2, r, r)
         self.setPos(x, y)
@@ -41,6 +71,7 @@ class InteractiveEllipse(QGraphicsEllipseItem):
         self.signal_helper = signal_helper  # Stocke la référence au helper de signal
 
     def get_x(self):
+
         return self.pos().x()
 
     def get_y(self):
@@ -91,7 +122,29 @@ class InteractiveEllipse(QGraphicsEllipseItem):
 
 
 class Map_QT(QWidget):
+    """
+    Widget pour afficher et interagir avec une carte graphique 2D utilisant QGraphicsScene et QGraphicsView.
+
+    Attributs:
+        color (Qt.Color): Couleur de fond par défaut de la scène.
+        size (int): Taille du côté de la scène carrée.
+        nb_lines (int): Nombre de lignes de la grille à dessiner sur la carte.
+        scene (QGraphicsScene): La scène où tous les éléments graphiques sont ajoutés.
+        view (QGraphicsView): Le widget de vue qui affiche la scène.
+    
+    Méthodes:
+        createGrid: Dessine une grille sur la carte pour aider à visualiser les coordonnées.
+        clearPoints: Supprime tous les points (ellipses) présents dans la scène.
+        placePoint: Ajoute un point sur la carte aux coordonnées et avec la couleur spécifiée.
+        refresh_Map: Met à jour la carte avec une nouvelle liste de points.
+        drawColoredBackground: Dessine un fond coloré pour la carte, divisé en quatre.
+    """
+    
     def __init__(self, color=Qt.white, size=500, nb_lines=10):
+        """
+        Initialise le widget avec une scène et une vue, définit la taille de la scène et de la vue,
+        et crée une grille de base.
+        """
         super().__init__()
         self.scene = QGraphicsScene()
         self.view = QGraphicsView(self.scene)
@@ -179,7 +232,24 @@ class Map_QT(QWidget):
         logging.info('</Map_QT.drawColoredBackground>')
 
 class Compass(Map_QT):
+    """
+    Classe spécialisée de Map_QT destinée à l'affichage d'une carte avec une échelle proportionnelle ou d'autres adaptations spécifiques.
+
+    Attributs:
+        size (int): Taille du côté de la vue de la carte.
+        nb_lines (int): Nombre de lignes dans la grille de la carte.
+        compass_layout (QVBoxLayout): Layout pour gérer la position des widgets dans cette vue.
+
+    Méthodes:
+        refresh_Map: Met à jour la carte avec de nouveaux points ajustés proportionnellement.
+    """
+
     def __init__(self, size=550, nb_lines=100):
+        """
+        Initialise la carte avec une couleur de fond légèrement grise, une taille et un nombre de lignes spécifiques.
+        Configure également la mise en page et la taille fixe de la vue pour un affichage correct.
+        """
+
         super().__init__(color=Qt.lightGray, size=size, nb_lines=nb_lines)
 
         self.compass_layout = QVBoxLayout(self)
@@ -208,23 +278,41 @@ class Compass(Map_QT):
         logging.info('</Map_QT.refresh_Map>')  
 
 class PreMap(Compass):
+    """
+    Classe dérivée de Compass pour une carte préparatoire avec des fonctionnalités interactives.
+    Gère les points interactifs (InteractiveEllipse)  et les interactions utilisateur telles que les clics sur la carte.
+
+    Attributs:
+        signal_helper (SignalHelper): Assistant de signal pour gérer les interactions avec les points.
+        liste_points (list): Liste des points interactifs présents sur la carte.
+    
+    Méthodes:
+        place_point: Ajoute un point interactif sur la carte.
+        mousePressEvent: Gère les événements de clic de souris sur la carte.
+        suprime_point: Supprime un point spécifique de la carte.
+        affiche_point: Affiche les points actuellement sur la carte pour le débogage.
+        refresh: Rafraîchit la scène pour mettre à jour l'affichage.
+        refresh_Map: Met à jour la carte avec de nouveaux points en utilisant des données fournies.
+    """
     clicked = Signal(QPoint)
     
     def __init__(self):
+        """
+        Initialise la carte avec une taille et un nombre de lignes spécifiques, prépare pour l'interaction.
+        """
         super().__init__(500, 100)
         self.signal_helper = SignalHelper()
         self.liste_points=[]
         
     def place_point(self, x, y, color, r,fonction):
         """
-        x,y : int
-        Qcolor : color
-        double : r
-        pointeur de fonction : fonction 
-        
-        permet de placer un point et envoie un sigale a la fonction 'ellipse touche' permet de traiter les cliques sur InteractiveEllipse depuis Lwindow
-        
-        Place un point
+        Place un point interactif (InteractiveEllipse) sur la carte et connecte un signal à une fonction de gestion de clic.
+
+        Args:
+            x, y (int): Coordonnées du point à placer.
+            color (QColor): Couleur du point.
+            r (double): Rayon du point.
+            fonction (callable): Fonction à appeler lorsque le point est cliqué.
         """
         # Utilise InteractiveEllipse pour ajouter des ellipses interactives à la scène.
         ellipse = InteractiveEllipse(x, y, r, color,self.signal_helper)
@@ -232,15 +320,10 @@ class PreMap(Compass):
         self.liste_points.append(ellipse)
         self.scene.addItem(ellipse)
         return ellipse
-
-    """def change_color_p(self, p, color):
-        # Directement sur l'ellipse, si p est une référence à une InteractiveEllipse.
-        if isinstance(p, InteractiveEllipse):
-            p.setBrush(QColor(color))"""
                 
     def mousePressEvent(self, event):
         """
-        detect un clique sur la hitbox de PreMap
+        Détecte un clic sur la carte et émet un signal avec la position du clic.
         """
         # Émet le signal clicked avec la position du clic convertie en coordonnées de la scène.
         scenePoint = self.view.mapToScene(event.pos())
@@ -249,13 +332,18 @@ class PreMap(Compass):
     
     def suprime_point(self, point_a_supprimer):
         """
-        InteractiveEllipse  : point_a_supprimer
-        suprime un point 
+        Supprime un point spécifié de la liste des points et de la scène.
+
+        Args:
+            point_a_supprimer (InteractiveEllipse): Point à supprimer.
         """
         if point_a_supprimer in self.liste_points:
             self.liste_points.remove(point_a_supprimer) 
         
     def affiche_point(self):
+        """
+        Affiche dans la console les points actuellement présents sur la carte.
+        """
         print("\n")
         for point in self.liste_points:
             print(" ",point)
@@ -263,17 +351,17 @@ class PreMap(Compass):
     
     def refresh(self):
         """
-        permet de refresh la scene 
+        Rafraîchit la scène graphique pour mettre à jour l'affichage visuel.
         """
         self.scene.update()
         self.view.update()
         
     def refresh_Map(self, new):
         """
-        Actualise la carte avec de nouveaux points.
+        Actualise la carte avec une nouvelle liste de points en effaçant les anciens et en plaçant les nouveaux.
 
         Args:
-            new (list): Liste des nouveaux Candidat à afficher.
+            new (list): Liste des nouveaux points à afficher, spécifiés comme des objets avec des attributs x et y.
         """
         logging.info('<Map_QT.refresh_Map>')
         self.clearPoints()
@@ -285,7 +373,27 @@ class PreMap(Compass):
         logging.info('</Map_QT.refresh_Map>')       
                  
 class HitMap(Compass):
+    """
+    Classe spécialisée de Compass destinée à la représentations de densité de données, utilisé pour ma methode de Monte-Carlo
+
+    Attributs:
+        coef (float): Coefficient de mise à l'échelle pour ajuster les points à la taille de la grille.
+        taille (int): Taille originale des données qui sera mise à l'échelle.
+
+    Méthodes:
+        refresh_Map: Rafraîchit la carte avec de nouveaux points, ajustés selon le coefficient de mise à l'échelle.
+        placePoint: Place un point sur la carte à des coordonnées ajustées.
+        placeALL: Place tous les types de points sur la carte pour différentes catégories de données.
+    """
     def __init__(self, taille, taille_grille=550, nbLigne=100):
+        """
+        Initialise la HitMap avec une taille spécifique et prépare les coefficients pour l'échelle de mise à jour des points.
+
+        Args:
+            taille (int): Dimension de base des données.
+            taille_grille (int): Taille de la grille de la carte.
+            nbLigne (int): Nombre de lignes de la grille.
+        """
         super().__init__(taille_grille, nbLigne)
 
         self.coef = taille_grille / taille
@@ -293,10 +401,10 @@ class HitMap(Compass):
 
     def refresh_Map(self, new):
         """
-        Actualise la carte avec de nouveaux points.
+        Actualise la carte avec une liste de nouveaux points, en ajustant leur position selon le coefficient de mise à l'échelle.
 
         Args:
-            new (list): Liste des nouveaux Candidat à afficher.
+            new (list): Liste des nouveaux Candidat à afficher, prévus pour être mis à l'échelle.
         """
         logging.info('<Map_QT.refresh_Map>')
         self.clearPoints()
@@ -309,11 +417,11 @@ class HitMap(Compass):
         
     def placePoint(self, x, y, color):
         """
-        Place un point sur la carte.
+        Place un point sur la carte avec ajustement selon le coefficient de mise à l'échelle pour adapter les points à la taille de la grille.
 
         Args:
-            x (int): Coordonnée x du point.
-            y (int): Coordonnée y du point.
+            x (int): Coordonnée x du point, avant ajustement.
+            y (int): Coordonnée y du point, avant ajustement.
             color (QColor): Couleur du point.
         """
         logging.info('<HitMap.placePoint>')
@@ -325,12 +433,12 @@ class HitMap(Compass):
 
     def placeALL(self, map, mc, prefect):
         """
-        Place tous les points sur la carte.
+        Place différents types de points sur la carte, utilisés pour visualiser des populations, des points d'intérêt, et d'autres données.
 
         Args:
-            map (object): Objet carte.
-            mc (list): Liste des points.
-            prefect (tuple): Coordonnées du point préfet.
+            map (object): Objet carte avec la population à visualiser.
+            mc (list): Liste des points pour les candidats ou autres marqueurs.
+            prefect (tuple): Coordonnées du point optimal pour gagner
         """
         logging.info('<HitMap.placeALL>')
         for pop in map.L_population:
@@ -345,17 +453,3 @@ class HitMap(Compass):
         self.placePoint(x, y, QColor(255, 255, 255))
         logging.info('</HitMap.placeALL>')
 
-if __name__ == "__main__":
-    import sys
-    app = QApplication(sys.argv)
-    logging.info('<__main__>')
-    map = PreMap()
-    x,y = 250,250
-    map.place_point(x,y, QColor(255, 0, 0),30)
-    for item in map.scene.items():
-        if isinstance(item, QGraphicsEllipseItem):
-            print(f"Élément à x={item.pos().x()}, y={item.pos().y()}, rect={item.rect()}")
-    #map.change_rayon(x,y,10)
-    map.show()
-    logging.info('</__main__>')
-    sys.exit(app.exec())

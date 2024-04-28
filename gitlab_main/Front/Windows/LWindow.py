@@ -16,10 +16,28 @@ from PySide6.QtCore import QObject, QEvent
 
 class EventFilter(QObject):
     """
-    Classe destinée à filtrer certains événements pour améliorer la lisibilité de la console.
-    Principalement utilisée pour ignorer les alertes générées par des clics non traités.
+    Filtre d'événements personnalisé, principalement utilisé pour intercepter et gérer des événements de clic de souris
+    spécifiques afin de contrôler le flux d'événements dans l'application.
+
+    Cette classe est souvent utilisée pour éviter que des clics de souris non désirés ne déclenchent des actions inattendues
+    ou pour limiter l'interaction avec certains composants de l'interface utilisateur.
+
+    Méthodes:
+        eventFilter: Surcharge la méthode eventFilter pour personnaliser le traitement des événements.
     """
+
     def eventFilter(self, watched, event):
+        """
+        Filtre les événements passant à travers le filtre d'événements. Les événements de clic de souris sont interceptés
+        et ne sont pas propagés plus loin pour éviter des actions non désirées.
+
+        Args:
+            watched (QObject): L'objet sur lequel l'événement est observé.
+            event (QEvent): L'événement qui est filtré.
+
+        Returns:
+            bool: True si l'événement doit être bloqué (ne pas être propagé), False pour permettre sa propagation.
+        """
         # Filtrer les événements de clic de souris pour ne pas les propager.
         if event.type() == QEvent.MouseButtonPress:
             return True  # Indique que l'événement est traité.
@@ -29,13 +47,16 @@ class EventFilter(QObject):
     
 class StartSCVButton(QWidget):
     """
-    Ce widget gère un bouton destiné à activer le processus SCV (Système de Computer vision).
-    Il est responsable de l'interaction utilisateur nécessaire pour démarrer ce processus spécifique.
+    Widget responsable de l'activation d'un processus de vision par ordinateur (SCV) à travers un bouton interactif.
+
+    Attributs:
+        scv (object): Instance ou référence à l'objet qui implémente le processus SCV.
     
-    Attributes:
-        scv: Une instance ou référence à l'objet qui implémente le processus SCV, permettant de le démarrer lors de l'interaction.
+    Méthodes:
+        initializeUI: Configure l'interface utilisateur du bouton, y compris ses propriétés esthétiques et fonctionnelles.
+        eventFilter: Filtre les événements pour créer des animations et afficher des info-bulles.
+        onButtonClick: Déclenche le processus SCV lorsque le bouton est cliqué.
     """
-    
     def __init__(self, scv):
         """
         Constructeur de la classe StartSCVButton.
@@ -92,6 +113,9 @@ class StartSCVButton(QWidget):
         self.setFixedSize(100, 50)
 
     def eventFilter(self, obj, event):
+        """
+        Filtre et traite les événements pour créer des animations dynamiques et des interactions enrichies avec l'interface.
+        """
         if obj is self.button:
             if event.type() == QEvent.Enter:
                 QToolTip.showText(QCursor.pos(), self.button.toolTip(), self.button)
@@ -114,12 +138,30 @@ class StartSCVButton(QWidget):
         """
         Méthode exécutée lorsque l'utilisateur clique sur le bouton. Elle déclenche le démarrage du processus SCV.
         
-        Cette méthode fait appel à la méthode `start` de l'objet SCV associé à ce bouton, lançant ainsi le processus désigné.
+        Cette méthode fait appel à la méthode `start` de l'objet SCV associé à ce bouton.
         """
         self.scv.start()  # Déclenche le processus SCV en appelant sa méthode `start`.
 
 class MapTypeDialog(QDialog):
+    """
+    Boîte de dialogue pour sélectionner le type de carte à afficher, soit en 3D soit en 2D.
+    
+    Attributs:
+        mapType (str): Type de carte sélectionné par l'utilisateur ('3D' ou '2D').
+    
+    Méthodes:
+        setupUI: Configure l'interface utilisateur de la boîte de dialogue, incluant les boutons et leurs styles.
+        selectMapType: Définit le type de carte sélectionné et ferme la boîte de dialogue.
+    """
+
     def __init__(self, parent=None):
+        """
+        Initialise la boîte de dialogue avec un titre et une taille fixe, et prépare l'interface utilisateur.
+        
+        Args:
+            parent (QWidget): Widget parent de la boîte de dialogue.
+        """
+
         super().__init__(parent)
         self.setWindowTitle("Choix du type de map")
         self.setFixedSize(400, 200)  # Taille fixe pour la boîte de dialogue
@@ -127,6 +169,9 @@ class MapTypeDialog(QDialog):
         self.setupUI()
 
     def setupUI(self):
+        """
+        Prépare et organise les composants de l'interface utilisateur, notamment les boutons pour choisir le type de carte.
+        """
         layout = QVBoxLayout()
         self.map3DButton = QPushButton("Map 3D")
         self.map2DButton = QPushButton("Map 2D")
@@ -175,6 +220,12 @@ class MapTypeDialog(QDialog):
         self.map2DButton.clicked.connect(lambda: self.selectMapType("2D"))
 
     def selectMapType(self, type):
+        """
+        Enregistre le type de carte sélectionné et ferme la boîte de dialogue en signalant un résultat positif.
+        
+        Args:
+            type (str): Type de carte sélectionné ('3D' ou '2D').
+        """
         self.mapType = type
         self.accept()
 
@@ -257,6 +308,10 @@ class CreationButton(QWidget):
         return super().eventFilter(obj, event)
         
     def onButtonClick(self):
+        """
+        Méthode appelée lors du clic sur le bouton. Ouvre une boîte de dialogue pour sélectionner le type de carte,
+        puis initie le processus de création de la carte sélectionnée.
+        """
         dialog = MapTypeDialog(self)
         result = dialog.exec()
 
@@ -365,6 +420,9 @@ class TypeGenerationButton(QWidget):
         self.setLayout(layout)  # Applique le layout au widget.
 
     def eventFilter(self, obj, event):
+        """
+        Filtre les événements pour le bouton pour animer à l'entrée et à la sortie de la souris.
+        """
         if obj is self.button:
             if event.type() == QEvent.Enter:
                 currentGeometry = self.button.geometry()
@@ -425,11 +483,11 @@ class TypeGenerationButton(QWidget):
 class RayonButton(QWidget):
     """
     Widget bouton pour ajuster le rayon (taille) d'une ellipse. Ce bouton permet d'incrémenter ou de décrémenter le rayon,
-    offrant une interaction directe pour modifier la taille des éléments graphiques représentés sur la carte.
+    offrant une interaction directe pour modifier la taille des éléments graphiques représentés sur une carte ou autre interface graphique.
     
     Attributes:
-        ellipse: Référence à l'objet ellipse dont le rayon doit être ajusté.
-        coef: Coefficient d'ajustement qui détermine l'ampleur de la modification du rayon à chaque clic.
+        ellipse (InteractiveEllipse): Référence à l'objet ellipse dont le rayon doit être ajusté.
+        coef (float): Coefficient d'ajustement qui détermine l'ampleur de la modification du rayon à chaque clic.
     """
     
     def __init__(self, ellipse, coef=0.1):
@@ -437,8 +495,8 @@ class RayonButton(QWidget):
         Initialise le bouton d'ajustement du rayon avec les paramètres spécifiés.
         
         Args:
-            ellipse: L'objet ellipse à ajuster.
-            coef: Coefficient d'ajustement du rayon (par défaut 0.1).
+            ellipse (InteractiveEllipse): L'objet ellipse à ajuster.
+            coef (float): Coefficient d'ajustement du rayon, spécifiant combien le rayon est modifié à chaque clic (par défaut 0.1).
         """
         super().__init__()
         self.ellipse = ellipse  # Objet ellipse à ajuster.
@@ -447,7 +505,8 @@ class RayonButton(QWidget):
         
     def initializeUI(self):
         """
-        Configure l'interface utilisateur du bouton, y compris son apparence, ses dimensions et l'action associée.
+        Configure l'interface utilisateur du bouton, y compris son apparence, ses dimensions et l'action associée à un clic.
+        Définit également des styles et des animations pour améliorer l'interactivité visuelle.
         """
         self.setGeometry(100, 100, 200, 100)  # Définit les dimensions et la position.
         self.button = QPushButton(f'ajouter {self.coef}', self)  # Texte du bouton reflétant le coefficient d'ajustement.
@@ -479,6 +538,17 @@ class RayonButton(QWidget):
         self.setLayout(layout)  # Applique le layout au widget.
 
     def eventFilter(self, obj, event):
+        """
+        Filtre les événements pour appliquer des animations sur le bouton lors de l'interaction utilisateur.
+        
+        Args:
+            obj (QObject): L'objet qui reçoit l'événement.
+            event (QEvent): L'événement qui est traité.
+        
+        Returns:
+            bool: True si l'événement est traité, False sinon.
+        """
+        # Animation pour agrandir et rétrécir le bouton lors du survol.
         if obj is self.button:
             if event.type() == QEvent.Enter:
                 currentGeometry = self.button.geometry()
@@ -499,7 +569,6 @@ class RayonButton(QWidget):
     def onButtonClick(self):
         """
         Gestionnaire d'événements appelé lorsque le bouton est cliqué.
-        
         Ajuste le rayon de l'ellipse associée selon le coefficient défini.
         """
         if self.ellipse is None: return  # Vérifie si l'ellipse est définie.
@@ -510,28 +579,28 @@ class RayonButton(QWidget):
         Permet de changer l'objet ellipse associé à ce bouton.
         
         Args:
-            ellipse: La nouvelle ellipse à associer au bouton.
+            ellipse (Ellipse): La nouvelle ellipse à associer au bouton.
         """
         self.ellipse = ellipse  # Met à jour la référence à l'objet ellipse.
 
         
 class SuppButton(QWidget):
     """
-    Widget bouton pour supprimer une ellipse spécifique de la carte. Ce bouton offre une interaction directe
-    pour retirer des éléments graphiques, améliorant ainsi la gestion des éléments présents sur la carte.
+    Widget bouton pour supprimer une ellipse spécifique sur une interface graphique. Ce bouton offre un moyen direct
+    de retirer des éléments graphiques, ce qui améliore la gestion des objets affichés sur la carte.
     
     Attributes:
-        map: La carte contenant les éléments graphiques à gérer.
-        ellipse: L'ellipse spécifique à supprimer lors de l'activation du bouton.
+        map (PreMap): La scène graphique où les éléments sont gérés.
+        ellipse (QGraphicsEllipseItem): L'ellipse à supprimer lors de l'activation du bouton.
     """
     
     def __init__(self, map, ellipse):
         """
-        Initialise le bouton de suppression avec les objets de carte et d'ellipse spécifiés.
+        Initialise le bouton de suppression avec les références à la scène graphique et à l'ellipse ciblée.
         
         Args:
-            map: La carte contenant l'ellipse.
-            ellipse: L'ellipse à supprimer.
+            map (PreMap): La scène qui contient l'ellipse.
+            ellipse (InteractiveEllipse): L'ellipse spécifique à supprimer.
         """
         super().__init__()
         self.map = map  # La carte contenant l'ellipse.
@@ -540,7 +609,8 @@ class SuppButton(QWidget):
         
     def initializeUI(self):
         """
-        Configure l'interface utilisateur du bouton, y compris son apparence, ses dimensions et l'action de suppression associée.
+        Configure l'interface utilisateur du bouton, incluant son apparence et l'action associée au clic.
+        Définit les styles QSS pour le bouton et initialise les animations pour une interaction dynamique.
         """
         self.setGeometry(100, 100, 200, 100)  # Dimensions et position du bouton.
         self.button = QPushButton("Supprimer", self)  # Création du bouton avec le texte "Supprimer".
@@ -572,6 +642,17 @@ class SuppButton(QWidget):
         self.setLayout(layout)  # Application du layout au widget.
 
     def eventFilter(self, obj, event):
+        """
+        Filtre les événements pour appliquer des animations au bouton lors d'interactions spécifiques (entrée et sortie de la souris).
+        
+        Args:
+            obj (QObject): L'objet qui reçoit l'événement.
+            event (QEvent): L'événement qui est traité.
+        
+        Returns:
+            bool: Indique si l'événement a été traité ici.
+        """
+        # Gestion de l'animation pour agrandir ou réduire le bouton lors du survol par la souris.
         if obj is self.button:
             if event.type() == QEvent.Enter:
                 currentGeometry = self.button.geometry()
@@ -591,9 +672,8 @@ class SuppButton(QWidget):
         
     def onButtonClick(self):
         """
-        Gestionnaire d'événements déclenché par le clic sur le bouton.
-        
-        Supprime l'ellipse spécifiée de la carte, si elle existe et appartient à la scène.
+        Gestionnaire d'événements déclenché par un clic sur le bouton. Supprime l'ellipse spécifiée de la scène, si elle est présente.
+        Réinitialise également la référence à l'ellipse pour éviter les erreurs de référence
         """
         if self.ellipse is None: return  # Vérification de l'existence de l'ellipse.
         if self.ellipse and self.ellipse.scene():
@@ -603,10 +683,10 @@ class SuppButton(QWidget):
         
     def changeEllipse(self, ellipse):
         """
-        Met à jour l'ellipse associée à ce bouton pour permettre sa suppression.
+        Permet de changer l'ellipse associée à ce bouton. Utilisé pour rediriger les actions vers une nouvelle ellipse.
         
         Args:
-            ellipse: La nouvelle ellipse à associer pour une éventuelle suppression.
+            ellipse (InteractiveEllipse): La nouvelle ellipse à associer pour suppression future.
         """
         self.ellipse = ellipse  # Mise à jour de la référence à l'ellipse.
         
@@ -749,15 +829,30 @@ class ZoneButton(QWidget):
 
 class CustomInputDialog(QDialog):
     """
-    classe pour améliorer l'aspect graphique de la fenetre popup
+    Dialogue personnalisé pour la saisie d'un entier par l'utilisateur. Ce dialogue est configuré pour recueillir
+    un nombre entier avec des contraintes spécifiques, servant généralement à définir des valeurs telles que la taille d'une population
+    dans des simulations ou des analyses.
+
+    Attributes:
+        value (int or None): Stocke la valeur entière saisie par l'utilisateur, accessible après la fermeture du dialogue.
     """
     def __init__(self, parent=None):
+        """
+        Initialise le dialogue en définissant le titre de la fenêtre et en appelant la méthode de configuration de l'interface.
+        
+        Args:
+            parent (QWidget, optional): Widget parent de ce dialogue. Default is None.
+        """
         super().__init__(parent)
         self.setWindowTitle("Saisie d'un entier")
         self.setupUI()
         self.value = None
 
     def setupUI(self):
+        """
+        Configure l'interface utilisateur du dialogue, incluant les widgets pour la saisie, les boutons d'action,
+        et leurs styles respectifs.
+        """
         layout = QVBoxLayout()
 
         label = QLabel("Veuillez entrer la taille de la population :")
@@ -765,7 +860,7 @@ class CustomInputDialog(QDialog):
 
         self.spinBox = QSpinBox(self)
         self.spinBox.setMinimum(1)
-        self.spinBox.setMaximum(10000)
+        self.spinBox.setMaximum(2000000)
         self.spinBox.setStyleSheet("""
             QSpinBox {
                 background-color: white;
@@ -793,19 +888,56 @@ class CustomInputDialog(QDialog):
         self.setStyleSheet("background-color: #333333;")
 
     def getInt(self):
+        """
+        Affiche le dialogue et retourne la valeur saisie et un booléen indiquant si l'opération est acceptée ou annulée.
+        
+        Returns:
+            tuple(int,bool): Contient l'entier saisie et un booléen (True si accepté, False si annulé).
+        """
         if self.exec() == QDialog.Accepted:
             return self.spinBox.value(), True
         return 0, False
       
         
 class LWindow(QMainWindow):
+    """
+    Fenêtre principale de l'application, organisant et coordonnant les interactions entre les divers widgets et composants.
+    Cette classe sert de point central pour l'affichage et la gestion de l'interface utilisateur, y compris la carte,
+    les boutons d'action et la configuration des paramètres de génération des points.
+
+    Attributes:
+        coef (int): Coefficient pour l'ajustement de la taille des points.
+        TAILLE (int): Dimension de la grille sur la carte.
+        taille_population (int): Taille de la population pour certains calculs.
+        cpt_scv (int): Compteur pour le SCV.
+        res_scv (list): Résultats des interactions SCV.
+        liste_points (list): Liste des points créés par l'utilisateur.
+        type_generation (tuple): Type de génération initiale et couleur associée.
+        ellipse_select (InteractiveEllipse, optional): Ellipse actuellement sélectionnée.
+        compass (PreMap): Widget pour la visualisation de la carte.
+        zone_button (ZoneButton): Bouton pour les paramètres de zone.
+        ellipse_up_B, ellipse_down_B (RayonButton): Boutons pour ajuster le rayon de l'ellipse.
+        sup_B (SuppButton): Bouton pour supprimer l'ellipse sélectionnée.
+        cam_SCV (StartSCVButton): Bouton pour démarrer le SCV.
+        beta, uniforme, expontiel, triangulaire (TypeGenerationButton): Boutons pour le type de génération.
+        creebutton (CreationButton): Bouton pour la création de la carte.
+
+    Méthodes:
+        mousePressEvent: Émet un signal lorsque l'ellipse est cliquée, utile pour l'interaction avec l'interface.
+        change_taille: Ajuste la taille de l'ellipse d'un delta spécifié, influençant la visualisation sur la carte.
+        change_color: Modifie la couleur de l'ellipse pour visualiser différents états ou catégories.
+        reinitialise_color: Réinitialise la couleur de l'ellipse à son état original, généralement après une sélection ou modification.
+        handleCompassClick: Gère les clics sur le widget compass, permettant de placer un point sur la carte à l'emplacement cliqué.
+        refersh_button: Met à jour les références des ellipses dans les boutons qui manipulent les ellipses pour assurer la cohérence des actions.
+        ellipse_touched: Gère la sélection d'une ellipse, changeant sa couleur pour indiquer la sélection et mettant à jour la référence globale.
+        openPopup: Ouvre un dialogue pour la saisie d'informations additionnelles, ajustant les paramètres basés sur les entrées utilisateur.
+        creation_map: Génère la carte basée sur les entrées utilisateur accumulées pendant la session, incluant les points et configurations.
+        creation_final_3D: Prépare et affiche la carte en mode 3D basée sur les configurations définies.
+        creation_final_2D: Prépare et affiche la carte en mode 2D, ajustée selon les besoins spécifiques de l'utilisateur.
+
+    """
     def __init__(self):
         super().__init__()
-        """
-        Fenêtre principale de l'application, organisant et coordonnant les interactions entre les divers widgets et composants.
-        Cette classe sert de point central pour l'affichage et la gestion de l'interface utilisateur, y compris la carte,
-        les boutons d'action et la configuration des paramètres de génération des points.
-        """
         
         self.setWindowTitle("Connexion")  # Titre de la fenêtre.
 
@@ -894,8 +1026,8 @@ class LWindow(QMainWindow):
         
     def refersh_button(self):
         """
-        Met à jour les références des ellipses sélectionnées dans les boutons qui nécessitent cette information.
-        Cette méthode assure que les actions appliquées via les boutons affectent l'ellipse actuellement sélectionnée.
+        Actualise les références des ellipses sélectionnées dans les boutons qui nécessitent cette information.
+        Cette méthode assure que les actions réalisées via les boutons concernent l'ellipse actuellement sélectionnée.
         """
         self.ellipse_up_B.changeEllipse(self.ellipse_select)
         self.ellipse_down_B.changeEllipse(self.ellipse_select)
@@ -903,11 +1035,11 @@ class LWindow(QMainWindow):
     
     def ellipse_touched(self, ellipse):
         """
-        Gère l'événement de sélection (toucher) d'une ellipse sur la carte.
-        Change la couleur de l'ellipse sélectionnée et met à jour la référence à l'ellipse sélectionnée pour les actions futures.
-        
+        Gère la sélection d'une ellipse sur la carte. Cette méthode modifie la couleur de l'ellipse sélectionnée
+        pour indiquer qu'elle est l'objet de l'interaction utilisateur et met à jour la référence interne pour les actions futures.
+
         Args:
-            ellipse: L'ellipse qui a été touchée (sélectionnée) par l'utilisateur.
+            ellipse (InteractiveEllipse): L'ellipse qui a été sélectionnée par l'utilisateur.
         """
         if ellipse == self.ellipse_select: return  # Ignore si l'ellipse sélectionnée est la même que celle déjà sélectionnée.
         
@@ -922,11 +1054,11 @@ class LWindow(QMainWindow):
     
     def handleCompassClick(self, point):
         """
-        Gère les clics sur le widget compass, permettant à l'utilisateur de placer un point sur la carte.
-        Ce point peut représenter divers éléments selon le contexte de l'application.
-        
+        Traite les clics sur le widget compass, permettant à l'utilisateur de placer un point sur la carte à l'emplacement cliqué.
+        Convertit le point de clic en coordonnées réelles sur la carte et crée un point correspondant.
+
         Args:
-            point: Les coordonnées du point où l'utilisateur a cliqué sur le widget compass.
+            point (QPoint): Le point où l'utilisateur a cliqué sur le widget compass.
         """
         # Convertit le point de clic en coordonnées utilisables pour la carte et crée un point correspondant.
         scenePoint = self.compass.view.mapToScene(point)
@@ -961,7 +1093,12 @@ class LWindow(QMainWindow):
 
     def fonction_SCV(self,res):
         """
-        Fonction lier avec SCV, permet de changer la taille du point en fonction de scv
+        Répond à l'interaction avec le SCV pour modifier la taille du point selon le résultat du SCV.
+        Cette fonction permet d'ajuster dynamiquement les propriétés des points en fonction de leur
+        performance ou pertinence évaluée par le SCV.
+
+        Args:
+            res (float): Le résultat de l'évaluation SCV, influençant le coefficient de taille du point.
         """
         self.cpt_scv+=1
         if self.cpt_scv >= 2:
@@ -975,15 +1112,17 @@ class LWindow(QMainWindow):
             
     def creation_map(self):
         """
-        Déclenche le processus final de création de la carte, utilisant les points et paramètres définis par l'utilisateur.
-        Cette méthode peut générer une carte personnalisée basée sur les entrées utilisateurs collectées durant la session.
+        Génère la Map personnalisée en fonction des zone cree par l'utilisateur
+
+        Returns:
+            Map: L'objet généré avec tous les zones  des generations appliqués.
         """
         pop = [[None] * self.TAILLE for _ in range(self.TAILLE)]
         map = Map(None," personalisée ",[],pop,self.TAILLE ,self.TAILLE )
         print("l",self.liste_points)
         if(self.liste_points is None): raise ValueError(" il faut creer au moins une zone")
         for (p,type_generation,taille_population) in self.liste_points:
-            x=int(p.get_x()/(500/self.TAILLE ))# met les coordonées dans un map de taille " self.taille"
+            x=int(p.get_x()/(500/self.TAILLE ))# met les coordonées dans une map de taille " self.taille"
             y=int(p.get_y()/(500/self.TAILLE ))
             r=int(p.get_rayon()/(500/self.TAILLE ))
             print(x,y,r,type_generation[0],taille_population, end = " ")
@@ -991,27 +1130,28 @@ class LWindow(QMainWindow):
         return map 
     
     def creation_final_3D(self):
-        print("Creation")
+        """
+        Prépare et affiche la carte finale en mode 3D. Cette méthode fait appel à `creation_map` pour générer
+        la carte et la ferme pour passer à la visualisation 3D dans une nouvelle fenêtre de l'application.
+        la visualisation 3D du compass peremet une meilleur visualisation des extremes.
+
+        Utilise également base de données(BaseDonne) pour stocker et gérer les configurations de la carte.
+        """
         map = self.creation_map()
         self.close()
         bd = Basedonnee.creer("Your Wolrd",100,True,map)
-        ic(bd.window,"L window")
         bd.window.show()
-        print("Fin")
     
     def creation_final_2D(self):
-        print("Creation")
+        """
+        Prépare et affiche la carte finale en mode 2D. Cette méthode fait appel à `creation_map` pour générer
+        la carte et la ferme pour passer à la visualisation 2D dans une nouvelle fenêtre de l'application.
+
+        Utilise également base de données(BaseDonne) pour stocker et gérer les configurations de la carte.
+        """
         map = self.creation_map()
         self.close()
         bd = Basedonnee.creer("Your Wolrd",100,False,map)
-        ic(bd.window,"L window")
         bd.window.show()
-        print("Fin")
-        
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = LWindow()
-    window.show()
-    sys.exit(app.exec())
  

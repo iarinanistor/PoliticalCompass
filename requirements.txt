@@ -19,3 +19,7 @@ virtualenv
 
 imageio[ffmpeg]
 
+scipy
+
+PyOpenGL 
+

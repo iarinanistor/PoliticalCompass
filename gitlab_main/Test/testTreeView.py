@@ -1,4 +1,4 @@
-from Tournoi.TreeView import arbre_test
+from gitlab_main.Tournoi.TreeView import arbre_test
 
 from PySide6.QtWidgets import QApplication
 

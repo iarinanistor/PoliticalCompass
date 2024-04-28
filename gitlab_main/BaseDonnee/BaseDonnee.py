@@ -6,7 +6,7 @@ import logging
 # Configurer le système de journalisation
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 class Basedonnee():
-    def __init__(self, id, window=None,tailleMap=500):
+    def __init__(self, id, window=None,taille_map=500):
         """
         Constructeur de la classe Base_donnee.
 
@@ -16,22 +16,22 @@ class Basedonnee():
             tailleMap (int): Taille de la carte. Par défaut, 500.
         """
         self.id = id
-        self.map = Map(self, str(id), [], [], tailleMap, tailleMap)
+        self.map = Map(self, str(id), [], [], taille_map, taille_map)
         self.map.creer_L_population()
         self.window = window
         
     
-    def refresh(self,NormaliserCandidat):
+    def refresh(self,liste_candidat):
         """
-        Méthode pour rafraîchir la fenêtre principale avec des candidats normalisés.
+        Méthode pour rafraîchir la fenêtre principale avec des candidats.
 
         Args:
-            NormaliserCandidat (list): Liste des candidats normalisés à afficher.
+            Candidat (list): Liste des candidats à afficher.
         """
         logging.info("<Rafraichissement interface>")
         logging.info("  Rafraichissement de l'interface utilisateur effectue avec succes.")
     
-        self.window.refresh(NormaliserCandidat)
+        self.window.refresh(liste_candidat)
         logging.info("<Fin de rafraichissement de l'interface>")
     
     def ajoute(self,candidat):

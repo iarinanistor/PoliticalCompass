@@ -78,29 +78,28 @@ class ListeResultat(QListWidget):
         self.l_points =liste_points # liste de (Candidats,score)
         self.setStyleSheet("""
     QListWidget {
-        background-color: #777777;   /* Lighter grey background for the whole list */
-        color: white;                /* White text color for better contrast */
-        font-size: 14px;             /* Readable text size */
-        font-family: 'Segoe UI', sans-serif;  /* Modern and clean font */
-        border: none;                /* No border for a cleaner look */
+        background-color: #777777;   
+        color: white;                
+        font-size: 14px;            
+        font-family: 'Segoe UI', sans-serif;  
+        border: none;                
     }
     QListWidgetItem {
-        background-color: #999999;   /* Even lighter grey for item background */
-        border-bottom: 1px solid #AAAAAA; /* Lighter grey for subtle separation */
-        padding: 8px;                /* Sufficient padding for better text alignment */
-        transition: background-color 0.2s, color 0.2s; /* Smooth transition for hover and selection */
+        background-color: #999999;  
+        border-bottom: 1px solid #AAAAAA; 
+        padding: 8px;              
+        transition: background-color 0.2s, color 0.2s; 
     }
     QListWidgetItem:hover {
-        background-color: #888888;  /* Slightly darker grey on hover for visual feedback */
+        background-color: #888888;  
     }
     QListWidgetItem:selected {
-        background-color: #666666;  /* Darker grey for contrast on selection */
-        color: #FFD700;             /* Gold color text when selected */
-        border-left: 5px solid #FFD700; /* Gold left border for a clear selection indicator */
+        background-color: #666666; 
+        color: #FFD700;             
+        border-left: 5px solid #FFD700;
     }
     QLabel {
-        background-color: transparent;  /* Fond transparent pour les labels */
-    }
+        background-color: transparent; 
 """)
         self.insertItem(0, " Color,  Nom Prenom, Rang, Taux Satisfaction") # insere en en-tete la description
     

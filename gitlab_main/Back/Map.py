@@ -299,6 +299,16 @@ class Map:
         return l
 
     def candidat_prefere(self,cand1,cand2):
+        """
+        Détermine le candidat préféré entre deux options, basé sur les votes pondérés de la population.
+
+        Cette fonction parcourt la liste des individus et accumule les poids des votes pour chaque candidat. Le candidat
+        avec le poids total le plus élevé est considéré comme le préféré.
+
+        :param cand1: Premier candidat à comparer.
+        :param cand2: Deuxième candidat à comparer.
+        :return: Le candidat préféré basé sur le total des poids des votes.
+        """
         if self.L_population == [] : self.creer_L_population()
         cpt1,cpt2=0,0
         for ind in self.L_population:
@@ -311,21 +321,41 @@ class Map:
         if cpt2>cpt1: return cand2
         return cand1
     
+    @staticmethod
     def generate_matches(elements):
+        """
+        Génère des paires de tous les éléments fournis pour les comparer deux à deux.
+
+        :param elements: Liste des éléments à appairer.
+        :return: Liste des tuples contenant chaque paire possible sans répétition.
+        """
         matches = []
-        # Loop over each element to pair it with every other element
+        # Boucle sur chaque élément pour le jumeler avec chaque autre élément
         for i in range(len(elements)):
             for j in range(i + 1, len(elements)):
                 matches.append((elements[i], elements[j]))
         return matches
     
-    def contraite_tournoi(self,liste_candidat=None):
-        if liste_candidat is None: liste_candidat = self.liste_electeur
-        victoire_defaite = {cand.id:[] for cand in liste_candidat} # donne sur les match gagner et perdue 
+    def contraite_tournoi(self, liste_candidat=None):
+        """
+        Crée un dictionnaire où chaque clé est un candidat et les valeurs associées à chaque clé sont une liste des candidats contre lesquels il a gagné.
+        
+        Cette méthode utilise `generate_matches` pour créer toutes les combinaisons de matchs possibles, puis utilise `candidat_prefere`
+        pour déterminer le gagnant de chaque match. Les résultats sont accumulés dans un dictionnaire qui trace les victoires de chaque candidat.
+
+        :param liste_candidat: Liste optionnelle des candidats. Si None, utilise `liste_electeur` de l'instance.
+        :return: Dictionnaire avec l'ID de chaque candidat comme clé et la liste des IDs des candidats qu'ils ont battus.
+        """
+        if liste_candidat is None:
+            liste_candidat = self.liste_electeur
+        victoire_defaite = {cand.id: [] for cand in liste_candidat}  # Initialisation du dictionnaire pour suivre les victoires
         for match in Map.generate_matches(liste_candidat):
-            cand1,cand2 = match
-            winner = self.candidat_prefere(cand1,cand2)
-            victoire_defaite[winner.id].append(cand2.id) if winner.id == cand1.id else victoire_defaite[winner.id].append(cand1.id)
+            cand1, cand2 = match
+            winner = self.candidat_prefere(cand1, cand2)
+            if winner.id == cand1.id:
+                victoire_defaite[winner.id].append(cand2.id)
+            else:
+                victoire_defaite[winner.id].append(cand1.id)
         return victoire_defaite
                 
     def distance(self, point1, point2):
@@ -456,8 +486,6 @@ class Map:
                 continue
         return l
         
-################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
-# gestion I / O
     def ecrire(self,nomFichier):
         '''
         Écrit les donnees de la carte dans un fichier.
@@ -591,8 +619,6 @@ class Map:
         logging.info('</Map.lire> nomFichier: {}'.format(nomFichier))
         # Retourner les données lues
         return candidats, population
-###############################################################################################################################
-            
 
     def liste_to_matrice(self):
         '''
@@ -630,7 +656,9 @@ class Map:
                     liste.append(self.population[x][y])
         print(liste)
         return liste
-    
+  
+#  Fonction supplémentaire qui ne nécessite pas d'être intégrée dans la classe.
+
 def creer_sous_maps(map_carrer, k):
     sous_maps = []
     taille_map = len(map_carrer)
