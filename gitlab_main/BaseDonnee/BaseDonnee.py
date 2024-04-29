@@ -5,6 +5,11 @@ from Front.Utilitaire import *
 import logging
 # Configurer le système de journalisation
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+#Importation de la consommation des fonctions utilisées
+from calculs_emissions import emission_moyen_individus, emission_moyen_lancement, emission_moyen_soumission_candidat, emission_moyen_generation_candidat
+
+
 class Basedonnee():
     def __init__(self, id, window=None,taille_map=500):
         """
@@ -19,6 +24,7 @@ class Basedonnee():
         self.map = Map(self, str(id), [], [], taille_map, taille_map)
         self.map.creer_L_population()
         self.window = window
+        self.conso = emission_moyen_lancement
         
     
     def refresh(self,liste_candidat):
@@ -48,6 +54,9 @@ class Basedonnee():
         logging.info("  Ajout d'un nouvel element a la candidats.")
         self.map.ajoute_candidat(candidat)
         logging.info("<Fin ajout bd>")
+
+        #Ajout de la consommation
+        self.conso += emission_moyen_soumission_candidat
     
     def genere_aleatoire_candidat_BM(self): # genere aleatoirement un Candidat de la Classe Candidiat
         """
@@ -57,6 +66,10 @@ class Basedonnee():
             Candidat: Nouveau candidat généré aléatoirement.
         """
         logging.debug("Generation aleatoire d\'un candidat.")
+
+        #Ajout de la consommation
+        self.conso += emission_moyen_generation_candidat
+        
         return Candidat.random_candidat(self.window.tailleMap,self.window.tailleMap)
     
     def refresh_MV(self,resultats_votes):
@@ -102,6 +115,14 @@ class Basedonnee():
         
         logging.info("<Fin Rechargement>")
 
+    def ajoute_conso(self, conso):
+        """
+        Méthode pour ajouter l'emission carbone
+
+        Args:
+            conso (float): emission a ajouter
+        """
+        self.conso += conso
         
     @staticmethod
     def creer(id,tailleMap=500,Pl=False,map=None):
