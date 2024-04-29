@@ -87,7 +87,7 @@ class LWindow(QMainWindow):
         self.compass = PreMap()
         self.compass.setFixedSize(500, 500)
         
-        self.zone_button = ZoneButton(self.compass)
+        self.zone_button = ZoneButton(self)
         self.zone_button.setFixedSize(300,100)
         
         self.ellipse_up_B = RayonButton(self.ellipse_select)

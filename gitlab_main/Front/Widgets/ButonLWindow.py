@@ -790,17 +790,18 @@ class ZoneButton(QWidget):
         h: Hauteur du widget (optionnel, valeur par défaut à 80).
     """
     
-    def __init__(self, map, l=200, h=80):
+    def __init__(self, lwindow, l=200, h=80):
         """
         Initialise le widget ZoneButton avec les paramètres de la carte et les dimensions spécifiées.
         
         Args:
-            map: L'objet carte associé à ce widget pour les opérations.
+            lwindow(LWindow ): Une Lwindow ou le bouton sera implementer
             l: Largeur du widget (par défaut 200).
             h: Hauteur du widget (par défaut 80).
         """
         super().__init__()
-        self.map = map  # Référence à l'objet carte.
+        self.lwindow = lwindow
+        self.map = self.lwindow.compass# Référence à l'objet carte.
         self.setFixedSize(l, h * 2.5)  # Définit la taille fixe du widget basée sur les paramètres fournis.
         
         layout = QVBoxLayout()  # Crée un layout vertical.
@@ -888,8 +889,9 @@ class ZoneButton(QWidget):
         self.submit_button.setEnabled(False)  # Désactive le bouton de soumission.
         rayon = [edit.value() for edit in self.valeur_edits]  # Récupère les valeurs entrées par l'utilisateur.
         x, y, r = rayon  # Assigne les valeurs à des variables spécifiques.
-        self.map.place_point(x, y, QColor(0, 255, 0), r)  # Utilise les valeurs pour placer un point sur la carte.
-        
+        self.lwindow.openPopup()
+        p=self.map.place_point(x*5, y*5, self.lwindow.type_generation[1], r*5,self.lwindow.ellipse_touched)  # Utilise les valeurs pour placer un point sur la carte.
+        self.lwindow.liste_points.append((p, self.lwindow.type_generation, self.lwindow.taille_population))
         self.refresh_champ()  # Réinitialise les champs de saisie pour une nouvelle saisie.
         self.submit_button.setEnabled(True)  # Réactive le bouton de soumission.
 
