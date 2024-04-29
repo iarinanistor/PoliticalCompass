@@ -7,13 +7,13 @@ Génèration d'une population ainsi que des candidats pouvant être élus.
 
 Chaque individu de la population représente un votant qui a une liste ordonnée des candidats (du préféré au moins préféré) selon son orientation politique.
 
-Les différentes méthodes de vote (et leur version adaptée pour une démocratie liquide) disponibles sont :
+Les différentes méthodes de vote disponibles sont :
 
-    - Copeland    / Copeland liquide
-    - Borda       / Borda liquide
-    - Pluralité   / Pluralité liquide
-    - STV         / STV liquide
-    - Approbation / Approbation liquide
+    - Copeland
+    - Borda
+    - Pluralité
+    - STV
+    - Approbation
 
 
 ## Installation et téléchargement :
@@ -73,7 +73,7 @@ Télécharger ce dossier et l'extraire dans votre répertoire courant (ou dans u
 Dans le terminal, entrer la commande : 
 
 ```bash
-python LWindow.py
+python __main__.py
 ```
 
 
@@ -113,16 +113,11 @@ Une fois que la map a été créée :
             - Approbation
     
     - Statistiques :
-        - Arbre tournoi
+        - Arbre tournoi : Affiche le résultat du tournoi sous forme d'arbre
         - Bilan Carbone : Affiche l'emission carbone depuis le lancement du logiciel
-        - Taux de satisfaction
-        - Démocratie liquide (Liste des différentes règles de vote avec un système de démocratie liquide) :
-            Choix du rayon
-            - Copeland liquide
-            - Borda liquide
-            - Pluralite liquide
-            - STV liquide
-            - Approbation liquide
+        - Visualisation 3D : Représentation des individus sur une surface 3D
+
+    - Commande vocale :
 
 
 ## Données émission carbone :
