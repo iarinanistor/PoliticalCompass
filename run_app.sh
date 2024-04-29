@@ -11,3 +11,6 @@ source ../ProjectEnv/bin/activate
 
 # Exécute le script Python avec Python 3
 python3 __main__.py
+
+# Désactive l'environnement virtuel
+deactivate
