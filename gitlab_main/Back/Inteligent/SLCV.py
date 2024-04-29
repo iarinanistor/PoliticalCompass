@@ -1,6 +1,8 @@
 from fuzzywuzzy import fuzz
 import speech_recognition as sr
 
+
+#En vue de la complexité de faire des tests sur ces fonctions, les tests se limiteront au lancement de la fonction principale.
 # Définition des commandes avec leur valeur
 data_set_commands  = { # data set pour le numero de commandes 
     "lance borda": 1,
@@ -159,4 +161,8 @@ class SLCV():
         """
 
         return self.traitement(self.pre_analse(self.ecouter(),self.data_preProcessing),self.data_commands)
+
+if __name__ == "__main__":
+    slcv = SLCV()
+    print(slcv.use())
 
