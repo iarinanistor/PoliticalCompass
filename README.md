@@ -1,9 +1,19 @@
 # jc2iy
 
-Méthodes de votes et leurs consequences.
+Logiciel qui permet de simuler des résultats d'élection pour différentes méthodes de votes.
 
-On crée un Political Compass avec des électeurs et des candidats. Chaque votant a une liste ordonnée des candidats (du préféré au moins préféré), et on teste les différentes méthodes de vote pour voir leurs influences sur le résultat final.
-On implémente une méthode de Monte-Carlo en fonction des différents types de vote, et des cartes prédéfinies (par exemple une carte représentant la France en fonction des statistiques des différentes élections, etc...).
+
+Génèration d'une population ainsi que des candidats pouvant être élus.
+
+Chaque individu de la population représente un votant qui a une liste ordonnée des candidats (du préféré au moins préféré) selon son orientation politique.
+
+Les différentes méthodes de vote (et leur version adaptée pour une démocratie liquide) disponibles sont :
+
+    - Copeland    / Copeland liquide
+    - Borda       / Borda liquide
+    - Pluralité   / Pluralité liquide
+    - STV         / STV liquide
+    - Approbation / Approbation liquide
 
 
 ## Installation et téléchargement :
