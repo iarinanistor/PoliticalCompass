@@ -5,6 +5,7 @@ import numpy as np
 # code Intial de SCV a voulais etre replacer par hand2 car conflit 
 # entre cv2 et mediapipe
 
+#En vue de la complexité de faire des tests sur ces fonctions, les tests se limiteront au lancement de la fonction principale.
 class testf:
     """
     Classe de test simple pour la démonstration.
