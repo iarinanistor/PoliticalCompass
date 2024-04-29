@@ -117,7 +117,7 @@ Une fois que la map a été créée :
         - Bilan Carbone : Affiche l'emission carbone depuis le lancement du logiciel
         - Visualisation 3D : Représentation des individus sur une surface 3D
 
-    - Commande vocale :
+    - Commande vocale
 
 
 ## Données émission carbone :
