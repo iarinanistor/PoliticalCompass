@@ -6,7 +6,13 @@ import numpy as np
 # entre cv2 et mediapipe
 
 class testf:
-    
+    """
+    Classe de test simple pour la démonstration.
+
+    Méthodes:
+        __init__: Initialise l'instance de la classe.
+        fonction_SCV(self, argument): Affiche l'argument donné.
+    """
     def __init__(self) :
         pass 
     def fonction_SCV(self,argument):
@@ -14,7 +20,17 @@ class testf:
         
 class FiltreKalmanSimple:
     """
-    filitre de bruit
+    Implémentation simple d'un filtre de Kalman pour estimer et réduire le bruit dans les mesures séquentielles.
+
+    Attributes:
+        process_noise (float): Estimation du bruit du processus.
+        measurement_noise (float): Estimation du bruit de mesure.
+        current_estimate (float): Estimation actuelle.
+        current_error_estimate (float): Estimation de l'erreur actuelle.
+
+    Méthodes:
+        __init__(self, process_noise, measurement_noise, initial_estimate): Initialise le filtre de Kalman.
+        update(self, measurement): Met à jour l'estimation basée sur une nouvelle mesure.
     """
     def __init__(self, process_noise, measurement_noise, initial_estimate):
         self.process_noise = process_noise
@@ -35,6 +51,19 @@ class FiltreKalmanSimple:
         return self.current_estimate
     
 class Doigt:
+    """
+    Représente un doigt avec des points de détection spécifiques.
+
+    Attributes:
+        base, point, point2, extremite: Points représentant différentes parties du doigt.
+
+    Méthodes:
+        set_base(self, base), set_point(self, point), set_point2(self, point2), set_extremite(self, extremite): Méthodes pour définir les points du doigt.
+        distance(self, point1, point2): Calcule la distance euclidienne entre deux points.
+        taille(self): Retourne la longueur du doigt.
+        est_leve(self): Détermine si le doigt est levé basé sur la géométrie des points.
+        est_leve_pouce(self): Spécifique pour déterminer si le pouce est levé.
+    """
     def __init__(self, base=None, point=None, point2=None, extremite=None):
         self.point = point
         self.point2 = point2
@@ -77,6 +106,19 @@ class Doigt:
             return 0
 
 class Hand:
+    """
+    Représente une main détectée, composée de plusieurs doigts.
+
+    Attributes:
+        ListeDoigt (list): Liste contenant les doigts de la main.
+
+    Méthodes:
+        __init__(self, encrage, pouce, doigt2, doigt3, doigt4, doigt5): Initialise une nouvelle instance de la main.
+        creer(self, hand_landmarks): Crée la structure de la main basée sur les landmarks détectés.
+        distance_pouce(self): Calcule la distance entre le pouce et l'index.
+        distance(self): Calcule un rapport de distance entre le pouce et l'index.
+    """
+
     def __init__(self, encrage=None, pouce=None, doigt2=None, doigt3=None, doigt4=None, doigt5=None):
         self.encrage = encrage
         self.pouce = pouce
@@ -110,7 +152,18 @@ class Hand:
         return  self.distance_pouce() / self.pouce.taille()
 
 class SLH():
-    #systeme de lissage des donnees de la main
+    """
+    Système de lissage des données de la main utilisant un filtre de Kalman.
+
+    Attributes:
+        hand (Hand): Instance de la classe Hand dont les données doivent être lissées.
+        filtre (FiltreKalmanSimple): Instance du filtre de Kalman utilisé pour le lissage.
+
+    Méthodes:
+        __init__(self, hand): Initialise le système de lissage avec une main donnée.
+        lisse(self, old): Lisse la mesure de distance actuelle et retourne le résultat lissé.
+        intitialize(self): Initialise le système avec une mesure de distance de base.
+    """
     def __init__(self,hand):
         self.hand = hand
         self.start=0
@@ -130,7 +183,20 @@ class SLH():
         self.start = self.hand.distance()*100
         
 class SCV():
-    #systeme de computere vision 
+    """
+    Système de vision par ordinateur pour le traitement de données de main.
+
+    Attributes:
+        classe (): Instance d'une classe qui utlise les fonctionnalités.
+        cap (cv2.VideoCapture): Capture vidéo utilisée pour la détection en temps réel.
+
+    Méthodes:
+        __init__(self, classe): Initialise le système avec une instance de classe de test.
+        restratOld(self, new): Réinitialise la distance précédemment mesurée si nécessaire.
+        detection(self): Détecte et traite les distances mesurées.
+        start(self): Démarre le processus de capture et de traitement vidéo.
+        stop(self): Arrête la capture vidéo et ferme toutes les fenêtres.
+    """
     def __init__(self,classe):
         self.classe = classe
         self.old_distance = 0
@@ -138,9 +204,25 @@ class SCV():
         self.cap=None
         
     def restratOld(self,new): 
+        """
+        Réinitialise la valeur de 'old_distance' si un changement significatif est détecté, permettant de réagir uniquement aux variations importantes.
+
+        Args:
+            new (float): Nouvelle distance mesurée entre deux points spécifiques de la main.
+        """
         if abs(self.old_distance-new)>=10 : self.old_distance = new 
     
     def detection(self):
+        """
+        Détecte les conditions de distance spécifiques et envoie des commandes appropriées via la méthode 'fonction_SCV' de l'instance 'classe' attribuée.
+
+        La logique de détection est basée sur des seuils prédéfinis qui déclenchent différentes réactions:
+        - Distance >= 350 : Envoyer -1
+        - Distance >= 200 : Envoyer 0.02
+        - Distance >= 70  : Envoyer 0.01
+        - Sinon           : Envoyer 0
+        """
+
         print(self.old_distance)
         if self.old_distance >=350 : self.classe.fonction_SCV(-1)
         elif self.old_distance>=200 : self.classe.fonction_SCV(0.02)
@@ -148,6 +230,9 @@ class SCV():
         else : self.classe.fonction_SCV(0)
         
     def start(self):
+        """
+        Démarre la capture vidéo et le traitement des données de main. Configure la résolution de la caméra, initialise les outils de détection de MediaPipe, et traite les images capturées en continu.
+        """
         cap = cv2.VideoCapture(0)
         self.cap = cap
         cap.set(3, 1280)
@@ -175,7 +260,6 @@ class SCV():
                     slh = SLH(Main)
                     distance_point_pouce =slh.lisse(self.old_distance)
                     self.detection()
-                    #print("Distance point 1 - pouce:",distance_point_pouce," pixels")
                     # Affichage de la distance en noir
                     #cv2.putText(frame, f"Distance point 1 - pouce: {distance_point_pouce:.2f} pixels", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
             else : self.cpt+=1
@@ -191,10 +275,25 @@ class SCV():
         cv2.destroyAllWindows()
         
     def stop(self):
+        """
+        Arrête la capture vidéo et ferme toutes les fenêtres, libérant les ressources.
+        """
         self.cap.release()
         cv2.destroyAllWindows()
         
 def afficher_main(frame, hand_landmarks,num_points,mp_hands):
+    """
+    Fonction pour afficher la main dans une fenêtre de visualisation.
+
+    Args:
+        frame (np.array): Image sur laquelle dessiner.
+        hand_landmarks (mediapipe.solutions.hands.HandLandmark): Landmarks de la main détectée.
+        num_points (int): Nombre de points à afficher.
+        mp_hands (mediapipe.solutions.hands): Instance de la solution Hands de MediaPipe.
+
+    Cette fonction dessine les points et les connexions de la main sur l'image.
+    """
+
     for i, point in enumerate(hand_landmarks.landmark[:num_points]):
         cx, cy = int(point.x * frame.shape[1]), int(point.y * frame.shape[0])
         if i in [0, 2, 4, 5, 8, 9, 12, 13, 16, 17, 20]:  # Indices des extrémités des doigts
@@ -211,9 +310,16 @@ def afficher_main(frame, hand_landmarks,num_points,mp_hands):
         cv2.line(frame, (x1, y1), (x2, y2), (255, 0, 0), 2)
     
 def main():
-    instance_testf = testf()  
-    scv = SCV(instance_testf) 
-    scv.start()
+    """
+    Fonction principale utilisée pour démarrer le système de vision par ordinateur (SCV) dans le cadre de tests unitaires.
+
+    Cette fonction crée une instance de la classe testf et utilise cette instance pour initialiser et démarrer le système SCV. 
+    Elle est destinée à être utilisée dans des tests pour vérifier la correcte intégration et fonctionnement du système SCV 
+    avec les composants définis dans la classe testf.
+    """
+    instance_testf = testf()  # Création d'une instance de la classe testf
+    scv = SCV(instance_testf)  # Initialisation du système SCV avec l'instance de testf
+    scv.start()  # Démarrage du système SCV pour le test
     
 if __name__ == "__main__":
     main()

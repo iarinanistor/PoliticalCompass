@@ -7167,3 +7167,25 @@
 2024-04-28 19:46:09,446 - INFO - <Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017CE3A32390>
 2024-04-28 19:46:09,446 - INFO - </Map.ajoute_candidat> newC: <Back.Candidat.Candidat object at 0x0000017CE3A32390>
 2024-04-28 19:46:09,446 - INFO - <Fin ajout bd>
+2024-04-29 17:39:48,730 - DEBUG - matplotlib data path: /Users/isaac/Library/Python/3.9/lib/python/site-packages/matplotlib/mpl-data
+2024-04-29 17:39:48,733 - DEBUG - CONFIGDIR=/Users/isaac/.matplotlib
+2024-04-29 17:39:48,734 - DEBUG - interactive is False
+2024-04-29 17:39:48,734 - DEBUG - platform is darwin
+2024-04-29 17:39:48,775 - DEBUG - CACHEDIR=/Users/isaac/.matplotlib
+2024-04-29 17:39:48,776 - DEBUG - Using fontManager instance from /Users/isaac/.matplotlib/fontlist-v330.json
+2024-04-29 17:39:49,988 - DEBUG - OpenGL_accelerate module loaded
+2024-04-29 17:39:50,003 - DEBUG - Using accelerated ArrayDatatype
+2024-04-29 17:39:54,104 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2024-04-29 17:39:54,411 - DEBUG - Creating converter from 7 to 5
+2024-04-29 17:39:54,411 - DEBUG - Creating converter from 5 to 7
+2024-04-29 17:39:54,411 - DEBUG - Creating converter from 7 to 5
+2024-04-29 17:39:54,411 - DEBUG - Creating converter from 5 to 7
+2024-04-29 17:39:54,797 - DEBUG - etils.epath was not found. Using pathlib for file I/O.
+2024-04-29 17:39:55,890 - INFO - <Map_QT.createGrid>
+2024-04-29 17:39:55,890 - INFO - <Map_QT.drawColoredBackground>
+2024-04-29 17:39:55,892 - INFO - </Map_QT.drawColoredBackground>
+2024-04-29 17:39:55,892 - INFO - </Map_QT.createGrid>
+2024-04-29 17:39:55,892 - INFO - <Map_QT.createGrid>
+2024-04-29 17:39:55,892 - INFO - <Map_QT.drawColoredBackground>
+2024-04-29 17:39:55,892 - INFO - </Map_QT.drawColoredBackground>
+2024-04-29 17:39:55,893 - INFO - </Map_QT.createGrid>

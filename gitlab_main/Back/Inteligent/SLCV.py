@@ -17,15 +17,33 @@ data_set_preProcessing = { # data set pour pouvoir regroup les commande par clas
     "Jenner":2
 }
 class SLCV():
+    """
+    Classe permettant d'interpréter les commandes vocales et d'exécuter les actions correspondantes. Elle gère la reconnaissance vocale,
+    l'analyse des commandes, et l'exécution des opérations spécifiées par l'utilisateur.
+
+    Attributes:
+        data_preProcessing (dict): Dictionnaire des mots clés pour le prétraitement des commandes.
+        data_commands (dict): Dictionnaire des commandes avec leurs valeurs numériques associées.
+
+    Méthodes:
+        __init__: Initialise une nouvelle instance de la classe SLCV. Elle configure les jeux de données nécessaires pour le prétraitement et la reconnaissance des commandes.
+        ecouter: Écoute l'entrée vocale de l'utilisateur et tente de la transcrire en texte en utilisant l'API Google Speech.
+        get_command_values: Identifie et extrait les valeurs des commandes à partir d'une phrase donnée, en utilisant le dictionnaire de commandes.
+        detection_mots: Détecte les mots dans une phrase qui correspondent à des mots clés pré-définis, en utilisant le ratio de similarité de FuzzyWuzzy.
+        pre_analyse: Segment et pré-analyse la phrase d'entrée pour regrouper les mots selon les mots clés identifiés, préparant l'analyse plus détaillée.
+        traitement: Analyse les segments de phrases pré-analysés pour déterminer et exécuter les commandes correspondantes.
+        use: Méthode principale utilisée pour exécuter le processus complet d'écoute, d'analyse et d'exécution des commandes vocales.
+    """
     def __init__(self,data_set_preProcessing=data_set_preProcessing,data_set_commands = data_set_commands ) :
         self.data_preProcessing = data_set_preProcessing #data set pour le numero de commandes 
         self.data_commands = data_set_commands # data set pour pouvoir regroup les commande par classe 
         
     def ecouter(self):
         """
-        fonction qui retourn la phrase dite en vocal grace a l'api google 
-        args :
-        return un str 
+        Fonction qui retourne la phrase prononcée par l'utilisateur en utilisant l'API Google Speech.
+        
+        Returns:
+            str: La phrase transcrise ou None si l'audio n'est pas compréhensible.
         """
         recognizer = sr.Recognizer() # Initialiser le recognizer
         with sr.Microphone() as source: # Utiliser le microphone comme source audio
@@ -45,7 +63,14 @@ class SLCV():
 
     def get_command_values(self,input_phrase,data_set_commands ):
         """
-        input str phrase , dic data_set_commands
+        Identifie les commandes dans la phrase d'entrée basée sur le jeu de données de commandes.
+        
+        Args:
+            input_phrase (str): La phrase à analyser.
+            data_set_commands (dict): Le dictionnaire des commandes avec leurs valeurs.
+            
+        Returns:
+            list: Liste des valeurs des commandes identifiées.
         """
         commands = data_set_commands 
         command_values = []
@@ -59,11 +84,16 @@ class SLCV():
 
     def detection_mots(self,input_phrase, data_set):
         """
-        input str phrase , dic data_set
-        renvoie le numero de la commande si on dectete le mot dans la phrase None sinon
+        Détecte et retourne le numéro de commande basé sur la similarité de mots clés trouvés dans la phrase.
         
-        retrun int or None 
+        Args:
+            input_phrase (str): La phrase à analyser.
+            data_set (dict): Le dictionnaire des mots clés et leurs valeurs.
+        
+        Returns:
+            list or None: Liste des valeurs de commandes détectées ou None si aucune correspondance.
         """
+
         command_values = []
 
         for phrase in data_set:
@@ -77,10 +107,14 @@ class SLCV():
 
     def pre_analse(self,input_phrase, data_set):
         """
-        faite un pre_analyse de la phrase en coupant et recolant les morceaux de phrase en fonction des mots clée dans le data_set
+        Pré-analyse la phrase en segmentant et regroupant les morceaux basés sur les mots clés du jeu de données.
         
-        args dico
+        Args:
+            input_phrase (str): La phrase à analyser.
+            data_set (dict): Le dictionnaire pour le prétraitement.
         
+        Returns:
+            dict: Dictionnaire des segments de phrase avec leurs valeurs de commandes associées.
         """
         phrases = input_phrase.split()
         resultat = {}
@@ -100,8 +134,14 @@ class SLCV():
 
     def traitement(self,dico, data_set):
         """
-        fait l'analyse complet du dico et renvoie une liste de itn qui reprenste les commande a lancer
-        int []
+        Analyse le dictionnaire de segments de phrases et retourne les commandes à exécuter.
+        
+        Args:
+            dico (dict): Dictionnaire des segments de phrases.
+            data_set (dict): Le dictionnaire des commandes.
+        
+        Returns:
+            list: Liste des numéros des commandes à exécuter.
         """
         tas = []
         for clée in dico.keys():
@@ -112,8 +152,11 @@ class SLCV():
 
     def use(self):
         """
-        fait l'analyse complet de la phrase dit en vocal et renvoie une liste de itn qui reprenste les commande a lancer
-        int []
+        Analyse complète de la phrase prononcée et retourne les commandes à lancer.
+        
+        Returns:
+            list: Liste des numéros des commandes à exécuter.
         """
+
         return self.traitement(self.pre_analse(self.ecouter(),self.data_preProcessing),self.data_commands)
 
