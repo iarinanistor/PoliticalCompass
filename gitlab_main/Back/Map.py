@@ -6,6 +6,11 @@ from Back.Individus import Individus
 import random
 import logging 
 from icecream import ic
+
+#Importation de la consommation des fonctions utilisées
+from calculs_emissions import emission_moyen_copeland, emission_moyen_borda, emission_moyen_pluralite, emission_moyen_stv, emission_moyen_approbation, emission_moyen_ecrire, emission_moyen_lire, emission_moyen_Arbre_tournoi
+
+
 class Map:
     def __init__ (self,bd,nom=None,liste_electeur=[],population=[],generationX=None,generationY=None):
         '''
@@ -365,6 +370,11 @@ class Map:
         :param liste_candidat: Liste optionnelle des candidats. Si None, utilise `liste_electeur` de l'instance.
         :return: Dictionnaire avec l'ID de chaque candidat comme clé et la liste des IDs des candidats qu'ils ont battus.
         """
+        
+        if (self.bd != None):
+            # Ajout de la consommation
+            self.bd.conso += emission_moyen_Arbre_tournoi
+
         if liste_candidat is None:
             liste_candidat = self.liste_electeur
         victoire_defaite = {cand.id: [] for cand in liste_candidat}  # Initialisation du dictionnaire pour suivre les victoires
@@ -392,6 +402,11 @@ class Map:
         Trouve le gagnant de Copeland parmi les candidats.
         ''',
         logging.info('<Map.Copeland/>')
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_copeland
+
         if(r!=None):
             return copeland(self.liste_electeur, self.liste_poids(r))
         if(self.L_population == None): self.creer_L_population()
@@ -409,6 +424,11 @@ class Map:
         Calcule le gagnant par la méthode de pluralité.
         '''
         logging.info('<Map.Pluralite/>')
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_pluralite
+
         if(r!=None):
             return pluralite(self.liste_electeur,self.liste_poids(r))
         if(self.L_population == None): self.creer_L_population()
@@ -419,6 +439,11 @@ class Map:
         Calcule le gagnant par la méthode de Borda.
         '''
         logging.info('<Map.Borda/>')
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_borda
+
         if(r!=None):
             return borda(self.liste_electeur,self.liste_poids(r))
         if(self.L_population == None): self.creer_L_population()
@@ -429,6 +454,11 @@ class Map:
         Calcule le gagnant par la méthode de STV.
         '''
         logging.info('<Map.STV/>')
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_stv
+        
         if(r!=None):
             return stv(self.liste_electeur,self.liste_poids(r))
         if(self.L_population == None): self.creer_L_population()
@@ -442,6 +472,11 @@ class Map:
             nb_approbation (int): Nombre de votes d'approbation.
         '''
         logging.info('<Map.Approbation>')
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_approbation
+
         if(r!=None):
             return approbation(self.liste_electeur,self.liste_poids(r), nb_approbation)
         if(self.L_population == None): self.creer_L_population()
@@ -572,6 +607,10 @@ class Map:
                 fichier.close()  
                 logging.info('</Map.ecrire> nomFichier: {}'.format(nomFichier))
 
+                if (self.bd != None):
+                    #Ajout de la consommation
+                    self.bd.conso += emission_moyen_ecrire
+
 
     def lire(self, nomFichier):
         '''
@@ -636,6 +675,11 @@ class Map:
                         population.append(new)
 
         logging.info('</Map.lire> nomFichier: {}'.format(nomFichier))
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_lire
+        
         # Retourner les données lues
         return candidats, population
 
@@ -706,5 +750,3 @@ def concat(matrix):
         list: A list containing all non-None and non-empty elements from the sub-lists or arrays.
     '''
     return [element for sous_liste in matrix for element in sous_liste if element is not None]
-
-
