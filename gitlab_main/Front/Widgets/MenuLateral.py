@@ -6,6 +6,10 @@ from PySide6.QtGui import QIcon, QFont, QPixmap
 from Back.Inteligent.SLCV import SLCV
 from Tournoi.TreeView import Tournoi
 
+#Importation de la consommation des fonctions utilisées
+from calculs_emissions import emission_moyen_ouverture_menu_lat, emission_moyen_fermeture_menu_lat, emission_moyen_ouverture_menu_lat2, emission_moyen_fermeture_menu_lat2, emission_moyen_bouton_vote_ouverture, emission_moyen_bouton_vote_fermeture
+
+
 # Définition des commandes avec leur valeur
 data_set_commands  = { # data set pour le numero de commandes 
     "lance borda": 1,
@@ -333,9 +337,10 @@ QPushButton:pressed {
         bouton_monte_carlo.setStyleSheet(style_sidebar_1_buttons)
         bouton_monte_carlo.clicked.connect(self.open_tournament_options)
         self.sidebar_layout_1.addWidget(bouton_monte_carlo)
-        bouton_bilan_carbone = QPushButton("Bilan Carbone")
-        bouton_bilan_carbone.setStyleSheet(style_sidebar_1_buttons)
-        self.sidebar_layout_1.addWidget(bouton_bilan_carbone)
+        self.bouton_bilan_carbone = QPushButton("Bilan Carbone")
+        self.bouton_bilan_carbone.setStyleSheet(style_sidebar_1_buttons)
+        self.sidebar_layout_1.addWidget(self.bouton_bilan_carbone)
+        self.bouton_bilan_carbone.clicked.connect(self.affiche_carbone)
         bouton_taux_satisfaction = QPushButton("Taux de satisfaction")
         bouton_taux_satisfaction.setStyleSheet(style_sidebar_1_buttons)
         #self.sidebar_layout_1.addWidget(bouton_taux_satisfaction)
@@ -343,6 +348,10 @@ QPushButton:pressed {
         self.bouton_visualisation_3d = BoutonVisuel3D(self.bd)
         self.bouton_visualisation_3d.setStyleSheet(style_sidebar_1_buttons)
         self.sidebar_layout_1.addWidget(self.bouton_visualisation_3d)
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_ouverture_menu_lat2
 
     
     def add_sidebar_buttons(self) -> None:
@@ -390,6 +399,10 @@ QPushButton:pressed {
         self.regle_de_vote.clicked.connect(self.Menu)
         self.sidebar_layout_2.addWidget(self.regle_de_vote)
 
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_ouverture_menu_lat
+
     def add_menu_buttons(self) -> None:
         """
         Ajoute des boutons de menu à la barre latérale des règles de vote.
@@ -405,6 +418,10 @@ QPushButton:pressed {
         self.sidebar_layout_2.addWidget(bouton_STV)
         bouton_Approbation = Bouton_Mvote(self.bd, "Approbation",self.rayon, self.Blongeur, self.Bhauteur)
         self.sidebar_layout_2.addWidget(bouton_Approbation)
+
+        if (self.bd != None):
+            # Ajout de la consommation
+            self.bd.conso += emission_moyen_bouton_vote_ouverture
     
     def add_democratie_buttons(self) -> None:
         """
@@ -464,6 +481,11 @@ QPushButton:pressed {
         """
         Ferme les boutons du menu dans la barre latérale des règles de vote.
         """
+
+        if (self.bd != None):
+            # Ajout de la consommation
+            self.bd.conso += emission_moyen_bouton_vote_fermeture
+
         for i in reversed(range(self.sidebar_layout_2.count())):
             widget = self.sidebar_layout_2.itemAt(i).widget()
             if isinstance(widget, Bouton_Mvote):
@@ -512,6 +534,11 @@ QPushButton:pressed {
         """
         Ferme les boutons de la barre latérale des statistiques.
         """
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_fermeture_menu_lat2
+
         for i in reversed(range(self.sidebar_layout_1.count())):
             widget = self.sidebar_layout_1.itemAt(i).widget()
             if widget is not None:
@@ -521,6 +548,11 @@ QPushButton:pressed {
         """
         Ferme les boutons de la barre latérale du menu.
         """
+
+        if (self.bd != None):
+            #Ajout de la consommation
+            self.bd.conso += emission_moyen_fermeture_menu_lat
+
         for i in reversed(range(self.sidebar_layout_2.count())):
             widget = self.sidebar_layout_2.itemAt(i).widget()
             if widget is not None:
@@ -579,6 +611,27 @@ QPushButton:pressed {
     def open_tournament_options(self):
         self.tournament_dialog = TournamentOptionsDialog(self.bd)
         self.tournament_dialog.show()
+
+    def affiche_carbone(self):
+        '''
+            Affiche la consommation actuelle du programme
+        '''
+        self.close_carbone()
+        self.carbone_lab = QLabel("Emission carbone actuelle : ")
+        self.sidebar_layout_1.addWidget(self.carbone_lab)
+        
+        self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
+        self.sidebar_layout_1.addWidget(self.conso_lab)
+
+    def close_carbone(self) -> None:
+        """
+            Ferme l'affichage de l'emission carbone.
+        """
+        for i in reversed(range(self.sidebar_layout_1.count())):
+            widget = self.sidebar_layout_1.itemAt(i).widget()
+            if isinstance(widget, QLabel):
+                widget.close()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
