@@ -95,7 +95,7 @@ Dans la fenêtre principale, plusieurs options afin de paramétrer la map :
 
     Une fois fini et que tous les paramètres ont été choisis :
 
-    - Créer Map : Créer la map 3D ou 2D (au choix)
+    - Lancer l'application : Créer la map 3D ou 2D (au choix)
 
 
 Une fois que la map a été créée :
@@ -128,7 +128,6 @@ Les mesures faites pour l'émission carbone ont été sur un ordinateur comporta
 Les mesures ont été faites en France de code iso FRA.
 Les mesures sont susceptibles de changer d'un ordinateur à un autre.
 Les mesures sont susceptibles de changer dans le temps.
-
 
 
 ## Credits :
