@@ -8,6 +8,9 @@ from Back.Inteligent.Hand import SCV
 from Front.Widgets.MapQT import PreMap
 from Front.Widgets.ButonLWindow import StartSCVButton, SuppButton,ZoneButton,TypeGenerationButton,RayonButton,CreationButton,CustomInputDialog
 
+#Importation de la consommation des fonctions utilisées
+from calculs_emissions import emission_moyen_Map_3D, emission_moyen_Map_2D
+
 
 class LWindow(QMainWindow):
     """
@@ -251,6 +254,9 @@ class LWindow(QMainWindow):
         self.close()
         bd = Basedonnee.creer("Your Wolrd",100,True,map)
         bd.window.show()
+
+        #Ajout de la consommation
+        bd.ajoute_conso(emission_moyen_Map_3D)
     
     def creation_final_2D(self):
         """
@@ -264,4 +270,5 @@ class LWindow(QMainWindow):
         bd = Basedonnee.creer("Your Wolrd",100,False,map)
         bd.window.show()
 
- 
+        #Ajout de la consommation
+        bd.ajoute_conso(emission_moyen_Map_2D)
