@@ -5,10 +5,13 @@ from Front.Widgets.Boutons import *
 from PySide6.QtGui import QIcon, QFont, QPixmap
 from Back.Inteligent.SLCV import SLCV
 from Tournoi.TreeView import Tournoi
+import logging
 
 #Importation de la consommation des fonctions utilisées
 from calculs_emissions import emission_moyen_ouverture_menu_lat, emission_moyen_fermeture_menu_lat, emission_moyen_ouverture_menu_lat2, emission_moyen_fermeture_menu_lat2, emission_moyen_bouton_vote_ouverture, emission_moyen_bouton_vote_fermeture
 
+# Configuration du logger
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Définition des commandes avec leur valeur
 data_set_commands  = { # data set pour le numero de commandes 
@@ -34,6 +37,7 @@ class TournamentOptionsDialog(QDialog):
         self.setWindowTitle("Options de Tournoi")
         self.setGeometry(100, 100, 300, 200)
         self.setup_ui()
+        logging.info("Dialogue des options de tournoi initialisé.")
 
     def setup_ui(self):
         layout = QVBoxLayout()
@@ -138,6 +142,7 @@ class TournamentOptionsDialog(QDialog):
         layout.addWidget(confirm_button)
         
         self.setLayout(layout)
+        logging.debug("Interface utilisateur du dialogue des options configurée.")
 
     def load_candidates(self):
         if len(self.bd.map.liste_electeur) > 1:
@@ -207,6 +212,7 @@ class SideMenu(QMainWindow):
         super().__init__()
 
         self.bd = bd
+        logging.info("Menu latéral initialisé avec la base de données.")
         ic(self.bd," MenuLateral")
         self.Blongeur = Blongeur
         self.Bhauteur = Bhauteur
@@ -565,8 +571,10 @@ QPushButton:pressed {
         """
         Affiche la barre latérale des statistiques.
         """
+        logging.info("Basculer la barre latérale des statistiques.")
         if not self.sidebar_1_visible:
             if self.sidebar_2_visible:
+                logging.debug("Fermeture du menu général car il est ouvert.")
                 # Fermer le menu général s'il est ouvert
                 self.toggle_menu_sidebar()
             self.animation_1.setStartValue(0)
@@ -598,16 +606,19 @@ QPushButton:pressed {
         self.sidebar_2_visible = not self.sidebar_2_visible
 
     def activate_voice_command(self):
+        logging.debug("Activation de la commande vocale.")
         slcv = SLCV()  # Créer une instance de la classe SLCV
         input_phrase = slcv.ecouter()  # Appeler la méthode ecouter() à partir de l'instance
+        logging.info(f"Phrase reçue: {input_phrase}")
         if input_phrase:
             pre_analysed = slcv.pre_analse(input_phrase, data_set_preProcessing)  # Appeler la méthode pre_analse() à partir de l'instance
             command_values = slcv.traitement(pre_analysed, data_set_commands)  # Appeler la méthode traitement() à partir de l'instance
 
             if command_values:
-                print(f"Les commandes dans la phrase '{input_phrase}' correspondent aux valeurs suivantes : {command_values}.")
+                logging.info(f"Commandes dans la phrase '{input_phrase}' : {command_values}")
             else:
-                print("Aucune correspondance significative trouvée.")
+               logging.warning("Aucune correspondance significative trouvée pour les commandes vocales.")
+
             
             liste = command_values
             for commande in liste:
