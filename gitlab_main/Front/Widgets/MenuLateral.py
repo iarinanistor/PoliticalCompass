@@ -307,6 +307,8 @@ QPushButton:pressed {
 
         self.democratie_visible = False
 
+        self.carbon_display_visible = False
+
     def add_sidebar_1_buttons(self) -> None:
         """
         Ajoute des boutons à la barre latérale des statistiques.
@@ -628,21 +630,43 @@ QPushButton:pressed {
         '''
             Affiche la consommation actuelle du programme
         '''
-        self.close_carbone()
-        self.carbone_lab = QLabel("Emission carbone actuelle : ")
-        self.sidebar_layout_1.addWidget(self.carbone_lab)
-        
-        self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
-        self.sidebar_layout_1.addWidget(self.conso_lab)
+        if not self.carbon_display_visible:
+            # Display the carbon footprint
+            self.carbone_lab = QLabel("Emission carbone actuelle : ")
+            self.carbone_lab.setStyleSheet("""QLabel {
+                color: white;
+                font-family: 'Arial';
+                font-size: 14px;
+                padding: 4px;
+            }""")
+            self.sidebar_layout_1.addWidget(self.carbone_lab)
+            
+            self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
+            self.conso_lab.setStyleSheet("""QLabel {
+                color: white;
+                font-family: 'Arial';
+                font-size: 14px;
+                padding: 4px;
+            }""")
+            self.sidebar_layout_1.addWidget(self.conso_lab)
+            self.carbon_display_visible = True  # maj de l'etat
+        else:
+            # on ferme le display s'il est visible
+            self.close_carbone()
+            self.carbon_display_visible = False  # Umaj de l'etat
 
-    def close_carbone(self) -> None:
+    def close_carbone(self):
         """
-            Ferme l'affichage de l'emission carbone.
+        Close the carbon emission display.
         """
         for i in reversed(range(self.sidebar_layout_1.count())):
             widget = self.sidebar_layout_1.itemAt(i).widget()
             if isinstance(widget, QLabel):
-                widget.close()
+                widget.deleteLater()
+
+        self.carbone_lab = None
+        self.conso_lab = None
+
 
 
 if __name__ == "__main__":
