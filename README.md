@@ -1,79 +1,32 @@
-# jc2iy
+## Projet de Simulation de Vote
 
-Logiciel qui permet de simuler des résultats d'élection pour différentes méthodes de votes.
+Ce projet est dédié à la simulation de différents types de votes, y compris mais non limité aux méthodes coplanaires Borda, STV, etc. Le système intègre également l'intelligence artificielle pour la reconnaissance visuelle utilisée dans la création de populations, ainsi que pour la reconnaissance vocale permettant d'exécuter des commandes simples.
 
+## Problèmes connus
 
-Génèration d'une population ainsi que des candidats pouvant être élus.
+Actuellement, un conflit de dépendances entre MediaPipe et OpenCV (cv2) empêche le fonctionnement correct des méthodes de Monte Carlo.
 
-Chaque individu de la population représente un votant qui a une liste ordonnée des candidats (du préféré au moins préféré) selon son orientation politique.
+## Performances
 
-Les différentes méthodes de vote disponibles sont :
+La génération de populations dépassant 1 million d'individus peut devenir lente.
+La complexité du calcul des fonctions de vote est constante en fonction du nombre d'individus et linéaire en fonction du nombre de candidats.
 
-    - Copeland
-    - Borda
-    - Pluralité
-    - STV
-    - Approbation
+## Limitations
 
+Il est possible de simuler des tournois sans limite de tours. Cependant, la simulation est limitée à 8 candidats pour inclure des manipulations dans l'arbre des décisions, et à 10 candidats maximum pour maintenir un temps de calcul raisonnable sur un ordinateur personnel.
 
-## Installation et téléchargement :
+## Instructions pour utilisateurs de processeurs Apple ARM (M1, M2, M3)
 
-Installer au préalable les packages suivants :
+Les utilisateurs disposant de processeurs ARM développés par Apple doivent installer un environnement spécifique :
 
-[PySide6](https://pypi.org/project/PySide6/) :
-
-```bash
-pip install PySide6
-```
-
-[icecream](https://pypi.org/project/icecream/) :
-
-```bash
-pip install icecream
-```
-
-[numpy](https://pypi.org/project/numpy/) :
-
-```bash
-pip install numpy
-```
-
-Pour les fonctions de reconnaissances vocales et manuelles :
-
-[mediapipe](https://pypi.org/project/mediapipe/) :
-
-```bash
-pip install mediapipe
-```
-
-[imageio](https://pypi.org/project/imageio/) :
-
-```bash
-pip install imageio
-```
-
-[fuzzywuzzy](https://pypi.org/project/fuzzywuzzy/) :
-
-```bash
-pip install fuzzywuzzy
-```
-
-[SpeechRecognition](https://pypi.org/project/SpeechRecognition/) :
-
-```bash
-pip install SpeechRecognition
-```
-
-
-Télécharger ce dossier et l'extraire dans votre répertoire courant (ou dans un autre répertoire mais il faudra alors faire de ce répertoire le répertoire courant dans le terminal)
-
-
+Exécutez le fichier install_env.sh.
+En cas de bugs liés à la bibliothèque MediaPipe, désinstallez mediapipe-silicon et installez la version standard de mediapipe pour Windows ou Linux.
 ## Lancement :
 
 Dans le terminal, entrer la commande : 
 
 ```bash
-python __main__.py
+./run_app.sh
 ```
 
 
