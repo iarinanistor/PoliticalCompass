@@ -16,10 +16,11 @@ data_set_commands  = { # data set pour le numero de commandes
     "lance copeland": 2,
     "lance pluralité": 3,
     "lance STV": 4,
-    "génère un candidats": 5,
-    "Jenner" :5
+    "lance approbation": 5,
+    "génère un candidats": 6,
+    "Jenner" :6,
+    
 }
-
 data_set_preProcessing = { # data set pour pouvoir regroup les commande par classe 
     "lance": 1,
     "génère": 2,
@@ -305,8 +306,6 @@ QPushButton:pressed {
         self.regle_de_vote_visible = False
 
         self.democratie_visible = False
-
-        self.carbon_display_visible = False
 
     def add_sidebar_1_buttons(self) -> None:
         """
@@ -608,7 +607,18 @@ QPushButton:pressed {
             else:
                 print("Aucune correspondance significative trouvée.")
             
-            print(slcv.use())  # Appeler la méthode use() à partir de l'instance
+            liste = command_values
+            for commande in liste:
+                if commande == 1:
+                    self.bd.refresh_MV([(self.bd.map.Borda(None),1)])
+                elif commande == 2:
+                    self.bd.refresh_MV([(self.bd.map.Copeland(None),1)])
+                elif commande == 3:
+                    self.bd.refresh_MV([(self.bd.map.Pluralite(None),1)])
+                elif commande == 4:
+                    self.bd.refresh_MV([(self.bd.map.STV(None),1)])
+                elif commande == 5:
+                    self.bd.refresh_MV([(self.bd.map.Approbation(3,None),1)])
 
     def open_tournament_options(self):
         self.tournament_dialog = TournamentOptionsDialog(self.bd)
@@ -618,42 +628,21 @@ QPushButton:pressed {
         '''
             Affiche la consommation actuelle du programme
         '''
-        if not self.carbon_display_visible:
-            # Display the carbon footprint
-            self.carbone_lab = QLabel("Emission carbone actuelle : ")
-            self.carbone_lab.setStyleSheet("""QLabel {
-                color: white;
-                font-family: 'Arial';
-                font-size: 14px;
-                padding: 4px;
-            }""")
-            self.sidebar_layout_1.addWidget(self.carbone_lab)
-            
-            self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
-            self.conso_lab.setStyleSheet("""QLabel {
-                color: white;
-                font-family: 'Arial';
-                font-size: 14px;
-                padding: 4px;
-            }""")
-            self.sidebar_layout_1.addWidget(self.conso_lab)
-            self.carbon_display_visible = True  # maj de l'etat
-        else:
-            # on ferme le display s'il est visible
-            self.close_carbone()
-            self.carbon_display_visible = False  # Umaj de l'etat
+        self.close_carbone()
+        self.carbone_lab = QLabel("Emission carbone actuelle : ")
+        self.sidebar_layout_1.addWidget(self.carbone_lab)
+        
+        self.conso_lab = QLabel(str(self.bd.conso) + " kW/h")
+        self.sidebar_layout_1.addWidget(self.conso_lab)
 
-    def close_carbone(self):
+    def close_carbone(self) -> None:
         """
-        Close the carbon emission display.
+            Ferme l'affichage de l'emission carbone.
         """
         for i in reversed(range(self.sidebar_layout_1.count())):
             widget = self.sidebar_layout_1.itemAt(i).widget()
             if isinstance(widget, QLabel):
-                widget.deleteLater()
-
-        self.carbone_lab = None
-        self.conso_lab = None
+                widget.close()
 
 
 if __name__ == "__main__":
