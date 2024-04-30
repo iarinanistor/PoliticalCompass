@@ -241,14 +241,21 @@ class Map:
         """
         taux = 0
         if self.L_population is None or []: self.creer_L_population()
+
+        cand_coords = np.array((cand.x(), cand.y()))
         for ind in self.L_population:
             # Création de tableaux NumPy pour les coordonnées
-            cand_coords = np.array([cand.x(), cand.y()])
-            ind_coords = np.array([ind.x, ind.y])
+            ind_coords = np.array((ind.x, ind.y))
             # Calcul de la distance entre les coordonnées
-            dist = distance(cand_coords, ind_coords)
-            taux += 1 / dist  # Somme des inverses de la distance
-        return round(taux / len(self.L_population), 2)
+            dist = np.linalg.norm(cand_coords-ind_coords)
+            taux += len(ind.c) / dist  # Somme des inverses de la distance
+        return round(taux / self.nb_individus(),2)
+        
+    def nb_individus(self):
+        nb=0
+        for ind in self.L_population:
+            nb += len(ind.c)
+        return nb
                 
                 
     def refresh_Candidat(self):
