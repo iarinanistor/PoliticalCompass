@@ -21,6 +21,8 @@ Il est possible de simuler des tournois sans limite de tours. Cependant, la simu
 Les utilisateurs disposant de processeurs ARM développés par Apple doivent installer un environnement spécifique :
 
 Exécutez le fichier install_env.sh.
+Pour optimiser l'expérience utilisateur et les performances sur macOS, il est recommandé de conserver le fichier .DS_Store dans chaque dossier. Ce fichier stocke les paramètres d'affichage spécifiques au Finder, tels que la position des icônes et les préférences de vue, ce qui peut améliorer la fluidité de navigation dans ces dossiers. Si vous rencontrez des problèmes sous d'autres systèmes d'exploitation, la suppression de ce fichier est généralement sans risque, car il n'est pas utilisé en dehors de macOS. En cas de dysfonctionnement sur macOS, la suppression et la régénération du fichier .DS_Store peuvent parfois résoudre ces problèmes.
+
 En cas de bugs liés à la bibliothèque MediaPipe, désinstallez mediapipe-silicon et installez la version standard de mediapipe pour Windows ou Linux.
 ## Lancement :
 
