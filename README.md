@@ -78,10 +78,10 @@ Une fois que la map a été créée :
 
 !! ATTENTION !!
 
-Les mesures faites pour l'émission carbone ont été sur un ordinateur comportant un système AMD et NVIDIA.
-Les mesures ont été faites en France de code iso FRA.
-Les mesures sont susceptibles de changer d'un ordinateur à un autre.
-Les mesures sont susceptibles de changer dans le temps.
+Les mesures faites pour l'émission carbone ont été sur un ordinateur comportant un système AMD et NVIDIA.  
+Les mesures ont été faites en France de code iso FRA.  
+Les mesures sont susceptibles de changer d'un ordinateur à un autre.  
+Les mesures sont susceptibles de changer dans le temps.  
 
 
 ## Credits :
