@@ -13,49 +13,37 @@ def individu():
 
 def test_creation_individu(individu):
     assert isinstance(individu, Individus)
-    assert individu.nom == "John"
+    assert individu.nom == ['John']
     assert individu.x == 5
     assert individu.y == 5
     assert individu.liste_electeur == []
-    assert individu.poids == 1
-    assert 0 <= individu.c <= 10
-    assert not individu.adelegue
+    assert individu.poids == [1]
+    assert [0] <= individu.c <= [1]
+    assert individu.adelegue == [False]
 
 def test_get_c(individu):
-    assert 0 <= individu.get_c() <= 10
+    assert 0 <= individu.get_c() <= 1
 
-def test_liste_vote():
-    try:
-        # Création de quelques candidats de test
-        candidat1 = Candidat("Dupont", "Jean", 80, 35, 2, 2)
-        candidat2 = Candidat("Martin", "Marie", 70, 42, 7, 7)
-        candidat3 = Candidat("Bernard", "Pierre", 90, 28, 5, 5)
-        candidat4 = Candidat("Macron","Hugo",80,47,2,2)
-        candidat5 = Candidat("Vincent","Victor",70,52,7,9)
-        candidat6 = Candidat("Petit","Kevin",90,42,4,5)
+@pytest.fixture
+def setup_individus():
+    candidat1 = Candidat("Dupont", "Jean", 20, 45, 0, 0)
+    candidat2 = Candidat("Martin", "Louis", 10, 30, 10, 5)
+    candidat3 = Candidat("Bernard", "Gabriel", 15, 35, 20, 10)
+    groupe = Individus("Groupe1", 0, 0, [candidat1, candidat2, candidat3])
+    return groupe
 
-        # Création d'un individu avec les candidats comme électeurs
-        individu1 = Individus(nom="Individu1", x=5, y=5, liste_electeur=[candidat1, candidat2, candidat3])
-        individu2 = Individus(nom="Individu2", x=5, y=5, liste_electeur=[candidat4, candidat5, candidat6])
+def test_liste_vote_avec_electeurs(setup_individus):
+    result = setup_individus.liste_vote()
+    assert len(result) == 3
+    assert result[0]._nom == "Bernard"
+    assert result[1]._nom == "Martin"
+    assert result[2]._nom == "Dupont"
 
-        # Appel de la fonction liste_vote
-        votes = individu1.liste_vote()
-        votes1 = individu2.liste_vote1()
+def test_liste_vote_avec_liste_vide():
+    groupe_vide = Individus("Groupe2", 5, 5)
+    result = groupe_vide.liste_vote()
+    assert result == None
 
-        # Vérification des résultats
-        assert len(votes) == 3
-        assert votes[0] == candidat3
-        assert votes[1] == candidat2
-        assert votes[2] == candidat1
-
-        assert len(votes1) == 3  
-        assert votes1[0] == candidat6
-        assert votes1[1] == candidat4
-        assert votes1[2] == candidat5
-
-    except Exception:
-        ic(individu.liste_vote)  # Utilisation de IceCream pour imprimer les détails de l'exception
-        pytest.fail("Une exception s'est produite.")
 
 if __name__ == "__main__":
     pytest.main()

@@ -1,7 +1,7 @@
 import pytest
 import numpy as np
 import random
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 from Back.Map import Map
 from Back.Candidat import Candidat
 from Back.Individus import Individus
@@ -12,7 +12,7 @@ def sample_map():
     candidat1 = Candidat("Dupont", "Jean", 80, 35, 2, 2)
     candidat2 = Candidat("Martin", "Marie", 70, 42, 7, 7)
     candidat3 = Candidat("Bernard", "Pierre", 90, 28, 5, 5)
-    sample_map = Map(bd=None, nom="Sample Map", liste_electeur=[candidat1, candidat2, candidat3], population=[], generationX=5, generationY=5)
+    sample_map = Map(bd=None, nom="Sample Map", liste_electeur=[candidat1, candidat2, candidat3], population=[], generationX=8, generationY=8)
     sample_map.creer_L_population()
     return sample_map
 
@@ -24,11 +24,12 @@ def test_distance(sample_map):
 
 def test_ajoute_candidat(sample_map):
     # Tester l'ajout d'un candidat à la liste des candidats
-    sample_map.ajoute_candidat(("John", "Doe", 5, 2, 3))
+    sample_map.ajoute_candidat(Candidat("John", "Doe", 50, 45, 2, 3))
     assert len(sample_map.liste_electeur) == 4
     assert sample_map.liste_electeur[-1].nom() == "John"
     assert sample_map.liste_electeur[-1].prenom() == "Doe"
-    assert sample_map.liste_electeur[-1].charisme() == 5
+    assert sample_map.liste_electeur[-1].charisme() == 50
+    assert sample_map.liste_electeur[-1].age() == 45
     assert sample_map.liste_electeur[-1].x() == 2
     assert sample_map.liste_electeur[-1].y() == 3
 
@@ -37,9 +38,9 @@ def test_liste_to_matrice(sample_map):
     sample_map.L_population = [Individus("John", 0, 0, sample_map.liste_electeur),
                                Individus("Jane", 1, 1, sample_map.liste_electeur)]
     sample_map.liste_to_matrice()
-    assert len(sample_map.population) == 5  # Vérifier la taille de la matrice
-    assert sample_map.population[0][0].nom == "John"  # Vérifier si le premier individu est correctement placé
-    assert sample_map.population[1][1].nom == "Jane"  # Vérifier si le deuxième individu est correctement placé
+    assert len(sample_map.population) == 8  # Vérifier la taille de la matrice
+    assert sample_map.population[0][0].nom == ['John']  # Vérifier si le premier individu est correctement placé
+    assert sample_map.population[1][1].nom == ['Jane']  # Vérifier si le deuxième individu est correctement placé
 
 def test_generation(sample_map):
     # Tester la méthode de génération de population linéaire
@@ -74,11 +75,11 @@ def test_genereCand(sample_map):
     nom = "Test"
     liste = []
     dbt = 0
-    fin = 5
+    fin = 8
     # Générer un individu avec genereCand
     test_individu = sample_map.genereCand(nom, liste, dbt, fin)
     # Vérifier si l'individu généré a les bonnes coordonnées et la bonne liste d'électeurs
-    assert test_individu.nom == nom
+    assert test_individu.nom == ['Test']
     assert test_individu.liste_electeur == liste
     assert dbt <= test_individu.x <= fin
     assert dbt <= test_individu.y <= fin
@@ -153,17 +154,19 @@ def test_delegation_empty_list():
 
 def test_delegation_single_elector():
     electeur = Individus()
-    assert Map.delegation([electeur]) == electeur, "Un seul électeur devrait recevoir le vote"
+    result = Map.delegation([electeur])
+    assert result is electeur, "Un seul électeur devrait recevoir le vote"
 
 def test_delegation_different_competence():
+    # Créer des électeurs avec des compétences différentes
     electeurs = [Individus() for _ in range(5)]
-    # Attribuer des compétences différentes
     for i, electeur in enumerate(electeurs):
-        electeur.c = i  # Augmente la compétence pour chaque électeur suivant
-    
-    # Tester plusieurs fois pour s'assurer que l'électeur avec la plus haute compétence a plus de chances d'être choisi
+        electeur.c[0] = i  # Directement modifier la liste pour ajuster la compétence
+
+    # Tester plusieurs fois pour voir si l'électeur avec la plus haute compétence est souvent choisi
     selections = [Map.delegation(electeurs) for _ in range(1000)]
     most_common = max(set(selections), key=selections.count)
+
     assert most_common == electeurs[-1], "L'électeur avec la plus haute compétence devrait être choisi le plus fréquemment"
 
 # Test pour la fonction liste_poids
@@ -175,5 +178,62 @@ def test_liste_poids(sample_map):
     # Assurez-vous que tous les éléments de la liste sont des objets de type Individus
     assert all(isinstance(ind, Individus) for ind in result)
 
+def test_candidat_prefere_cand1_prefered(sample_map):
+    cand1 = sample_map.liste_electeur[0]  # Obtenir le premier candidat
+    cand2 = sample_map.liste_electeur[1]  # Obtenir le second candidat
+    # Simuler des poids spécifiques pour les votes
+    sample_map.L_population = [
+        MagicMock(poids=[10], liste_vote=MagicMock(return_value=[cand1, cand2])), 
+        MagicMock(poids=[5], liste_vote=MagicMock(return_value=[cand2, cand1]))
+    ]
+    assert sample_map.candidat_prefere(cand1, cand2) == cand1
+
+def test_candidat_prefere_cand2_prefered(sample_map):
+    cand1 = sample_map.liste_electeur[0]  # Obtenir le premier candidat
+    cand2 = sample_map.liste_electeur[1]  # Obtenir le second candidat
+    # Simuler des poids inversés pour les votes
+    sample_map.L_population = [
+        MagicMock(poids=[5], liste_vote=MagicMock(return_value=[cand1, cand2])), 
+        MagicMock(poids=[10], liste_vote=MagicMock(return_value=[cand2, cand1]))
+    ]
+    assert sample_map.candidat_prefere(cand1, cand2) == cand2
+
+
+def test_generate_matches_empty():
+    """ Test avec une liste vide. """
+    assert Map.generate_matches([]) == []
+
+def test_generate_matches_single_element():
+    """ Test avec un seul élément. """
+    assert Map.generate_matches([1]) == []
+
+def test_generate_matches_two_elements():
+    """ Test avec deux éléments. """
+    assert Map.generate_matches([1, 2]) == [(1, 2)]
+
+def test_generate_matches_multiple_elements():
+    """ Test avec plusieurs éléments. """
+    assert Map.generate_matches([1, 2, 3]) == [(1, 2), (1, 3), (2, 3)]
+
+def test_generate_matches_non_numeric():
+    """ Test avec des éléments non numériques. """
+    assert Map.generate_matches(['a', 'b', 'c']) == [('a', 'b'), ('a', 'c'), ('b', 'c')]
+
+def test_generate_matches_Candidat():
+    candidat1 = Candidat("Dupont", "Jean", 80, 35, 2, 2)
+    candidat2 = Candidat("Martin", "Marie", 70, 42, 7, 7)
+    candidat3 = Candidat("Bernard", "Pierre", 90, 28, 5, 5)
+    liste_electeur=[candidat1, candidat2, candidat3]
+    assert Map.generate_matches(liste_electeur) == [(liste_electeur[0], liste_electeur[1]), 
+                                                    (liste_electeur[0], liste_electeur[2]), 
+                                                    (liste_electeur[1], liste_electeur[2])]
+
+def test_contraite_tournoi(sample_map):
+    assert sample_map.contraite_tournoi() == {sample_map.liste_electeur[0].id : [sample_map.liste_electeur[1].id, sample_map.liste_electeur[2].id], 
+                                              sample_map.liste_electeur[1].id : [sample_map.liste_electeur[2].id],
+                                              sample_map.liste_electeur[2].id : []}
+
 if __name__ == "__main__":
     pytest.main()
+
+# WARNING : On teste les différents types de génération (Beta, Triangulaire, Exponentiel et uniforme) avec la visualisation3D

@@ -41,7 +41,7 @@ def test_afficher_informations(entree_candidat):
     entree_candidat.valeur_edits[2].setValue(200)
 
     # Appeler la méthode à tester
-    entree_candidat.afficher_informations()
+    entree_candidat.ajouter_informations()
 
     # Vérifier si la méthode bd.ajoute a été appelée 
     assert entree_candidat.bd.ajoute.called == True
