@@ -1,6 +1,7 @@
 ## Projet de Simulation de Vote
 
 Ce projet est dédié à la simulation de différents types de votes, y compris mais non limité aux méthodes coplanaires Borda, STV, etc. Le système intègre également l'intelligence artificielle pour la reconnaissance visuelle utilisée dans la création de populations, ainsi que pour la reconnaissance vocale permettant d'exécuter des commandes simples.
+Le logiciel intègre également un système de journalisation permettant de mieux tracer les actions effectuées.
 
 ## Problèmes connus
 
